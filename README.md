@@ -1,6 +1,7 @@
 # LogiCA: Contextualizing Biological Language Models via Logit-Space Contrastive Alignment
 
 [![arXiv](https://img.shields.io/badge/arXiv-2606.18703-b31b1b.svg)](https://arxiv.org/abs/2606.18703)
+[![Manuscript](https://img.shields.io/badge/Manuscript-PDF-red.svg)](manuscript/LogiCA_manuscript.pdf)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
 [![Kaggle: Protein-Ligand DMS](https://img.shields.io/badge/Kaggle-protein--ligand--dms-20BEFF.svg)](https://www.kaggle.com/datasets/aurlienplissier/protein-ligand-dms)
