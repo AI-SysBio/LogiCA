@@ -641,16 +641,29 @@ class LogiCA(nn.Module):
         *,
         primary_adapter_input: torch.Tensor | None = None,
         primary_interface_mask: torch.Tensor | None = None,
+        extra_hidden_primary: torch.Tensor | None = None,
+        extra_hidden_partner: torch.Tensor | None = None,
     ) -> LogiCAOutput:
-        """Runs the Gated Cross-Attention (or single-BioFM self-adapter) + native LM heads."""
+        """Runs the Gated Cross-Attention (or single-BioFM self-adapter) + native LM heads.
+
+        Optional ``extra_hidden_primary`` / ``extra_hidden_partner`` residuals (matching
+        ``primary_last_hidden`` / ``partner_hidden`` shapes) are added right before each
+        BioFM's native ``lm_head`` so external conditioners can inject context in native
+        logit space without modifying the core model.
+        """
         if self.partner_backbone is None or partner_hidden is None:
             p_apo = self.primary_backbone.logits_from_hidden(primary_last_hidden)
             if self.unimodal_adapter is not None:
                 p_ctx = self.unimodal_adapter(primary_last_hidden, primary_attention_mask == 0)
-                p_holo = self.primary_backbone.logits_from_hidden(p_ctx)
             else:
                 p_ctx = primary_last_hidden
-                p_holo = p_apo
+            if extra_hidden_primary is not None:
+                p_ctx = p_ctx + extra_hidden_primary
+            p_holo = (
+                self.primary_backbone.logits_from_hidden(p_ctx)
+                if (self.unimodal_adapter is not None or extra_hidden_primary is not None)
+                else p_apo
+            )
             return LogiCAOutput(
                 primary_holo_logits=p_holo,
                 primary_apo_logits=p_apo,
@@ -677,6 +690,10 @@ class LogiCA(nn.Module):
                 partner_attention_mask,
                 bypass_cross_attention=True,
             )
+            if extra_hidden_primary is not None:
+                p_ctx = p_ctx + extra_hidden_primary
+            if extra_hidden_partner is not None:
+                d_ctx = d_ctx + extra_hidden_partner
             return LogiCAOutput(
                 primary_holo_logits=self.primary_backbone.logits_from_hidden(p_ctx),
                 primary_apo_logits=self.primary_backbone.logits_from_hidden(p_apo_h),
@@ -702,6 +719,10 @@ class LogiCA(nn.Module):
 
         p_ctx = primary_last_hidden + p_scale * self.prot_proj_out(z_pN - z_p0)
         d_ctx = partner_hidden + d_scale * self.drug_proj_out(z_dN - z_d0)
+        if extra_hidden_primary is not None:
+            p_ctx = p_ctx + extra_hidden_primary
+        if extra_hidden_partner is not None:
+            d_ctx = d_ctx + extra_hidden_partner
 
         return LogiCAOutput(
             primary_holo_logits=self.primary_backbone.logits_from_hidden(p_ctx),
@@ -718,6 +739,9 @@ class LogiCA(nn.Module):
         primary_attention_mask: torch.Tensor | None = None,
         partner_input_ids: torch.Tensor | None = None,
         partner_attention_mask: torch.Tensor | None = None,
+        *,
+        extra_hidden_primary: torch.Tensor | None = None,
+        extra_hidden_partner: torch.Tensor | None = None,
     ) -> LogiCAOutput:
         """Full end-to-end pass from token IDs to native vocabulary holo & apo logits."""
         if primary_attention_mask is None:
@@ -729,6 +753,7 @@ class LogiCA(nn.Module):
                 p_last,
                 primary_attention_mask,
                 primary_adapter_input=p_qkv,
+                extra_hidden_primary=extra_hidden_primary,
             )
 
         if partner_attention_mask is None:
@@ -740,6 +765,8 @@ class LogiCA(nn.Module):
             d_last,
             partner_attention_mask,
             primary_adapter_input=p_qkv,
+            extra_hidden_primary=extra_hidden_primary,
+            extra_hidden_partner=extra_hidden_partner,
         )
 
     # =========================================================================

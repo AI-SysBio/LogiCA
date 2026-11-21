@@ -327,3 +327,55 @@ def test_variant_ranking_dependency_maps_gibbs_and_plots(tmp_path: Path) -> None
     plot_gibbs_design(gibbs_holo, baseline_result=gibbs_apo, save_path=f2)
     plot_variant_ranking(y_exp, s_mod, baseline_scores=np.zeros_like(s_mod), save_path=f3)
     assert f1.is_file() and f2.is_file() and f3.is_file()
+
+
+def test_external_hidden_residual_hook() -> None:
+    """Verifies optional extra_hidden residuals inject cleanly before native LM heads."""
+    prot_bb, chem_bb = make_heterogeneous_biofms()
+    dual = LogiCA.from_pretrained(prot_bb, chem_bb, width=32, heads=4, layers=1, gate_mode="tanh_zero")
+    dual.eval()
+
+    p_enc = prot_bb.tokenize(["ACDEFGHIKLMN"])
+    d_enc = chem_bb.tokenize(["[C][O][N][F]"])
+
+    base = dual(p_enc["input_ids"], p_enc["attention_mask"], d_enc["input_ids"], d_enc["attention_mask"])
+    zero_p = torch.zeros_like(base.primary_contextual_hidden)
+    zero_d = torch.zeros_like(base.partner_contextual_hidden)
+    out_zero = dual(
+        p_enc["input_ids"],
+        p_enc["attention_mask"],
+        d_enc["input_ids"],
+        d_enc["attention_mask"],
+        extra_hidden_primary=zero_p,
+        extra_hidden_partner=zero_d,
+    )
+    assert torch.allclose(out_zero.primary_holo_logits, base.primary_holo_logits, atol=1e-6)
+    assert torch.allclose(out_zero.partner_holo_logits, base.partner_holo_logits, atol=1e-6)
+
+    delta_p = torch.randn_like(base.primary_contextual_hidden, requires_grad=True)
+    delta_d = torch.randn_like(base.partner_contextual_hidden, requires_grad=True)
+    out_ext = dual(
+        p_enc["input_ids"],
+        p_enc["attention_mask"],
+        d_enc["input_ids"],
+        d_enc["attention_mask"],
+        extra_hidden_primary=delta_p,
+        extra_hidden_partner=delta_d,
+    )
+    assert not torch.allclose(out_ext.primary_holo_logits, base.primary_holo_logits)
+    assert not torch.allclose(out_ext.partner_holo_logits, base.partner_holo_logits)
+    assert torch.allclose(out_ext.primary_apo_logits, base.primary_apo_logits, atol=1e-6)
+    (out_ext.primary_holo_logits.sum() + out_ext.partner_holo_logits.sum()).backward()
+    assert delta_p.grad is not None and delta_d.grad is not None
+
+    # Single-BioFM mode also supports extra_hidden_primary
+    single = LogiCA.from_pretrained(prot_bb, partner=None, width=32, heads=4, layers=1)
+    single.eval()
+    s_base = single(p_enc["input_ids"], p_enc["attention_mask"])
+    s_ext = single(
+        p_enc["input_ids"],
+        p_enc["attention_mask"],
+        extra_hidden_primary=torch.ones_like(s_base.primary_contextual_hidden) * 0.25,
+    )
+    assert not torch.allclose(s_ext.primary_holo_logits, s_base.primary_holo_logits)
+    assert torch.allclose(s_ext.primary_apo_logits, s_base.primary_apo_logits, atol=1e-6)
