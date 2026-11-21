@@ -26,7 +26,7 @@ Official pretrained `TCRLang-Paired` $\leftrightarrow$ `ESM-2` LogiCA checkpoint
 
 ## 2. Datasets & Zero-Leakage Splits (Hosted on Kaggle)
 
-All processed zero-leakage training splits, **peptide-anchored DMS**, **TCR-anchored CDR3 DMS**, binary benchmarks, **TCR3d `<5 Å` crystal contacts**, and 12-model baseline tables (`~24 MB` total) are hosted on Kaggle at [**`aurlienplissier/tcr-peptide-dms`**](https://www.kaggle.com/datasets/aurlienplissier/tcr-peptide-dms) (with an interactive [Quickstart Notebook](https://www.kaggle.com/code/aurlienplissier/tcr-peptide-binding-bidirectional-dms-quickstart)) and are **automatically fetched via `kagglehub`** by every script below (or point to a local copy via `--data-dir` / `LOGICA_TCR_DATA_DIR`):
+All processed zero-leakage training splits, **peptide-anchored DMS**, **TCR-anchored CDR3 DMS**, binary benchmarks, **TCR3d `<5 Å` crystal contacts**, and 12-model baseline tables (`~24 MB` total) are hosted on Kaggle at [**`kaggle/tcr-peptide-dms`**](https://www.kaggle.com/datasets/aurlienplissier/tcr-peptide-dms) (with an interactive [Quickstart Notebook](https://www.kaggle.com/code/aurlienplissier/tcr-peptide-binding-bidirectional-dms-quickstart)) and are **automatically fetched via `kagglehub`** by every script below (or point to a local copy via `--data-dir` / `LOGICA_TCR_DATA_DIR`):
 
 | Split / Benchmark | Kaggle Path | Scale & Zero-Leakage Guarantee |
 | :--- | :--- | :--- |
