@@ -12,7 +12,7 @@ real antibody–antigen complex from AbRank (or custom `--vh`, `--vl`, `--ag` se
 Usage:
   python antibodies-abrank/scripts/04_paratope_dependency_and_gibbs.py \\
       --checkpoint antibodies-abrank/outputs/ablang_esm_logica/ablang_esm_logica.pt \\
-      --kaggle-dataset aisysbio/abrank
+      --kaggle-dataset aurlienplissier/abrank
 
   python antibodies-abrank/scripts/04_paratope_dependency_and_gibbs.py --smoke-test
 """

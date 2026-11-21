@@ -1,7 +1,7 @@
 # Antibody & Nanobody Modeling with LogiCA (`AbLang2-Paired` + `ESM-2` on AbRank)
 
 [![AbRank Benchmark](https://img.shields.io/badge/Benchmark-AI--SysBio%2FAbRank-blue.svg)](https://github.com/AI-SysBio/AbRank)
-[![Kaggle Dataset](https://img.shields.io/badge/Kaggle-aisysbio%2Fabrank-20BEFF.svg)](https://www.kaggle.com/datasets/aisysbio/abrank)
+[![Kaggle Dataset](https://img.shields.io/badge/Kaggle-aurlienplissier%2Fabrank-20BEFF.svg)](https://www.kaggle.com/datasets/aurlienplissier/abrank)
 
 This subfolder applies the model-agnostic **`logica`** Python library to couple paired antibody/nanobody repertoire foundation models (**`ablang2-paired`**, representing `VH|VL` or single-domain `VHH|`) with antigen protein language models (**`facebook/esm2_t12_35M_UR50D`**, `150M`, or `650M`) via native-head-preserving Gated Cross-Attention, and evaluates directly on the public [**AbRank v2**](https://github.com/AI-SysBio/AbRank) benchmark.
 
@@ -9,7 +9,7 @@ This subfolder applies the model-agnostic **`logica`** Python library to couple 
 
 ## 1. Cross-Repo Architecture (`AI-SysBio/logica` $\leftrightarrow$ `AI-SysBio/AbRank`)
 
-- **Benchmark Data, Curation & Official Evaluator**: Maintained in [**`AI-SysBio/AbRank`**](https://github.com/AI-SysBio/AbRank) and hosted ready-to-use on Kaggle at **`aisysbio/abrank`**.
+- **Benchmark Data, Curation & Official Evaluator**: Maintained in [**`AI-SysBio/AbRank`**](https://github.com/AI-SysBio/AbRank) and hosted ready-to-use on Kaggle at **`aurlienplissier/abrank`**.
 - **Model Implementation (`AbLang2-Paired` + `ESM-2`)**: Implemented here using `from logica import LogiCA, InfoNCELogitLoss, AncestralKLAnchorLoss, ...`, loading AbRank directly from Kaggle (via `kagglehub` or `kaggle` CLI) or a local checkout of `AI-SysBio/AbRank`.
 - **Zero-Friction Submission & Scoring**: `scripts/03_evaluate_on_abrank.py` writes official AbRank TSV files (`pair_id,pred_diff,pred_impact` for pairwise suites; `AbAgID,pred_score` for pointwise suites) and scores them directly with `abrank.evaluate.evaluate_flagship_suite`.
 
@@ -32,28 +32,28 @@ pip install "git+https://github.com/AI-SysBio/AbRank.git"
 
 ## 3. Step-by-Step Reproducibility Pipeline
 
-All scripts accept either `--kaggle-dataset aisysbio/abrank` (auto-downloaded & cached via `kagglehub`) **or** `--abrank-dir /path/to/AbRank/data/benchmark` (or environment variable `ABRANK_DATA_DIR`).
+All scripts accept either `--kaggle-dataset aurlienplissier/abrank` (auto-downloaded & cached via `kagglehub`) **or** `--abrank-dir /path/to/AbRank/data/benchmark` (or environment variable `ABRANK_DATA_DIR`).
 
 ```bash
 # Step 1: Fetch & verify all AbRank master tables and 4 Core Community Suites
-python antibodies-abrank/scripts/01_load_abrank_data.py --kaggle-dataset aisysbio/abrank
+python antibodies-abrank/scripts/01_load_abrank_data.py --kaggle-dataset aurlienplissier/abrank
 
 # Step 2: Train AbLang2-Paired + ESM-2 LogiCA (Stage-1 InfoNCE + Stage-2 3-State Noise-Buffered Fine-Tuning)
 python antibodies-abrank/scripts/02_train_ablang_esm_logica.py \
-    --kaggle-dataset aisysbio/abrank \
+    --kaggle-dataset aurlienplissier/abrank \
     --ab-model ablang2-paired \
     --ag-model facebook/esm2_t12_35M_UR50D \
     --device cuda:0
 
 # Optional: Leave-One-Antigen-Cluster-Out (LOACO) fold training for `AbRank-Maturation`
 python antibodies-abrank/scripts/02_train_ablang_esm_logica.py \
-    --kaggle-dataset aisysbio/abrank \
+    --kaggle-dataset aurlienplissier/abrank \
     --holdout-cluster AgClust_001 \
     --device cuda:0
 
 # Optional: Single-BioFM antibody logit fine-tuning (`partner=None`)
 python antibodies-abrank/scripts/02_train_ablang_esm_logica.py \
-    --kaggle-dataset aisysbio/abrank \
+    --kaggle-dataset aurlienplissier/abrank \
     --single-biofm \
     --device cuda:0
 
@@ -61,23 +61,23 @@ python antibodies-abrank/scripts/02_train_ablang_esm_logica.py \
 python antibodies-abrank/scripts/03_evaluate_on_abrank.py \
     --suite maturation \
     --checkpoint antibodies-abrank/outputs/ablang_esm_logica/ablang_esm_logica.pt \
-    --kaggle-dataset aisysbio/abrank
+    --kaggle-dataset aurlienplissier/abrank
 
 python antibodies-abrank/scripts/03_evaluate_on_abrank.py \
     --suite generative \
     --checkpoint antibodies-abrank/outputs/ablang_esm_logica/ablang_esm_logica.pt \
-    --kaggle-dataset aisysbio/abrank
+    --kaggle-dataset aurlienplissier/abrank
 
 # Verify submission TSV independently with AI-SysBio/AbRank's official CLI:
 python -m abrank.evaluate \
     --suite maturation --track prospective \
-    --kaggle-dataset aisysbio/abrank \
+    --kaggle-dataset aurlienplissier/abrank \
     --preds antibodies-abrank/outputs/abrank_eval/predictions_maturation.tsv
 
 # Step 4: 2D Antigen -> Paratope Dependency Map & CDR-H3 Coordinate Gibbs Affinity Maturation
 python antibodies-abrank/scripts/04_paratope_dependency_and_gibbs.py \
     --checkpoint antibodies-abrank/outputs/ablang_esm_logica/ablang_esm_logica.pt \
-    --kaggle-dataset aisysbio/abrank
+    --kaggle-dataset aurlienplissier/abrank
 ```
 
 To run a quick end-to-end CPU verification of any script, append `--smoke-test`.

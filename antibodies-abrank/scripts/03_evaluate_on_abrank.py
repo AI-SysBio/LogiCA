@@ -15,10 +15,10 @@ and is also scored automatically at the end of this script.
 Usage:
   python antibodies-abrank/scripts/03_evaluate_on_abrank.py \\
       --suite maturation --checkpoint antibodies-abrank/outputs/ablang_esm_logica/ablang_esm_logica.pt \\
-      --kaggle-dataset aisysbio/abrank
+      --kaggle-dataset aurlienplissier/abrank
 
   # Zero-shot evaluation on AbRank-Generative
-  python antibodies-abrank/scripts/03_evaluate_on_abrank.py --suite generative --kaggle-dataset aisysbio/abrank
+  python antibodies-abrank/scripts/03_evaluate_on_abrank.py --suite generative --kaggle-dataset aurlienplissier/abrank
 
   # Fast CPU smoke test
   python antibodies-abrank/scripts/03_evaluate_on_abrank.py --suite maturation --abrank-dir /path/to/benchmark --smoke-test

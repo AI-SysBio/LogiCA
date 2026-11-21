@@ -23,13 +23,13 @@ Strictly preserves both native BioFM vocabulary heads so the trained checkpoint 
   - Antigen-conditioned CDR-H3 Coordinate Gibbs affinity maturation.
 
 Usage:
-  # Full training loading AbRank directly from Kaggle (`aisysbio/abrank`)
+  # Full training loading AbRank directly from Kaggle (`aurlienplissier/abrank`)
   python antibodies-abrank/scripts/02_train_ablang_esm_logica.py \\
-      --kaggle-dataset aisysbio/abrank --device cuda:0
+      --kaggle-dataset aurlienplissier/abrank --device cuda:0
 
   # Leave-One-Antigen-Cluster-Out (LOACO) fold training for `AbRank-Maturation`
   python antibodies-abrank/scripts/02_train_ablang_esm_logica.py \\
-      --kaggle-dataset aisysbio/abrank --holdout-cluster AgClust_001 --device cuda:0
+      --kaggle-dataset aurlienplissier/abrank --holdout-cluster AgClust_001 --device cuda:0
 
   # Fast CPU smoke test
   python antibodies-abrank/scripts/02_train_ablang_esm_logica.py --abrank-dir /path/to/benchmark --smoke-test

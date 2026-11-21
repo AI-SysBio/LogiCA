@@ -1,7 +1,7 @@
 """Shared AbRank data loader & evaluator bridge for `AI-SysBio/logica/antibodies-abrank`.
 
 Connects `AI-SysBio/logica` seamlessly to the public `AI-SysBio/AbRank` benchmark dataset:
-  1. Loads AbRank from Kaggle (`aisysbio/abrank`, via `kagglehub` or `kaggle` CLI),
+  1. Loads AbRank from Kaggle (`aurlienplissier/abrank`, via `kagglehub` or `kaggle` CLI),
      OR from a local checkout (`--abrank-dir` / `ABRANK_DATA_DIR`).
   2. Formats paired IgG/Fab antibodies as `"VH|VL"` and single-domain VHH nanobodies as `"VHH|"`
      for `ablang2-paired`, paired with antigen ectodomain sequences for `ESM-2`.
@@ -23,7 +23,7 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import roc_auc_score
 
-DEFAULT_KAGGLE_DATASET = "aisysbio/abrank"
+DEFAULT_KAGGLE_DATASET = "aurlienplissier/abrank"
 ABRANK_REPO_URL = "https://github.com/AI-SysBio/AbRank"
 SENTINEL_FILES = ("assays_kd.tsv", "splits/unseen_ag/test.tsv")
 

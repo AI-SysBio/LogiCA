@@ -8,8 +8,8 @@ Verifies all master assay tables and the 4 Core AbRank Community Suites:
   - `AbRank-Transfer`  : Viral IC50, RBD Escape, and Cross-Modal readouts
 
 Usage:
-  # Auto-fetch public Kaggle dataset `aisysbio/abrank` (`pip install kagglehub`)
-  python antibodies-abrank/scripts/01_load_abrank_data.py --kaggle-dataset aisysbio/abrank
+  # Auto-fetch public Kaggle dataset `aurlienplissier/abrank` (`pip install kagglehub`)
+  python antibodies-abrank/scripts/01_load_abrank_data.py --kaggle-dataset aurlienplissier/abrank
 
   # Or point directly to a local AI-SysBio/AbRank checkout / ABRANK_DATA_DIR
   python antibodies-abrank/scripts/01_load_abrank_data.py --abrank-dir /path/to/AbRank/data/benchmark
