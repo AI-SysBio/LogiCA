@@ -9,7 +9,7 @@ Reproduces Figure 2 & Appendix F.3 of the LogiCA paper across all 103 mutational
   - Held-in training-fraction scaling (`f_train in {1%, 5%, 10%, 25%, 50%, 100%}`).
 
 Usage:
-  python protein-ligand/scripts/06_run_mlm_ablation_and_scaling.py
+  python applications/protein-ligand/scripts/06_run_mlm_ablation_and_scaling.py
 """
 
 from __future__ import annotations
@@ -24,7 +24,7 @@ import pandas as pd
 from scipy import stats
 
 SUBFOLDER_ROOT = Path(__file__).resolve().parents[1]
-REPO_ROOT = SUBFOLDER_ROOT.parent
+REPO_ROOT = SUBFOLDER_ROOT.parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 

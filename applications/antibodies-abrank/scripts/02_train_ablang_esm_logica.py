@@ -24,15 +24,15 @@ Strictly preserves both native BioFM vocabulary heads so the trained checkpoint 
 
 Usage:
   # Full training loading AbRank directly from Kaggle (`aurlienplissier/abrank`)
-  python antibodies-abrank/scripts/02_train_ablang_esm_logica.py \\
+  python applications/antibodies-abrank/scripts/02_train_ablang_esm_logica.py \\
       --kaggle-dataset aurlienplissier/abrank --device cuda:0
 
   # Leave-One-Antigen-Cluster-Out (LOACO) fold training for `AbRank-Maturation`
-  python antibodies-abrank/scripts/02_train_ablang_esm_logica.py \\
+  python applications/antibodies-abrank/scripts/02_train_ablang_esm_logica.py \\
       --kaggle-dataset aurlienplissier/abrank --holdout-cluster AgClust_001 --device cuda:0
 
   # Fast CPU smoke test
-  python antibodies-abrank/scripts/02_train_ablang_esm_logica.py --abrank-dir /path/to/benchmark --smoke-test
+  python applications/antibodies-abrank/scripts/02_train_ablang_esm_logica.py --abrank-dir /path/to/benchmark --smoke-test
 """
 
 from __future__ import annotations
@@ -52,7 +52,7 @@ from torch.utils.data import DataLoader, Dataset
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 SUBFOLDER_ROOT = SCRIPT_DIR.parent
-REPO_ROOT = SUBFOLDER_ROOT.parent
+REPO_ROOT = SUBFOLDER_ROOT.parents[1]
 for p in (str(REPO_ROOT), str(SCRIPT_DIR)):
     if p not in sys.path:
         sys.path.insert(0, p)

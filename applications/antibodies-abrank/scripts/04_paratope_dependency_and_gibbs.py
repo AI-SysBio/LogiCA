@@ -10,11 +10,11 @@ real antibody–antigen complex from AbRank (or custom `--vh`, `--vl`, `--ag` se
      optimizing the CDR-H3 paratope loop directly in `AbLang2`'s native 20-AA logit space.
 
 Usage:
-  python antibodies-abrank/scripts/04_paratope_dependency_and_gibbs.py \\
-      --checkpoint antibodies-abrank/outputs/ablang_esm_logica/ablang_esm_logica.pt \\
+  python applications/antibodies-abrank/scripts/04_paratope_dependency_and_gibbs.py \\
+      --checkpoint applications/antibodies-abrank/outputs/ablang_esm_logica/ablang_esm_logica.pt \\
       --kaggle-dataset aurlienplissier/abrank
 
-  python antibodies-abrank/scripts/04_paratope_dependency_and_gibbs.py --smoke-test
+  python applications/antibodies-abrank/scripts/04_paratope_dependency_and_gibbs.py --smoke-test
 """
 
 from __future__ import annotations
@@ -29,7 +29,7 @@ import torch
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 SUBFOLDER_ROOT = SCRIPT_DIR.parent
-REPO_ROOT = SUBFOLDER_ROOT.parent
+REPO_ROOT = SUBFOLDER_ROOT.parents[1]
 for p in (str(REPO_ROOT), str(SCRIPT_DIR)):
     if p not in sys.path:
         sys.path.insert(0, p)

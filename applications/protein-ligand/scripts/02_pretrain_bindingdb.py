@@ -7,14 +7,14 @@ bidirectional Masked-Gain InfoNCE (`logica.InfoNCELogitLoss`, Table 1 of the pap
 
 Usage:
   # Full GPU pretraining on curated Stage-0 BindingDB splits:
-  python protein-ligand/scripts/02_pretrain_bindingdb.py \
-      --bindingdb-dir protein-ligand/data/bindingdb \
+  python applications/protein-ligand/scripts/02_pretrain_bindingdb.py \
+      --bindingdb-dir applications/protein-ligand/data/bindingdb \
       --protein-model facebook/esm2_t30_150M_UR50D \
       --ligand-model HUBioDataLab/SELFormer \
       --device cuda:0 --epochs 10 --batch-size 32
 
   # Fast smoke-test verification using cohort protein-ligand pairs:
-  python protein-ligand/scripts/02_pretrain_bindingdb.py --smoke-test
+  python applications/protein-ligand/scripts/02_pretrain_bindingdb.py --smoke-test
 """
 
 from __future__ import annotations
@@ -31,7 +31,7 @@ import torch
 from torch.utils.data import DataLoader, Dataset
 
 SUBFOLDER_ROOT = Path(__file__).resolve().parents[1]
-REPO_ROOT = SUBFOLDER_ROOT.parent
+REPO_ROOT = SUBFOLDER_ROOT.parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 

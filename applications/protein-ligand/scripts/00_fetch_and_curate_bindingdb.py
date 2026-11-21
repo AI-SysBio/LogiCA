@@ -15,8 +15,8 @@ Downloads (or reads a local copy of) the public BindingDB TSV archive and applie
   7. `<30%` sequence-homology k-mer/MMseqs2 family clustering for zero-leakage train/val/test splits.
 
 Usage:
-  python protein-ligand/scripts/00_fetch_and_curate_bindingdb.py --download --out-dir protein-ligand/data/bindingdb
-  python protein-ligand/scripts/00_fetch_and_curate_bindingdb.py --raw-tsv /path/to/BindingDB_All.tsv
+  python applications/protein-ligand/scripts/00_fetch_and_curate_bindingdb.py --download --out-dir applications/protein-ligand/data/bindingdb
+  python applications/protein-ligand/scripts/00_fetch_and_curate_bindingdb.py --raw-tsv /path/to/BindingDB_All.tsv
 """
 
 from __future__ import annotations

@@ -43,7 +43,7 @@ def main() -> None:
     model = LogiCA.from_checkpoint("Yale-CompBio/logica", scale="35m", device="cpu")
 
     # --- A. Cross-Modal Dependency Map on a Held-Out BioLiP Crystal Complex ---
-    biolip_dir = REPO_ROOT / "protein-ligand" / "data" / "biolip_175"
+    biolip_dir = REPO_ROOT / "applications" / "protein-ligand" / "data" / "biolip_175"
     mi_df = pd.read_parquet(biolip_dir / "model_inputs.parquet")
     ew_df = pd.read_parquet(biolip_dir / "evaluation_windows.parquet")
     rl_df = pd.read_parquet(biolip_dir / "residue_labels.parquet")
@@ -82,6 +82,7 @@ def main() -> None:
     phloretin_smiles = "O=C(CCc1ccc(O)cc1)c1c(O)cc(O)cc1O"
     dms_pq = (
         REPO_ROOT
+        / "applications"
         / "protein-ligand"
         / "data"
         / "processed"
@@ -128,6 +129,7 @@ def main() -> None:
     # --- C. Mutation-Local Variant Ranking Visualization on Experimental DMS Cohort ---
     func_pq = (
         REPO_ROOT
+        / "applications"
         / "protein-ligand"
         / "data"
         / "processed"

@@ -76,8 +76,8 @@ all = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/AI-SysBio/logica"
-Repository = "https://github.com/AI-SysBio/logica"
+Homepage = "https://github.com/AI-SysBio/LogiCA"
+Repository = "https://github.com/AI-SysBio/LogiCA"
 AbRank = "https://github.com/AI-SysBio/AbRank"
 Paper = "https://arxiv.org/abs/2606.18703"
 

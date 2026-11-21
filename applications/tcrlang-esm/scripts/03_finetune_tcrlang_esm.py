@@ -8,10 +8,10 @@ gain (`s_gain(x, y)`) via binary margin / logistic supervision while strictly pr
 native token heads! Evaluates held-out `ePytope-Binary` AUROC and AUPR.
 
 Usage:
-  python tcrlang-esm/scripts/03_finetune_tcrlang_esm.py \
+  python applications/tcrlang-esm/scripts/03_finetune_tcrlang_esm.py \
       --hf-subfolder dual-anchored-ratio5 --device cuda:0 --epochs 6
 
-  python tcrlang-esm/scripts/03_finetune_tcrlang_esm.py --smoke-test
+  python applications/tcrlang-esm/scripts/03_finetune_tcrlang_esm.py --smoke-test
 """
 
 from __future__ import annotations
@@ -31,7 +31,7 @@ import torch.nn.functional as F
 from torch.utils.data import DataLoader, Dataset
 
 SUBFOLDER_ROOT = Path(__file__).resolve().parents[1]
-REPO_ROOT = SUBFOLDER_ROOT.parent
+REPO_ROOT = SUBFOLDER_ROOT.parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 

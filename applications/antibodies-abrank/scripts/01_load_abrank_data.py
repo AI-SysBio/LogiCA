@@ -9,10 +9,10 @@ Verifies all master assay tables and the 4 Core AbRank Community Suites:
 
 Usage:
   # Auto-fetch public Kaggle dataset `aurlienplissier/abrank` (`pip install kagglehub`)
-  python antibodies-abrank/scripts/01_load_abrank_data.py --kaggle-dataset aurlienplissier/abrank
+  python applications/antibodies-abrank/scripts/01_load_abrank_data.py --kaggle-dataset aurlienplissier/abrank
 
   # Or point directly to a local AI-SysBio/AbRank checkout / ABRANK_DATA_DIR
-  python antibodies-abrank/scripts/01_load_abrank_data.py --abrank-dir /path/to/AbRank/data/benchmark
+  python applications/antibodies-abrank/scripts/01_load_abrank_data.py --abrank-dir /path/to/AbRank/data/benchmark
 """
 
 from __future__ import annotations

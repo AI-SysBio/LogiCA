@@ -9,8 +9,8 @@ Demonstrates both modes of `logica.gibbs`:
      `Yale-CompBio/logica` checkpoint (`--live-design`).
 
 Usage:
-  python protein-ligand/scripts/05_run_gibbs_sampling.py
-  python protein-ligand/scripts/05_run_gibbs_sampling.py --live-design --scale 35m
+  python applications/protein-ligand/scripts/05_run_gibbs_sampling.py
+  python applications/protein-ligand/scripts/05_run_gibbs_sampling.py --live-design --scale 35m
 """
 
 from __future__ import annotations
@@ -29,7 +29,7 @@ import numpy as np
 import pandas as pd
 
 SUBFOLDER_ROOT = Path(__file__).resolve().parents[1]
-REPO_ROOT = SUBFOLDER_ROOT.parent
+REPO_ROOT = SUBFOLDER_ROOT.parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 

@@ -13,9 +13,9 @@ Provides three reproducible operations for the 137-cohort, 561,059-variant bench
      and computes stride-16 masked marginal mutation scores across cohorts!
 
 Usage:
-  python protein-ligand/scripts/01_download_and_process_dms_data.py
-  python protein-ligand/scripts/01_download_and_process_dms_data.py --download-raw
-  python protein-ligand/scripts/01_download_and_process_dms_data.py --score-logica --scale 150m --max-cohorts 3
+  python applications/protein-ligand/scripts/01_download_and_process_dms_data.py
+  python applications/protein-ligand/scripts/01_download_and_process_dms_data.py --download-raw
+  python applications/protein-ligand/scripts/01_download_and_process_dms_data.py --score-logica --scale 150m --max-cohorts 3
 """
 
 from __future__ import annotations
@@ -30,7 +30,7 @@ import numpy as np
 import pandas as pd
 
 SUBFOLDER_ROOT = Path(__file__).resolve().parents[1]
-REPO_ROOT = SUBFOLDER_ROOT.parent
+REPO_ROOT = SUBFOLDER_ROOT.parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 

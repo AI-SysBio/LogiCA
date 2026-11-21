@@ -9,7 +9,7 @@ Demonstrates `logica.GibbsSampler` and `logica.DependencyMapper` on `TCRLang` + 
      `TCRLang`, saving publication-ready figures (`plot_dependency_map`, `plot_gibbs_design`).
 
 Usage:
-  python tcrlang-esm/scripts/05_run_tcr_gibbs_and_dependency.py --hf-subfolder dual-anchored-ratio5
+  python applications/tcrlang-esm/scripts/05_run_tcr_gibbs_and_dependency.py --hf-subfolder dual-anchored-ratio5
 """
 
 from __future__ import annotations
@@ -24,7 +24,7 @@ import matplotlib
 matplotlib.use("Agg")
 
 SUBFOLDER_ROOT = Path(__file__).resolve().parents[1]
-REPO_ROOT = SUBFOLDER_ROOT.parent
+REPO_ROOT = SUBFOLDER_ROOT.parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 

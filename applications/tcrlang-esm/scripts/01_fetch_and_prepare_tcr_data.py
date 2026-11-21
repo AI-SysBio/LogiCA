@@ -13,8 +13,8 @@ Manages all data splits for TCR–Peptide LogiCA (`tcrlang-paired` + `ESM-2`):
      all Stage-1 and Stage-2 training sets!
 
 Usage:
-  python tcrlang-esm/scripts/01_fetch_and_prepare_tcr_data.py
-  python tcrlang-esm/scripts/01_fetch_and_prepare_tcr_data.py --download-external
+  python applications/tcrlang-esm/scripts/01_fetch_and_prepare_tcr_data.py
+  python applications/tcrlang-esm/scripts/01_fetch_and_prepare_tcr_data.py --download-external
 """
 
 from __future__ import annotations

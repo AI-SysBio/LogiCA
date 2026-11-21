@@ -30,32 +30,32 @@ Ensure the root `logica` package is installed in editable mode (`pip install -e 
 ```bash
 # Step 0 (Optional — only needed if pretraining from scratch on raw BindingDB):
 # Downloads raw BindingDB, desalts SMILES -> SELFIES, and builds <30% homology splits
-python protein-ligand/scripts/00_fetch_and_curate_bindingdb.py --download
+python applications/protein-ligand/scripts/00_fetch_and_curate_bindingdb.py --download
 
 # Step 1: Verify the 137-cohort DMS & BioLiP datasets (pass --download-raw to re-fetch
 # primary archives from ProteinGym/Zenodo/GitHub, and --score-logica to run live HF checkpoint scoring)
-python protein-ligand/scripts/01_download_and_process_dms_data.py
-python protein-ligand/scripts/01_download_and_process_dms_data.py --score-logica --scale 150m --max-cohorts 5
+python applications/protein-ligand/scripts/01_download_and_process_dms_data.py
+python applications/protein-ligand/scripts/01_download_and_process_dms_data.py --score-logica --scale 150m --max-cohorts 5
 
 # Step 2: Stage-1 BindingDB native-logit contrastive pretraining (ESM-2 + SELFormer)
-python protein-ligand/scripts/02_pretrain_bindingdb.py \
+python applications/protein-ligand/scripts/02_pretrain_bindingdb.py \
     --protein-model facebook/esm2_t30_150M_UR50D \
     --ligand-model HUBioDataLab/SELFormer \
     --device cuda:0 --epochs 10
 
 # Step 3: Stage-2 Unseen-LOO Fine-Tuning (LOCO-30%, LOLO, LogiMLM, or Single-BioFM ESM-2 control)
-python protein-ligand/scripts/03_finetune_dms_loo.py --scale 150m --split loco30 --objective logica --device cuda:0
-python protein-ligand/scripts/03_finetune_dms_loo.py --scale 150m --split lolo   --objective logica --device cuda:0
-python protein-ligand/scripts/03_finetune_dms_loo.py --scale 150m --single-biofm --device cuda:0
+python applications/protein-ligand/scripts/03_finetune_dms_loo.py --scale 150m --split loco30 --objective logica --device cuda:0
+python applications/protein-ligand/scripts/03_finetune_dms_loo.py --scale 150m --split lolo   --objective logica --device cuda:0
+python applications/protein-ligand/scripts/03_finetune_dms_loo.py --scale 150m --single-biofm --device cuda:0
 
 # Step 4: Held-out BioLiP-175 <5 Å cross-modal dependency map localization
-python protein-ligand/scripts/04_evaluate_dependency_maps_biolip.py --scale 35m --device cuda:0
+python applications/protein-ligand/scripts/04_evaluate_dependency_maps_biolip.py --scale 35m --device cuda:0
 
 # Step 5: Context-conditioned Coordinate Gibbs sampling (103 DMS cohorts + live TtgR Phloretin pocket design)
-python protein-ligand/scripts/05_run_gibbs_sampling.py --live-design --scale 35m
+python applications/protein-ligand/scripts/05_run_gibbs_sampling.py --live-design --scale 35m
 
 # Step 6: Hierarchical G=42 gene-collapsed & K=32 <30% cluster-collapsed statistical audit
-python protein-ligand/scripts/06_run_mlm_ablation_and_scaling.py
+python applications/protein-ligand/scripts/06_run_mlm_ablation_and_scaling.py
 ```
 
 ---

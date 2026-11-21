@@ -8,13 +8,13 @@ Uses the modular `logica` library (`LogiCA`, `VariantRanker`, `PlackettLuceLogit
 
 Usage:
   # Full GPU LOCO-30% fine-tuning across all 32 `<30%` sequence-identity clusters (103 DMS cohorts):
-  python protein-ligand/scripts/03_finetune_dms_loo.py --scale 150m --device cuda:0 --epochs 4
+  python applications/protein-ligand/scripts/03_finetune_dms_loo.py --scale 150m --device cuda:0 --epochs 4
 
   # Single-BioFM native-logit fine-tuning control (ESM-2 without partner ligand):
-  python protein-ligand/scripts/03_finetune_dms_loo.py --single-biofm --scale 150m --device cuda:0
+  python applications/protein-ligand/scripts/03_finetune_dms_loo.py --single-biofm --scale 150m --device cuda:0
 
   # Fast 1-fold smoke test:
-  python protein-ligand/scripts/03_finetune_dms_loo.py --scale 8m --smoke-test
+  python applications/protein-ligand/scripts/03_finetune_dms_loo.py --scale 8m --smoke-test
 """
 
 from __future__ import annotations
@@ -34,7 +34,7 @@ import torch
 import torch.nn.functional as F
 
 SUBFOLDER_ROOT = Path(__file__).resolve().parents[1]
-REPO_ROOT = SUBFOLDER_ROOT.parent
+REPO_ROOT = SUBFOLDER_ROOT.parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 

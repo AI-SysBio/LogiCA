@@ -13,15 +13,15 @@ The generated TSV can be evaluated directly with `AI-SysBio/AbRank`:
 and is also scored automatically at the end of this script.
 
 Usage:
-  python antibodies-abrank/scripts/03_evaluate_on_abrank.py \\
-      --suite maturation --checkpoint antibodies-abrank/outputs/ablang_esm_logica/ablang_esm_logica.pt \\
+  python applications/antibodies-abrank/scripts/03_evaluate_on_abrank.py \\
+      --suite maturation --checkpoint applications/antibodies-abrank/outputs/ablang_esm_logica/ablang_esm_logica.pt \\
       --kaggle-dataset aurlienplissier/abrank
 
   # Zero-shot evaluation on AbRank-Generative
-  python antibodies-abrank/scripts/03_evaluate_on_abrank.py --suite generative --kaggle-dataset aurlienplissier/abrank
+  python applications/antibodies-abrank/scripts/03_evaluate_on_abrank.py --suite generative --kaggle-dataset aurlienplissier/abrank
 
   # Fast CPU smoke test
-  python antibodies-abrank/scripts/03_evaluate_on_abrank.py --suite maturation --abrank-dir /path/to/benchmark --smoke-test
+  python applications/antibodies-abrank/scripts/03_evaluate_on_abrank.py --suite maturation --abrank-dir /path/to/benchmark --smoke-test
 """
 
 from __future__ import annotations
@@ -39,7 +39,7 @@ import torch.nn.functional as F
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 SUBFOLDER_ROOT = SCRIPT_DIR.parent
-REPO_ROOT = SUBFOLDER_ROOT.parent
+REPO_ROOT = SUBFOLDER_ROOT.parents[1]
 for p in (str(REPO_ROOT), str(SCRIPT_DIR)):
     if p not in sys.path:
         sys.path.insert(0, p)

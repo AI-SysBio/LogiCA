@@ -1,6 +1,6 @@
-"""Shared AbRank data loader & evaluator bridge for `AI-SysBio/logica/antibodies-abrank`.
+"""Shared AbRank data loader & evaluator bridge for `AI-SysBio/LogiCA/applications/antibodies-abrank`.
 
-Connects `AI-SysBio/logica` seamlessly to the public `AI-SysBio/AbRank` benchmark dataset:
+Connects `AI-SysBio/LogiCA` seamlessly to the public `AI-SysBio/AbRank` benchmark dataset:
   1. Loads AbRank from Kaggle (`aurlienplissier/abrank`, via `kagglehub` or `kaggle` CLI),
      OR from a local checkout (`--abrank-dir` / `ABRANK_DATA_DIR`).
   2. Formats paired IgG/Fab antibodies as `"VH|VL"` and single-domain VHH nanobodies as `"VHH|"`

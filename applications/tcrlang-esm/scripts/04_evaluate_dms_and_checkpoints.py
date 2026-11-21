@@ -9,9 +9,9 @@ reciprocal partner shift) across:
     `SKEMPI v2`, and `868-Z11` saturation scans).
 
 Usage:
-  python tcrlang-esm/scripts/04_evaluate_dms_and_checkpoints.py --hf-subfolder tcr-anchored-neg1
-  python tcrlang-esm/scripts/04_evaluate_dms_and_checkpoints.py --hf-subfolder dual-anchored-ratio5
-  python tcrlang-esm/scripts/04_evaluate_dms_and_checkpoints.py --checkpoint tcrlang-esm/outputs/stage1_pretrain/logica_dual.pt
+  python applications/tcrlang-esm/scripts/04_evaluate_dms_and_checkpoints.py --hf-subfolder tcr-anchored-neg1
+  python applications/tcrlang-esm/scripts/04_evaluate_dms_and_checkpoints.py --hf-subfolder dual-anchored-ratio5
+  python applications/tcrlang-esm/scripts/04_evaluate_dms_and_checkpoints.py --checkpoint applications/tcrlang-esm/outputs/stage1_pretrain/logica_dual.pt
 """
 
 from __future__ import annotations
@@ -27,7 +27,7 @@ import pandas as pd
 import torch
 
 SUBFOLDER_ROOT = Path(__file__).resolve().parents[1]
-REPO_ROOT = SUBFOLDER_ROOT.parent
+REPO_ROOT = SUBFOLDER_ROOT.parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 

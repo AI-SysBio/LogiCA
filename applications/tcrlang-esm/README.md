@@ -25,27 +25,27 @@ Install the `tcr` extras from the repository root first (`pip install -e ".[tcr]
 ```bash
 # Step 1: Verify all non-overlapping splits (pass --download-external to re-fetch raw
 # SKEMPI v2, TRAIT 2025, and HTTP Range-extracted Zenodo 868-Z11 Fitness TSVs)
-python tcrlang-esm/scripts/01_fetch_and_prepare_tcr_data.py
-python tcrlang-esm/scripts/01_fetch_and_prepare_tcr_data.py --download-external
+python applications/tcrlang-esm/scripts/01_fetch_and_prepare_tcr_data.py
+python applications/tcrlang-esm/scripts/01_fetch_and_prepare_tcr_data.py --download-external
 
 # Step 2: Stage-1 LogiCA Pretraining (TCRLang-Paired + ESM-2)
 # Modes: logica_dual, logica_tcr, logica_pep, logimlm
 # Negative strategies: central_contact (P4-P8 BLOSUM62<0), non_conservative, uniform, inbatch
-python tcrlang-esm/scripts/02_pretrain_tcrlang_esm.py \
+python applications/tcrlang-esm/scripts/02_pretrain_tcrlang_esm.py \
     --mode logica_dual --neg-strategy central_contact --device cuda:0 --epochs 10
 
 # Step 3: Stage-2 Supervised Fine-Tuning in Native Logit Space (preserves token heads!)
-python tcrlang-esm/scripts/03_finetune_tcrlang_esm.py \
+python applications/tcrlang-esm/scripts/03_finetune_tcrlang_esm.py \
     --hf-subfolder dual-anchored-ratio5 --device cuda:0 --epochs 6
 
 # Step 4: Evaluate Partner-Conditioned Variant Ranking across 71 Peptide DMS & 23 TCR DMS groups
 # Official ydchen/logica-tcr subfolders: tcr-anchored-neg1, tcr-anchored-neg5,
 # pep-anchored-neg1, pep-anchored-neg5, dual-anchored-ratio5
-python tcrlang-esm/scripts/04_evaluate_dms_and_checkpoints.py --hf-subfolder tcr-anchored-neg1
-python tcrlang-esm/scripts/04_evaluate_dms_and_checkpoints.py --hf-subfolder dual-anchored-ratio5
+python applications/tcrlang-esm/scripts/04_evaluate_dms_and_checkpoints.py --hf-subfolder tcr-anchored-neg1
+python applications/tcrlang-esm/scripts/04_evaluate_dms_and_checkpoints.py --hf-subfolder dual-anchored-ratio5
 
 # Step 5: Epitope-Conditioned CDR3 Coordinate Gibbs Design & 2D Dependency Maps
-python tcrlang-esm/scripts/05_run_tcr_gibbs_and_dependency.py --hf-subfolder dual-anchored-ratio5
+python applications/tcrlang-esm/scripts/05_run_tcr_gibbs_and_dependency.py --hf-subfolder dual-anchored-ratio5
 ```
 
 ---

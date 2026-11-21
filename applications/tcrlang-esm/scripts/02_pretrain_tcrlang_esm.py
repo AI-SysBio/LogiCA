@@ -13,8 +13,8 @@ Supports all Table 3 & Section 3.2 training configurations:
 and all negative-construction strategies (`central_contact`, `non_conservative`, `uniform`, `inbatch`).
 
 Usage:
-  python tcrlang-esm/scripts/02_pretrain_tcrlang_esm.py --mode logica_dual --device cuda:0 --epochs 10
-  python tcrlang-esm/scripts/02_pretrain_tcrlang_esm.py --smoke-test
+  python applications/tcrlang-esm/scripts/02_pretrain_tcrlang_esm.py --mode logica_dual --device cuda:0 --epochs 10
+  python applications/tcrlang-esm/scripts/02_pretrain_tcrlang_esm.py --smoke-test
 """
 
 from __future__ import annotations
@@ -32,7 +32,7 @@ import torch
 from torch.utils.data import DataLoader, Dataset
 
 SUBFOLDER_ROOT = Path(__file__).resolve().parents[1]
-REPO_ROOT = SUBFOLDER_ROOT.parent
+REPO_ROOT = SUBFOLDER_ROOT.parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 

@@ -7,8 +7,8 @@ measuring `<5 Å` heavy-atom contact localization AUROC and AUPR without any str
 and exports an example 2D dependency map plot via `logica.plot_dependency_map`.
 
 Usage:
-  python protein-ligand/scripts/04_evaluate_dependency_maps_biolip.py --scale 35m --device cuda:0
-  python protein-ligand/scripts/04_evaluate_dependency_maps_biolip.py --scale 8m --max-complexes 5
+  python applications/protein-ligand/scripts/04_evaluate_dependency_maps_biolip.py --scale 35m --device cuda:0
+  python applications/protein-ligand/scripts/04_evaluate_dependency_maps_biolip.py --scale 8m --max-complexes 5
 """
 
 from __future__ import annotations
@@ -26,7 +26,7 @@ import numpy as np
 import pandas as pd
 
 SUBFOLDER_ROOT = Path(__file__).resolve().parents[1]
-REPO_ROOT = SUBFOLDER_ROOT.parent
+REPO_ROOT = SUBFOLDER_ROOT.parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 

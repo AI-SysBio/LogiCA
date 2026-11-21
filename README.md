@@ -8,6 +8,10 @@
   <img src="figures/logica_overview.png" width="94%" alt="LogiCA Overview: Contrastive Alignment in Native Token Logit Space"/>
 </p>
 
+<p align="center">
+  <img src="figures/graphical_abstract_main.png" width="94%" alt="LogiCA: Multimodal Logit Contrastive Alignment across Distinct-Vocabulary BioFMs"/>
+</p>
+
 Pretrained Biological Foundation Models (**BioFMs**) — spanning proteins (`ESM-2`, `ProtBERT`), small molecules (`SELFormer`, `ChemBERTa`), immune repertoires (`TCRLang`, `AbLang2`), and nucleic acids (`Nucleotide Transformer`) — encode rich evolutionary, structural, and chemical priors through **normalized probability distributions over their native token vocabularies**. Yet standard multimodal adaptation either:
 1. **Discards the native token head** in favor of pooled latent embeddings or scalar MLP classifiers (`CLIP` / `DrugCLIP` / `MolTrans`), losing residue-level mutation localization, interpretability, and sequence generation; or
 2. **Trains positive-only conditional Masked Language Modeling (`MLM`)**, which reconstructs tokens on matched pairs without separating true biological contexts from plausible decoys.
@@ -34,33 +38,34 @@ The **`logica`** Python package is designed from the ground up as a **flexible, 
 
 ---
 
-## Repository Structure & Domain Suites
+## Repository Structure & Domain Applications
 
 ```text
-logica/
-├── logica/                        # Core model-agnostic Python library (`pip install -e .`)
-│   ├── backbones.py               # Universal BioFM loader (HuggingFace, AbLang2/TCRLang, Custom nn.Module)
-│   ├── adapters.py                # Gated Cross-Attention, Sigmoid/Top-K attn, Unimodal Self-Adapter & LoRA
-│   ├── model.py                   # Unified `LogiCA` class (Dual-BioFM, Single-BioFM & HF checkpoint loading)
-│   ├── losses.py                  # InfoNCELogitLoss, BradleyTerry, PlackettLuce, KL Anchor & Thermo Scorer
-│   ├── ranking.py                 # `VariantRanker` (WT-marginal, stride-masked, simultaneous multi-mask, LOO)
-│   ├── dependency.py              # `DependencyMapper` (2D cross-modal & intra-seq maps + KL hotspot detector)
-│   ├── gibbs.py                   # `GibbsSampler` (Coordinate Gibbs MCMC design & DMS landscape protocols)
-│   └── visualization.py           # Publication-ready Matplotlib plots for ranking, dependency maps & Gibbs
-├── protein-ligand/                # Subfolder 1: ESM-2 + SELFormer (BindingDB, 137 DMS cohorts, BioLiP-175)
-├── tcrlang-esm/                   # Subfolder 2: TCRLang + ESM-2 (EPACT/STAPLER/IEDB, 71 Pep + 23 TCR DMS)
-├── antibodies-abrank/             # Subfolder 3: AbLang2-Paired + ESM-2 on AbRank (AI-SysBio/AbRank)
+LogiCA/
+├── logica/                              # Core model-agnostic Python library (`pip install -e .`)
+│   ├── backbones.py                     # Universal BioFM loader (HuggingFace, AbLang2/TCRLang, Custom nn.Module)
+│   ├── adapters.py                      # Gated Cross-Attention, Sigmoid/Top-K attn, Unimodal Self-Adapter & LoRA
+│   ├── model.py                         # Unified `LogiCA` class (Dual-BioFM, Single-BioFM & HF checkpoint loading)
+│   ├── losses.py                        # InfoNCELogitLoss, BradleyTerry, PlackettLuce, KL Anchor & Thermo Scorer
+│   ├── ranking.py                       # `VariantRanker` (WT-marginal, stride-masked, simultaneous multi-mask, LOO)
+│   ├── dependency.py                    # `DependencyMapper` (2D cross-modal & intra-seq maps + KL hotspot detector)
+│   ├── gibbs.py                         # `GibbsSampler` (Coordinate Gibbs MCMC design & DMS landscape protocols)
+│   └── visualization.py                 # Publication-ready Matplotlib plots for ranking, dependency maps & Gibbs
+├── applications/                        # End-to-end domain suites built on `logica`
+│   ├── protein-ligand/                  # ESM-2 + SELFormer (BindingDB, 137 DMS cohorts, BioLiP-175)
+│   ├── tcrlang-esm/                     # TCRLang + ESM-2 (EPACT/STAPLER/IEDB, 71 Pep + 23 TCR DMS)
+│   └── antibodies-abrank/               # AbLang2-Paired + ESM-2 on AbRank (AI-SysBio/AbRank)
 ├── examples/
-│   └── quickstart_showcase.py     # End-to-end live demo generating all example visualizations
+│   └── quickstart_showcase.py           # End-to-end live demo generating all example visualizations
 └── tests/
-    └── test_logica_toolbox.py     # Unit test suite covering Dual-BioFM, Single-BioFM, losses & readouts
+    └── test_logica_toolbox.py           # Unit test suite covering Dual-BioFM, Single-BioFM, losses & readouts
 ```
 
-| Domain Suite | Coupled BioFMs | Datasets & Scripts Included |
+| Domain Application | Coupled BioFMs | Datasets & Scripts Included |
 | :--- | :--- | :--- |
-| **[`protein-ligand/`](protein-ligand/)** | `ESM-2` (`8M`–`650M`) $\leftrightarrow$ `SELFormer` (`SELFIES`) | Stage-0 BindingDB curation, **137 DMS & kinetics cohorts (`561,059` variants)**, **175 BioLiP `<5 Å` structures**, `LOCO-30%` / `LOLO` / `Oncology LOO` fine-tuning, Gibbs & BioLiP scripts |
-| **[`tcrlang-esm/`](tcrlang-esm/)** | `TCRLang-Paired` (`CDR3β\|CDR3α`) $\leftrightarrow$ `ESM-2` (`Epitope`) | Zero-leakage `EPACT + STAPLER + IEDB` (`234k` pairs), **71 Peptide DMS** (`ePytope`, `BATCAVE`, `ATLAS-Pep`), **23 Expanded TCR DMS** (`703` variants), Stage-1/2 training & Gibbs/dependency scripts |
-| **[`antibodies-abrank/`](antibodies-abrank/)** | `AbLang2-Paired` (`VH\|VL`, `VHH\|`) $\leftrightarrow$ `ESM-2` (`Antigen`) | Kaggle/local loader for [**AI-SysBio/AbRank**](https://github.com/AI-SysBio/AbRank), Stage-1 InfoNCE + Stage-2 3-state noise-buffered training, 4-suite AbRank evaluator, paratope dependency maps & CDR-H3 Gibbs scripts |
+| **[`applications/protein-ligand/`](applications/protein-ligand/)** | `ESM-2` (`8M`–`650M`) $\leftrightarrow$ `SELFormer` (`SELFIES`) | Stage-0 BindingDB curation, **137 DMS & kinetics cohorts (`561,059` variants)**, **175 BioLiP `<5 Å` structures**, `LOCO-30%` / `LOLO` / `Oncology LOO` fine-tuning, Gibbs & BioLiP scripts |
+| **[`applications/tcrlang-esm/`](applications/tcrlang-esm/)** | `TCRLang-Paired` (`CDR3β\|CDR3α`) $\leftrightarrow$ `ESM-2` (`Epitope`) | Zero-leakage `EPACT + STAPLER + IEDB` (`234k` pairs), **71 Peptide DMS** (`ePytope`, `BATCAVE`, `ATLAS-Pep`), **23 Expanded TCR DMS** (`703` variants), Stage-1/2 training & Gibbs/dependency scripts |
+| **[`applications/antibodies-abrank/`](applications/antibodies-abrank/)** | `AbLang2-Paired` (`VH\|VL`, `VHH\|`) $\leftrightarrow$ `ESM-2` (`Antigen`) | Kaggle/local loader for [**AI-SysBio/AbRank**](https://github.com/AI-SysBio/AbRank), Stage-1 InfoNCE + Stage-2 3-state noise-buffered training, 4-suite AbRank evaluator, paratope dependency maps & CDR-H3 Gibbs scripts |
 
 ---
 
@@ -69,8 +74,8 @@ logica/
 Python 3.10 or later is recommended. Clone the repository and install `logica` in editable mode:
 
 ```bash
-git clone https://github.com/AI-SysBio/logica.git
-cd logica
+git clone https://github.com/AI-SysBio/LogiCA.git
+cd LogiCA
 
 # Core library (Hugging Face BioFMs, Gated Cross-Attention, Ranking, Dependency Maps, Gibbs)
 pip install -e .
@@ -239,13 +244,13 @@ plot_gibbs_design(gibbs_holo, save_path="gibbs_design.png")
 
 ---
 
-### 4. TCR–Peptide Recognition, Dependency Maps & Pairwise Benchmarks (`tcrlang-esm/`)
+### 4. TCR–Peptide Recognition, Dependency Maps & Pairwise Benchmarks (`applications/tcrlang-esm/`)
 
 <p align="center">
   <img src="figures/TCR_figure.png" width="90%" alt="LogiCA TCR-Peptide Win Matrices, Crystal Contact Dependency Map & Variant Recovery"/>
 </p>
 
-See [**`protein-ligand/README.md`**](protein-ligand/README.md), [**`tcrlang-esm/README.md`**](tcrlang-esm/README.md), and [**`antibodies-abrank/README.md`**](antibodies-abrank/README.md) (paired with [**`AI-SysBio/AbRank`**](https://github.com/AI-SysBio/AbRank)) for complete data download, preprocessing, pretraining, fine-tuning, and benchmark reproduction commands.
+See [**`applications/protein-ligand/README.md`**](applications/protein-ligand/README.md), [**`applications/tcrlang-esm/README.md`**](applications/tcrlang-esm/README.md), and [**`applications/antibodies-abrank/README.md`**](applications/antibodies-abrank/README.md) (paired with [**`AI-SysBio/AbRank`**](https://github.com/AI-SysBio/AbRank)) for complete data download, preprocessing, pretraining, fine-tuning, and benchmark reproduction commands.
 
 ---
 
