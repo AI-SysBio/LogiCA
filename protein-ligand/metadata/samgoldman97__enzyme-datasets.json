@@ -1,0 +1,4472 @@
+{
+  "sha": "627556e265e2a52d39753e684c05b550d53a9be4",
+  "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/trees/627556e265e2a52d39753e684c05b550d53a9be4",
+  "tree": [
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ad166db7dac44412e1b8edd4b23e1c432df7b2de",
+      "size": 1829,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ad166db7dac44412e1b8edd4b23e1c432df7b2de"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7e646ae060537f34a23ca540db3a12f85e521ae0",
+      "size": 10552,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/7e646ae060537f34a23ca540db3a12f85e521ae0"
+    },
+    {
+      "path": "bin",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "47abafb2fecca002ce07c7bc8fbb8fcbd5a3634a",
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/trees/47abafb2fecca002ce07c7bc8fbb8fcbd5a3634a"
+    },
+    {
+      "path": "bin/download_utils.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "03d40d599fbf2d7b3253e503220c09c361d589fe",
+      "size": 23929,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/03d40d599fbf2d7b3253e503220c09c361d589fe"
+    },
+    {
+      "path": "bin/extract_structure_alignments.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "54666c6e3a9e623d13ad4fd0f9c02a7021de7bef",
+      "size": 6917,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/54666c6e3a9e623d13ad4fd0f9c02a7021de7bef"
+    },
+    {
+      "path": "bin/file_utils.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6855b7af8d5f3351499b9ff9bc0718c276a0c5d0",
+      "size": 974,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/6855b7af8d5f3351499b9ff9bc0718c276a0c5d0"
+    },
+    {
+      "path": "bin/parse_utils.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ea57cc5d81d2b466e84b2c3b48f2489bdcd4d98",
+      "size": 1415,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/2ea57cc5d81d2b466e84b2c3b48f2489bdcd4d98"
+    },
+    {
+      "path": "bin/reformat_aminotransferases.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5bef9b200485bc944029f0a0b3ef0e847926e859",
+      "size": 2776,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/5bef9b200485bc944029f0a0b3ef0e847926e859"
+    },
+    {
+      "path": "bin/reformat_davis.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a2a9f8136de547a04d26fd3dc8f692d67b756d9",
+      "size": 7141,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/1a2a9f8136de547a04d26fd3dc8f692d67b756d9"
+    },
+    {
+      "path": "bin/reformat_duf.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0fae1725fa34b0ed9299cb936426b6c9cc6c34e1",
+      "size": 3084,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/0fae1725fa34b0ed9299cb936426b6c9cc6c34e1"
+    },
+    {
+      "path": "bin/reformat_esterase.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bc6a04c248c79d39989f0035ba983d388e4edb9a",
+      "size": 2183,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/bc6a04c248c79d39989f0035ba983d388e4edb9a"
+    },
+    {
+      "path": "bin/reformat_gts.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c49938881c403be927d6b54b19573bac6328ea52",
+      "size": 3902,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/c49938881c403be927d6b54b19573bac6328ea52"
+    },
+    {
+      "path": "bin/reformat_halogenase.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d5607e4e732de7ddce395954e41d167d07eb29b8",
+      "size": 5578,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/d5607e4e732de7ddce395954e41d167d07eb29b8"
+    },
+    {
+      "path": "bin/reformat_nitrilase.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "34922289890f4e4825d3b2136a180f9ef041f3a1",
+      "size": 2246,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/34922289890f4e4825d3b2136a180f9ef041f3a1"
+    },
+    {
+      "path": "bin/reformat_olea.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d4d86416a3201209f21b8ac73e86eca75c06e35",
+      "size": 7054,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/9d4d86416a3201209f21b8ac73e86eca75c06e35"
+    },
+    {
+      "path": "bin/reformat_phosphatase.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0e2fa10105bbf7cb914963957f2198c75f385326",
+      "size": 10268,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/0e2fa10105bbf7cb914963957f2198c75f385326"
+    },
+    {
+      "path": "bin/structure_utils.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "540b74f67dcb0762281d869576abc4b3a72254c7",
+      "size": 10112,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/540b74f67dcb0762281d869576abc4b3a72254c7"
+    },
+    {
+      "path": "create_ref_and_aligns.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "16a041e7d6d0a570f17ae6aa341b5cc75c1bd154",
+      "size": 43,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/16a041e7d6d0a570f17ae6aa341b5cc75c1bd154"
+    },
+    {
+      "path": "create_statistics_table.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "047735dbc84e68c95eeae421244ff9e5ca185efb",
+      "size": 1672,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/047735dbc84e68c95eeae421244ff9e5ca185efb"
+    },
+    {
+      "path": "data",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "19ba46b9c3b0735e9da737fe810cb00caa73e98e",
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/trees/19ba46b9c3b0735e9da737fe810cb00caa73e98e"
+    },
+    {
+      "path": "data/processed",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "cb1c0a75c9270b7aeedf91c7dc57fe0094d977ee",
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/trees/cb1c0a75c9270b7aeedf91c7dc57fe0094d977ee"
+    },
+    {
+      "path": "data/processed/alignments",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d2406433aa1e4cffc80a8b88fff9e40fc1c2078c",
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/trees/d2406433aa1e4cffc80a8b88fff9e40fc1c2078c"
+    },
+    {
+      "path": "data/processed/alignments/aminotransferase_alignment.fasta",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c869a8984b07d277edfce1ea2023f4717dbde59",
+      "size": 15490,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/5c869a8984b07d277edfce1ea2023f4717dbde59"
+    },
+    {
+      "path": "data/processed/alignments/davis_alignment.fasta",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5f9e56c728f5b70a0df65872464fa6933166ad8b",
+      "size": 425120,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/5f9e56c728f5b70a0df65872464fa6933166ad8b"
+    },
+    {
+      "path": "data/processed/alignments/duf_alignment.fasta",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e0eb8b0fd23fc3a189403202a06138cea045aff6",
+      "size": 57727,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e0eb8b0fd23fc3a189403202a06138cea045aff6"
+    },
+    {
+      "path": "data/processed/alignments/esterase_alignment.fasta",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d1d2760feb4fb44ef1086d5a3afa7a3042e3930",
+      "size": 158653,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/8d1d2760feb4fb44ef1086d5a3afa7a3042e3930"
+    },
+    {
+      "path": "data/processed/alignments/gt_alignment.fasta",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae27bcb6961f44108bc01fa0925ca5d466a0e5de",
+      "size": 34154,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ae27bcb6961f44108bc01fa0925ca5d466a0e5de"
+    },
+    {
+      "path": "data/processed/alignments/halogenase_alignment.fasta",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f709e95169fbbcf8dc3485a8b007c5004b9461ec",
+      "size": 39081,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f709e95169fbbcf8dc3485a8b007c5004b9461ec"
+    },
+    {
+      "path": "data/processed/alignments/nitrilase_alignment.fasta",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7f32e50efa6c0470b84d376890ec6aacf9a20c25",
+      "size": 8810,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/7f32e50efa6c0470b84d376890ec6aacf9a20c25"
+    },
+    {
+      "path": "data/processed/alignments/olea_alignment.fasta",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e03be6c6cddb0942a96d6cc6d4d77b437ffe439",
+      "size": 36550,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/2e03be6c6cddb0942a96d6cc6d4d77b437ffe439"
+    },
+    {
+      "path": "data/processed/alignments/phosphatase_alignment.fasta",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2036e61e2245dbe4f55a2902a289b417c534aac7",
+      "size": 249115,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/2036e61e2245dbe4f55a2902a289b417c534aac7"
+    },
+    {
+      "path": "data/processed/aminotransferase.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a959e3a1ab67601b155480729bad77e178491222",
+      "size": 191451,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/a959e3a1ab67601b155480729bad77e178491222"
+    },
+    {
+      "path": "data/processed/aminotransferase_binary.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dfe70c91a9d3aaa9fb0877784ce1470e06024cf9",
+      "size": 183746,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/dfe70c91a9d3aaa9fb0877784ce1470e06024cf9"
+    },
+    {
+      "path": "data/processed/davis.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "83036ea3fed6dffea533e3dfa3cd02d05203d250",
+      "size": 10092095,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/83036ea3fed6dffea533e3dfa3cd02d05203d250"
+    },
+    {
+      "path": "data/processed/davis_filtered.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c48b6ed9ce1168524b98c6755903f4be70b4bd3",
+      "size": 7887906,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/6c48b6ed9ce1168524b98c6755903f4be70b4bd3"
+    },
+    {
+      "path": "data/processed/duf_binary.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "29aceb6a559dbd65c5785b68070af0184463e127",
+      "size": 844345,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/29aceb6a559dbd65c5785b68070af0184463e127"
+    },
+    {
+      "path": "data/processed/esterase_binary.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c8285df472d8881d6ab2bdc403fbde3d61b5151c",
+      "size": 5197231,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/c8285df472d8881d6ab2bdc403fbde3d61b5151c"
+    },
+    {
+      "path": "data/processed/gt_acceptors_achiral_binary.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b148e6c416d6a0aee0f3077144ffbc9e75c5e5f3",
+      "size": 2234593,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/b148e6c416d6a0aee0f3077144ffbc9e75c5e5f3"
+    },
+    {
+      "path": "data/processed/gt_acceptors_achiral_categorical.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd25b2e7e9798bad0a2e11c498b3b80c5964c999",
+      "size": 2234593,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/bd25b2e7e9798bad0a2e11c498b3b80c5964c999"
+    },
+    {
+      "path": "data/processed/gt_acceptors_chiral_binary.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "63373ec5fc58975cc42e2bf49eca1ea0e1425135",
+      "size": 2339384,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/63373ec5fc58975cc42e2bf49eca1ea0e1425135"
+    },
+    {
+      "path": "data/processed/gt_acceptors_chiral_categorical.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e53f554452678aae69e920f89c99c3d751a5cb4c",
+      "size": 2339384,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e53f554452678aae69e920f89c99c3d751a5cb4c"
+    },
+    {
+      "path": "data/processed/gt_donors_achiral_binary.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9e32f997a8369d76f301bbed2516cd14091606a5",
+      "size": 285836,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/9e32f997a8369d76f301bbed2516cd14091606a5"
+    },
+    {
+      "path": "data/processed/gt_donors_achiral_categorical.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a20bc3343c44e1e765028e305b4b025430f4630e",
+      "size": 285836,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/a20bc3343c44e1e765028e305b4b025430f4630e"
+    },
+    {
+      "path": "data/processed/gt_donors_chiral_binary.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e6fa93b1067d971af4001bf0744172d6d413d5e",
+      "size": 396301,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/1e6fa93b1067d971af4001bf0744172d6d413d5e"
+    },
+    {
+      "path": "data/processed/gt_donors_chiral_categorical.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "19a302ad722dffd23837cc33964cc9818f44cdd8",
+      "size": 396301,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/19a302ad722dffd23837cc33964cc9818f44cdd8"
+    },
+    {
+      "path": "data/processed/halogenase_NaBr.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d580f0695092e8b5975b1029bd2b7089c0ceafee",
+      "size": 1474880,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/d580f0695092e8b5975b1029bd2b7089c0ceafee"
+    },
+    {
+      "path": "data/processed/halogenase_NaBr_binary.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aad472f14b60546203b27facbf7135a788adc888",
+      "size": 1462110,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/aad472f14b60546203b27facbf7135a788adc888"
+    },
+    {
+      "path": "data/processed/halogenase_NaCl.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ebb2fb22b8810c91b5de3f0f13723694e4a3f1ab",
+      "size": 1469385,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ebb2fb22b8810c91b5de3f0f13723694e4a3f1ab"
+    },
+    {
+      "path": "data/processed/halogenase_NaCl_binary.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2bdb497da46cc685a01a20f8e6e9d4aaf864d414",
+      "size": 1462110,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/2bdb497da46cc685a01a20f8e6e9d4aaf864d414"
+    },
+    {
+      "path": "data/processed/nitrilase_binary.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c9da7d3c556a21ff92c8c8ab5571b54c028a44e",
+      "size": 239051,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/6c9da7d3c556a21ff92c8c8ab5571b54c028a44e"
+    },
+    {
+      "path": "data/processed/olea.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a7e7ad221ff8deea19329477132e736581aad78a",
+      "size": 224366,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/a7e7ad221ff8deea19329477132e736581aad78a"
+    },
+    {
+      "path": "data/processed/olea_binary.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cd98d750ebb368c76f1727a1d8484010d9345991",
+      "size": 431390,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/cd98d750ebb368c76f1727a1d8484010d9345991"
+    },
+    {
+      "path": "data/processed/phosphatase_achiral.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f196ffd5267181c8af07d2259efe47bda25f43fb",
+      "size": 7131834,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f196ffd5267181c8af07d2259efe47bda25f43fb"
+    },
+    {
+      "path": "data/processed/phosphatase_achiral_binary.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dcacd9402bd11874a1e3c2c9090ce0b31ee814db",
+      "size": 6882929,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/dcacd9402bd11874a1e3c2c9090ce0b31ee814db"
+    },
+    {
+      "path": "data/processed/phosphatase_chiral.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c897b770ca53ae7314d2d7339496168659318ddd",
+      "size": 11263203,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/c897b770ca53ae7314d2d7339496168659318ddd"
+    },
+    {
+      "path": "data/processed/phosphatase_chiral_binary.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6e995ea5e836ef531dde44a95ea1598efdb38705",
+      "size": 10900065,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/6e995ea5e836ef531dde44a95ea1598efdb38705"
+    },
+    {
+      "path": "data/processed/structure_references",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "81a592622ff8f8b7ac9f88fd1fc99af581d98fb8",
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/trees/81a592622ff8f8b7ac9f88fd1fc99af581d98fb8"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_1.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd325c1533108556c73ea74f28851f9e7ad25c87",
+      "size": 471,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/bd325c1533108556c73ea74f28851f9e7ad25c87"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_10.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "46b612218ecd0c9340ad64d595344521600e0726",
+      "size": 1227,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/46b612218ecd0c9340ad64d595344521600e0726"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_11.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e2069de780fc10dde0ef47116f533446fbc78645",
+      "size": 1406,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e2069de780fc10dde0ef47116f533446fbc78645"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_12.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "13ba8db82d193f8d4e55b931cec0e3aed6fed8bc",
+      "size": 1553,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/13ba8db82d193f8d4e55b931cec0e3aed6fed8bc"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_13.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f63e86627d1ce3743ec0e43f5f7a512296e4d025",
+      "size": 1729,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f63e86627d1ce3743ec0e43f5f7a512296e4d025"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_14.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9dc3d6a4c2dc2b60c100961a1bd3ef00fe8a0fd5",
+      "size": 1925,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/9dc3d6a4c2dc2b60c100961a1bd3ef00fe8a0fd5"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_15.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "320ab02e68780d956825d09a11a173b1337ec904",
+      "size": 2112,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/320ab02e68780d956825d09a11a173b1337ec904"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_16.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "81ca89c8180ee57b1660ded87b5e603a1bb4bf18",
+      "size": 2397,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/81ca89c8180ee57b1660ded87b5e603a1bb4bf18"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_17.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bcbdfb461836936996d5040468d7eeb2f673df8d",
+      "size": 2655,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/bcbdfb461836936996d5040468d7eeb2f673df8d"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_18.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3f38ad17bbf6756285456376fe297f631d080dc1",
+      "size": 2878,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/3f38ad17bbf6756285456376fe297f631d080dc1"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_19.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "03023a33a072fff5cf7f8ee5daacd980f1f0d3b6",
+      "size": 3151,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/03023a33a072fff5cf7f8ee5daacd980f1f0d3b6"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_2.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd325c1533108556c73ea74f28851f9e7ad25c87",
+      "size": 471,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/bd325c1533108556c73ea74f28851f9e7ad25c87"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_20.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "52b76f1f77595925a44b50afc560f3ef67474e13",
+      "size": 3367,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/52b76f1f77595925a44b50afc560f3ef67474e13"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_21.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7debb0a18f95cbd851d2c695d209385103f2d03d",
+      "size": 3502,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/7debb0a18f95cbd851d2c695d209385103f2d03d"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_22.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "36ad7a2767fad5e3bd7a4f8213036e53005c02f9",
+      "size": 3738,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/36ad7a2767fad5e3bd7a4f8213036e53005c02f9"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_23.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2f2f146d8c2483e444ba871d0f43c55676841e02",
+      "size": 3874,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/2f2f146d8c2483e444ba871d0f43c55676841e02"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_24.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ccdcb40dfcf84c6cd55c0d34894b6f646a27c6be",
+      "size": 3972,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ccdcb40dfcf84c6cd55c0d34894b6f646a27c6be"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_25.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "15fa5c8b3e42f2e9b6e44e789565e6f9a729ef90",
+      "size": 4032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/15fa5c8b3e42f2e9b6e44e789565e6f9a729ef90"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_26.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d984cf401355ca8a66bd841902c68e2f459ba0f",
+      "size": 4099,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/9d984cf401355ca8a66bd841902c68e2f459ba0f"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_27.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "333001d56241be4adbbd7ca2c21f5841d4bcc062",
+      "size": 4156,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/333001d56241be4adbbd7ca2c21f5841d4bcc062"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_28.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5db2950d100c28afed8d44df9ccbdb48b4a06778",
+      "size": 4196,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/5db2950d100c28afed8d44df9ccbdb48b4a06778"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_29.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa3422877f0c3fb056a985fc5c08ea947b45725a",
+      "size": 4224,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/aa3422877f0c3fb056a985fc5c08ea947b45725a"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_3.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f0049cfad2d71cada6b62ce68f700d1bcba13ad8",
+      "size": 580,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f0049cfad2d71cada6b62ce68f700d1bcba13ad8"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_30.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5fe955db67e56375734bc8f118dcd937db7f4216",
+      "size": 4224,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/5fe955db67e56375734bc8f118dcd937db7f4216"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_31.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5fe955db67e56375734bc8f118dcd937db7f4216",
+      "size": 4224,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/5fe955db67e56375734bc8f118dcd937db7f4216"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_32.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed6b8c50e846f2c9a0b4e690458e04051f35c42b",
+      "size": 4224,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ed6b8c50e846f2c9a0b4e690458e04051f35c42b"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_33.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed6b8c50e846f2c9a0b4e690458e04051f35c42b",
+      "size": 4224,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ed6b8c50e846f2c9a0b4e690458e04051f35c42b"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_34.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed6b8c50e846f2c9a0b4e690458e04051f35c42b",
+      "size": 4224,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ed6b8c50e846f2c9a0b4e690458e04051f35c42b"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_35.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed6b8c50e846f2c9a0b4e690458e04051f35c42b",
+      "size": 4224,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ed6b8c50e846f2c9a0b4e690458e04051f35c42b"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_36.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed6b8c50e846f2c9a0b4e690458e04051f35c42b",
+      "size": 4224,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ed6b8c50e846f2c9a0b4e690458e04051f35c42b"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_37.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed6b8c50e846f2c9a0b4e690458e04051f35c42b",
+      "size": 4224,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ed6b8c50e846f2c9a0b4e690458e04051f35c42b"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_38.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed6b8c50e846f2c9a0b4e690458e04051f35c42b",
+      "size": 4224,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ed6b8c50e846f2c9a0b4e690458e04051f35c42b"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_39.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed6b8c50e846f2c9a0b4e690458e04051f35c42b",
+      "size": 4224,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ed6b8c50e846f2c9a0b4e690458e04051f35c42b"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_4.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c90c07f222e878115cfbf7f074261daaabf76e52",
+      "size": 627,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/c90c07f222e878115cfbf7f074261daaabf76e52"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_40.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed6b8c50e846f2c9a0b4e690458e04051f35c42b",
+      "size": 4224,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ed6b8c50e846f2c9a0b4e690458e04051f35c42b"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_41.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed6b8c50e846f2c9a0b4e690458e04051f35c42b",
+      "size": 4224,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ed6b8c50e846f2c9a0b4e690458e04051f35c42b"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_42.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed6b8c50e846f2c9a0b4e690458e04051f35c42b",
+      "size": 4224,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ed6b8c50e846f2c9a0b4e690458e04051f35c42b"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_43.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed6b8c50e846f2c9a0b4e690458e04051f35c42b",
+      "size": 4224,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ed6b8c50e846f2c9a0b4e690458e04051f35c42b"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_44.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed6b8c50e846f2c9a0b4e690458e04051f35c42b",
+      "size": 4224,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ed6b8c50e846f2c9a0b4e690458e04051f35c42b"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_45.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed6b8c50e846f2c9a0b4e690458e04051f35c42b",
+      "size": 4224,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ed6b8c50e846f2c9a0b4e690458e04051f35c42b"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_46.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed6b8c50e846f2c9a0b4e690458e04051f35c42b",
+      "size": 4224,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ed6b8c50e846f2c9a0b4e690458e04051f35c42b"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_47.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed6b8c50e846f2c9a0b4e690458e04051f35c42b",
+      "size": 4224,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ed6b8c50e846f2c9a0b4e690458e04051f35c42b"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_48.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed6b8c50e846f2c9a0b4e690458e04051f35c42b",
+      "size": 4224,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ed6b8c50e846f2c9a0b4e690458e04051f35c42b"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_49.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed6b8c50e846f2c9a0b4e690458e04051f35c42b",
+      "size": 4224,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ed6b8c50e846f2c9a0b4e690458e04051f35c42b"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_5.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bcbeb6c74ae4294cafce13afa837638547017350",
+      "size": 726,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/bcbeb6c74ae4294cafce13afa837638547017350"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_6.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "246c049bc26ab36e34828701454f943141fd8f29",
+      "size": 814,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/246c049bc26ab36e34828701454f943141fd8f29"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_7.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "90658299955a2e97eb8df539199ef7555febc118",
+      "size": 884,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/90658299955a2e97eb8df539199ef7555febc118"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_8.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2b1e7aa0e424d06aaacc2811cc9548600dd3907",
+      "size": 1011,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/a2b1e7aa0e424d06aaacc2811cc9548600dd3907"
+    },
+    {
+      "path": "data/processed/structure_references/aminotransferase_reference_9.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9bea5c5b8f15fe4f7524c575aa45d599913f07ce",
+      "size": 1110,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/9bea5c5b8f15fe4f7524c575aa45d599913f07ce"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_1.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6336f9aa421aed061a9bb2769541174d4dd654bd",
+      "size": 398,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/6336f9aa421aed061a9bb2769541174d4dd654bd"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_10.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "980edc9d2e5d18948ac1fdc785d83a418993bb5f",
+      "size": 990,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/980edc9d2e5d18948ac1fdc785d83a418993bb5f"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_11.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "089383ddfd3f813e33b2913a38a004a54e4c1aa2",
+      "size": 1056,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/089383ddfd3f813e33b2913a38a004a54e4c1aa2"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_12.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b002350fa74f81c32b1acfd7f8234abf25c9def2",
+      "size": 1158,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/b002350fa74f81c32b1acfd7f8234abf25c9def2"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_13.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e42f1ba71a5fad7e0da6961ee2fdd3a8c47cddde",
+      "size": 1279,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e42f1ba71a5fad7e0da6961ee2fdd3a8c47cddde"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_14.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c1f41bc5a0920578f69f8f9c1dd4f408664e7be6",
+      "size": 1391,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/c1f41bc5a0920578f69f8f9c1dd4f408664e7be6"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_15.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "275f049d1bfd0c763b6dedd50c00ce4511fa77a9",
+      "size": 1499,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/275f049d1bfd0c763b6dedd50c00ce4511fa77a9"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_16.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "592c32492c3e6c2e8ea7ada74af279cdaf2ac4ba",
+      "size": 1565,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/592c32492c3e6c2e8ea7ada74af279cdaf2ac4ba"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_17.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e7853c798e5231425c726413f1f3c5ef4359395",
+      "size": 1709,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/2e7853c798e5231425c726413f1f3c5ef4359395"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_18.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f271e0ae6e82d804679ff789fafe959bba0d1702",
+      "size": 1835,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f271e0ae6e82d804679ff789fafe959bba0d1702"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_19.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd4ce4ec20988a3514afd6eb6b1bfb8c63eb5ee1",
+      "size": 1999,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/bd4ce4ec20988a3514afd6eb6b1bfb8c63eb5ee1"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_2.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6336f9aa421aed061a9bb2769541174d4dd654bd",
+      "size": 398,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/6336f9aa421aed061a9bb2769541174d4dd654bd"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_20.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e49e0512cbca0b3318cd0fe7596434728ef0a8bb",
+      "size": 2108,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e49e0512cbca0b3318cd0fe7596434728ef0a8bb"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_21.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "af293df1adfeca6d12dac2b17ec1834fdbb487fd",
+      "size": 2176,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/af293df1adfeca6d12dac2b17ec1834fdbb487fd"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_22.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c0a46abfeba0f2ebe21dd19f6440484775f199aa",
+      "size": 2254,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/c0a46abfeba0f2ebe21dd19f6440484775f199aa"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_23.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4de040206776e8310c403ce5e268941a8ec502cf",
+      "size": 2324,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/4de040206776e8310c403ce5e268941a8ec502cf"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_24.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c47442b6a6d52a29eaf18b54e120bcde8340c07c",
+      "size": 2424,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/c47442b6a6d52a29eaf18b54e120bcde8340c07c"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_25.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6e5c4915a18eeb7e7164c214fbcaeea89af16334",
+      "size": 2514,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/6e5c4915a18eeb7e7164c214fbcaeea89af16334"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_26.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0869649ea92e623c4c10aa912ac01769422654d4",
+      "size": 2614,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/0869649ea92e623c4c10aa912ac01769422654d4"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_27.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b4840bb3bc418fd041379869bb62bf179366cd8",
+      "size": 2694,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/7b4840bb3bc418fd041379869bb62bf179366cd8"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_28.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a9134621b0fe404046733fddb610087bbdc0c689",
+      "size": 2834,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/a9134621b0fe404046733fddb610087bbdc0c689"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_29.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cd12fe867c83ec95a3191effd021d498c28f8b14",
+      "size": 2884,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/cd12fe867c83ec95a3191effd021d498c28f8b14"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_3.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53f1493f3a8949911e8089260bdcaf9f91270b1e",
+      "size": 455,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/53f1493f3a8949911e8089260bdcaf9f91270b1e"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_30.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "091ceb8eaac193e8e0d0d04ddb3d234e05bbf822",
+      "size": 2934,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/091ceb8eaac193e8e0d0d04ddb3d234e05bbf822"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_31.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6a9ec0fd009d0356b498a1b568ed4068d76f1e2b",
+      "size": 2964,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/6a9ec0fd009d0356b498a1b568ed4068d76f1e2b"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_32.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8db450884f3c3dde6002005c33a7858a29dfc904",
+      "size": 2974,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/8db450884f3c3dde6002005c33a7858a29dfc904"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_33.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6f2bc7733094c68678d3864921e1ad9da897ccdc",
+      "size": 3004,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/6f2bc7733094c68678d3864921e1ad9da897ccdc"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_34.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "63674572f48e657de98ce8f1ae0422eb6372e972",
+      "size": 3024,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/63674572f48e657de98ce8f1ae0422eb6372e972"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_35.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3ddd39dbfacff525812117086b578ec37091239",
+      "size": 3024,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/c3ddd39dbfacff525812117086b578ec37091239"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_36.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4c3790578027baf1971bf3fded9f1de2b6fd1c8b",
+      "size": 3044,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/4c3790578027baf1971bf3fded9f1de2b6fd1c8b"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_37.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d441de2fabbb08d153e46c882f42b53d7fddeccc",
+      "size": 3074,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/d441de2fabbb08d153e46c882f42b53d7fddeccc"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_38.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f50cc6e63544d90947a85274cb0417acb07ccbc7",
+      "size": 3084,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f50cc6e63544d90947a85274cb0417acb07ccbc7"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_39.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f50cc6e63544d90947a85274cb0417acb07ccbc7",
+      "size": 3084,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f50cc6e63544d90947a85274cb0417acb07ccbc7"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_4.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ece03d93dd64b5d6f8951663a45071261982438c",
+      "size": 583,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ece03d93dd64b5d6f8951663a45071261982438c"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_40.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01b8722daae709100b166e7d266cc3f71da89e08",
+      "size": 3094,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/01b8722daae709100b166e7d266cc3f71da89e08"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_41.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f7255987dba09219933668d7eecaa7b514dc1429",
+      "size": 3104,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f7255987dba09219933668d7eecaa7b514dc1429"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_42.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "45cf5f5ba28913c24badf4381cb29e8e210b06bc",
+      "size": 3124,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/45cf5f5ba28913c24badf4381cb29e8e210b06bc"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_43.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "45cf5f5ba28913c24badf4381cb29e8e210b06bc",
+      "size": 3124,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/45cf5f5ba28913c24badf4381cb29e8e210b06bc"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_44.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f95bced22047811eb60888628c0876ea0bd37116",
+      "size": 3134,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f95bced22047811eb60888628c0876ea0bd37116"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_45.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f95bced22047811eb60888628c0876ea0bd37116",
+      "size": 3134,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f95bced22047811eb60888628c0876ea0bd37116"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_46.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f95bced22047811eb60888628c0876ea0bd37116",
+      "size": 3134,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f95bced22047811eb60888628c0876ea0bd37116"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_47.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f95bced22047811eb60888628c0876ea0bd37116",
+      "size": 3134,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f95bced22047811eb60888628c0876ea0bd37116"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_48.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f95bced22047811eb60888628c0876ea0bd37116",
+      "size": 3134,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f95bced22047811eb60888628c0876ea0bd37116"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_49.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f95bced22047811eb60888628c0876ea0bd37116",
+      "size": 3134,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f95bced22047811eb60888628c0876ea0bd37116"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_5.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "43f823a9f373eae5477b3bbf4f8996601906b221",
+      "size": 593,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/43f823a9f373eae5477b3bbf4f8996601906b221"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_6.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "254941df3418ce1865f20481e1e1b72bcc6863b8",
+      "size": 660,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/254941df3418ce1865f20481e1e1b72bcc6863b8"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_7.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cf8fbfb7453a77d1f3e41a8480c06fd0e283e8e4",
+      "size": 773,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/cf8fbfb7453a77d1f3e41a8480c06fd0e283e8e4"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_8.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "568eb922d78f50e348ed2e3761090dd94398657f",
+      "size": 859,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/568eb922d78f50e348ed2e3761090dd94398657f"
+    },
+    {
+      "path": "data/processed/structure_references/davis_reference_9.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "779d85131ef246d02dbda48ed7eda111f97175f0",
+      "size": 924,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/779d85131ef246d02dbda48ed7eda111f97175f0"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_1.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5be2a90b868b8ac6b450463cbbb31145b62ad70d",
+      "size": 390,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/5be2a90b868b8ac6b450463cbbb31145b62ad70d"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_10.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1047c7476c2e94f08018b07d48116b812cec8c04",
+      "size": 999,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/1047c7476c2e94f08018b07d48116b812cec8c04"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_11.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "06085afb8038c35e32b0156b4a4d28d9fd61e0b4",
+      "size": 1113,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/06085afb8038c35e32b0156b4a4d28d9fd61e0b4"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_12.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "521bb85de05a522366cfb6cedf0bc3a9de9c6aa5",
+      "size": 1284,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/521bb85de05a522366cfb6cedf0bc3a9de9c6aa5"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_13.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eff398f41d4e36f7204705b2a0c29d2bd14fd253",
+      "size": 1422,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/eff398f41d4e36f7204705b2a0c29d2bd14fd253"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_14.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3e6a8b35a8908d634e0fed715650ce7186603f5b",
+      "size": 1518,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/3e6a8b35a8908d634e0fed715650ce7186603f5b"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_15.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d8d62df897869836ea7675fc11009697355f2884",
+      "size": 1678,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/d8d62df897869836ea7675fc11009697355f2884"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_16.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "76b7775795100847f783a5c92bab27c3cc135095",
+      "size": 1921,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/76b7775795100847f783a5c92bab27c3cc135095"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_17.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1390a3739f0b2bec80d1a7b3c3b33555d880e7c5",
+      "size": 2064,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/1390a3739f0b2bec80d1a7b3c3b33555d880e7c5"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_18.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d62f5ad7bc4b6c97356c43224679bd0cbc3a1eb7",
+      "size": 2236,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/d62f5ad7bc4b6c97356c43224679bd0cbc3a1eb7"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_19.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d2b244ccaaba82eb9783d50536ba4b7c3fc80d0a",
+      "size": 2412,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/d2b244ccaaba82eb9783d50536ba4b7c3fc80d0a"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_2.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5be2a90b868b8ac6b450463cbbb31145b62ad70d",
+      "size": 390,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/5be2a90b868b8ac6b450463cbbb31145b62ad70d"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_20.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e4c2f9b8c49c1b971d4726e1a5e84f012917210d",
+      "size": 2544,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e4c2f9b8c49c1b971d4726e1a5e84f012917210d"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_21.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "48e8575c54bbde8ed418716c3aca610d5ce58dd7",
+      "size": 2671,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/48e8575c54bbde8ed418716c3aca610d5ce58dd7"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_22.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96cd6c1671735f64b9f3e0e5a997a6ad90f789bb",
+      "size": 2866,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/96cd6c1671735f64b9f3e0e5a997a6ad90f789bb"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_23.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a57fd44465171af9cf7739581771f78f761bd11",
+      "size": 2906,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/1a57fd44465171af9cf7739581771f78f761bd11"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_24.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec00cbae6846a4e26bd7b7a84549b4099c38c0d9",
+      "size": 2936,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ec00cbae6846a4e26bd7b7a84549b4099c38c0d9"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_25.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "131a0c80366b403d325bc785866c275758970934",
+      "size": 3004,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/131a0c80366b403d325bc785866c275758970934"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_26.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c5414cc30ad765dbf9cb8ad4660d3a24cc269c8",
+      "size": 3004,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/0c5414cc30ad765dbf9cb8ad4660d3a24cc269c8"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_27.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0278e1410798275ea56bd7f53a3b9dac193d3e1b",
+      "size": 3024,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/0278e1410798275ea56bd7f53a3b9dac193d3e1b"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_28.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "14ab0d3e444d0804faf1895388af7aefbb15bed4",
+      "size": 3032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/14ab0d3e444d0804faf1895388af7aefbb15bed4"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_29.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "14ab0d3e444d0804faf1895388af7aefbb15bed4",
+      "size": 3032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/14ab0d3e444d0804faf1895388af7aefbb15bed4"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_3.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c13af3ab0de4b1a4136aa06bc39447a8370feb8c",
+      "size": 456,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/c13af3ab0de4b1a4136aa06bc39447a8370feb8c"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_30.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b61bd00bd5684709a79dc5488261dcf280d04436",
+      "size": 3032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/b61bd00bd5684709a79dc5488261dcf280d04436"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_31.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01fd1f4085910f8fd21bc76b4fcb20750ecc8230",
+      "size": 3032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/01fd1f4085910f8fd21bc76b4fcb20750ecc8230"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_32.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "beece93acff20ed54c08a5b799c625c237ececb8",
+      "size": 3032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/beece93acff20ed54c08a5b799c625c237ececb8"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_33.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e507fcbefbdcf82cbd2552816c68b4fb4bb60cb0",
+      "size": 3032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e507fcbefbdcf82cbd2552816c68b4fb4bb60cb0"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_34.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dfcbcc6e90eac63147928896d5fdd7f5420f013f",
+      "size": 3032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/dfcbcc6e90eac63147928896d5fdd7f5420f013f"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_35.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "826ba196f0070d74ca144e396d9d96492f4853b7",
+      "size": 3032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/826ba196f0070d74ca144e396d9d96492f4853b7"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_36.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8c974d75cea8a9de0760b6359992698bea041496",
+      "size": 3032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/8c974d75cea8a9de0760b6359992698bea041496"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_37.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8c974d75cea8a9de0760b6359992698bea041496",
+      "size": 3032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/8c974d75cea8a9de0760b6359992698bea041496"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_38.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dde4d7b43cd549ba2475fa9cdec879ebb4f15b6c",
+      "size": 3032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/dde4d7b43cd549ba2475fa9cdec879ebb4f15b6c"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_39.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fcf7797163f61f20b43a3ae4b493098242ff2730",
+      "size": 3032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/fcf7797163f61f20b43a3ae4b493098242ff2730"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_4.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "102158d5b914d34ff756a07e42ca2c5de5e66bb0",
+      "size": 513,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/102158d5b914d34ff756a07e42ca2c5de5e66bb0"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_40.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8ec6dc6f84ea880f4e1f857ff3d91faeafd5aeeb",
+      "size": 3032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/8ec6dc6f84ea880f4e1f857ff3d91faeafd5aeeb"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_41.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8ec6dc6f84ea880f4e1f857ff3d91faeafd5aeeb",
+      "size": 3032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/8ec6dc6f84ea880f4e1f857ff3d91faeafd5aeeb"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_42.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8ec6dc6f84ea880f4e1f857ff3d91faeafd5aeeb",
+      "size": 3032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/8ec6dc6f84ea880f4e1f857ff3d91faeafd5aeeb"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_43.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f274398604ae011c09acb71564df7626828509e4",
+      "size": 3032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f274398604ae011c09acb71564df7626828509e4"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_44.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c0667486913dc9e4b1ac5097b3a854261df74d93",
+      "size": 3032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/c0667486913dc9e4b1ac5097b3a854261df74d93"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_45.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "235b866195197b0d76474a1ae6847b9fe5455eb0",
+      "size": 3032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/235b866195197b0d76474a1ae6847b9fe5455eb0"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_46.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "235b866195197b0d76474a1ae6847b9fe5455eb0",
+      "size": 3032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/235b866195197b0d76474a1ae6847b9fe5455eb0"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_47.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "235b866195197b0d76474a1ae6847b9fe5455eb0",
+      "size": 3032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/235b866195197b0d76474a1ae6847b9fe5455eb0"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_48.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2597d169804bf199246e8f038fe7b5c65c9be84",
+      "size": 3032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/a2597d169804bf199246e8f038fe7b5c65c9be84"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_49.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "33d580aa124c81a13ba983f9840c154202ff98c9",
+      "size": 3032,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/33d580aa124c81a13ba983f9840c154202ff98c9"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_5.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1455d90e614519bc4cd6d5d03dcbdbb93279024d",
+      "size": 550,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/1455d90e614519bc4cd6d5d03dcbdbb93279024d"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_6.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "67211c39711f88e742462ba984b900f7db18c9c9",
+      "size": 579,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/67211c39711f88e742462ba984b900f7db18c9c9"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_7.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bfb149c8a95ebf5e045604c482c53e9bab86b489",
+      "size": 664,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/bfb149c8a95ebf5e045604c482c53e9bab86b489"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_8.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f3c7a3c30b1ad66e37635057a689973086a7a60",
+      "size": 752,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/4f3c7a3c30b1ad66e37635057a689973086a7a60"
+    },
+    {
+      "path": "data/processed/structure_references/duf_reference_9.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "efbfd90f35015fd7ddc8cdd63f0f2179ee9c56fd",
+      "size": 895,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/efbfd90f35015fd7ddc8cdd63f0f2179ee9c56fd"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_1.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ee28db0b7ab96dd7e3ed653dd550847cd3cb6af1",
+      "size": 407,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ee28db0b7ab96dd7e3ed653dd550847cd3cb6af1"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_10.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c2debb2b91478f493a4af02b6d391e65bb6e57af",
+      "size": 1221,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/c2debb2b91478f493a4af02b6d391e65bb6e57af"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_11.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "564afceff9a492625ed7ab50549c00c10e7a2ee3",
+      "size": 1407,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/564afceff9a492625ed7ab50549c00c10e7a2ee3"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_12.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3600df93ed6119b680ab361ea1924a016b708911",
+      "size": 1660,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/3600df93ed6119b680ab361ea1924a016b708911"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_13.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8af9b6820b7323da60b07f6fd0db29ca65581c15",
+      "size": 1798,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/8af9b6820b7323da60b07f6fd0db29ca65581c15"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_14.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ef2d52b8595abbbce26b8de7df09b369c1cb201e",
+      "size": 1990,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ef2d52b8595abbbce26b8de7df09b369c1cb201e"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_15.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1999b9550194f5e77400b799688ff9704ee5dd98",
+      "size": 2224,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/1999b9550194f5e77400b799688ff9704ee5dd98"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_16.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "75e0aa24fba2f308210487d9a26ddade88a4749a",
+      "size": 2343,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/75e0aa24fba2f308210487d9a26ddade88a4749a"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_17.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5d67b223a0d06683aa2c033c1a0f276802bdcce0",
+      "size": 2478,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/5d67b223a0d06683aa2c033c1a0f276802bdcce0"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_18.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a02612bad0adf7af575be616b37a3bb10b719f95",
+      "size": 2671,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/a02612bad0adf7af575be616b37a3bb10b719f95"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_19.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b9035c2700f9e539342d9664fb6131efd57fa658",
+      "size": 2794,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/b9035c2700f9e539342d9664fb6131efd57fa658"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_2.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "13ebe0f458cf4b24a52a005623f26a958dc156b1",
+      "size": 467,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/13ebe0f458cf4b24a52a005623f26a958dc156b1"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_20.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1717aef1a333dc0cd1d6356caed58f0a00a8a446",
+      "size": 2937,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/1717aef1a333dc0cd1d6356caed58f0a00a8a446"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_21.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0b71ed60f07a546270fe25be56d342a8e90b35fe",
+      "size": 3090,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/0b71ed60f07a546270fe25be56d342a8e90b35fe"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_22.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b9359f8e73429cfd8beac2dae8d2b111cc621369",
+      "size": 3142,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/b9359f8e73429cfd8beac2dae8d2b111cc621369"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_23.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7348a5a42917ed0838894a13f5b71f065505cad4",
+      "size": 3218,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/7348a5a42917ed0838894a13f5b71f065505cad4"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_24.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f1bce9cf280785861265470c8b0c061f2cc9812a",
+      "size": 3308,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f1bce9cf280785861265470c8b0c061f2cc9812a"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_25.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e28f5920adba081c799c173eb7ffbd460f0ee7f4",
+      "size": 3364,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e28f5920adba081c799c173eb7ffbd460f0ee7f4"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_26.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0f1bc7e6e02095140a5a0b1ac6c894c78453d210",
+      "size": 3382,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/0f1bc7e6e02095140a5a0b1ac6c894c78453d210"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_27.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cda11d3cda3cc9cc23837c7e75eee2159731bc8d",
+      "size": 3420,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/cda11d3cda3cc9cc23837c7e75eee2159731bc8d"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_28.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d0d1cfcf09ce5fe8e058ec4d740c248710cdcfd3",
+      "size": 3429,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/d0d1cfcf09ce5fe8e058ec4d740c248710cdcfd3"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_29.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6a5a76e37daf635f2759d25ddf7a166a0b88e6ed",
+      "size": 3439,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/6a5a76e37daf635f2759d25ddf7a166a0b88e6ed"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_3.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3fe42d5c7c333c77f2879bbb0672383219379e9b",
+      "size": 487,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/3fe42d5c7c333c77f2879bbb0672383219379e9b"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_30.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b8a0680e0d498488d32de9dc4f3e203b7d47ef87",
+      "size": 3439,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/b8a0680e0d498488d32de9dc4f3e203b7d47ef87"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_31.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b8a0680e0d498488d32de9dc4f3e203b7d47ef87",
+      "size": 3439,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/b8a0680e0d498488d32de9dc4f3e203b7d47ef87"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_32.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab",
+      "size": 3439,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_33.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab",
+      "size": 3439,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_34.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab",
+      "size": 3439,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_35.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab",
+      "size": 3439,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_36.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab",
+      "size": 3439,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_37.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab",
+      "size": 3439,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_38.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab",
+      "size": 3439,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_39.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab",
+      "size": 3439,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_4.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0817586fa3d6bed0809000a2ea9b3b5357b32bff",
+      "size": 625,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/0817586fa3d6bed0809000a2ea9b3b5357b32bff"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_40.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab",
+      "size": 3439,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_41.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab",
+      "size": 3439,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_42.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab",
+      "size": 3439,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_43.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab",
+      "size": 3439,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_44.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab",
+      "size": 3439,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_45.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab",
+      "size": 3439,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_46.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab",
+      "size": 3439,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_47.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab",
+      "size": 3439,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_48.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab",
+      "size": 3439,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_49.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab",
+      "size": 3439,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/aa2d5387ccbfd3eb2804930ceb4c99a8e50d55ab"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_5.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "67c6a270a948b40099bb4832e895a70d4bc43a66",
+      "size": 695,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/67c6a270a948b40099bb4832e895a70d4bc43a66"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_6.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "710cb0af82656a16009a7d17477b45a8c0e249b7",
+      "size": 743,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/710cb0af82656a16009a7d17477b45a8c0e249b7"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_7.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "38056f0a549a83b1a409bdbf6597a31637a76ed7",
+      "size": 840,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/38056f0a549a83b1a409bdbf6597a31637a76ed7"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_8.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "61817f0a054de99f035482c08a2467dfdccd8d5b",
+      "size": 938,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/61817f0a054de99f035482c08a2467dfdccd8d5b"
+    },
+    {
+      "path": "data/processed/structure_references/esterase_reference_9.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a72c5ec34138be4c07cb5a09f8c15b771b208f0",
+      "size": 1106,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/1a72c5ec34138be4c07cb5a09f8c15b771b208f0"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_1.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f831ed8009c04bcd21577a05ae70e90b3a820d9",
+      "size": 532,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/4f831ed8009c04bcd21577a05ae70e90b3a820d9"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_10.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bf2ca7b6705dc0d3ecb784dd37ba6f00ca6d0c64",
+      "size": 1692,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/bf2ca7b6705dc0d3ecb784dd37ba6f00ca6d0c64"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_11.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3c3d961f1c05ecab8db6e3d79d40d0d433a791d8",
+      "size": 1909,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/3c3d961f1c05ecab8db6e3d79d40d0d433a791d8"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_12.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae1d0d45d6386c4dea3b53c05d421d264d8ae8d4",
+      "size": 2106,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ae1d0d45d6386c4dea3b53c05d421d264d8ae8d4"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_13.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "67a0f02fc8e5e84c5b44c1df9e6f7a2e4426e49f",
+      "size": 2358,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/67a0f02fc8e5e84c5b44c1df9e6f7a2e4426e49f"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_14.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dfda15debc7770f5eeb6225744ea16fbd8e4ea20",
+      "size": 2525,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/dfda15debc7770f5eeb6225744ea16fbd8e4ea20"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_15.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "582a29714e59d4846ac0669abb2f3c7f5643e234",
+      "size": 2767,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/582a29714e59d4846ac0669abb2f3c7f5643e234"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_16.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "98d46ebba62dfcfe9559892395da6622f9718598",
+      "size": 3100,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/98d46ebba62dfcfe9559892395da6622f9718598"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_17.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "76447738273455e556c73a41d57b90df66ea778d",
+      "size": 3335,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/76447738273455e556c73a41d57b90df66ea778d"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_18.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ff95c57dbc270ce8cfcc2195625a89c59ec4293",
+      "size": 3591,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/1ff95c57dbc270ce8cfcc2195625a89c59ec4293"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_19.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0713e5401e6ed0b9b810524848e89f09a3993e2d",
+      "size": 3810,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/0713e5401e6ed0b9b810524848e89f09a3993e2d"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_2.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f831ed8009c04bcd21577a05ae70e90b3a820d9",
+      "size": 532,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/4f831ed8009c04bcd21577a05ae70e90b3a820d9"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_20.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cddf09e412b610bc3b6319fe734c7fbeb55707d7",
+      "size": 4016,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/cddf09e412b610bc3b6319fe734c7fbeb55707d7"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_21.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c6942799a5b33fd40869ac6e7dc6474d6fc65f71",
+      "size": 4190,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/c6942799a5b33fd40869ac6e7dc6474d6fc65f71"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_22.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "41e048da9bcf1b9689009c5ef33489bff4bc826f",
+      "size": 4357,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/41e048da9bcf1b9689009c5ef33489bff4bc826f"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_23.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3da7d57647ca0c3fc286c1975b3c5e6d8b79cd21",
+      "size": 4495,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/3da7d57647ca0c3fc286c1975b3c5e6d8b79cd21"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_24.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d5f3a2a24ec06757e63820c4ff38fed71342852a",
+      "size": 4564,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/d5f3a2a24ec06757e63820c4ff38fed71342852a"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_25.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2c578dc4224c62459e8ccbde2a70b228ca0baa13",
+      "size": 4622,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/2c578dc4224c62459e8ccbde2a70b228ca0baa13"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_26.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "686376fed96f8dc497cbb039ff4ba56f01db1da6",
+      "size": 4691,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/686376fed96f8dc497cbb039ff4ba56f01db1da6"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_27.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "053bff6d18e3dcaf3aaf0c4b36cb0a6d791cdaec",
+      "size": 4748,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/053bff6d18e3dcaf3aaf0c4b36cb0a6d791cdaec"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_28.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7d0920866ac553c2b66ae68d62561e26bf3e04c6",
+      "size": 4748,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/7d0920866ac553c2b66ae68d62561e26bf3e04c6"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_29.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "800fd0f215bc48514599d497eeb7774993e27ee9",
+      "size": 4777,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/800fd0f215bc48514599d497eeb7774993e27ee9"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_3.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3946b27d6e4a3e7a5970f6f918a267306976c32a",
+      "size": 631,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/3946b27d6e4a3e7a5970f6f918a267306976c32a"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_30.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "23c5dc8fc0d60ce4bd8fc8daaba62d922c518d38",
+      "size": 4826,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/23c5dc8fc0d60ce4bd8fc8daaba62d922c518d38"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_31.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "340a01e310a9af2f86168accd3e1433fc8f8d64e",
+      "size": 4826,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/340a01e310a9af2f86168accd3e1433fc8f8d64e"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_32.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64e2dc476d9417bb34dbe9f721ad58a632a37f8f",
+      "size": 4846,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/64e2dc476d9417bb34dbe9f721ad58a632a37f8f"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_33.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5252048a408491f53582f36d59b90d810ebc831a",
+      "size": 4855,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/5252048a408491f53582f36d59b90d810ebc831a"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_34.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4e0393d9c89cffa0aad96ea62e8f19ba6714b558",
+      "size": 4864,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/4e0393d9c89cffa0aad96ea62e8f19ba6714b558"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_35.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f717c3c983366bdde386a205cd93ca61ebef75ff",
+      "size": 4874,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f717c3c983366bdde386a205cd93ca61ebef75ff"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_36.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f717c3c983366bdde386a205cd93ca61ebef75ff",
+      "size": 4874,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f717c3c983366bdde386a205cd93ca61ebef75ff"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_37.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f717c3c983366bdde386a205cd93ca61ebef75ff",
+      "size": 4874,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f717c3c983366bdde386a205cd93ca61ebef75ff"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_38.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f717c3c983366bdde386a205cd93ca61ebef75ff",
+      "size": 4874,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f717c3c983366bdde386a205cd93ca61ebef75ff"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_39.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f717c3c983366bdde386a205cd93ca61ebef75ff",
+      "size": 4874,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f717c3c983366bdde386a205cd93ca61ebef75ff"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_4.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "09f49136f9d98d5e258963ec7e8177d2a6a670f3",
+      "size": 809,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/09f49136f9d98d5e258963ec7e8177d2a6a670f3"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_40.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f717c3c983366bdde386a205cd93ca61ebef75ff",
+      "size": 4874,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f717c3c983366bdde386a205cd93ca61ebef75ff"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_41.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f717c3c983366bdde386a205cd93ca61ebef75ff",
+      "size": 4874,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f717c3c983366bdde386a205cd93ca61ebef75ff"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_42.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f717c3c983366bdde386a205cd93ca61ebef75ff",
+      "size": 4874,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f717c3c983366bdde386a205cd93ca61ebef75ff"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_43.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f717c3c983366bdde386a205cd93ca61ebef75ff",
+      "size": 4874,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f717c3c983366bdde386a205cd93ca61ebef75ff"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_44.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f717c3c983366bdde386a205cd93ca61ebef75ff",
+      "size": 4874,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f717c3c983366bdde386a205cd93ca61ebef75ff"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_45.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f717c3c983366bdde386a205cd93ca61ebef75ff",
+      "size": 4874,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f717c3c983366bdde386a205cd93ca61ebef75ff"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_46.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f717c3c983366bdde386a205cd93ca61ebef75ff",
+      "size": 4874,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f717c3c983366bdde386a205cd93ca61ebef75ff"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_47.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f717c3c983366bdde386a205cd93ca61ebef75ff",
+      "size": 4874,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f717c3c983366bdde386a205cd93ca61ebef75ff"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_48.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f717c3c983366bdde386a205cd93ca61ebef75ff",
+      "size": 4874,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f717c3c983366bdde386a205cd93ca61ebef75ff"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_49.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f717c3c983366bdde386a205cd93ca61ebef75ff",
+      "size": 4874,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f717c3c983366bdde386a205cd93ca61ebef75ff"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_5.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c5899471198b76efccafeb0d1018c89044215a11",
+      "size": 916,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/c5899471198b76efccafeb0d1018c89044215a11"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_6.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0d326e91629746040408bfa55a9eaf8470951261",
+      "size": 1043,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/0d326e91629746040408bfa55a9eaf8470951261"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_7.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4a5304a9b4935c7c297231c440eca6ae616ad8af",
+      "size": 1202,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/4a5304a9b4935c7c297231c440eca6ae616ad8af"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_8.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "312c6250c1f2099151292cb214ce6ad13af287a7",
+      "size": 1349,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/312c6250c1f2099151292cb214ce6ad13af287a7"
+    },
+    {
+      "path": "data/processed/structure_references/gt_reference_9.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d10bfaa3eaabd59e3f07dee06fd3cec2a4077ab6",
+      "size": 1535,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/d10bfaa3eaabd59e3f07dee06fd3cec2a4077ab6"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_1.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1b58e3cdd65d35961730ab658e518dabd167911d",
+      "size": 612,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/1b58e3cdd65d35961730ab658e518dabd167911d"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_10.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "388ff4a8d0e8b8a66f171fbdc79f92c7fc8c52c8",
+      "size": 1375,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/388ff4a8d0e8b8a66f171fbdc79f92c7fc8c52c8"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_11.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "138390ff1ddf8614f67aa885ffcee34884757e20",
+      "size": 1524,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/138390ff1ddf8614f67aa885ffcee34884757e20"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_12.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "09d1cde065578680fedce4be617b6974ef4f69b8",
+      "size": 1622,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/09d1cde065578680fedce4be617b6974ef4f69b8"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_13.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3ba4d84addbf84c8aab59ab2a1e9e99fad00a88f",
+      "size": 1799,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/3ba4d84addbf84c8aab59ab2a1e9e99fad00a88f"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_14.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ff388d2d8dd8bc3b0700494a0f38ded17db0a2e",
+      "size": 2003,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/1ff388d2d8dd8bc3b0700494a0f38ded17db0a2e"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_15.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "00f45049ca517b112afd672085cf29486611593f",
+      "size": 2112,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/00f45049ca517b112afd672085cf29486611593f"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_16.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2c1213109b8af748e903e16056038fc9f2b1cf6f",
+      "size": 2357,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/2c1213109b8af748e903e16056038fc9f2b1cf6f"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_17.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "199b4aec9d007de1e1e05c335e22426ebaeda735",
+      "size": 2623,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/199b4aec9d007de1e1e05c335e22426ebaeda735"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_18.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "149440f73b739cc9c70e46020d45b29ab98fe7bc",
+      "size": 2906,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/149440f73b739cc9c70e46020d45b29ab98fe7bc"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_19.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d26e6b87e0d82d74b20e49d5c3f022d5b2d7968",
+      "size": 3184,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/8d26e6b87e0d82d74b20e49d5c3f022d5b2d7968"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_2.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1b58e3cdd65d35961730ab658e518dabd167911d",
+      "size": 612,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/1b58e3cdd65d35961730ab658e518dabd167911d"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_20.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8e1bf8e9891865a56843f41436db765faf4eb958",
+      "size": 3528,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/8e1bf8e9891865a56843f41436db765faf4eb958"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_21.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d87dc85a5e266db377db729b5ff7c77a28979bcd",
+      "size": 3725,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/d87dc85a5e266db377db729b5ff7c77a28979bcd"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_22.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "86220763bde4e9b3bf061749721c3a324eb0c138",
+      "size": 3899,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/86220763bde4e9b3bf061749721c3a324eb0c138"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_23.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01be3ab9700c7b7bb036d8d660959cfd1cc892e8",
+      "size": 4216,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/01be3ab9700c7b7bb036d8d660959cfd1cc892e8"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_24.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a376d50456da535620fd70c0f633290a921d1d6b",
+      "size": 4424,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/a376d50456da535620fd70c0f633290a921d1d6b"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_25.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a26911e5b57ecf8f03597d99bc91cd862e029f93",
+      "size": 4679,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/a26911e5b57ecf8f03597d99bc91cd862e029f93"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_26.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd947eaba607e1b2a31b082ecc8e40f429209931",
+      "size": 4824,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/bd947eaba607e1b2a31b082ecc8e40f429209931"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_27.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c81b32eb6f9222f09c6604ee472e811f8cf88d37",
+      "size": 4913,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/c81b32eb6f9222f09c6604ee472e811f8cf88d37"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_28.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "46a29d67532e44a6d6d5bceca7e393c2efd6c6f9",
+      "size": 5009,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/46a29d67532e44a6d6d5bceca7e393c2efd6c6f9"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_29.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "523a60d71291ea1699eceb4f8370e4a22d969106",
+      "size": 5066,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/523a60d71291ea1699eceb4f8370e4a22d969106"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_3.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "24e8a993a03f16a7b232de43e00033982ac7e707",
+      "size": 652,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/24e8a993a03f16a7b232de43e00033982ac7e707"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_30.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ea727bc81b8d5763ebd5f83fd661b74605a49fd4",
+      "size": 5193,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ea727bc81b8d5763ebd5f83fd661b74605a49fd4"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_31.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4dec70cb9b65f6d2292c4aff8d7836b60ccac8e1",
+      "size": 5269,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/4dec70cb9b65f6d2292c4aff8d7836b60ccac8e1"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_32.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3ab6509cb4f2a53cb1277164b6d516b5415a2fa6",
+      "size": 5326,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/3ab6509cb4f2a53cb1277164b6d516b5415a2fa6"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_33.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a0d200e2239e7955b4633264ac97b6f838e27d6",
+      "size": 5394,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/7a0d200e2239e7955b4633264ac97b6f838e27d6"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_34.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3cf681638dd2619656cb2e2b5a74373c5b2d1d3f",
+      "size": 5470,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/3cf681638dd2619656cb2e2b5a74373c5b2d1d3f"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_35.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "62ec0ae813f4fdcc5ee887d69b5825c762c34dd6",
+      "size": 5508,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/62ec0ae813f4fdcc5ee887d69b5825c762c34dd6"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_36.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "199fe42d7050a030b9d654b1a45e082c8552e15c",
+      "size": 5536,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/199fe42d7050a030b9d654b1a45e082c8552e15c"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_37.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "928ff95a82299de708c5eab7cfec601538f0db72",
+      "size": 5586,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/928ff95a82299de708c5eab7cfec601538f0db72"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_38.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ded6b1822b42b9276ca71f76923d5a88ad3cae4e",
+      "size": 5616,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ded6b1822b42b9276ca71f76923d5a88ad3cae4e"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_39.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "284ff4f94f1abffb97ebec2bad050a786ca3844a",
+      "size": 5636,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/284ff4f94f1abffb97ebec2bad050a786ca3844a"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_4.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bc9c281635bde695ba5fa7e6fd0107c1599802ce",
+      "size": 758,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/bc9c281635bde695ba5fa7e6fd0107c1599802ce"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_40.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d44ea7c722a6cbfea9e5907bb4a80d48a1673358",
+      "size": 5656,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/d44ea7c722a6cbfea9e5907bb4a80d48a1673358"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_41.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b25851b706485a3e45149a895c49bd2d3ca91be3",
+      "size": 5666,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/b25851b706485a3e45149a895c49bd2d3ca91be3"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_42.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e5757e0e680609c5f0788fa8efa486b417135ebc",
+      "size": 5676,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e5757e0e680609c5f0788fa8efa486b417135ebc"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_43.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e5757e0e680609c5f0788fa8efa486b417135ebc",
+      "size": 5676,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e5757e0e680609c5f0788fa8efa486b417135ebc"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_44.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e5757e0e680609c5f0788fa8efa486b417135ebc",
+      "size": 5676,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e5757e0e680609c5f0788fa8efa486b417135ebc"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_45.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e5757e0e680609c5f0788fa8efa486b417135ebc",
+      "size": 5676,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e5757e0e680609c5f0788fa8efa486b417135ebc"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_46.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e5757e0e680609c5f0788fa8efa486b417135ebc",
+      "size": 5676,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e5757e0e680609c5f0788fa8efa486b417135ebc"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_47.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e5757e0e680609c5f0788fa8efa486b417135ebc",
+      "size": 5676,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e5757e0e680609c5f0788fa8efa486b417135ebc"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_48.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e5757e0e680609c5f0788fa8efa486b417135ebc",
+      "size": 5676,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e5757e0e680609c5f0788fa8efa486b417135ebc"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_49.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e5757e0e680609c5f0788fa8efa486b417135ebc",
+      "size": 5676,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e5757e0e680609c5f0788fa8efa486b417135ebc"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_5.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "27c8c2922d58f35687ddb718d847d0996a3613f3",
+      "size": 787,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/27c8c2922d58f35687ddb718d847d0996a3613f3"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_6.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae5ef6ce8848703217fed9bda4c86458fcb3ffe2",
+      "size": 825,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ae5ef6ce8848703217fed9bda4c86458fcb3ffe2"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_7.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f6b999ab5874b4f2fac67ae85e5276d9c145a37",
+      "size": 942,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/9f6b999ab5874b4f2fac67ae85e5276d9c145a37"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_8.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ac63e4beba2afd9037817792eeff17068efc4efa",
+      "size": 1070,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ac63e4beba2afd9037817792eeff17068efc4efa"
+    },
+    {
+      "path": "data/processed/structure_references/halogenase_reference_9.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "547f291dfc13ad9232c89277835ebdf1485db007",
+      "size": 1209,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/547f291dfc13ad9232c89277835ebdf1485db007"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_1.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bff39f930b518fec1f2afdd92b744d189fd80dbe",
+      "size": 430,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/bff39f930b518fec1f2afdd92b744d189fd80dbe"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_10.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa50f3ba4f67b7131f9f6f324eb3a9e2825ea92d",
+      "size": 1302,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/aa50f3ba4f67b7131f9f6f324eb3a9e2825ea92d"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_11.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "89eafcbdd0b050c46d2169632fbcaa1e2ef47bcd",
+      "size": 1496,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/89eafcbdd0b050c46d2169632fbcaa1e2ef47bcd"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_12.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6391de8091f56d4a00eb2d9ff2c7d49a6644e6a3",
+      "size": 1672,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/6391de8091f56d4a00eb2d9ff2c7d49a6644e6a3"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_13.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2f6d785b896412f30f67ed3732a5bf42e4655959",
+      "size": 1883,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/2f6d785b896412f30f67ed3732a5bf42e4655959"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_14.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a50ece122406d4d9f12a243d07be86375490c205",
+      "size": 2079,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/a50ece122406d4d9f12a243d07be86375490c205"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_15.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bc5350722c894f4fb320b7bc44dfea6c589ec950",
+      "size": 2279,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/bc5350722c894f4fb320b7bc44dfea6c589ec950"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_16.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2774ea2ae2a455c1188f05ffffbff31db82b841e",
+      "size": 2394,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/2774ea2ae2a455c1188f05ffffbff31db82b841e"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_17.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b3b54caffe3d70f15f5341abdb7af93e8195445",
+      "size": 2520,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/7b3b54caffe3d70f15f5341abdb7af93e8195445"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_18.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "041a8d0c04ea0b5b3dc787bf4dbab9cb3b662a8f",
+      "size": 2748,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/041a8d0c04ea0b5b3dc787bf4dbab9cb3b662a8f"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_19.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0a177d0d83b38b1d90a7a84c09fb6d3cf05703ec",
+      "size": 2826,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/0a177d0d83b38b1d90a7a84c09fb6d3cf05703ec"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_2.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "65c29ada332b410aa57975f05b41a54c75df70f2",
+      "size": 488,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/65c29ada332b410aa57975f05b41a54c75df70f2"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_20.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2764e5037a6a916a79157bd4a11c7b17a9b541ea",
+      "size": 2941,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/2764e5037a6a916a79157bd4a11c7b17a9b541ea"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_21.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "050e267af5277c5cd80d6fa63cfb614a3b6aac98",
+      "size": 3017,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/050e267af5277c5cd80d6fa63cfb614a3b6aac98"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_22.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c2eb8d7ac150df07fb8def745ba58a85371acb93",
+      "size": 3085,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/c2eb8d7ac150df07fb8def745ba58a85371acb93"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_23.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ce2f65bbcf4717bfa5b2fe3ab49a5eee1d55ddc8",
+      "size": 3120,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ce2f65bbcf4717bfa5b2fe3ab49a5eee1d55ddc8"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_24.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "69d0893b35040beb03b861f588248163cdee6636",
+      "size": 3147,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/69d0893b35040beb03b861f588248163cdee6636"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_25.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "675e20cbc775d319110e53efe66c2298695cebcf",
+      "size": 3156,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/675e20cbc775d319110e53efe66c2298695cebcf"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_26.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dce79919b7a314562601f9699033b25494a22797",
+      "size": 3164,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/dce79919b7a314562601f9699033b25494a22797"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_27.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "095ebb0158989f0608e1399133ac472c8b8c826a",
+      "size": 3172,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/095ebb0158989f0608e1399133ac472c8b8c826a"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_28.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "019e6b7ab8e6e46c176a9979a5fa5bec9cd26143",
+      "size": 3172,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/019e6b7ab8e6e46c176a9979a5fa5bec9cd26143"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_29.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44047d282321b22b4ea8f9cbc307ab4a01204ed8",
+      "size": 3181,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/44047d282321b22b4ea8f9cbc307ab4a01204ed8"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_3.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "93d4e622aea16a4e737d578c50c080833ed6abeb",
+      "size": 547,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/93d4e622aea16a4e737d578c50c080833ed6abeb"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_30.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f3699d9ed57f9cafde269576a0624a199df1ed7d",
+      "size": 3181,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f3699d9ed57f9cafde269576a0624a199df1ed7d"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_31.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "465d341916b98be10e2fd3ccd959de628e58cd0d",
+      "size": 3181,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/465d341916b98be10e2fd3ccd959de628e58cd0d"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_32.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "658f8dc12e6999603a4292640409571db3b2e78a",
+      "size": 3181,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/658f8dc12e6999603a4292640409571db3b2e78a"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_33.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8402ebbf72ca5fb7d50b325de74b553c814da089",
+      "size": 3181,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/8402ebbf72ca5fb7d50b325de74b553c814da089"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_34.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ceec0b2f069e933ae809ef244e8277e9afb2cbd8",
+      "size": 3181,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ceec0b2f069e933ae809ef244e8277e9afb2cbd8"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_35.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ceec0b2f069e933ae809ef244e8277e9afb2cbd8",
+      "size": 3181,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ceec0b2f069e933ae809ef244e8277e9afb2cbd8"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_36.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "71bc354707786c87195d95209d5cd39ba9ab31aa",
+      "size": 3181,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/71bc354707786c87195d95209d5cd39ba9ab31aa"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_37.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "354b99286ec02c3e1ce1cd694c6db813bee71275",
+      "size": 3181,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/354b99286ec02c3e1ce1cd694c6db813bee71275"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_38.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6e562ce230c6315cba36e5d821c9ed5e1d919093",
+      "size": 3181,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/6e562ce230c6315cba36e5d821c9ed5e1d919093"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_39.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "21c17ba7bc97813b3af07be368628eedfb4d7de3",
+      "size": 3181,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/21c17ba7bc97813b3af07be368628eedfb4d7de3"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_4.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1dfa94d59a25e0b16e025e4e8d1de5b828e41a58",
+      "size": 616,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/1dfa94d59a25e0b16e025e4e8d1de5b828e41a58"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_40.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d710dab2152519e77ccd5e8185794a969228c310",
+      "size": 3181,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/d710dab2152519e77ccd5e8185794a969228c310"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_41.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d710dab2152519e77ccd5e8185794a969228c310",
+      "size": 3181,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/d710dab2152519e77ccd5e8185794a969228c310"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_42.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d710dab2152519e77ccd5e8185794a969228c310",
+      "size": 3181,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/d710dab2152519e77ccd5e8185794a969228c310"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_43.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "071d95094ea70445169ae7b6c8a5cfe37327de7f",
+      "size": 3181,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/071d95094ea70445169ae7b6c8a5cfe37327de7f"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_44.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "071d95094ea70445169ae7b6c8a5cfe37327de7f",
+      "size": 3181,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/071d95094ea70445169ae7b6c8a5cfe37327de7f"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_45.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7803abfa04be73e5d887ad8a96e8c6f8bc71ebc",
+      "size": 3181,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e7803abfa04be73e5d887ad8a96e8c6f8bc71ebc"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_46.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7803abfa04be73e5d887ad8a96e8c6f8bc71ebc",
+      "size": 3181,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e7803abfa04be73e5d887ad8a96e8c6f8bc71ebc"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_47.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cec02fb4053f30ad4d9f54fb096a83a6cbb105e8",
+      "size": 3181,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/cec02fb4053f30ad4d9f54fb096a83a6cbb105e8"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_48.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e6dcf79115306e6a75ce7fe24901f9194b0dde3d",
+      "size": 3181,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e6dcf79115306e6a75ce7fe24901f9194b0dde3d"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_49.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e6dcf79115306e6a75ce7fe24901f9194b0dde3d",
+      "size": 3181,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e6dcf79115306e6a75ce7fe24901f9194b0dde3d"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_5.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "33edfcad4dd0fbafb74e16eeb0b6b6201b900652",
+      "size": 705,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/33edfcad4dd0fbafb74e16eeb0b6b6201b900652"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_6.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b8c913cb4c34965833056b4f2a1ade5b54eec3a3",
+      "size": 823,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/b8c913cb4c34965833056b4f2a1ade5b54eec3a3"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_7.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e4bc108da0c5bd14034c213edcb99537acdb0628",
+      "size": 901,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e4bc108da0c5bd14034c213edcb99537acdb0628"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_8.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9bd42fe2d1ce494e8d309de6e757fb2e2667a149",
+      "size": 1048,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/9bd42fe2d1ce494e8d309de6e757fb2e2667a149"
+    },
+    {
+      "path": "data/processed/structure_references/nitrilase_reference_9.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a58fe221f96e8b13b93dd94ba9394121b625f0b7",
+      "size": 1185,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/a58fe221f96e8b13b93dd94ba9394121b625f0b7"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_1.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a7f4c3285233b5566790670aaf6da77bb43ad758",
+      "size": 465,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/a7f4c3285233b5566790670aaf6da77bb43ad758"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_10.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b18fa98b64f3d6ef9ec0164b6ee9caac0009bab3",
+      "size": 985,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/b18fa98b64f3d6ef9ec0164b6ee9caac0009bab3"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_11.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7fd594c84be4da4acaa175c79243112cd1fb0312",
+      "size": 1135,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/7fd594c84be4da4acaa175c79243112cd1fb0312"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_12.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0b3df81233aa38e753de994d224923edea3b196b",
+      "size": 1325,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/0b3df81233aa38e753de994d224923edea3b196b"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_13.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3be98981050244a12aa188f1e68ddf6bd4c367f3",
+      "size": 1565,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/3be98981050244a12aa188f1e68ddf6bd4c367f3"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_14.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ba82932bfc82329398ec6b8f911bc7dea6b4ecfb",
+      "size": 1704,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ba82932bfc82329398ec6b8f911bc7dea6b4ecfb"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_15.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4c1a4c6452b79d0c930fcb04efcf7c2f171caa7f",
+      "size": 1969,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/4c1a4c6452b79d0c930fcb04efcf7c2f171caa7f"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_16.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "85adc72655054eb72c561cd5beb34706af41038f",
+      "size": 2230,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/85adc72655054eb72c561cd5beb34706af41038f"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_17.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b94bc444efb4e9ee309400cb4b8922791150da42",
+      "size": 2426,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/b94bc444efb4e9ee309400cb4b8922791150da42"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_18.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9fce94600c50a036e1bf7e01efd3b066b2b929d0",
+      "size": 2609,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/9fce94600c50a036e1bf7e01efd3b066b2b929d0"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_19.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "981d3f3f62a8f1d825cb186293d9e5ab4cd4713b",
+      "size": 2780,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/981d3f3f62a8f1d825cb186293d9e5ab4cd4713b"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_2.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "702c52d5ff36e608c6c3920da3ee193ea64aa455",
+      "size": 485,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/702c52d5ff36e608c6c3920da3ee193ea64aa455"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_20.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "13c9e954d66ab615ca4b073a1ff543941392701e",
+      "size": 2914,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/13c9e954d66ab615ca4b073a1ff543941392701e"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_21.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5ff750d1c9bc8ab9eaaff84058c5930299c57966",
+      "size": 3137,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/5ff750d1c9bc8ab9eaaff84058c5930299c57966"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_22.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8f9d2839e0454acfbb6a4f1b52c120cadcd8a543",
+      "size": 3250,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/8f9d2839e0454acfbb6a4f1b52c120cadcd8a543"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_23.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "969fc4bfdfc01c041aa6a68e12aa8873ed588ad9",
+      "size": 3355,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/969fc4bfdfc01c041aa6a68e12aa8873ed588ad9"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_24.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "431a587e0daefd2625320e547f5e10321dc30603",
+      "size": 3490,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/431a587e0daefd2625320e547f5e10321dc30603"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_25.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1756844d82169853d75097f9aab5bbd31ccd1166",
+      "size": 3529,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/1756844d82169853d75097f9aab5bbd31ccd1166"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_26.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "145dc2e17f7df71a875f6d0f862478d00339043f",
+      "size": 3605,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/145dc2e17f7df71a875f6d0f862478d00339043f"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_27.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f9bed4e4b2111bf24a05a926d87a8eaf14256400",
+      "size": 3634,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f9bed4e4b2111bf24a05a926d87a8eaf14256400"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_28.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6551e88359a55e46fe2352c4898175b502a35c8f",
+      "size": 3681,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/6551e88359a55e46fe2352c4898175b502a35c8f"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_29.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "988316a6c996c73786cc9fe6af35cdd8b474fe87",
+      "size": 3700,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/988316a6c996c73786cc9fe6af35cdd8b474fe87"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_3.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "702c52d5ff36e608c6c3920da3ee193ea64aa455",
+      "size": 485,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/702c52d5ff36e608c6c3920da3ee193ea64aa455"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_30.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4020167c5287673e00209b61e2a85ae5bfc1ea29",
+      "size": 3709,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/4020167c5287673e00209b61e2a85ae5bfc1ea29"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_31.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c08b6682626cf23f273b5f19e1cfa4e1827b0f2d",
+      "size": 3746,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/c08b6682626cf23f273b5f19e1cfa4e1827b0f2d"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_32.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f2f2ce2953cdc7c015d26d6ee9aad042e043d5e0",
+      "size": 3765,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f2f2ce2953cdc7c015d26d6ee9aad042e043d5e0"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_33.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22849dae18db901c2d5eca4d3749bb8cbe242e83",
+      "size": 3765,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/22849dae18db901c2d5eca4d3749bb8cbe242e83"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_34.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cca301b65ccb65021502cdf328f8adb9a4c01be3",
+      "size": 3765,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/cca301b65ccb65021502cdf328f8adb9a4c01be3"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_35.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "10e38d1c94ef60f741715cc96874181a8adb94c2",
+      "size": 3765,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/10e38d1c94ef60f741715cc96874181a8adb94c2"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_36.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "10e38d1c94ef60f741715cc96874181a8adb94c2",
+      "size": 3765,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/10e38d1c94ef60f741715cc96874181a8adb94c2"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_37.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3e528ace80567895caf9dec972320550c7bdfffd",
+      "size": 3765,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/3e528ace80567895caf9dec972320550c7bdfffd"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_38.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b97296a8228f7261c46cf3a81140364037593a17",
+      "size": 3765,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/b97296a8228f7261c46cf3a81140364037593a17"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_39.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b97296a8228f7261c46cf3a81140364037593a17",
+      "size": 3765,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/b97296a8228f7261c46cf3a81140364037593a17"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_4.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "46531e449c52aab4b3f61bfbcec154c602db2d8b",
+      "size": 545,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/46531e449c52aab4b3f61bfbcec154c602db2d8b"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_40.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b3786f9c60eed10a1188fddd21d58bc050755caf",
+      "size": 3765,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/b3786f9c60eed10a1188fddd21d58bc050755caf"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_41.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6162ef9325f4942b35ba93ca84f52c63deca16c2",
+      "size": 3765,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/6162ef9325f4942b35ba93ca84f52c63deca16c2"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_42.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6162ef9325f4942b35ba93ca84f52c63deca16c2",
+      "size": 3765,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/6162ef9325f4942b35ba93ca84f52c63deca16c2"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_43.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b08750d811cc0e358592dbbe01bff148316cd80b",
+      "size": 3765,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/b08750d811cc0e358592dbbe01bff148316cd80b"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_44.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "df14e3349e2cac9da18d0efdbbb19373b0e412f3",
+      "size": 3765,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/df14e3349e2cac9da18d0efdbbb19373b0e412f3"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_45.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "289b507c77e16aff2cf341347256c971748e73f3",
+      "size": 3765,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/289b507c77e16aff2cf341347256c971748e73f3"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_46.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5dd156ebe9dd3651e02dfd0a191314502153f568",
+      "size": 3765,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/5dd156ebe9dd3651e02dfd0a191314502153f568"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_47.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5dd156ebe9dd3651e02dfd0a191314502153f568",
+      "size": 3765,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/5dd156ebe9dd3651e02dfd0a191314502153f568"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_48.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5dd156ebe9dd3651e02dfd0a191314502153f568",
+      "size": 3765,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/5dd156ebe9dd3651e02dfd0a191314502153f568"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_49.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5dd156ebe9dd3651e02dfd0a191314502153f568",
+      "size": 3765,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/5dd156ebe9dd3651e02dfd0a191314502153f568"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_5.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f6ca944a71526dc1b25da837dad92d8f620c6eb9",
+      "size": 585,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f6ca944a71526dc1b25da837dad92d8f620c6eb9"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_6.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e0e24a2705f156677402415edf29a680c5b10f54",
+      "size": 635,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e0e24a2705f156677402415edf29a680c5b10f54"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_7.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b0d3aaeb0fe9773c4155f1f832defb6def07226f",
+      "size": 735,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/b0d3aaeb0fe9773c4155f1f832defb6def07226f"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_8.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4495ddd9d0fffecb7e7e57ff9d86bd8f31765855",
+      "size": 815,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/4495ddd9d0fffecb7e7e57ff9d86bd8f31765855"
+    },
+    {
+      "path": "data/processed/structure_references/olea_reference_9.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7e43a7253cbef6578acd688869c8a7ae13935a40",
+      "size": 885,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/7e43a7253cbef6578acd688869c8a7ae13935a40"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_1.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e0fc7bc876e43c18d0fb3593b183557f30942fe9",
+      "size": 274,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e0fc7bc876e43c18d0fb3593b183557f30942fe9"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_10.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d07f9b33fa68e76a959f687175c5ec0865662d8a",
+      "size": 744,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/d07f9b33fa68e76a959f687175c5ec0865662d8a"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_11.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c8d7968c6edeff9c18be4ff99a7f602fba7fe0b4",
+      "size": 818,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/c8d7968c6edeff9c18be4ff99a7f602fba7fe0b4"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_12.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab7527e0a97d89fc941cec255aabd62a3dab7a73",
+      "size": 941,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ab7527e0a97d89fc941cec255aabd62a3dab7a73"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_13.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ef37397aec6bd0223a99056125d18c5673a6c5ae",
+      "size": 1063,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ef37397aec6bd0223a99056125d18c5673a6c5ae"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_14.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "861ccbdd2e7d2720e2d9d03cd2d0e7b523f74178",
+      "size": 1168,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/861ccbdd2e7d2720e2d9d03cd2d0e7b523f74178"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_15.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bdeffafb48c434fbb1944e44fd7220c3b0309346",
+      "size": 1351,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/bdeffafb48c434fbb1944e44fd7220c3b0309346"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_16.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e28292973c80c070235d24e8b0b7c5a3500b96b3",
+      "size": 1511,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e28292973c80c070235d24e8b0b7c5a3500b96b3"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_17.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "daf1252fe51f630142d87fa16cbd4eb330a98585",
+      "size": 1652,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/daf1252fe51f630142d87fa16cbd4eb330a98585"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_18.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "73a1385e8a7979d5c0de09e4a698ea549a8de367",
+      "size": 1747,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/73a1385e8a7979d5c0de09e4a698ea549a8de367"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_19.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "848bee8d9c9ba47d5ec8fb62930e55583cf9a93a",
+      "size": 1823,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/848bee8d9c9ba47d5ec8fb62930e55583cf9a93a"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_2.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e0fc7bc876e43c18d0fb3593b183557f30942fe9",
+      "size": 274,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/e0fc7bc876e43c18d0fb3593b183557f30942fe9"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_20.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "45c03bf554d390dc4354f3d941cb11892ef3cf6b",
+      "size": 1871,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/45c03bf554d390dc4354f3d941cb11892ef3cf6b"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_21.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a22361d2d73321fce735849b9144af8c54be15b7",
+      "size": 1927,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/a22361d2d73321fce735849b9144af8c54be15b7"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_22.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f7b049a2392a4da660e91fba65d6a408202f9174",
+      "size": 1964,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f7b049a2392a4da660e91fba65d6a408202f9174"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_23.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ccb302679e3a20c4295ead9078c3aeea09a0304b",
+      "size": 1974,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ccb302679e3a20c4295ead9078c3aeea09a0304b"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_24.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6ac1084c1847b3cc0b065a9d89be8bb9c3879eb8",
+      "size": 1992,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/6ac1084c1847b3cc0b065a9d89be8bb9c3879eb8"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_25.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6ac1084c1847b3cc0b065a9d89be8bb9c3879eb8",
+      "size": 1992,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/6ac1084c1847b3cc0b065a9d89be8bb9c3879eb8"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_26.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d8db91bb2409bf35104c9e59dea096951601caca",
+      "size": 2010,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/d8db91bb2409bf35104c9e59dea096951601caca"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_27.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8666588bff018ad837bd6d9064f7fe2a1bab831c",
+      "size": 2010,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/8666588bff018ad837bd6d9064f7fe2a1bab831c"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_28.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fbb8c7f82875993e6fe8a8d67d71a5291738a1db",
+      "size": 2020,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/fbb8c7f82875993e6fe8a8d67d71a5291738a1db"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_29.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fbb8c7f82875993e6fe8a8d67d71a5291738a1db",
+      "size": 2020,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/fbb8c7f82875993e6fe8a8d67d71a5291738a1db"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_3.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7d36bbc71338bfa8c0f2fdec9dfbfdc9721a5b3e",
+      "size": 311,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/7d36bbc71338bfa8c0f2fdec9dfbfdc9721a5b3e"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_30.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fbb8c7f82875993e6fe8a8d67d71a5291738a1db",
+      "size": 2020,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/fbb8c7f82875993e6fe8a8d67d71a5291738a1db"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_31.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fbb8c7f82875993e6fe8a8d67d71a5291738a1db",
+      "size": 2020,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/fbb8c7f82875993e6fe8a8d67d71a5291738a1db"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_32.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fbb8c7f82875993e6fe8a8d67d71a5291738a1db",
+      "size": 2020,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/fbb8c7f82875993e6fe8a8d67d71a5291738a1db"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_33.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fbb8c7f82875993e6fe8a8d67d71a5291738a1db",
+      "size": 2020,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/fbb8c7f82875993e6fe8a8d67d71a5291738a1db"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_34.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fbb8c7f82875993e6fe8a8d67d71a5291738a1db",
+      "size": 2020,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/fbb8c7f82875993e6fe8a8d67d71a5291738a1db"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_35.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d638477400b7f8977cbaf03c4cf8a699154c7572",
+      "size": 2020,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/d638477400b7f8977cbaf03c4cf8a699154c7572"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_36.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "215d5eefbb2e81d005873dde1dc97f153c69709e",
+      "size": 2020,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/215d5eefbb2e81d005873dde1dc97f153c69709e"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_37.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "215d5eefbb2e81d005873dde1dc97f153c69709e",
+      "size": 2020,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/215d5eefbb2e81d005873dde1dc97f153c69709e"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_38.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "215d5eefbb2e81d005873dde1dc97f153c69709e",
+      "size": 2020,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/215d5eefbb2e81d005873dde1dc97f153c69709e"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_39.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "215d5eefbb2e81d005873dde1dc97f153c69709e",
+      "size": 2020,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/215d5eefbb2e81d005873dde1dc97f153c69709e"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_4.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0da660af7f005e5f50ae5f287c519d6bd0e8902c",
+      "size": 339,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/0da660af7f005e5f50ae5f287c519d6bd0e8902c"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_40.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "215d5eefbb2e81d005873dde1dc97f153c69709e",
+      "size": 2020,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/215d5eefbb2e81d005873dde1dc97f153c69709e"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_41.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "215d5eefbb2e81d005873dde1dc97f153c69709e",
+      "size": 2020,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/215d5eefbb2e81d005873dde1dc97f153c69709e"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_42.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "215d5eefbb2e81d005873dde1dc97f153c69709e",
+      "size": 2020,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/215d5eefbb2e81d005873dde1dc97f153c69709e"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_43.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "215d5eefbb2e81d005873dde1dc97f153c69709e",
+      "size": 2020,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/215d5eefbb2e81d005873dde1dc97f153c69709e"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_44.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "215d5eefbb2e81d005873dde1dc97f153c69709e",
+      "size": 2020,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/215d5eefbb2e81d005873dde1dc97f153c69709e"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_45.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "215d5eefbb2e81d005873dde1dc97f153c69709e",
+      "size": 2020,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/215d5eefbb2e81d005873dde1dc97f153c69709e"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_46.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "215d5eefbb2e81d005873dde1dc97f153c69709e",
+      "size": 2020,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/215d5eefbb2e81d005873dde1dc97f153c69709e"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_47.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "215d5eefbb2e81d005873dde1dc97f153c69709e",
+      "size": 2020,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/215d5eefbb2e81d005873dde1dc97f153c69709e"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_48.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "215d5eefbb2e81d005873dde1dc97f153c69709e",
+      "size": 2020,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/215d5eefbb2e81d005873dde1dc97f153c69709e"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_49.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "215d5eefbb2e81d005873dde1dc97f153c69709e",
+      "size": 2020,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/215d5eefbb2e81d005873dde1dc97f153c69709e"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_5.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "039b97135c4f30192a1341014c9f442ffb229a46",
+      "size": 377,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/039b97135c4f30192a1341014c9f442ffb229a46"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_6.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "95ca2efb061c10723e791deb80aabebe85e8a2be",
+      "size": 395,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/95ca2efb061c10723e791deb80aabebe85e8a2be"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_7.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eae12e453547ed8355777c706d08a905dc6d1eae",
+      "size": 461,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/eae12e453547ed8355777c706d08a905dc6d1eae"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_8.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "050c265367ee1998e5976705507db1232967c87a",
+      "size": 546,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/050c265367ee1998e5976705507db1232967c87a"
+    },
+    {
+      "path": "data/processed/structure_references/phosphatase_reference_9.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5a365ba5dd33836fd75bc6a0ececff028c781e2b",
+      "size": 585,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/5a365ba5dd33836fd75bc6a0ececff028c781e2b"
+    },
+    {
+      "path": "data/raw",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "59bcdba68c9a71c434aea2dd1529fafbc7463007",
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/trees/59bcdba68c9a71c434aea2dd1529fafbc7463007"
+    },
+    {
+      "path": "data/raw/OleA",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2f7ba8bda89cdb02cf69d2eb0aaebd00fc565b16",
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/trees/2f7ba8bda89cdb02cf69d2eb0aaebd00fc565b16"
+    },
+    {
+      "path": "data/raw/OleA/15pNPs_159_selected_molecular_properties.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8043a81165c09a4afd4291a9ea6a1e7c92f8abe6",
+      "size": 27357,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/8043a81165c09a4afd4291a9ea6a1e7c92f8abe6"
+    },
+    {
+      "path": "data/raw/OleA/73_OleA_JGI_unaligned.fasta.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "21317b0d6f2dec3a62a23a31f23ead74abe81dd7",
+      "size": 28305,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/21317b0d6f2dec3a62a23a31f23ead74abe81dd7"
+    },
+    {
+      "path": "data/raw/OleA/73_overall_calculated_protein_properties.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "13eae1790a9277a53b4e14cf6374ebc9f64c0894",
+      "size": 114117,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/13eae1790a9277a53b4e14cf6374ebc9f64c0894"
+    },
+    {
+      "path": "data/raw/OleA/OleA_aligned_no_his_tag.fasta",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "51340f8962166dcdc461ed7e5d5b2a91e0375c14",
+      "size": 38850,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/51340f8962166dcdc461ed7e5d5b2a91e0375c14"
+    },
+    {
+      "path": "data/raw/OleA/OleA_taxon_split.p",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a04433c2591c214c4be34c22642c24ebc421edb",
+      "size": 25670,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/1a04433c2591c214c4be34c22642c24ebc421edb"
+    },
+    {
+      "path": "data/raw/OleA/OleA_taxonomic_classification.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "627b4e0f8f977f5596c64a34be3cbd7fadf7b2aa",
+      "size": 7387,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/627b4e0f8f977f5596c64a34be3cbd7fadf7b2aa"
+    },
+    {
+      "path": "data/raw/OleA/OleA_taxonomic_classification.xlsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3b79daf9ac664ebf5675f9326f14b6c0dbb613ef",
+      "size": 14388,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/3b79daf9ac664ebf5675f9326f14b6c0dbb613ef"
+    },
+    {
+      "path": "data/raw/OleA/OleA_unaligned_no_his_tag.fasta",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "13d344f1735b718976f81016156ea63724870ebb",
+      "size": 28285,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/13d344f1735b718976f81016156ea63724870ebb"
+    },
+    {
+      "path": "data/raw/OleA/all_molecular_properties.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "71a35ea284bf48ad3bb47f0533741defd656d320",
+      "size": 37748,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/71a35ea284bf48ad3bb47f0533741defd656d320"
+    },
+    {
+      "path": "data/raw/OleA/enzyme_substrate_activity_data.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "73db13e8b9d86f1808022d571f6821b35420f833",
+      "size": 115469,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/73db13e8b9d86f1808022d571f6821b35420f833"
+    },
+    {
+      "path": "data/raw/OleA/final_15_cmpnds_tested.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "399c710a53fa88b8522927689070bd126862c2ba",
+      "size": 1422,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/399c710a53fa88b8522927689070bd126862c2ba"
+    },
+    {
+      "path": "data/raw/OleA/olea_compound_feats.p",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "34f4062d18c5a5570354b926df34bca8cdcb37b2",
+      "size": 29932,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/34f4062d18c5a5570354b926df34bca8cdcb37b2"
+    },
+    {
+      "path": "data/raw/OleA/olea_prot_feats.p",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f606102afb4aea9048523b23909bc50bb745344",
+      "size": 64740,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/9f606102afb4aea9048523b23909bc50bb745344"
+    },
+    {
+      "path": "data/raw/aminotransferase",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a38127e2ce49a2d5f28cb2060e116e04927f0711",
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/trees/a38127e2ce49a2d5f28cb2060e116e04927f0711"
+    },
+    {
+      "path": "data/raw/aminotransferase/aminotransferase_data.xlsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f33f27939cf0b25602213571ab3a820d569348a7",
+      "size": 11661,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f33f27939cf0b25602213571ab3a820d569348a7"
+    },
+    {
+      "path": "data/raw/aminotransferase/aminotransferase_sequence_file.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "adda18bd0b1f61714a819bb5af955834d6636ada",
+      "size": 12768,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/adda18bd0b1f61714a819bb5af955834d6636ada"
+    },
+    {
+      "path": "data/raw/davis",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ef3d33aeda26d424909acec35e2905ef3900a2ee",
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/trees/ef3d33aeda26d424909acec35e2905ef3900a2ee"
+    },
+    {
+      "path": "data/raw/davis/41587_2011_BFnbt1990_MOESM5_ESM.xls",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "08b37a119b8a048e1885ce0b077823d888031216",
+      "size": 304640,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/08b37a119b8a048e1885ce0b077823d888031216"
+    },
+    {
+      "path": "data/raw/davis/PF00069_seed.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b912f6e250881c384552c5a540d476c642987442",
+      "size": 39656,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/b912f6e250881c384552c5a540d476c642987442"
+    },
+    {
+      "path": "data/raw/davis/chem_smiles.csv",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "74cb96536b0da6318de363f3e42cc2c8e7145167",
+      "size": 10739,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/74cb96536b0da6318de363f3e42cc2c8e7145167"
+    },
+    {
+      "path": "data/raw/davis/domains_found_00069.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f2f5713d1123463b7aa3f76c6eaababda2e9d1d",
+      "size": 90578,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/1f2f5713d1123463b7aa3f76c6eaababda2e9d1d"
+    },
+    {
+      "path": "data/raw/davis/domains_found_00069_edited_manually.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3e55f403cafd3a43312a147d8ae12badc37f5f49",
+      "size": 80978,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/3e55f403cafd3a43312a147d8ae12badc37f5f49"
+    },
+    {
+      "path": "data/raw/davis/nbt.1990-S4.csv",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "40dbfa31d0c9afe678c707a9ac7d236cc619aab0",
+      "size": 75304,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/40dbfa31d0c9afe678c707a9ac7d236cc619aab0"
+    },
+    {
+      "path": "data/raw/davis/output_hmm_00069",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "236b92876f74191c15bb0f0f030b43976bfd2b92",
+      "size": 123312,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/236b92876f74191c15bb0f0f030b43976bfd2b92"
+    },
+    {
+      "path": "data/raw/davis/uniprot_sequences.fasta",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "4bd40d41beda08272500c9db55cfa366a1d46b1c",
+      "size": 340689,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/4bd40d41beda08272500c9db55cfa366a1d46b1c"
+    },
+    {
+      "path": "data/raw/davis/uniprot_sequences_processed.fasta",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b3b29613eea0e136358df0e27f04f338f7073eed",
+      "size": 361678,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/b3b29613eea0e136358df0e27f04f338f7073eed"
+    },
+    {
+      "path": "data/raw/duf",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "adef6ba69a4743ea9233f309d0b5d201ad130916",
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/trees/adef6ba69a4743ea9233f309d0b5d201ad130916"
+    },
+    {
+      "path": "data/raw/duf/BinaryActivities.DB",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "856f3dec709297e3115634fa681b8f79c85c34d1",
+      "size": 186536,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/856f3dec709297e3115634fa681b8f79c85c34d1"
+    },
+    {
+      "path": "data/raw/duf/duf_msa.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b6f38d95bdc401fb978c61167facec1687061aa",
+      "size": 284819,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/2b6f38d95bdc401fb978c61167facec1687061aa"
+    },
+    {
+      "path": "data/raw/duf/duf_smiles.xlsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a2e231cf5ae27240ee743a1c4b361de23882453",
+      "size": 9661,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/9a2e231cf5ae27240ee743a1c4b361de23882453"
+    },
+    {
+      "path": "data/raw/duf/duf_structs.cdxml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d37a68d21b8753632b07661e2c97f1d00312d50",
+      "size": 42699,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/3d37a68d21b8753632b07661e2c97f1d00312d50"
+    },
+    {
+      "path": "data/raw/duf/preprocess_bastard.xlsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3e90da9a6e960bc0977ea81f1be9b84c4c3bcee2",
+      "size": 75474,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/3e90da9a6e960bc0977ea81f1be9b84c4c3bcee2"
+    },
+    {
+      "path": "data/raw/esterase",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "483de99c048b0eb9cea9375fabb9ea738dc66583",
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/trees/483de99c048b0eb9cea9375fabb9ea738dc66583"
+    },
+    {
+      "path": "data/raw/esterase/cb7b00996_si_002.xls",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5a2bdfe7fb3c53fcd84440bba246105178842c5a",
+      "size": 908800,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/5a2bdfe7fb3c53fcd84440bba246105178842c5a"
+    },
+    {
+      "path": "data/raw/gts",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2874d788c3ddc46a8238490017cb5576e5d8e5cd",
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/trees/2874d788c3ddc46a8238490017cb5576e5d8e5cd"
+    },
+    {
+      "path": "data/raw/gts/acceptors.cdxml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2a9eec609b832586fffde93a5c01c35e9ca05ddd",
+      "size": 479741,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/2a9eec609b832586fffde93a5c01c35e9ca05ddd"
+    },
+    {
+      "path": "data/raw/gts/donors.cdxml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6823b2839b9769389163d1003c49ea59e793ef4a",
+      "size": 145258,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/6823b2839b9769389163d1003c49ea59e793ef4a"
+    },
+    {
+      "path": "data/raw/gts/gt_acceptor_data.xlsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a29b3c1bb350bb11a1a8f9eb7058b9eaf43876d",
+      "size": 29630,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/3a29b3c1bb350bb11a1a8f9eb7058b9eaf43876d"
+    },
+    {
+      "path": "data/raw/gts/gt_donor_data.xlsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "74f001e68fbe79f0509cc4be21e5adac69d437d4",
+      "size": 16035,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/74f001e68fbe79f0509cc4be21e5adac69d437d4"
+    },
+    {
+      "path": "data/raw/gts/sequence_file.txt",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "9eca52766a41c45c24935b652275957cc6581ebd",
+      "size": 27422,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/9eca52766a41c45c24935b652275957cc6581ebd"
+    },
+    {
+      "path": "data/raw/halogenation",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e389a62301b29616605549130f6827f866c4ae65",
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/trees/e389a62301b29616605549130f6827f866c4ae65"
+    },
+    {
+      "path": "data/raw/halogenation/cdx_to_smiles.xlsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9fa6b96d3ea1b69b7b900cded7f5f9e9e8f5bf0f",
+      "size": 11507,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/9fa6b96d3ea1b69b7b900cded7f5f9e9e8f5bf0f"
+    },
+    {
+      "path": "data/raw/halogenation/oc9b00835_si_001.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3b8956e6e9fb51e020ffd754e1b0bfc19550ad7b",
+      "size": 8508967,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/3b8956e6e9fb51e020ffd754e1b0bfc19550ad7b"
+    },
+    {
+      "path": "data/raw/halogenation/oc9b00835_si_002.cdx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aaa601958427f0344ddc76669012f3642bdc3958",
+      "size": 151749,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/aaa601958427f0344ddc76669012f3642bdc3958"
+    },
+    {
+      "path": "data/raw/halogenation/oc9b00835_si_003.cdx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4dadb22f4e963b9fbd93b01b22bbbad5816d8769",
+      "size": 204364,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/4dadb22f4e963b9fbd93b01b22bbbad5816d8769"
+    },
+    {
+      "path": "data/raw/halogenation/oc9b00835_si_004.xlsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "756bd10f5e8f9b06008581fd76e5df1d17d0d555",
+      "size": 60338,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/756bd10f5e8f9b06008581fd76e5df1d17d0d555"
+    },
+    {
+      "path": "data/raw/halogenation/oc9b00835_si_005.xlsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2bebe5bab742817fb750bec884db01112ead664d",
+      "size": 1314847,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/2bebe5bab742817fb750bec884db01112ead664d"
+    },
+    {
+      "path": "data/raw/halogenation/soluble_protein_ids.xlsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec1d9900b508aa7a4f147efa32060f07fe64a54d",
+      "size": 9622,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/ec1d9900b508aa7a4f147efa32060f07fe64a54d"
+    },
+    {
+      "path": "data/raw/nitrilase",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "89ee0acad1ca88a4e6bdd4cd2f87157120ead820",
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/trees/89ee0acad1ca88a4e6bdd4cd2f87157120ead820"
+    },
+    {
+      "path": "data/raw/nitrilase/nitrilase.cdxml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2fb54303dfef319a8a73fc5ed9036e050c5113d4",
+      "size": 79153,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/2fb54303dfef319a8a73fc5ed9036e050c5113d4"
+    },
+    {
+      "path": "data/raw/nitrilase/nitrilase_data.xlsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "986bfa640aa833586d8f876bd5598c3429564854",
+      "size": 16491,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/986bfa640aa833586d8f876bd5598c3429564854"
+    },
+    {
+      "path": "data/raw/phosphatase",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "29be80bd500bf32b0995c747204a93b956b4d492",
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/trees/29be80bd500bf32b0995c747204a93b956b4d492"
+    },
+    {
+      "path": "data/raw/phosphatase/final_seq_list.fasta",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f7b5ab60eef1fb090f98429ce62b65e521e8226a",
+      "size": 55499,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/f7b5ab60eef1fb090f98429ce62b65e521e8226a"
+    },
+    {
+      "path": "data/raw/phosphatase/final_seq_list.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "166dfa9cce3ac05254fea6694d094d557ec0b81d",
+      "size": 53865,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/166dfa9cce3ac05254fea6694d094d557ec0b81d"
+    },
+    {
+      "path": "data/raw/phosphatase/final_seq_list_w_3l8e.fasta",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "191df092ea7679391099e5cc29dfda939f963748",
+      "size": 55703,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/191df092ea7679391099e5cc29dfda939f963748"
+    },
+    {
+      "path": "data/raw/phosphatase/phosphatase_sequence_file.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7f0cb2668c95eb53a406abfc71b61fcdbfe7970b",
+      "size": 94129,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/7f0cb2668c95eb53a406abfc71b61fcdbfe7970b"
+    },
+    {
+      "path": "data/raw/phosphatase/pnas.1423570112.sd01.xlsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d204b4e360b6194483f3f92b0268e145bf238f2b",
+      "size": 2088794,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/d204b4e360b6194483f3f92b0268e145bf238f2b"
+    },
+    {
+      "path": "data/raw/phosphatase/pnas.1423570112.sd02.xlsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bb41936ead374a34a4c6bf3537474f9076693162",
+      "size": 3068847,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/bb41936ead374a34a4c6bf3537474f9076693162"
+    },
+    {
+      "path": "data/raw/phosphatase/smiles.dat",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0d6aeb36e0f58b1b74f94dc82b4242712ef020e6",
+      "size": 5827,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/0d6aeb36e0f58b1b74f94dc82b4242712ef020e6"
+    },
+    {
+      "path": "extract_datasets.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7de180dda50b7a03e7ee63ae05a5885d1b237051",
+      "size": 302,
+      "url": "https://api.github.com/repos/samgoldman97/enzyme-datasets/git/blobs/7de180dda50b7a03e7ee63ae05a5885d1b237051"
+    }
+  ],
+  "truncated": false
+}

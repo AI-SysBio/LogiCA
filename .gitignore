@@ -1,0 +1,29 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+build/
+dist/
+.eggs/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Checkpoints & large raw downloads
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+protein-ligand/data/raw/
+tcrlang-esm/data/raw/
+outputs/
+wandb/
+.DS_Store

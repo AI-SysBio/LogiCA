@@ -1,0 +1,247 @@
+{
+  "n_affinity_groups": 21,
+  "n_affinity_unique_variants": 207,
+  "n_atlas_groups": 8,
+  "n_new_trait_skempi_groups": 13,
+  "n_868z11_dms_libraries": 2,
+  "n_868z11_dms_rows": 496,
+  "n_868z11_non_wt_mutants": 494,
+  "n_combined_tcr_mutation_groups": 23,
+  "n_combined_rows": 703,
+  "n_distinct_index_tcrs": 18,
+  "n_distinct_epitopes": 21,
+  "n_removed_training_leak_rows": 0,
+  "verified_final_training_leakage": 0,
+  "groups_detail": [
+    {
+      "tcr_name": "1G4",
+      "epitope": "SLLMWITQC",
+      "mhc": "HLA-A*02:01",
+      "source_cohort": "ATLAS-TCR",
+      "source_db": "ATLAS+TRAIT",
+      "n_variants": 9,
+      "has_wt": true,
+      "n_improving_over_wt": 7
+    },
+    {
+      "tcr_name": "2B4",
+      "epitope": "ADLIAYLKQATKG",
+      "mhc": "I-Ek",
+      "source_cohort": "TRAIT+SKEMPI-TCR",
+      "source_db": "TRAIT",
+      "n_variants": 4,
+      "has_wt": true,
+      "n_improving_over_wt": 2
+    },
+    {
+      "tcr_name": "2C",
+      "epitope": "EQYKFYSV",
+      "mhc": "H-2Kb",
+      "source_cohort": "TRAIT+SKEMPI-TCR",
+      "source_db": "TRAIT",
+      "n_variants": 3,
+      "has_wt": true,
+      "n_improving_over_wt": 2
+    },
+    {
+      "tcr_name": "2C",
+      "epitope": "QLSPFPFDL",
+      "mhc": "H-2Ld",
+      "source_cohort": "TRAIT+SKEMPI-TCR",
+      "source_db": "TRAIT",
+      "n_variants": 4,
+      "has_wt": true,
+      "n_improving_over_wt": 2
+    },
+    {
+      "tcr_name": "2C",
+      "epitope": "SIYRYYGL",
+      "mhc": "H-2Kb",
+      "source_cohort": "TRAIT+SKEMPI-TCR",
+      "source_db": "TRAIT",
+      "n_variants": 6,
+      "has_wt": true,
+      "n_improving_over_wt": 3
+    },
+    {
+      "tcr_name": "44-173_30",
+      "epitope": "GTSGSPIVNR",
+      "mhc": "HLA-A*11:01",
+      "source_cohort": "TRAIT+SKEMPI-TCR",
+      "source_db": "TRAIT",
+      "n_variants": 7,
+      "has_wt": true,
+      "n_improving_over_wt": 0
+    },
+    {
+      "tcr_name": "868-Z11_CDR3a",
+      "epitope": "SLYNTVATL",
+      "mhc": "HLA-A*02:01",
+      "source_cohort": "868-Z11-DMS",
+      "source_db": "Rosenberg2024_CDR3alpha",
+      "n_variants": 248,
+      "has_wt": true,
+      "n_improving_over_wt": 65
+    },
+    {
+      "tcr_name": "868-Z11_CDR3b",
+      "epitope": "SLYNTVATL",
+      "mhc": "HLA-A*02:01",
+      "source_cohort": "868-Z11-DMS",
+      "source_db": "Rosenberg2024_CDR3beta",
+      "n_variants": 248,
+      "has_wt": true,
+      "n_improving_over_wt": 36
+    },
+    {
+      "tcr_name": "A6",
+      "epitope": "LLFGYPVYV",
+      "mhc": "HLA-A*02:01",
+      "source_cohort": "ATLAS-TCR",
+      "source_db": "ATLAS+SKEMPI_v2+TRAIT",
+      "n_variants": 53,
+      "has_wt": true,
+      "n_improving_over_wt": 26
+    },
+    {
+      "tcr_name": "A6_Y5A",
+      "epitope": "LLFGAPVYV",
+      "mhc": "HLA-A*02:01",
+      "source_cohort": "TRAIT+SKEMPI-TCR",
+      "source_db": "TRAIT",
+      "n_variants": 5,
+      "has_wt": false,
+      "n_improving_over_wt": 0
+    },
+    {
+      "tcr_name": "D2",
+      "epitope": "PQPELPYPQ",
+      "mhc": "HLA-DQB1*02:01",
+      "source_cohort": "ATLAS-TCR",
+      "source_db": "ATLAS+SKEMPI_v2",
+      "n_variants": 6,
+      "has_wt": true,
+      "n_improving_over_wt": 0
+    },
+    {
+      "tcr_name": "DMF5",
+      "epitope": "AAGIGILTV",
+      "mhc": "HLA-A*02:01",
+      "source_cohort": "ATLAS-TCR",
+      "source_db": "ATLAS+SKEMPI_v2+TRAIT",
+      "n_variants": 8,
+      "has_wt": true,
+      "n_improving_over_wt": 0
+    },
+    {
+      "tcr_name": "DMF5",
+      "epitope": "ELAGIGILTV",
+      "mhc": "HLA-A*02:01",
+      "source_cohort": "ATLAS-TCR",
+      "source_db": "ATLAS+SKEMPI_v2+TRAIT",
+      "n_variants": 11,
+      "has_wt": true,
+      "n_improving_over_wt": 1
+    },
+    {
+      "tcr_name": "Hy.1B11",
+      "epitope": "ENPVVHFFKNIVTPR",
+      "mhc": "HLA-DQB1*05:01",
+      "source_cohort": "TRAIT+SKEMPI-TCR",
+      "source_db": "TRAIT",
+      "n_variants": 5,
+      "has_wt": true,
+      "n_improving_over_wt": 0
+    },
+    {
+      "tcr_name": "JM22",
+      "epitope": "GILGFVFTL",
+      "mhc": "HLA-A*02:01",
+      "source_cohort": "ATLAS-TCR",
+      "source_db": "ATLAS+TRAIT",
+      "n_variants": 10,
+      "has_wt": true,
+      "n_improving_over_wt": 2
+    },
+    {
+      "tcr_name": "LC13",
+      "epitope": "FLRGRAYGL",
+      "mhc": "HLA-B*08:01",
+      "source_cohort": "ATLAS-TCR",
+      "source_db": "ATLAS+TRAIT",
+      "n_variants": 19,
+      "has_wt": true,
+      "n_improving_over_wt": 1
+    },
+    {
+      "tcr_name": "MAG-IC3",
+      "epitope": "ESDPIVAQY",
+      "mhc": "HLA-A*01:01",
+      "source_cohort": "TRAIT+SKEMPI-TCR",
+      "source_db": "TRAIT",
+      "n_variants": 4,
+      "has_wt": true,
+      "n_improving_over_wt": 0
+    },
+    {
+      "tcr_name": "MAG-IC3",
+      "epitope": "EVDPIGHLY",
+      "mhc": "HLA-A*01:01",
+      "source_cohort": "TRAIT+SKEMPI-TCR",
+      "source_db": "TRAIT",
+      "n_variants": 4,
+      "has_wt": true,
+      "n_improving_over_wt": 0
+    },
+    {
+      "tcr_name": "MS2-3C8",
+      "epitope": "FSWGAEGQRPGFG",
+      "mhc": "HLA-DRB1*04:01",
+      "source_cohort": "TRAIT+SKEMPI-TCR",
+      "source_db": "TRAIT",
+      "n_variants": 4,
+      "has_wt": true,
+      "n_improving_over_wt": 0
+    },
+    {
+      "tcr_name": "S16",
+      "epitope": "PQPELPYPQ",
+      "mhc": "HLA-DQB1*02:01",
+      "source_cohort": "TRAIT+SKEMPI-TCR",
+      "source_db": "TRAIT",
+      "n_variants": 7,
+      "has_wt": true,
+      "n_improving_over_wt": 2
+    },
+    {
+      "tcr_name": "SB27",
+      "epitope": "LPEPLPQGQLTAY",
+      "mhc": "HLA-B*35:08",
+      "source_cohort": "TRAIT+SKEMPI-TCR",
+      "source_db": "TRAIT",
+      "n_variants": 8,
+      "has_wt": true,
+      "n_improving_over_wt": 0
+    },
+    {
+      "tcr_name": "SP3.4",
+      "epitope": "EGSFQPSQE",
+      "mhc": "HLA-DQB1*03:02",
+      "source_cohort": "ATLAS-TCR",
+      "source_db": "ATLAS+TRAIT",
+      "n_variants": 16,
+      "has_wt": true,
+      "n_improving_over_wt": 0
+    },
+    {
+      "tcr_name": "TCR55",
+      "epitope": "IPLTEEAEL",
+      "mhc": "HLA-B*35:01",
+      "source_cohort": "TRAIT+SKEMPI-TCR",
+      "source_db": "TRAIT",
+      "n_variants": 14,
+      "has_wt": true,
+      "n_improving_over_wt": 13
+    }
+  ]
+}

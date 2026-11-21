@@ -1,0 +1,413 @@
+{
+  "4-hydroxytamoxifen": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/4-hydroxytamoxifen/property/SMILES/JSON",
+    "cid": 449459,
+    "smiles": "CC/C(=C(\\C1=CC=C(C=C1)O)/C2=CC=C(C=C2)OCCN(C)C)/C3=CC=CC=C3"
+  },
+  "6-thioguanine": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/6-thioguanine/property/SMILES/JSON",
+    "cid": 2723601,
+    "smiles": "C1=NC2=C(N1)C(=S)N=C(N2)N"
+  },
+  "AMG-458": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/AMG-458/property/SMILES/JSON",
+    "cid": 24764449,
+    "smiles": "CC1=C(C(=O)N(N1CC(C)(C)O)C2=CC=CC=C2)C(=O)NC3=NC=C(C=C3)OC4=C5C=CC(=CC5=NC=C4)OC"
+  },
+  "BMS-986202": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/BMS-986202/property/SMILES/JSON",
+    "cid": 155981972,
+    "smiles": "[2H]C([2H])([2H])NC(=O)C1=CN=C(C=C1NC2=CC=CC(=C2OC)C3=NC=C(C=N3)F)NC(=O)C4CC4"
+  },
+  "Jun12682": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Jun12682/property/SMILES/JSON",
+    "cid": 169494310,
+    "smiles": "CCN1C=CC(=N1)C2=CC(=CC(=C2)[C@@H](C)NC(=O)C3=C(C=CC(=C3)OCCN(C)C)C)C4=CN(N=C4)C"
+  },
+  "N-desmethyltamoxifen": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/N-desmethyltamoxifen/property/SMILES/JSON",
+    "cid": 6378383,
+    "smiles": "CC/C(=C(\\C1=CC=CC=C1)/C2=CC=C(C=C2)OCCNC)/C3=CC=CC=C3"
+  },
+  "NDI-034858": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/NDI-034858/property/SMILES/JSON",
+    "cid": 137441492,
+    "smiles": "CNC1=CC(=NC2=C(C=NN12)C(=O)N[C@@H]3CC[C@H]3OC)NC4=CC=CN(C4=O)C5=CC=CC=N5"
+  },
+  "NVP-BVU972": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/NVP-BVU972/property/SMILES/JSON",
+    "cid": 44206063,
+    "smiles": "CN1C=C(C=N1)C2=NN3C(=NC=C3CC4=CC5=C(C=C4)N=CC=C5)C=C2"
+  },
+  "PF-07957472": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/PF-07957472/property/SMILES/JSON",
+    "cid": 171037455,
+    "smiles": "CC1=C(C=C(C=C1)N2CCN(CC2)C)C(=O)NC3(CC3)C4=CC(=NC5=CC=CC=C54)C6=CN(N=C6)C"
+  },
+  "SCH772984": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/SCH772984/property/SMILES/JSON",
+    "cid": 24866313,
+    "smiles": "C1CN(C[C@@H]1C(=O)NC2=CC3=C(C=C2)NN=C3C4=CC=NC=C4)CC(=O)N5CCN(CC5)C6=CC=C(C=C6)C7=NC=CC=N7"
+  },
+  "VRT-11E": null,
+  "WEHI-P8": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/WEHI-P8/property/SMILES/JSON",
+    "cid": 175670503,
+    "smiles": "CCO/N=C(\\[C@@H]1CCCN(C1)C2CCC(CC2)O)/C3=CC4=C(C=C3)C=C(C=C4)OC"
+  },
+  "adagrasib": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/adagrasib/property/SMILES/JSON",
+    "cid": 138611145,
+    "smiles": "CN1CCC[C@H]1COC2=NC3=C(CCN(C3)C4=CC=CC5=C4C(=CC=C5)Cl)C(=N2)N6CCN([C@H](C6)CC#N)C(=O)C(=C)F"
+  },
+  "ampicillin": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/ampicillin/property/SMILES/JSON",
+    "cid": 6249,
+    "smiles": "CC1([C@@H](N2[C@H](S1)[C@@H](C2=O)NC(=O)[C@@H](C3=CC=CC=C3)N)C(=O)O)C"
+  },
+  "anidulafungin": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/anidulafungin/property/SMILES/JSON",
+    "cid": 166548,
+    "smiles": "CCCCCOC1=CC=C(C=C1)C2=CC=C(C=C2)C3=CC=C(C=C3)C(=O)N[C@H]4C[C@H]([C@H](NC(=O)[C@@H]5[C@H]([C@H](CN5C(=O)[C@@H](NC(=O)[C@@H](NC(=O)[C@@H]6C[C@H](CN6C(=O)[C@@H](NC4=O)[C@@H](C)O)O)[C@@H]([C@H](C7=CC=C(C=C7)O)O)O)[C@@H](C)O)C)O)O)O"
+  },
+  "asciminib": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/asciminib/property/SMILES/JSON",
+    "cid": 72165228,
+    "smiles": "C1CN(C[C@@H]1O)C2=C(C=C(C=N2)C(=O)NC3=CC=C(C=C3)OC(F)(F)Cl)C4=CC=NN4"
+  },
+  "avatrombopag": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/avatrombopag/property/SMILES/JSON",
+    "cid": 9852519,
+    "smiles": "C1CCC(CC1)N2CCN(CC2)C3=C(N=C(S3)NC(=O)C4=CC(=C(N=C4)N5CCC(CC5)C(=O)O)Cl)C6=CC(=CS6)Cl"
+  },
+  "cMUP": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/6%2C8-difluoro-4-methylumbelliferyl%20phosphate/property/SMILES/JSON",
+    "query": "6,8-difluoro-4-methylumbelliferyl phosphate",
+    "cid": 2786976,
+    "smiles": "CC1=CC(=O)OC2=C(C(=C(C=C12)F)OP(=O)(O)O)F"
+  },
+  "cabozantinib": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/cabozantinib/property/SMILES/JSON",
+    "cid": 25102847,
+    "smiles": "COC1=CC2=C(C=CN=C2C=C1OC)OC3=CC=C(C=C3)NC(=O)C4(CC4)C(=O)NC5=CC=C(C=C5)F"
+  },
+  "capmatinib": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/capmatinib/property/SMILES/JSON",
+    "cid": 25145656,
+    "smiles": "CNC(=O)C1=C(C=C(C=C1)C2=NN3C(=CN=C3N=C2)CC4=CC5=C(C=C4)N=CC=C5)F"
+  },
+  "caspofungin": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/caspofungin/property/SMILES/JSON",
+    "cid": 16119814,
+    "smiles": "CC[C@H](C)C[C@H](C)CCCCCCCCC(=O)N[C@H]1C[C@H]([C@H](NC(=O)[C@@H]2[C@H](CCN2C(=O)[C@@H](NC(=O)[C@@H](NC(=O)[C@@H]3C[C@H](CN3C(=O)[C@@H](NC1=O)[C@@H](C)O)O)[C@@H]([C@H](C4=CC=C(C=C4)O)O)O)[C@@H](CCN)O)O)NCCN)O"
+  },
+  "cefotaxime": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/cefotaxime/property/SMILES/JSON",
+    "cid": 5742673,
+    "smiles": "CC(=O)OCC1=C(N2[C@@H]([C@@H](C2=O)NC(=O)/C(=N\\OC)/C3=CSC(=N3)N)SC1)C(=O)O"
+  },
+  "crizotinib": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/crizotinib/property/SMILES/JSON",
+    "cid": 11626560,
+    "smiles": "C[C@H](C1=C(C=CC(=C1Cl)F)Cl)OC2=C(N=CC(=C2)C3=CN(N=C3)C4CCNCC4)N"
+  },
+  "dabrafenib + cetuximab": null,
+  "dasatinib": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/dasatinib/property/SMILES/JSON",
+    "cid": 3062316,
+    "smiles": "CC1=C(C(=CC=C1)Cl)NC(=O)C2=CN=C(S2)NC3=CC(=NC(=N3)C)N4CCN(CC4)CCO"
+  },
+  "ellagic acid": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/ellagic%20acid/property/SMILES/JSON",
+    "cid": 5281855,
+    "smiles": "C1=C2C3=C(C(=C1O)O)OC(=O)C4=CC(=C(C(=C43)OC2=O)O)O"
+  },
+  "endoxifen": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/endoxifen/property/SMILES/JSON",
+    "query": "endoxifen",
+    "cid": 10090750,
+    "smiles": "CC/C(=C(\\C1=CC=C(C=C1)O)/C2=CC=C(C=C2)OCCNC)/C3=CC=CC=C3"
+  },
+  "etoposide": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/etoposide/property/SMILES/JSON",
+    "cid": 36462,
+    "smiles": "C[C@@H]1OC[C@@H]2[C@@H](O1)[C@@H]([C@H]([C@@H](O2)O[C@H]3[C@H]4COC(=O)[C@@H]4[C@@H](C5=CC6=C(C=C35)OCO6)C7=CC(=C(C(=C7)OC)O)OC)O)O"
+  },
+  "folate": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/folate/property/SMILES/JSON",
+    "cid": 135405876,
+    "smiles": "C1=CC(=CC=C1C(=O)N[C@H](CCC(=O)O)C(=O)O)NCC2=CN=C3C(=N2)C(=O)NC(=N3)N"
+  },
+  "gefitinib": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/gefitinib/property/SMILES/JSON",
+    "cid": 123631,
+    "smiles": "COC1=C(C=C2C(=C1)N=CN=C2NC3=CC(=C(C=C3)F)Cl)OCCCN4CCOCC4"
+  },
+  "glesatinib": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/glesatinib/property/SMILES/JSON",
+    "cid": 25181472,
+    "smiles": "COCCNCC1=CN=C(C=C1)C2=CC3=NC=CC(=C3S2)OC4=C(C=C(C=C4)NC(=S)NC(=O)CC5=CC=C(C=C5)F)F"
+  },
+  "glumetinib": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/glumetinib/property/SMILES/JSON",
+    "cid": 117797905,
+    "smiles": "CN1C=C(C=N1)C2=CN3C(=NC=C3S(=O)(=O)N4C5=C(C=N4)N=CC(=C5)C6=CN(N=C6)C)C=C2"
+  },
+  "isoproterenol": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/isoproterenol/property/SMILES/JSON",
+    "cid": 3779,
+    "smiles": "CC(C)NCC(C1=CC(=C(C=C1)O)O)O"
+  },
+  "kanamycin": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/kanamycin/property/SMILES/JSON",
+    "cid": 6032,
+    "smiles": "C1[C@H]([C@@H]([C@H]([C@@H]([C@H]1N)O[C@@H]2[C@@H]([C@H]([C@@H]([C@H](O2)CN)O)O)O)O)O[C@@H]3[C@@H]([C@H]([C@@H]([C@H](O3)CO)O)N)O)N"
+  },
+  "lusutrombopag": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/lusutrombopag/property/SMILES/JSON",
+    "query": "lusutrombopag",
+    "cid": 49843517,
+    "smiles": "CCCCCCO[C@@H](C)C1=CC=CC(=C1OC)C2=CSC(=N2)NC(=O)C3=CC(=C(C(=C3)Cl)/C=C(\\C)/C(=O)O)Cl"
+  },
+  "merestinib": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/merestinib/property/SMILES/JSON",
+    "cid": 44603533,
+    "smiles": "CC1=CC=C(C(=O)N1C2=CC=C(C=C2)F)C(=O)NC3=CC(=C(C=C3)OC4=C(C=C5C(=C4)C=NN5C)C6=CNN=C6)F"
+  },
+  "meropenem": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/meropenem/property/SMILES/JSON",
+    "cid": 441130,
+    "smiles": "C[C@@H]1[C@@H]2[C@H](C(=O)N2C(=C1S[C@H]3C[C@H](NC3)C(=O)N(C)C)C(=O)O)[C@@H](C)O"
+  },
+  "methyl phosphate": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/methyl%20phosphate/property/SMILES/JSON",
+    "query": "methyl phosphate",
+    "cid": 12691389,
+    "smiles": "COP(=O)([O-])[O-]"
+  },
+  "micafungin": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/micafungin/property/SMILES/JSON",
+    "cid": 477468,
+    "smiles": "CCCCCOC1=CC=C(C=C1)C2=CC(=NO2)C3=CC=C(C=C3)C(=O)N[C@H]4C[C@H]([C@H](NC(=O)[C@@H]5[C@H]([C@H](CN5C(=O)[C@@H](NC(=O)[C@@H](NC(=O)[C@@H]6C[C@H](CN6C(=O)[C@@H](NC4=O)[C@@H](C)O)O)[C@@H]([C@H](C7=CC(=C(C=C7)O)OS(=O)(=O)O)O)O)[C@@H](CC(=O)N)O)C)O)O)O"
+  },
+  "naltrexone": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/naltrexone/property/SMILES/JSON",
+    "cid": 5360515,
+    "smiles": "C1CC1CN2CC[C@]34[C@@H]5C(=O)CC[C@]3([C@H]2CC6=C4C(=C(C=C6)O)O5)O"
+  },
+  "naringenin": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/naringenin/property/SMILES/JSON",
+    "cid": 439246,
+    "smiles": "C1[C@H](OC2=CC(=CC(=C2C1=O)O)O)C3=CC=C(C=C3)O"
+  },
+  "niraparib": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/niraparib/property/SMILES/JSON",
+    "cid": 24958200,
+    "smiles": "C1C[C@H](CNC1)C2=CC=C(C=C2)N3C=C4C=CC=C(C4=N3)C(=O)N"
+  },
+  "nutlin-3": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/nutlin-3/property/SMILES/JSON",
+    "cid": 11433190,
+    "smiles": "CC(C)OC1=C(C=CC(=C1)OC)C2=N[C@H]([C@H](N2C(=O)N3CCNC(=O)C3)C4=CC=C(C=C4)Cl)C5=CC=C(C=C5)Cl"
+  },
+  "olaparib": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/olaparib/property/SMILES/JSON",
+    "cid": 23725625,
+    "smiles": "C1CC1C(=O)N2CCN(CC2)C(=O)C3=C(C=CC(=C3)CC4=NNC(=O)C5=CC=CC=C54)F"
+  },
+  "orthovanadate": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/orthovanadate/property/SMILES/JSON",
+    "query": "orthovanadate",
+    "cid": 417214,
+    "smiles": "O[V](=O)(O)O"
+  },
+  "osimertinib": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/osimertinib/property/SMILES/JSON",
+    "query": "osimertinib",
+    "cid": 71496458,
+    "smiles": "CN1C=C(C2=CC=CC=C21)C3=NC(=NC=C3)NC4=C(C=C(C(=C4)NC(=O)C=C)N(C)CCN(C)C)OC"
+  },
+  "phloretin": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/phloretin/property/SMILES/JSON",
+    "cid": 4788,
+    "smiles": "C1=CC(=CC=C1CCC(=O)C2=C(C=C(C=C2O)O)O)O"
+  },
+  "phosphate": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/phosphate/property/SMILES/JSON",
+    "cid": 1061,
+    "smiles": "[O-]P(=O)([O-])[O-]"
+  },
+  "pictilisib": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/pictilisib/property/SMILES/JSON",
+    "cid": 17755052,
+    "smiles": "CS(=O)(=O)N1CCN(CC1)CC2=CC3=C(S2)C(=NC(=N3)C4=C5C=NNC5=CC=C4)N6CCOCC6"
+  },
+  "quinine": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/quinine/property/SMILES/JSON",
+    "cid": 3034034,
+    "smiles": "COC1=CC2=C(C=CN=C2C=C1)[C@H]([C@@H]3C[C@@H]4CCN3C[C@@H]4C=C)O"
+  },
+  "savolitinib": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/savolitinib/property/SMILES/JSON",
+    "cid": 68289010,
+    "smiles": "C[C@@H](C1=CN2C=CN=C2C=C1)N3C4=NC(=CN=C4N=N3)C5=CN(N=C5)C"
+  },
+  "sotorasib": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/sotorasib/property/SMILES/JSON",
+    "cid": 137278711,
+    "smiles": "C[C@H]1CN(CCN1C2=NC(=O)N(C3=NC(=C(C=C32)F)C4=C(C=CC=C4F)O)C5=C(C=CN=C5C(C)C)C)C(=O)C=C"
+  },
+  "tamoxifen": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/tamoxifen/property/SMILES/JSON",
+    "query": "tamoxifen",
+    "cid": 2733526,
+    "smiles": "CC/C(=C(\\C1=CC=CC=C1)/C2=CC=C(C=C2)OCCN(C)C)/C3=CC=CC=C3"
+  },
+  "tepotinib": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/tepotinib/property/SMILES/JSON",
+    "query": "tepotinib",
+    "cid": 25171648,
+    "smiles": "CN1CCC(CC1)COC2=CN=C(N=C2)C3=CC=CC(=C3)CN4C(=O)C=CC(=N4)C5=CC=CC(=C5)C#N"
+  },
+  "thiopurine selection": null,
+  "tivantinib": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/tivantinib/property/SMILES/JSON",
+    "query": "tivantinib",
+    "cid": 11494412,
+    "smiles": "C1CC2=C3C(=CC=C2)C(=CN3C1)[C@H]4[C@@H](C(=O)NC4=O)C5=CNC6=CC=CC=C65"
+  },
+  "trametinib": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/trametinib/property/SMILES/JSON",
+    "query": "trametinib",
+    "cid": 11707110,
+    "smiles": "CC1=C2C(=C(N(C1=O)C)NC3=C(C=C(C=C3)I)F)C(=O)N(C(=O)N2C4=CC=CC(=C4)NC(=O)C)C5CC5"
+  },
+  "tungstate": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/tungstate/property/SMILES/JSON",
+    "query": "tungstate",
+    "cid": 24465,
+    "smiles": "[O-][W](=O)(=O)[O-]"
+  },
+  "vemurafenib": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/vemurafenib/property/SMILES/JSON",
+    "query": "vemurafenib",
+    "cid": 42611257,
+    "smiles": "CCCS(=O)(=O)NC1=C(C(=C(C=C1)F)C(=O)C2=CNC3=C2C=C(C=N3)C4=CC=C(C=C4)Cl)F"
+  },
+  "vitamin B6": null,
+  "4-methylumbelliferyl phosphate": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/4-methylumbelliferyl%20phosphate/property/SMILES/JSON",
+    "cid": 65118,
+    "smiles": "CC1=CC(=O)OC2=C1C=CC(=C2)OP(=O)(O)O"
+  },
+  "7,8-dihydrofolate": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/7%2C8-dihydrofolate/property/SMILES/JSON",
+    "cid": 135398603,
+    "smiles": "C1C(=NC2=C(N1)N=C(NC2=O)N)CNC3=CC=C(C=C3)C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-]"
+  },
+  "N-acetylneuraminic acid": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/N-acetylneuraminic%20acid/property/SMILES/JSON",
+    "cid": 439197,
+    "smiles": "CC(=O)N[C@@H]1[C@H](CC(O[C@H]1[C@@H]([C@@H](CO)O)O)(C(=O)O)O)O"
+  },
+  "PLpro inhibitor 3k": null,
+  "PLpro inhibitor 5c": null,
+  "PLpro inhibitors 3k and 5c": null,
+  "abscisic acid": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/abscisic%20acid/property/SMILES/JSON",
+    "cid": 5280896,
+    "smiles": "CC1=CC(=O)CC([C@]1(/C=C/C(=C\\C(=O)O)/C)O)(C)C"
+  },
+  "afatinib": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/afatinib/property/SMILES/JSON",
+    "cid": 10184653,
+    "smiles": "CN(C)C/C=C/C(=O)NC1=C(C=C2C(=C1)C(=NC=N2)NC3=CC(=C(C=C3)F)Cl)O[C@H]4CCOC4"
+  },
+  "amoxicillin": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/amoxicillin/property/SMILES/JSON",
+    "cid": 33613,
+    "smiles": "CC1([C@@H](N2[C@H](S1)[C@@H](C2=O)NC(=O)[C@@H](C3=CC=C(C=C3)O)N)C(=O)O)C"
+  },
+  "clotri": null,
+  "eltrombopag": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/eltrombopag/property/SMILES/JSON",
+    "cid": 135449332,
+    "smiles": "CC1=C(C=C(C=C1)N2C(=O)C(=C(N2)C)N=NC3=CC=CC(=C3O)C4=CC(=CC=C4)C(=O)O)C"
+  },
+  "ensitrelvir": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/ensitrelvir/property/SMILES/JSON",
+    "cid": 162533924,
+    "smiles": "CN1C=C2C=C(C(=CC2=N1)Cl)NC3=NC(=O)N(C(=O)N3CC4=CC(=C(C=C4F)F)F)CC5=NN(C=N5)C"
+  },
+  "fluco": null,
+  "folic acid": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/folic%20acid/property/SMILES/JSON",
+    "cid": 135398658,
+    "smiles": "C1=CC(=CC=C1C(=O)N[C@@H](CCC(=O)O)C(=O)O)NCC2=CN=C3C(=N2)C(=O)NC(=N3)N"
+  },
+  "gentamicin": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/gentamicin/property/SMILES/JSON",
+    "cid": 3467,
+    "smiles": "CC(C1CCC(C(O1)OC2C(CC(C(C2O)OC3C(C(C(CO3)(C)O)NC)O)N)N)N)NC"
+  },
+  "isa": null,
+  "itra": null,
+  "nirmatrelvir": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/nirmatrelvir/property/SMILES/JSON",
+    "cid": 155903259,
+    "smiles": "CC1([C@@H]2[C@H]1[C@H](N(C2)C(=O)[C@H](C(C)(C)C)NC(=O)C(F)(F)F)C(=O)N[C@@H](C[C@@H]3CCNC3=O)C#N)C"
+  },
+  "phytomenadione": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/phytomenadione/property/SMILES/JSON",
+    "cid": 5284607,
+    "smiles": "CC1=C(C(=O)C2=CC=CC=C2C1=O)C/C=C(\\C)/CCC[C@H](C)CCC[C@H](C)CCCC(C)C"
+  },
+  "posaco": null,
+  "pyridoxine": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/pyridoxine/property/SMILES/JSON",
+    "cid": 1054,
+    "smiles": "CC1=NC=C(C(=C1O)CO)CO"
+  },
+  "thioguanine": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/thioguanine/property/SMILES/JSON",
+    "cid": 2723601,
+    "smiles": "C1=NC2=C(N1)C(=S)N=C(N2)N"
+  },
+  "vorico": null,
+  "clotrimazole": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/clotrimazole/property/SMILES/JSON",
+    "query": "clotrimazole",
+    "cid": 2812,
+    "smiles": "C1=CC=C(C=C1)C(C2=CC=CC=C2)(C3=CC=CC=C3Cl)N4C=CN=C4"
+  },
+  "fluconazole": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/fluconazole/property/SMILES/JSON",
+    "query": "fluconazole",
+    "cid": 3365,
+    "smiles": "C1=CC(=C(C=C1F)F)C(CN2C=NC=N2)(CN3C=NC=N3)O"
+  },
+  "isavuconazole": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/isavuconazole/property/SMILES/JSON",
+    "query": "isavuconazole",
+    "cid": 6918485,
+    "smiles": "C[C@@H](C1=NC(=CS1)C2=CC=C(C=C2)C#N)[C@](CN3C=NC=N3)(C4=C(C=CC(=C4)F)F)O"
+  },
+  "itraconazole": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/itraconazole/property/SMILES/JSON",
+    "query": "itraconazole",
+    "cid": 55283,
+    "smiles": "CCC(C)N1C(=O)N(C=N1)C2=CC=C(C=C2)N3CCN(CC3)C4=CC=C(C=C4)OC[C@H]5CO[C@](O5)(CN6C=NC=N6)C7=C(C=C(C=C7)Cl)Cl"
+  },
+  "posaconazole": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/posaconazole/property/SMILES/JSON",
+    "query": "posaconazole",
+    "cid": 468595,
+    "smiles": "CC[C@@H]([C@H](C)O)N1C(=O)N(C=N1)C2=CC=C(C=C2)N3CCN(CC3)C4=CC=C(C=C4)OC[C@H]5C[C@](OC5)(CN6C=NC=N6)C7=C(C=C(C=C7)F)F"
+  },
+  "voriconazole": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/voriconazole/property/SMILES/JSON",
+    "query": "voriconazole",
+    "cid": 71616,
+    "smiles": "C[C@@H](C1=NC=NC=C1F)[C@](CN2C=NC=N2)(C3=C(C=C(C=C3)F)F)O"
+  }
+}

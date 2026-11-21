@@ -1,0 +1,235 @@
+{
+  "sha": "080592a7d1b73372fc1d3da7f88911d9ec0dfc3c",
+  "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/trees/080592a7d1b73372fc1d3da7f88911d9ec0dfc3c",
+  "tree": [
+    {
+      "path": "Barcode",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e01fbb5eb8e9783b523e2c5d097757bcd30ab25c",
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/trees/e01fbb5eb8e9783b523e2c5d097757bcd30ab25c"
+    },
+    {
+      "path": "Barcode/EGFR_Library_Barcode_Final.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "715938b2642a0ac250dc777d5729913c990cfab2",
+      "size": 498699,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/715938b2642a0ac250dc777d5729913c990cfab2"
+    },
+    {
+      "path": "Barcode/PC9_E18_aa.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "78b2ca07b142e106d5059e6ea3c831d0f3d7e01b",
+      "size": 1451172,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/78b2ca07b142e106d5059e6ea3c831d0f3d7e01b"
+    },
+    {
+      "path": "Barcode/PC9_E19_aa.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "56bc74fc466155a465ac8801ee72ee1c645d775f",
+      "size": 888570,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/56bc74fc466155a465ac8801ee72ee1c645d775f"
+    },
+    {
+      "path": "Barcode/PC9_E20_aa.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "65c965aed5891f582202f17f6c9f39d18237a227",
+      "size": 2601448,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/65c965aed5891f582202f17f6c9f39d18237a227"
+    },
+    {
+      "path": "Barcode/PC9_E21_aa.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec6483f2a3f295dd07fbbce9ca2b58fd7e0edf24",
+      "size": 2024404,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/ec6483f2a3f295dd07fbbce9ca2b58fd7e0edf24"
+    },
+    {
+      "path": "Barcode/PC9_E23_aa.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "279fa0158856e5b14d9d104922b6feed5dc1f1ea",
+      "size": 1640288,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/279fa0158856e5b14d9d104922b6feed5dc1f1ea"
+    },
+    {
+      "path": "Barcode/PC9_E24_aa.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6999e8786262e3943acf647c6a27d76eb89e8350",
+      "size": 933283,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/6999e8786262e3943acf647c6a27d76eb89e8350"
+    },
+    {
+      "path": "Barcode/example.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "Codes",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3437e38349c6ed8ad2ce9ea74f463a697f8a1138",
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/trees/3437e38349c6ed8ad2ce9ea74f463a697f8a1138"
+    },
+    {
+      "path": "Codes/__pycache__",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5a4597ac2a136884ed7490048a80202ec04795e6",
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/trees/5a4597ac2a136884ed7490048a80202ec04795e6"
+    },
+    {
+      "path": "Codes/__pycache__/ed_seq.cpython-37.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0cd6bf491baf22c4e7c321238cc0d7255a91d78a",
+      "size": 1385,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/0cd6bf491baf22c4e7c321238cc0d7255a91d78a"
+    },
+    {
+      "path": "Codes/__pycache__/general.cpython-37.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7d0205b92252de5df6606da099ea2255bced60d3",
+      "size": 5216,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/7d0205b92252de5df6606da099ea2255bced60d3"
+    },
+    {
+      "path": "Codes/__pycache__/kmp.cpython-37.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0e95c366e431ffecdf95d87e479be276cdb92a89",
+      "size": 1073,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/0e95c366e431ffecdf95d87e479be276cdb92a89"
+    },
+    {
+      "path": "Codes/__pycache__/pe_umi_collapse.cpython-37.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ce00fabb297721d1dc9321af8c51ae3c7a1efa0d",
+      "size": 3965,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/ce00fabb297721d1dc9321af8c51ae3c7a1efa0d"
+    },
+    {
+      "path": "Codes/__pycache__/searching.cpython-37.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bb06eed381d3f10608ad6d8cf098e732ed54d7da",
+      "size": 460,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/bb06eed381d3f10608ad6d8cf098e732ed54d7da"
+    },
+    {
+      "path": "Codes/__pycache__/umi_collapse.cpython-37.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0cc5c5d3c96734cf7ef77fa4996253636f53c39e",
+      "size": 4033,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/0cc5c5d3c96734cf7ef77fa4996253636f53c39e"
+    },
+    {
+      "path": "Codes/ed_seq.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b53b7926271aa89fc568ced342abe0c158da9d8",
+      "size": 1311,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/7b53b7926271aa89fc568ced342abe0c158da9d8"
+    },
+    {
+      "path": "Codes/general.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "50fc4210f631a9bb90bf6ba497eddec538e93ec7",
+      "size": 6419,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/50fc4210f631a9bb90bf6ba497eddec538e93ec7"
+    },
+    {
+      "path": "Codes/kmp.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9fb6aa75cbc6c3b54184d1c671e2f08d1cb3982b",
+      "size": 962,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/9fb6aa75cbc6c3b54184d1c671e2f08d1cb3982b"
+    },
+    {
+      "path": "Codes/protein_coding.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "Codes/searching.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "05f44b0dd1e6d8a3e910ef2a9267afe025ff6b42",
+      "size": 446,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/05f44b0dd1e6d8a3e910ef2a9267afe025ff6b42"
+    },
+    {
+      "path": "Codes/umi_collapse.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ef555ef4d6e3ac8d4debb14335fd627ffcd24057",
+      "size": 4801,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/ef555ef4d6e3ac8d4debb14335fd627ffcd24057"
+    },
+    {
+      "path": "Endo_Count.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0afedfe00123aeb6ecbc6d9395246934e307d3c0",
+      "size": 3795,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/0afedfe00123aeb6ecbc6d9395246934e307d3c0"
+    },
+    {
+      "path": "Endo_REF.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cd6a6009e5bae9785d8b5fb84a4721488d72eda8",
+      "size": 3736,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/cd6a6009e5bae9785d8b5fb84a4721488d72eda8"
+    },
+    {
+      "path": "FASTQ",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e5a60f66d9966270c835343d4facc1c4bf44ed7a",
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/trees/e5a60f66d9966270c835343d4facc1c4bf44ed7a"
+    },
+    {
+      "path": "FASTQ/example.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "PE_Library_Searcher_FINAL.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "701363f909eac1ad46384bf2273539c8325f7237",
+      "size": 8673,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/701363f909eac1ad46384bf2273539c8325f7237"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b9b36c7011e898cdace0bdeaa99c89d6b8a5102",
+      "size": 357,
+      "url": "https://api.github.com/repos/oreolic/SGE_EGFR/git/blobs/7b9b36c7011e898cdace0bdeaa99c89d6b8a5102"
+    }
+  ],
+  "truncated": false
+}

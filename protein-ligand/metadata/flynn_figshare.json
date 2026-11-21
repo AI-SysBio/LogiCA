@@ -1,0 +1,1031 @@
+[
+  {
+    "files": [
+      {
+        "id": 41419856,
+        "name": "id3c00125_si_003.pdf",
+        "size": 1067512,
+        "is_link_only": false,
+        "download_url": "https://ndownloader.figshare.com/files/41419856",
+        "supplied_md5": "f09891d42a78f95d484542d0053a4c1c",
+        "computed_md5": "f09891d42a78f95d484542d0053a4c1c",
+        "mimetype": "application/pdf"
+      }
+    ],
+    "folder_structure": {},
+    "authors": [
+      {
+        "id": 16475720,
+        "full_name": "Julia\nM. Flynn",
+        "first_name": "Julia\nM.",
+        "last_name": "Flynn",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 16475723,
+        "full_name": "Qiu Yu J. Huang",
+        "first_name": "Qiu Yu J.",
+        "last_name": "Huang",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 16475726,
+        "full_name": "Sarah N. Zvornicanin",
+        "first_name": "Sarah N.",
+        "last_name": "Zvornicanin",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 16475729,
+        "full_name": "Gila Schneider-Nachum",
+        "first_name": "Gila",
+        "last_name": "Schneider-Nachum",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 6207860,
+        "full_name": "Ala M. Shaqra",
+        "first_name": "Ala M.",
+        "last_name": "Shaqra",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 1330098,
+        "full_name": "Nese Kurt Yilmaz",
+        "first_name": "Nese Kurt",
+        "last_name": "Yilmaz",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 16475732,
+        "full_name": "Stephanie A. Moquin",
+        "first_name": "Stephanie A.",
+        "last_name": "Moquin",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 5398325,
+        "full_name": "Dustin Dovala",
+        "first_name": "Dustin",
+        "last_name": "Dovala",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 148545,
+        "full_name": "Celia A. Schiffer",
+        "first_name": "Celia A.",
+        "last_name": "Schiffer",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 7229120,
+        "full_name": "Daniel N.A. Bolon",
+        "first_name": "Daniel N.A.",
+        "last_name": "Bolon",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      }
+    ],
+    "custom_fields": [],
+    "figshare_url": "https://acs.figshare.com/articles/journal_contribution/Systematic_Analyses_of_the_Resistance_Potential_of_Drugs_Targeting_SARS-CoV_2_Main_Protease/23611859",
+    "download_disabled": false,
+    "description": "Drugs that target the main protease (M<sup>pro</sup>)\nof SARS-CoV-2\nare effective therapeutics that have entered clinical use. Wide-scale\nuse of these drugs will apply selection pressure for the evolution\nof resistance mutations. To understand resistance potential in M<sup>pro</sup>, we performed comprehensive surveys of amino acid changes\nthat can cause resistance to nirmatrelvir (Pfizer), and ensitrelvir\n(Xocova) in a yeast screen. We identified 142 resistance mutations\nfor nirmatrelvir and 177 for ensitrelvir, many of which have not been\npreviously reported. Ninety-nine mutations caused apparent resistance\nto both inhibitors, suggesting likelihood for the evolution of cross-resistance.\nThe mutation with the strongest drug resistance score against nirmatrelvir\nin our study (E166V) was the most impactful resistance mutation recently\nreported in multiple viral passaging studies. Many mutations that\nexhibited inhibitor-specific resistance were consistent with the distinct\ninteractions of each inhibitor in the substrate binding site. In addition,\nmutants with strong drug resistance scores tended to have reduced\nfunction. Our results indicate that strong pressure from nirmatrelvir\nor ensitrelvir will select for multiple distinct-resistant lineages\nthat will include both primary resistance mutations that weaken interactions\nwith drug while decreasing enzyme function and compensatory mutations\nthat increase enzyme activity. The comprehensive identification of\nresistance mutations enables the design of inhibitors with reduced\npotential of developing resistance and aids in the surveillance of\ndrug resistance in circulating viral populations.",
+    "funding": null,
+    "funding_list": [],
+    "version": 1,
+    "status": "public",
+    "size": 1067512,
+    "created_date": "2023-06-30T20:30:45Z",
+    "modified_date": "2023-06-30T20:30:45Z",
+    "is_public": true,
+    "is_confidential": false,
+    "is_metadata_record": false,
+    "confidential_reason": "",
+    "metadata_reason": "",
+    "license": {
+      "value": 10,
+      "name": "CC BY-NC 4.0",
+      "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    },
+    "tags": [
+      "substrate binding site",
+      "increase enzyme activity",
+      "circulating viral populations",
+      "amino acid changes",
+      "performed comprehensive surveys",
+      "entered clinical use",
+      "decreasing enzyme function",
+      "apply selection pressure",
+      "resistance mutations enables",
+      "primary resistance mutations",
+      "understand resistance potential",
+      "drugs targeting sars",
+      "resistance mutations",
+      "resistance potential",
+      "strong pressure",
+      "scale use",
+      "reduced function",
+      "comprehensive identification",
+      "compensatory mutations",
+      "reduced potential",
+      "specific resistance",
+      "developing resistance",
+      "cause resistance",
+      "yeast screen",
+      "weaken interactions",
+      "systematic analyses",
+      "suggesting likelihood",
+      "results indicate",
+      "resistant lineages",
+      "previously reported",
+      "pfizer ),",
+      "multiple distinct",
+      "main protease",
+      "effective therapeutics",
+      "distinct interactions"
+    ],
+    "keywords": [
+      "substrate binding site",
+      "increase enzyme activity",
+      "circulating viral populations",
+      "amino acid changes",
+      "performed comprehensive surveys",
+      "entered clinical use",
+      "decreasing enzyme function",
+      "apply selection pressure",
+      "resistance mutations enables",
+      "primary resistance mutations",
+      "understand resistance potential",
+      "drugs targeting sars",
+      "resistance mutations",
+      "resistance potential",
+      "strong pressure",
+      "scale use",
+      "reduced function",
+      "comprehensive identification",
+      "compensatory mutations",
+      "reduced potential",
+      "specific resistance",
+      "developing resistance",
+      "cause resistance",
+      "yeast screen",
+      "weaken interactions",
+      "systematic analyses",
+      "suggesting likelihood",
+      "results indicate",
+      "resistant lineages",
+      "previously reported",
+      "pfizer ),",
+      "multiple distinct",
+      "main protease",
+      "effective therapeutics",
+      "distinct interactions"
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "title": "Biophysics",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 4,
+        "title": "Biochemistry",
+        "parent_id": 38,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 7,
+        "title": "Medicine",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 13,
+        "title": "Genetics",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 19,
+        "title": "Pharmacology",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 21,
+        "title": "Biotechnology",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 24,
+        "title": "Evolutionary Biology",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 873,
+        "title": "Chemical Sciences not elsewhere classified",
+        "parent_id": 38,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 64,
+        "title": "Cancer",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 128,
+        "title": "Hematology",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 132,
+        "title": "Infectious Diseases",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 134,
+        "title": "Virology",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      }
+    ],
+    "references": [
+      "https://doi.org/10.1021/acsinfecdis.3c00125"
+    ],
+    "has_linked_file": false,
+    "citation": "Flynn, Julia\nM.; Huang, Qiu Yu J.; Zvornicanin, Sarah N.; Schneider-Nachum, Gila; Shaqra, Ala M.; Yilmaz, Nese Kurt; et al. (2023). Systematic Analyses\nof the Resistance Potential of\nDrugs Targeting SARS-CoV\u20112 Main Protease. ACS Publications. Journal contribution. https://doi.org/10.1021/acsinfecdis.3c00125.s003",
+    "related_materials": [
+      {
+        "id": 107265008,
+        "identifier": "10.1021/acsinfecdis.3c00125",
+        "title": "Systematic Analyses\nof the Resistance Potential of\nDrugs Targeting SARS-CoV\u20112 Main Protease",
+        "relation": "IsSupplementTo",
+        "identifier_type": "DOI",
+        "is_linkout": true,
+        "link": "https://doi.org/10.1021/acsinfecdis.3c00125"
+      }
+    ],
+    "is_embargoed": false,
+    "embargo_date": null,
+    "embargo_type": null,
+    "embargo_title": "",
+    "embargo_reason": "",
+    "embargo_options": [],
+    "id": 23611859,
+    "title": "Systematic Analyses\nof the Resistance Potential of\nDrugs Targeting SARS-CoV\u20112 Main Protease",
+    "doi": "10.1021/acsinfecdis.3c00125.s003",
+    "handle": "",
+    "url": "https://api.figshare.com/v2/articles/23611859",
+    "published_date": "2023-06-30T20:30:45Z",
+    "thumb": "https://ndownloader.figshare.com/files/41419856/preview/41419856/thumb.png",
+    "defined_type": 6,
+    "defined_type_name": "journal contribution",
+    "group_id": 2451,
+    "url_private_api": "https://api.figshare.com/v2/account/articles/23611859",
+    "url_public_api": "https://api.figshare.com/v2/articles/23611859",
+    "url_private_html": "https://figshare.com/account/articles/23611859",
+    "url_public_html": "https://acs.figshare.com/articles/journal_contribution/Systematic_Analyses_of_the_Resistance_Potential_of_Drugs_Targeting_SARS-CoV_2_Main_Protease/23611859",
+    "timeline": {
+      "posted": "2023-06-30T20:30:45",
+      "publisherPublication": "2023-06-30T00:00:00",
+      "firstOnline": "2023-06-30"
+    },
+    "resource_title": "Systematic Analyses\nof the Resistance Potential of\nDrugs Targeting SARS-CoV\u20112 Main Protease",
+    "resource_doi": "10.1021/acsinfecdis.3c00125"
+  },
+  {
+    "files": [
+      {
+        "id": 41419853,
+        "name": "id3c00125_si_002.xlsx",
+        "size": 28317,
+        "is_link_only": false,
+        "download_url": "https://ndownloader.figshare.com/files/41419853",
+        "supplied_md5": "fa266c1af9367c907014ce812f139f2e",
+        "computed_md5": "fa266c1af9367c907014ce812f139f2e",
+        "mimetype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      }
+    ],
+    "folder_structure": {},
+    "authors": [
+      {
+        "id": 16475720,
+        "full_name": "Julia\nM. Flynn",
+        "first_name": "Julia\nM.",
+        "last_name": "Flynn",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 16475723,
+        "full_name": "Qiu Yu J. Huang",
+        "first_name": "Qiu Yu J.",
+        "last_name": "Huang",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 16475726,
+        "full_name": "Sarah N. Zvornicanin",
+        "first_name": "Sarah N.",
+        "last_name": "Zvornicanin",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 16475729,
+        "full_name": "Gila Schneider-Nachum",
+        "first_name": "Gila",
+        "last_name": "Schneider-Nachum",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 6207860,
+        "full_name": "Ala M. Shaqra",
+        "first_name": "Ala M.",
+        "last_name": "Shaqra",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 1330098,
+        "full_name": "Nese Kurt Yilmaz",
+        "first_name": "Nese Kurt",
+        "last_name": "Yilmaz",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 16475732,
+        "full_name": "Stephanie A. Moquin",
+        "first_name": "Stephanie A.",
+        "last_name": "Moquin",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 5398325,
+        "full_name": "Dustin Dovala",
+        "first_name": "Dustin",
+        "last_name": "Dovala",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 148545,
+        "full_name": "Celia A. Schiffer",
+        "first_name": "Celia A.",
+        "last_name": "Schiffer",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 7229120,
+        "full_name": "Daniel N.A. Bolon",
+        "first_name": "Daniel N.A.",
+        "last_name": "Bolon",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      }
+    ],
+    "custom_fields": [],
+    "figshare_url": "https://acs.figshare.com/articles/dataset/Systematic_Analyses_of_the_Resistance_Potential_of_Drugs_Targeting_SARS-CoV_2_Main_Protease/23611856",
+    "download_disabled": false,
+    "description": "Drugs that target the main protease (M<sup>pro</sup>)\nof SARS-CoV-2\nare effective therapeutics that have entered clinical use. Wide-scale\nuse of these drugs will apply selection pressure for the evolution\nof resistance mutations. To understand resistance potential in M<sup>pro</sup>, we performed comprehensive surveys of amino acid changes\nthat can cause resistance to nirmatrelvir (Pfizer), and ensitrelvir\n(Xocova) in a yeast screen. We identified 142 resistance mutations\nfor nirmatrelvir and 177 for ensitrelvir, many of which have not been\npreviously reported. Ninety-nine mutations caused apparent resistance\nto both inhibitors, suggesting likelihood for the evolution of cross-resistance.\nThe mutation with the strongest drug resistance score against nirmatrelvir\nin our study (E166V) was the most impactful resistance mutation recently\nreported in multiple viral passaging studies. Many mutations that\nexhibited inhibitor-specific resistance were consistent with the distinct\ninteractions of each inhibitor in the substrate binding site. In addition,\nmutants with strong drug resistance scores tended to have reduced\nfunction. Our results indicate that strong pressure from nirmatrelvir\nor ensitrelvir will select for multiple distinct-resistant lineages\nthat will include both primary resistance mutations that weaken interactions\nwith drug while decreasing enzyme function and compensatory mutations\nthat increase enzyme activity. The comprehensive identification of\nresistance mutations enables the design of inhibitors with reduced\npotential of developing resistance and aids in the surveillance of\ndrug resistance in circulating viral populations.",
+    "funding": null,
+    "funding_list": [],
+    "version": 1,
+    "status": "public",
+    "size": 28317,
+    "created_date": "2023-06-30T20:30:44Z",
+    "modified_date": "2023-06-30T20:30:44Z",
+    "is_public": true,
+    "is_confidential": false,
+    "is_metadata_record": false,
+    "confidential_reason": "",
+    "metadata_reason": "",
+    "license": {
+      "value": 10,
+      "name": "CC BY-NC 4.0",
+      "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    },
+    "tags": [
+      "substrate binding site",
+      "increase enzyme activity",
+      "circulating viral populations",
+      "amino acid changes",
+      "performed comprehensive surveys",
+      "entered clinical use",
+      "decreasing enzyme function",
+      "apply selection pressure",
+      "resistance mutations enables",
+      "primary resistance mutations",
+      "understand resistance potential",
+      "drugs targeting sars",
+      "resistance mutations",
+      "resistance potential",
+      "strong pressure",
+      "scale use",
+      "reduced function",
+      "comprehensive identification",
+      "compensatory mutations",
+      "reduced potential",
+      "specific resistance",
+      "developing resistance",
+      "cause resistance",
+      "yeast screen",
+      "weaken interactions",
+      "systematic analyses",
+      "suggesting likelihood",
+      "results indicate",
+      "resistant lineages",
+      "previously reported",
+      "pfizer ),",
+      "multiple distinct",
+      "main protease",
+      "effective therapeutics",
+      "distinct interactions"
+    ],
+    "keywords": [
+      "substrate binding site",
+      "increase enzyme activity",
+      "circulating viral populations",
+      "amino acid changes",
+      "performed comprehensive surveys",
+      "entered clinical use",
+      "decreasing enzyme function",
+      "apply selection pressure",
+      "resistance mutations enables",
+      "primary resistance mutations",
+      "understand resistance potential",
+      "drugs targeting sars",
+      "resistance mutations",
+      "resistance potential",
+      "strong pressure",
+      "scale use",
+      "reduced function",
+      "comprehensive identification",
+      "compensatory mutations",
+      "reduced potential",
+      "specific resistance",
+      "developing resistance",
+      "cause resistance",
+      "yeast screen",
+      "weaken interactions",
+      "systematic analyses",
+      "suggesting likelihood",
+      "results indicate",
+      "resistant lineages",
+      "previously reported",
+      "pfizer ),",
+      "multiple distinct",
+      "main protease",
+      "effective therapeutics",
+      "distinct interactions"
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "title": "Biophysics",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 4,
+        "title": "Biochemistry",
+        "parent_id": 38,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 7,
+        "title": "Medicine",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 13,
+        "title": "Genetics",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 19,
+        "title": "Pharmacology",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 21,
+        "title": "Biotechnology",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 24,
+        "title": "Evolutionary Biology",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 873,
+        "title": "Chemical Sciences not elsewhere classified",
+        "parent_id": 38,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 64,
+        "title": "Cancer",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 128,
+        "title": "Hematology",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 132,
+        "title": "Infectious Diseases",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 134,
+        "title": "Virology",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      }
+    ],
+    "references": [
+      "https://doi.org/10.1021/acsinfecdis.3c00125"
+    ],
+    "has_linked_file": false,
+    "citation": "Flynn, Julia\nM.; Huang, Qiu Yu J.; Zvornicanin, Sarah N.; Schneider-Nachum, Gila; Shaqra, Ala M.; Yilmaz, Nese Kurt; et al. (2023). Systematic Analyses\nof the Resistance Potential of\nDrugs Targeting SARS-CoV\u20112 Main Protease. ACS Publications. Dataset. https://doi.org/10.1021/acsinfecdis.3c00125.s002",
+    "related_materials": [
+      {
+        "id": 107265005,
+        "identifier": "10.1021/acsinfecdis.3c00125",
+        "title": "Systematic Analyses\nof the Resistance Potential of\nDrugs Targeting SARS-CoV\u20112 Main Protease",
+        "relation": "IsSupplementTo",
+        "identifier_type": "DOI",
+        "is_linkout": true,
+        "link": "https://doi.org/10.1021/acsinfecdis.3c00125"
+      }
+    ],
+    "is_embargoed": false,
+    "embargo_date": null,
+    "embargo_type": null,
+    "embargo_title": "",
+    "embargo_reason": "",
+    "embargo_options": [],
+    "id": 23611856,
+    "title": "Systematic Analyses\nof the Resistance Potential of\nDrugs Targeting SARS-CoV\u20112 Main Protease",
+    "doi": "10.1021/acsinfecdis.3c00125.s002",
+    "handle": "",
+    "url": "https://api.figshare.com/v2/articles/23611856",
+    "published_date": "2023-06-30T20:30:43Z",
+    "thumb": "",
+    "defined_type": 3,
+    "defined_type_name": "dataset",
+    "group_id": 2451,
+    "url_private_api": "https://api.figshare.com/v2/account/articles/23611856",
+    "url_public_api": "https://api.figshare.com/v2/articles/23611856",
+    "url_private_html": "https://figshare.com/account/articles/23611856",
+    "url_public_html": "https://acs.figshare.com/articles/dataset/Systematic_Analyses_of_the_Resistance_Potential_of_Drugs_Targeting_SARS-CoV_2_Main_Protease/23611856",
+    "timeline": {
+      "posted": "2023-06-30T20:30:43",
+      "publisherPublication": "2023-06-30T00:00:00",
+      "firstOnline": "2023-06-30"
+    },
+    "resource_title": "Systematic Analyses\nof the Resistance Potential of\nDrugs Targeting SARS-CoV\u20112 Main Protease",
+    "resource_doi": "10.1021/acsinfecdis.3c00125"
+  },
+  {
+    "files": [
+      {
+        "id": 41419850,
+        "name": "id3c00125_si_001.xlsx",
+        "size": 5315421,
+        "is_link_only": false,
+        "download_url": "https://ndownloader.figshare.com/files/41419850",
+        "supplied_md5": "f2aee9e050f8a5b7664c97b0772fde29",
+        "computed_md5": "f2aee9e050f8a5b7664c97b0772fde29",
+        "mimetype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      }
+    ],
+    "folder_structure": {},
+    "authors": [
+      {
+        "id": 16475720,
+        "full_name": "Julia\nM. Flynn",
+        "first_name": "Julia\nM.",
+        "last_name": "Flynn",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 16475723,
+        "full_name": "Qiu Yu J. Huang",
+        "first_name": "Qiu Yu J.",
+        "last_name": "Huang",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 16475726,
+        "full_name": "Sarah N. Zvornicanin",
+        "first_name": "Sarah N.",
+        "last_name": "Zvornicanin",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 16475729,
+        "full_name": "Gila Schneider-Nachum",
+        "first_name": "Gila",
+        "last_name": "Schneider-Nachum",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 6207860,
+        "full_name": "Ala M. Shaqra",
+        "first_name": "Ala M.",
+        "last_name": "Shaqra",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 1330098,
+        "full_name": "Nese Kurt Yilmaz",
+        "first_name": "Nese Kurt",
+        "last_name": "Yilmaz",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 16475732,
+        "full_name": "Stephanie A. Moquin",
+        "first_name": "Stephanie A.",
+        "last_name": "Moquin",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 5398325,
+        "full_name": "Dustin Dovala",
+        "first_name": "Dustin",
+        "last_name": "Dovala",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 148545,
+        "full_name": "Celia A. Schiffer",
+        "first_name": "Celia A.",
+        "last_name": "Schiffer",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      },
+      {
+        "id": 7229120,
+        "full_name": "Daniel N.A. Bolon",
+        "first_name": "Daniel N.A.",
+        "last_name": "Bolon",
+        "is_active": false,
+        "url_name": "_",
+        "orcid_id": ""
+      }
+    ],
+    "custom_fields": [],
+    "figshare_url": "https://acs.figshare.com/articles/dataset/Systematic_Analyses_of_the_Resistance_Potential_of_Drugs_Targeting_SARS-CoV_2_Main_Protease/23611853",
+    "download_disabled": false,
+    "description": "Drugs that target the main protease (M<sup>pro</sup>)\nof SARS-CoV-2\nare effective therapeutics that have entered clinical use. Wide-scale\nuse of these drugs will apply selection pressure for the evolution\nof resistance mutations. To understand resistance potential in M<sup>pro</sup>, we performed comprehensive surveys of amino acid changes\nthat can cause resistance to nirmatrelvir (Pfizer), and ensitrelvir\n(Xocova) in a yeast screen. We identified 142 resistance mutations\nfor nirmatrelvir and 177 for ensitrelvir, many of which have not been\npreviously reported. Ninety-nine mutations caused apparent resistance\nto both inhibitors, suggesting likelihood for the evolution of cross-resistance.\nThe mutation with the strongest drug resistance score against nirmatrelvir\nin our study (E166V) was the most impactful resistance mutation recently\nreported in multiple viral passaging studies. Many mutations that\nexhibited inhibitor-specific resistance were consistent with the distinct\ninteractions of each inhibitor in the substrate binding site. In addition,\nmutants with strong drug resistance scores tended to have reduced\nfunction. Our results indicate that strong pressure from nirmatrelvir\nor ensitrelvir will select for multiple distinct-resistant lineages\nthat will include both primary resistance mutations that weaken interactions\nwith drug while decreasing enzyme function and compensatory mutations\nthat increase enzyme activity. The comprehensive identification of\nresistance mutations enables the design of inhibitors with reduced\npotential of developing resistance and aids in the surveillance of\ndrug resistance in circulating viral populations.",
+    "funding": null,
+    "funding_list": [],
+    "version": 1,
+    "status": "public",
+    "size": 5315421,
+    "created_date": "2023-06-30T20:30:42Z",
+    "modified_date": "2023-06-30T20:30:42Z",
+    "is_public": true,
+    "is_confidential": false,
+    "is_metadata_record": false,
+    "confidential_reason": "",
+    "metadata_reason": "",
+    "license": {
+      "value": 10,
+      "name": "CC BY-NC 4.0",
+      "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    },
+    "tags": [
+      "substrate binding site",
+      "increase enzyme activity",
+      "circulating viral populations",
+      "amino acid changes",
+      "performed comprehensive surveys",
+      "entered clinical use",
+      "decreasing enzyme function",
+      "apply selection pressure",
+      "resistance mutations enables",
+      "primary resistance mutations",
+      "understand resistance potential",
+      "drugs targeting sars",
+      "resistance mutations",
+      "resistance potential",
+      "strong pressure",
+      "scale use",
+      "reduced function",
+      "comprehensive identification",
+      "compensatory mutations",
+      "reduced potential",
+      "specific resistance",
+      "developing resistance",
+      "cause resistance",
+      "yeast screen",
+      "weaken interactions",
+      "systematic analyses",
+      "suggesting likelihood",
+      "results indicate",
+      "resistant lineages",
+      "previously reported",
+      "pfizer ),",
+      "multiple distinct",
+      "main protease",
+      "effective therapeutics",
+      "distinct interactions"
+    ],
+    "keywords": [
+      "substrate binding site",
+      "increase enzyme activity",
+      "circulating viral populations",
+      "amino acid changes",
+      "performed comprehensive surveys",
+      "entered clinical use",
+      "decreasing enzyme function",
+      "apply selection pressure",
+      "resistance mutations enables",
+      "primary resistance mutations",
+      "understand resistance potential",
+      "drugs targeting sars",
+      "resistance mutations",
+      "resistance potential",
+      "strong pressure",
+      "scale use",
+      "reduced function",
+      "comprehensive identification",
+      "compensatory mutations",
+      "reduced potential",
+      "specific resistance",
+      "developing resistance",
+      "cause resistance",
+      "yeast screen",
+      "weaken interactions",
+      "systematic analyses",
+      "suggesting likelihood",
+      "results indicate",
+      "resistant lineages",
+      "previously reported",
+      "pfizer ),",
+      "multiple distinct",
+      "main protease",
+      "effective therapeutics",
+      "distinct interactions"
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "title": "Biophysics",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 4,
+        "title": "Biochemistry",
+        "parent_id": 38,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 7,
+        "title": "Medicine",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 13,
+        "title": "Genetics",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 19,
+        "title": "Pharmacology",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 21,
+        "title": "Biotechnology",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 24,
+        "title": "Evolutionary Biology",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 873,
+        "title": "Chemical Sciences not elsewhere classified",
+        "parent_id": 38,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 64,
+        "title": "Cancer",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 128,
+        "title": "Hematology",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 132,
+        "title": "Infectious Diseases",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      },
+      {
+        "id": 134,
+        "title": "Virology",
+        "parent_id": 48,
+        "path": "",
+        "source_id": "",
+        "taxonomy_id": 10
+      }
+    ],
+    "references": [
+      "https://doi.org/10.1021/acsinfecdis.3c00125"
+    ],
+    "has_linked_file": false,
+    "citation": "Flynn, Julia\nM.; Huang, Qiu Yu J.; Zvornicanin, Sarah N.; Schneider-Nachum, Gila; Shaqra, Ala M.; Yilmaz, Nese Kurt; et al. (2023). Systematic Analyses\nof the Resistance Potential of\nDrugs Targeting SARS-CoV\u20112 Main Protease. ACS Publications. Dataset. https://doi.org/10.1021/acsinfecdis.3c00125.s001",
+    "related_materials": [
+      {
+        "id": 107265002,
+        "identifier": "10.1021/acsinfecdis.3c00125",
+        "title": "Systematic Analyses\nof the Resistance Potential of\nDrugs Targeting SARS-CoV\u20112 Main Protease",
+        "relation": "IsSupplementTo",
+        "identifier_type": "DOI",
+        "is_linkout": true,
+        "link": "https://doi.org/10.1021/acsinfecdis.3c00125"
+      }
+    ],
+    "is_embargoed": false,
+    "embargo_date": null,
+    "embargo_type": null,
+    "embargo_title": "",
+    "embargo_reason": "",
+    "embargo_options": [],
+    "id": 23611853,
+    "title": "Systematic Analyses\nof the Resistance Potential of\nDrugs Targeting SARS-CoV\u20112 Main Protease",
+    "doi": "10.1021/acsinfecdis.3c00125.s001",
+    "handle": "",
+    "url": "https://api.figshare.com/v2/articles/23611853",
+    "published_date": "2023-06-30T20:30:42Z",
+    "thumb": "",
+    "defined_type": 3,
+    "defined_type_name": "dataset",
+    "group_id": 2451,
+    "url_private_api": "https://api.figshare.com/v2/account/articles/23611853",
+    "url_public_api": "https://api.figshare.com/v2/articles/23611853",
+    "url_private_html": "https://figshare.com/account/articles/23611853",
+    "url_public_html": "https://acs.figshare.com/articles/dataset/Systematic_Analyses_of_the_Resistance_Potential_of_Drugs_Targeting_SARS-CoV_2_Main_Protease/23611853",
+    "timeline": {
+      "posted": "2023-06-30T20:30:42",
+      "publisherPublication": "2023-06-30T00:00:00",
+      "firstOnline": "2023-06-30"
+    },
+    "resource_title": "Systematic Analyses\nof the Resistance Potential of\nDrugs Targeting SARS-CoV\u20112 Main Protease",
+    "resource_doi": "10.1021/acsinfecdis.3c00125"
+  }
+]

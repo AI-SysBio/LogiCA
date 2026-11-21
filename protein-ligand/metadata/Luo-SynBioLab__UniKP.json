@@ -1,0 +1,307 @@
+{
+  "sha": "3ad5576aaa2c8c0dd0e0b6c283c1d365ab23c6ea",
+  "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/trees/3ad5576aaa2c8c0dd0e0b6c283c1d365ab23c6ea",
+  "tree": [
+    {
+      "path": "Enviroment factors",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1cae9902c3c754e5e9ae13dc6989193ab1ccb48d",
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/trees/1cae9902c3c754e5e9ae13dc6989193ab1ccb48d"
+    },
+    {
+      "path": "Enviroment factors/UniKP_pH.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "430ff9dad1c4896b4f2ec0d5acbd37353e08043f",
+      "size": 5283,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/430ff9dad1c4896b4f2ec0d5acbd37353e08043f"
+    },
+    {
+      "path": "Enviroment factors/UniKP_pH_s2.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3bd21597237d3d93458efa34c24c7ead664efe5d",
+      "size": 7552,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/3bd21597237d3d93458efa34c24c7ead664efe5d"
+    },
+    {
+      "path": "Enviroment factors/UniKP_temperature.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "265c4d3da05aa916cfa1213a6cfd04dc02502ac8",
+      "size": 5311,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/265c4d3da05aa916cfa1213a6cfd04dc02502ac8"
+    },
+    {
+      "path": "Enviroment factors/UniKP_temperature_s2.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0097e639a1a026f30b38418bea748f91f1aa9cde",
+      "size": 7576,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/0097e639a1a026f30b38418bea748f91f1aa9cde"
+    },
+    {
+      "path": "Figures",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f9af8532d5733b262378145f90e72d81172fc9f8",
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/trees/f9af8532d5733b262378145f90e72d81172fc9f8"
+    },
+    {
+      "path": "Figures/UniKP.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4cb6aea189810da30b5120eef32d6bd7c49ca15d",
+      "size": 523566,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/4cb6aea189810da30b5120eef32d6bd7c49ca15d"
+    },
+    {
+      "path": "Figures/UniKP.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "11a4ed99ebfcaf23ee030b79c6379d6add3e59c2",
+      "size": 115086,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/11a4ed99ebfcaf23ee030b79c6379d6add3e59c2"
+    },
+    {
+      "path": "High-value prediction",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b1d6dc30fe066b7581d4842b85bc4ff77a86042c",
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/trees/b1d6dc30fe066b7581d4842b85bc4ff77a86042c"
+    },
+    {
+      "path": "High-value prediction/UniKP_CBW.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a92b406888ff3d57377c0de15d5bb02a1909be0f",
+      "size": 8748,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/a92b406888ff3d57377c0de15d5bb02a1909be0f"
+    },
+    {
+      "path": "High-value prediction/UniKP_CSW.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b0da626e9a0efa66702389c2b71e0629788a608c",
+      "size": 8525,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/b0da626e9a0efa66702389c2b71e0629788a608c"
+    },
+    {
+      "path": "High-value prediction/UniKP_DMW.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ee3a602763b415e80923d7a330809416ba9f0f09",
+      "size": 7086,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/ee3a602763b415e80923d7a330809416ba9f0f09"
+    },
+    {
+      "path": "High-value prediction/UniKP_LDS.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "36c05444babb2a2d0ac77a48f9c32e04bf52bd4f",
+      "size": 8424,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/36c05444babb2a2d0ac77a48f9c32e04bf52bd4f"
+    },
+    {
+      "path": "High-value prediction/UniKP_No_LDS.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cabdf859a965c81bab0da4a8f2f2e897b297e095",
+      "size": 9227,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/cabdf859a965c81bab0da4a8f2f2e897b297e095"
+    },
+    {
+      "path": "Preprocessing.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "999f1fe5af7a07a6164e54535c7cecacc0d638c4",
+      "size": 6333,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/999f1fe5af7a07a6164e54535c7cecacc0d638c4"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "97c5226b44a77c0e7f70eb6caa492b1f669fcbd0",
+      "size": 19349,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/97c5226b44a77c0e7f70eb6caa492b1f669fcbd0"
+    },
+    {
+      "path": "UniKP_Km.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6cf407268e03e6a8998d2d222c04d0699caae584",
+      "size": 5305,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/6cf407268e03e6a8998d2d222c04d0699caae584"
+    },
+    {
+      "path": "UniKP_kcat.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "90c0a4d988e354d2a01d27ea0c81f9e4e96fc967",
+      "size": 6951,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/90c0a4d988e354d2a01d27ea0c81f9e4e96fc967"
+    },
+    {
+      "path": "UniKP_kcat_Km.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "99fce8dcb26e3c203a6750255429678bbcf5c63b",
+      "size": 5193,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/99fce8dcb26e3c203a6750255429678bbcf5c63b"
+    },
+    {
+      "path": "UniKP_kcat_model.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3e776d22e24018796bbed4571e61bf28151dcdc6",
+      "size": 1791,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/3e776d22e24018796bbed4571e61bf28151dcdc6"
+    },
+    {
+      "path": "build_corpus.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c42a95e5a75345e8f8859b11177902fd32e5ebe",
+      "size": 659,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/5c42a95e5a75345e8f8859b11177902fd32e5ebe"
+    },
+    {
+      "path": "build_vocab.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bae73ee4f5ca029a6e31dcaa394c1f15fc13de0f",
+      "size": 6365,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/bae73ee4f5ca029a6e31dcaa394c1f15fc13de0f"
+    },
+    {
+      "path": "dataset.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "34ed1887b7c184a0b87035c4d04ada3610edb9e5",
+      "size": 1573,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/34ed1887b7c184a0b87035c4d04ada3610edb9e5"
+    },
+    {
+      "path": "datasets",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "07c0c6844dd71972a9a76cfda20bc0d41ec362f2",
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/trees/07c0c6844dd71972a9a76cfda20bc0d41ec362f2"
+    },
+    {
+      "path": "datasets/Generated_degree_unified_smiles_572.xlsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "97536710bb2090dabcd3fc539cbe671ca74b7190",
+      "size": 93540,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/97536710bb2090dabcd3fc539cbe671ca74b7190"
+    },
+    {
+      "path": "datasets/Generated_pH_unified_smiles_636.xlsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cdc3107037c27c61ecdda77018adf54131484215",
+      "size": 100403,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/cdc3107037c27c61ecdda77018adf54131484215"
+    },
+    {
+      "path": "datasets/Kcat_combination_0918_wildtype_mutant.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e9834a303325b4b07b9f046cdb2b8e714500d082",
+      "size": 12132719,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/e9834a303325b4b07b9f046cdb2b8e714500d082"
+    },
+    {
+      "path": "datasets/Km_test_11722.pkl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e668ff16a59f8143ce5f9aa972fae2894280e8a4",
+      "size": 3295007,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/e668ff16a59f8143ce5f9aa972fae2894280e8a4"
+    },
+    {
+      "path": "datasets/kcat_km_samples.xlsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f196ea5ce44f0edc9c415c3fd5fabe765cd593eb",
+      "size": 5904797,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/f196ea5ce44f0edc9c415c3fd5fabe765cd593eb"
+    },
+    {
+      "path": "enumerator.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2186cb69d3c5e15701312197979fb51ff766e7f1",
+      "size": 8361,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/2186cb69d3c5e15701312197979fb51ff766e7f1"
+    },
+    {
+      "path": "pretrain_rnn.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d51820e3f79019805402989a919c392ba8ab6eed",
+      "size": 10694,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/d51820e3f79019805402989a919c392ba8ab6eed"
+    },
+    {
+      "path": "pretrain_trfm.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a054a91258abde1e38ce732d4f3ff90e448d809",
+      "size": 7351,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/3a054a91258abde1e38ce732d4f3ff90e448d809"
+    },
+    {
+      "path": "requirements.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64dfd7a04173f1f4cab1c3edbf16e5c3e9bb5fc0",
+      "size": 81,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/64dfd7a04173f1f4cab1c3edbf16e5c3e9bb5fc0"
+    },
+    {
+      "path": "sample.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "198b87e02399d31039e41139a577766492a4d6a4",
+      "size": 252,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/198b87e02399d31039e41139a577766492a4d6a4"
+    },
+    {
+      "path": "smi2csv.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bdae596b5bea1d4c6e7c7b1b9a61f244e4fcb0fd",
+      "size": 1492,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/bdae596b5bea1d4c6e7c7b1b9a61f244e4fcb0fd"
+    },
+    {
+      "path": "trfm_12_23000.pkl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b08ae5265b8889363a24a1d746faae7fb9465006",
+      "size": 22128521,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/b08ae5265b8889363a24a1d746faae7fb9465006"
+    },
+    {
+      "path": "utils.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4c65079b4a17b7b69ae37e66962038941e7068db",
+      "size": 5913,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/4c65079b4a17b7b69ae37e66962038941e7068db"
+    },
+    {
+      "path": "vocab.pkl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "983f6bd6470267f2be4128cc373c84930444ee9e",
+      "size": 1446,
+      "url": "https://api.github.com/repos/Luo-SynBioLab/UniKP/git/blobs/983f6bd6470267f2be4128cc373c84930444ee9e"
+    }
+  ],
+  "truncated": false
+}

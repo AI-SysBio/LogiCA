@@ -1,0 +1,23 @@
+{
+  "sha": "062b07d9240a8006c4d67e7ad59410933ae80d22",
+  "url": "https://api.github.com/repos/MatthewACoelho/Res1_analysis/git/trees/062b07d9240a8006c4d67e7ad59410933ae80d22",
+  "tree": [
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d1d4618f8cdb6869a2cf958abb778606a9ffb52",
+      "size": 1780,
+      "url": "https://api.github.com/repos/MatthewACoelho/Res1_analysis/git/blobs/8d1d4618f8cdb6869a2cf958abb778606a9ffb52"
+    },
+    {
+      "path": "Res_1_screens_250424.Rmd",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6bbda93f28f8299d8d959e95ec8d7fb2de2d65dc",
+      "size": 333491,
+      "url": "https://api.github.com/repos/MatthewACoelho/Res1_analysis/git/blobs/6bbda93f28f8299d8d959e95ec8d7fb2de2d65dc"
+    }
+  ],
+  "truncated": false
+}

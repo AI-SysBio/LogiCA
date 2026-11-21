@@ -1,0 +1,397 @@
+{
+  "sha": "44c98fbdbd41cd019014cea0c476ef4807a40c23",
+  "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/trees/44c98fbdbd41cd019014cea0c476ef4807a40c23",
+  "tree": [
+    {
+      "path": "Data_analysis",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "15f424abde3da5a7b871121a07d02447656be511",
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/trees/15f424abde3da5a7b871121a07d02447656be511"
+    },
+    {
+      "path": "Data_analysis/Aggregate_s_coeffs.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "637de85c7ef6339e08a27208808d4155bf5b1a4c",
+      "size": 4854977,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/637de85c7ef6339e08a27208808d4155bf5b1a4c"
+    },
+    {
+      "path": "Data_analysis/Creating_FCY1prom_venv.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ab2960d6b8e587d28e1ffbbb96e67db22a9d22e",
+      "size": 528,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/1ab2960d6b8e587d28e1ffbbb96e67db22a9d22e"
+    },
+    {
+      "path": "Data_analysis/Despres_2022_comparisons.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d3fbca993de813c4aba17d808549f96a1e8604f7",
+      "size": 625957,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/d3fbca993de813c4aba17d808549f96a1e8604f7"
+    },
+    {
+      "path": "Data_analysis/Dose-response_curves.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "03afc11fc2f16fafb5f3fd216e06e8b999ec9ece",
+      "size": 1227918,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/03afc11fc2f16fafb5f3fd216e06e8b999ec9ece"
+    },
+    {
+      "path": "Data_analysis/FCY1_CSM_selection.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2728eef27aeadd36b18f7705fb08e4f81fb19911",
+      "size": 96971,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/2728eef27aeadd36b18f7705fb08e4f81fb19911"
+    },
+    {
+      "path": "Data_analysis/FCY1_abun_quantile.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a64424d43985ab53ea93bf91366d613c5fd6100",
+      "size": 69474,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/3a64424d43985ab53ea93bf91366d613c5fd6100"
+    },
+    {
+      "path": "Data_analysis/FCY1_fit_function_with_valid_Reviews.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d946eb5e7c007457a883955c6ed02efb37fa8292",
+      "size": 2207140,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/d946eb5e7c007457a883955c6ed02efb37fa8292"
+    },
+    {
+      "path": "Data_analysis/Fig2A_map.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "94d926da98d28ac9736bf601d59d5b50fb269566",
+      "size": 26129,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/94d926da98d28ac9736bf601d59d5b50fb269566"
+    },
+    {
+      "path": "Data_analysis/Fig3.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d94c59951722746e4ad170c7a884a0a42621bc06",
+      "size": 203487,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/d94c59951722746e4ad170c7a884a0a42621bc06"
+    },
+    {
+      "path": "Data_analysis/Fig4.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b2c94170cd832bb789e4adc2ccac679ad387cad7",
+      "size": 847048,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/b2c94170cd832bb789e4adc2ccac679ad387cad7"
+    },
+    {
+      "path": "Data_analysis/Fig5.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "57cb677707cf2040537641a76f8db0cc4c8617aa",
+      "size": 501043,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/57cb677707cf2040537641a76f8db0cc4c8617aa"
+    },
+    {
+      "path": "Data_analysis/Fig6_Reviews.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3481aa88d579a0624fdef70b3ec1c17900e65839",
+      "size": 67175,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/3481aa88d579a0624fdef70b3ec1c17900e65839"
+    },
+    {
+      "path": "Data_analysis/Final_s_coefficients.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d536c04f647bc052bf53c197b36f1b9710aa7f0",
+      "size": 17831294,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/4d536c04f647bc052bf53c197b36f1b9710aa7f0"
+    },
+    {
+      "path": "Data_analysis/Gating_flow_cytometry.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff67bfa7ac20179e54e7a93e0abe7ce49e044ebb",
+      "size": 4200702,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/ff67bfa7ac20179e54e7a93e0abe7ce49e044ebb"
+    },
+    {
+      "path": "Data_analysis/Read_depth.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8500c99ec8f8c3b1905cae37e2d4c2d84cf9c8a0",
+      "size": 26700,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/8500c99ec8f8c3b1905cae37e2d4c2d84cf9c8a0"
+    },
+    {
+      "path": "Data_analysis/S14Fig.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8528cc6de1c2a12fc2238ac00d951b26f883afeb",
+      "size": 372679,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/8528cc6de1c2a12fc2238ac00d951b26f883afeb"
+    },
+    {
+      "path": "Data_analysis/S1_Fig.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "11c2b952984c2b5ec072e43ba158d659fb9af622",
+      "size": 210837,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/11c2b952984c2b5ec072e43ba158d659fb9af622"
+    },
+    {
+      "path": "Data_analysis/S2Fig.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cc735b44c629ce0432bd5cd7eba15367bfed79e4",
+      "size": 101729,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/cc735b44c629ce0432bd5cd7eba15367bfed79e4"
+    },
+    {
+      "path": "Data_analysis/S5Fig.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "18b6a9d9fd5b8f7781125a1229b4b7d3e80ea4b9",
+      "size": 308075,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/18b6a9d9fd5b8f7781125a1229b4b7d3e80ea4b9"
+    },
+    {
+      "path": "Data_analysis/S7S8Figs.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ce9c3b6e667a41bd26f8b44237ce054446413677",
+      "size": 520522,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/ce9c3b6e667a41bd26f8b44237ce054446413677"
+    },
+    {
+      "path": "Data_analysis/Sim_muts_resist.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d67433fe4a07fed829f0747c90539983f4bb8bf",
+      "size": 6442207,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/2d67433fe4a07fed829f0747c90539983f4bb8bf"
+    },
+    {
+      "path": "Data_analysis/Sort-seq_validation.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4946524fa96dc36858b07030b1156eaab0211fda",
+      "size": 667454,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/4946524fa96dc36858b07030b1156eaab0211fda"
+    },
+    {
+      "path": "Data_analysis/SortSeq_Analysis.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "75e43110e4dfcc219a802aecf695099379ed3a5f",
+      "size": 23238893,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/75e43110e4dfcc219a802aecf695099379ed3a5f"
+    },
+    {
+      "path": "Data_analysis/Sort_calibration.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "49ebf753a62db6c95420b7575df1224944a4ecdd",
+      "size": 1852986,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/49ebf753a62db6c95420b7575df1224944a4ecdd"
+    },
+    {
+      "path": "Data_analysis/requirements_FCY1prom.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "83e7a5e1c274dc9e59d33d79af58a2c51b29be33",
+      "size": 2122,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/83e7a5e1c274dc9e59d33d79af58a2c51b29be33"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9c5d9b0b7cc8e4c3775b1aa945134941fba5923d",
+      "size": 8024,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/9c5d9b0b7cc8e4c3775b1aa945134941fba5923d"
+    },
+    {
+      "path": "Reads_analysis",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f3bc93efc922dd80e25e942763b0015eec2b25f1",
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/trees/f3bc93efc922dd80e25e942763b0015eec2b25f1"
+    },
+    {
+      "path": "Reads_analysis/Libs_info_format.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "15c5dac6719f6abc63cb5879ec9676c61d95136e",
+      "size": 2121,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/15c5dac6719f6abc63cb5879ec9676c61d95136e"
+    },
+    {
+      "path": "Reads_analysis/Mut_call_func.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d52f6fb7ab721b107aa755be18b8ac7e8b34b44",
+      "size": 43481,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/8d52f6fb7ab721b107aa755be18b8ac7e8b34b44"
+    },
+    {
+      "path": "Reads_analysis/Mut_calling.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2780946dfe41cedc0cfb0aab244dc84eb6c023eb",
+      "size": 13762,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/2780946dfe41cedc0cfb0aab244dc84eb6c023eb"
+    },
+    {
+      "path": "Reads_analysis/Reads_analysis.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2fcf27c0714ade80fd2c4951cdc1eb009fa91bbb",
+      "size": 22927,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/2fcf27c0714ade80fd2c4951cdc1eb009fa91bbb"
+    },
+    {
+      "path": "Reads_analysis/compile_FCY1_150_CDS_25-12-23.bash",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "be5c2f893d7efe34ff88c27ed72866deab00d751",
+      "size": 916,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/be5c2f893d7efe34ff88c27ed72866deab00d751"
+    },
+    {
+      "path": "Reads_analysis/compile_FCY1_150_F3F4_25-12-23.bash",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e9fc9bdd7da6ecd0f510c29941464737801bdb4a",
+      "size": 836,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/e9fc9bdd7da6ecd0f510c29941464737801bdb4a"
+    },
+    {
+      "path": "Reads_analysis/compile_FCY1_300_25-12-23.bash",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a31e18268caaa90aab28ad0163e9480f1d289bbf",
+      "size": 831,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/a31e18268caaa90aab28ad0163e9480f1d289bbf"
+    },
+    {
+      "path": "Reads_analysis/compile_mut_freqs.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b22277765a78b97bfb55ead02889016f4207350",
+      "size": 9499,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/7b22277765a78b97bfb55ead02889016f4207350"
+    },
+    {
+      "path": "Reads_analysis/compile_reads.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8fc9d402dbf5f48c45e30937916c99e2fc6684de",
+      "size": 2751,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/8fc9d402dbf5f48c45e30937916c99e2fc6684de"
+    },
+    {
+      "path": "Reads_analysis/compile_s_data.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed40b2f6d09624e74c77a59e10c143ce4243f1d4",
+      "size": 8160,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/ed40b2f6d09624e74c77a59e10c143ce4243f1d4"
+    },
+    {
+      "path": "Reads_analysis/compile_sort_25-02-18.bash",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5d6134e68ef3257acf760514f633899ef6945cc5",
+      "size": 504,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/5d6134e68ef3257acf760514f633899ef6945cc5"
+    },
+    {
+      "path": "Reads_analysis/create_venv_FCY1_300.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b146b1f2c8b824c80d2f5e167295717d71bfa1e",
+      "size": 489,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/8b146b1f2c8b824c80d2f5e167295717d71bfa1e"
+    },
+    {
+      "path": "Reads_analysis/freqs_FCY1_150_CDS_25-12-23.bash",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "606f605159ae1d94c8a1c8f98fe73a6c388727cf",
+      "size": 647,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/606f605159ae1d94c8a1c8f98fe73a6c388727cf"
+    },
+    {
+      "path": "Reads_analysis/freqs_FCY1_150_F3F4_25-12-23.bash",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8768926a9d4d915eb79d27421d8cbff6e0a8819d",
+      "size": 608,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/8768926a9d4d915eb79d27421d8cbff6e0a8819d"
+    },
+    {
+      "path": "Reads_analysis/freqs_FCY1_300_25-12-23.bash",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "18f75a3b638cc3d9b5fddac97a98ddd1d934a7ce",
+      "size": 600,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/18f75a3b638cc3d9b5fddac97a98ddd1d934a7ce"
+    },
+    {
+      "path": "Reads_analysis/generations_prep.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "52c98ac74d48296406774803b47085caeb67cede",
+      "size": 3032,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/52c98ac74d48296406774803b47085caeb67cede"
+    },
+    {
+      "path": "Reads_analysis/job_FCY1_150_CDS_25-12-23.bash",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5f595044355a5e4084a1ba104650d942729da8e7",
+      "size": 804,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/5f595044355a5e4084a1ba104650d942729da8e7"
+    },
+    {
+      "path": "Reads_analysis/job_FCY1_150_F3F4_25-12-23.bash",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8a05157fdf173303f47d77b089c83561640232a5",
+      "size": 816,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/8a05157fdf173303f47d77b089c83561640232a5"
+    },
+    {
+      "path": "Reads_analysis/job_FCY1_300_final_25-12-23.bash",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7c647293cc790c4006df92fba3ed23f543436b28",
+      "size": 790,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/7c647293cc790c4006df92fba3ed23f543436b28"
+    },
+    {
+      "path": "Reads_analysis/job_SortSeq_25-02-18.bash",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a565c2996f09e495de4514ff61d3d272a948cea1",
+      "size": 684,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/a565c2996f09e495de4514ff61d3d272a948cea1"
+    },
+    {
+      "path": "Reads_analysis/requirements_FCY1_300.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd61efc826374f2f7561eef5bc2d475e8861662c",
+      "size": 243,
+      "url": "https://api.github.com/repos/Landrylab/Aube_et_al_2025_FCY1promoter/git/blobs/bd61efc826374f2f7561eef5bc2d475e8861662c"
+    }
+  ],
+  "truncated": false
+}

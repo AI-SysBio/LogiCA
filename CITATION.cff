@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use LogiCA in your research, please cite the accompanying manuscript."
+title: "Contextualizing Biological Language Models across Modalities via Logit-Space Contrastive Alignment"
+url: "https://github.com/AI-SysBio/logica"
+repository-code: "https://github.com/AI-SysBio/logica"
+license: MIT
+year: 2027
+identifiers:
+  - type: url
+    value: "https://arxiv.org/abs/2606.18703"

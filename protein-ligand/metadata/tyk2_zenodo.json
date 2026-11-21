@@ -1,0 +1,157 @@
+{
+  "created": "2025-10-13T19:05:44.201568+00:00",
+  "modified": "2025-10-13T19:05:44.762056+00:00",
+  "id": 15347448,
+  "conceptrecid": "15347447",
+  "doi": "10.5281/zenodo.15347448",
+  "conceptdoi": "10.5281/zenodo.15347447",
+  "doi_url": "https://doi.org/10.5281/zenodo.15347448",
+  "metadata": {
+    "title": "Deep mutational scanning reveals pharmacologically relevant insights into TYK2 signaling and disease",
+    "doi": "10.5281/zenodo.15347448",
+    "publication_date": "2025-05-06",
+    "description": "<p>This record contains supplementary data files related to Deep mutational scanning to characterize the mechanistic role of TYK2 in immune signaling and disease, described below.</p>\n<p>&nbsp; - &nbsp;<strong>tyk2.bcmap-final.tsv.gz and tyk2-vamp.bcmap-final.tsv.gz</strong> each are large TSV files containing an oligonucleotide-barcode map for the DMS and flowDMS experiments, respectively. Each map contains two columns: (i) the barcode sequence and (ii) the oligonucleotide (variant) identifier.</p>\n<p>&nbsp; -&nbsp; <strong>The four *mapped-counts.tsv.gz files</strong> are each TSV files, one per experimental dataset (three DMS and one flowDMS), containing all barcodes joined to the relevant barcode map across all samples. Each file contains the following columns:</p>\n<table>\n<tbody>\n<tr>\n<td>sample</td>\n<td>the sample identifier corresponding to the file names in each barcode-counts directory</td>\n</tr>\n<tr>\n<td>barcode</td>\n<td>barcode sequence</td>\n</tr>\n<tr>\n<td>count</td>\n<td>read count</td>\n</tr>\n<tr>\n<td>lib</td>\n<td>library ID (always OCNT-DMSLIB-1)</td>\n</tr>\n<tr>\n<td>chunk</td>\n<td>chunk identifier</td>\n</tr>\n<tr>\n<td>wt_aa</td>\n<td>reference amino acid</td>\n</tr>\n<tr>\n<td>pos</td>\n<td>amino acid position</td>\n</tr>\n<tr>\n<td>mut_aa</td>\n<td>mutated amino acid</td>\n</tr>\n<tr>\n<td>wt_codon</td>\n<td>reference codon sequence</td>\n</tr>\n<tr>\n<td>mut_codon</td>\n<td>mutated codon sequence</td>\n</tr>\n<tr>\n<td>condition</td>\n<td>name of treatment condition</td>\n</tr>\n<tr>\n<td>condition_conc</td>\n<td>dosage of treatment compound, if relevnat</td>\n</tr>\n<tr>\n<td>stop_counts</td>\n<td>the natural log of the sum of stop-associated barcodes for the containing chunk</td>\n</tr>\n</tbody>\n</table>\n<p>&nbsp;</p>",
+    "access_right": "open",
+    "creators": [
+      {
+        "name": "Abell, Nathan",
+        "affiliation": null,
+        "orcid": "0000-0003-1098-5395"
+      },
+      {
+        "name": "Howard, Conor",
+        "affiliation": null
+      }
+    ],
+    "resource_type": {
+      "title": "Dataset",
+      "type": "dataset"
+    },
+    "license": {
+      "id": "cc-by-4.0"
+    },
+    "relations": {
+      "version": [
+        {
+          "index": 0,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "15347447"
+          }
+        }
+      ]
+    }
+  },
+  "title": "Deep mutational scanning reveals pharmacologically relevant insights into TYK2 signaling and disease",
+  "links": {
+    "self": "https://zenodo.org/api/records/15347448",
+    "self_html": "https://zenodo.org/records/15347448",
+    "preview_html": "https://zenodo.org/records/15347448?preview=1",
+    "doi": "https://doi.org/10.5281/zenodo.15347448",
+    "self_doi": "https://doi.org/10.5281/zenodo.15347448",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.15347448",
+    "reserve_doi": "https://zenodo.org/api/records/15347448/draft/pids/doi",
+    "parent": "https://zenodo.org/api/records/15347447",
+    "parent_html": "https://zenodo.org/records/15347447",
+    "parent_doi": "https://doi.org/10.5281/zenodo.15347447",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.15347447",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:15347448/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:15347448/sequence/default",
+    "files": "https://zenodo.org/api/records/15347448/files",
+    "media_files": "https://zenodo.org/api/records/15347448/media-files",
+    "latest": "https://zenodo.org/api/records/15347448/versions/latest",
+    "latest_html": "https://zenodo.org/records/15347448/latest",
+    "versions": "https://zenodo.org/api/records/15347448/versions",
+    "draft": "https://zenodo.org/api/records/15347448/draft",
+    "access_links": "https://zenodo.org/api/records/15347448/access/links",
+    "access_grants": "https://zenodo.org/api/records/15347448/access/grants",
+    "access_users": "https://zenodo.org/api/records/15347448/access/users",
+    "access_request": "https://zenodo.org/api/records/15347448/access/request",
+    "access": "https://zenodo.org/api/records/15347448/access",
+    "communities": "https://zenodo.org/api/records/15347448/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/15347448/communities-suggestions",
+    "request_deletion": "https://zenodo.org/api/records/15347448/request-deletion",
+    "file_modification": "https://zenodo.org/api/records/15347448/file-modification",
+    "quota_increase": "https://zenodo.org/api/records/15347448/quota-increase",
+    "requests": "https://zenodo.org/api/records/15347448/requests"
+  },
+  "updated": "2025-10-13T19:05:44.762056+00:00",
+  "recid": "15347448",
+  "revision": 4,
+  "files": [
+    {
+      "id": "387ca3ec-519a-438f-9103-767712d4d3b0",
+      "key": "TYK2-run1.mapped-counts.tsv.gz",
+      "size": 325738178,
+      "checksum": "md5:0003779992b45d9c48e12a41480ff9ae",
+      "links": {
+        "self": "https://zenodo.org/api/records/15347448/files/TYK2-run1.mapped-counts.tsv.gz/content"
+      }
+    },
+    {
+      "id": "af8ccd96-b384-4984-8ebc-0d4b17231bd8",
+      "key": "tyk2-vamp.bcmap-final.tsv.gz",
+      "size": 559587969,
+      "checksum": "md5:ddc5c708bc1d946f2db5326debb656cc",
+      "links": {
+        "self": "https://zenodo.org/api/records/15347448/files/tyk2-vamp.bcmap-final.tsv.gz/content"
+      }
+    },
+    {
+      "id": "d7686dd9-666a-49e9-95f6-8399fddd7be2",
+      "key": "tyk2.bcmap-final.tsv.gz",
+      "size": 588308339,
+      "checksum": "md5:7367f06052b397ecdcdb2ba44a4f0c46",
+      "links": {
+        "self": "https://zenodo.org/api/records/15347448/files/tyk2.bcmap-final.tsv.gz/content"
+      }
+    },
+    {
+      "id": "d2f983fe-792a-499a-9838-c178786ba799",
+      "key": "TYK2-run2.mapped-counts.tsv.gz",
+      "size": 240502545,
+      "checksum": "md5:3a58006fc77d93882e4a686917ff9262",
+      "links": {
+        "self": "https://zenodo.org/api/records/15347448/files/TYK2-run2.mapped-counts.tsv.gz/content"
+      }
+    },
+    {
+      "id": "1ddaa81e-bdbb-4e5d-b0c7-263ab4fc491d",
+      "key": "TYK2-run3.mapped-counts.tsv.gz",
+      "size": 245020040,
+      "checksum": "md5:8a19da359945b8576384867cf6d4ebba",
+      "links": {
+        "self": "https://zenodo.org/api/records/15347448/files/TYK2-run3.mapped-counts.tsv.gz/content"
+      }
+    },
+    {
+      "id": "981ed64c-bbef-4521-803a-75a27796c97a",
+      "key": "TYK2-vamp2.mapped-counts.tsv.gz",
+      "size": 86784131,
+      "checksum": "md5:bca93b2a9c33e9572b58936a6feb41b4",
+      "links": {
+        "self": "https://zenodo.org/api/records/15347448/files/TYK2-vamp2.mapped-counts.tsv.gz/content"
+      }
+    }
+  ],
+  "swh": {},
+  "owners": [
+    {
+      "id": "1204430"
+    }
+  ],
+  "status": "published",
+  "stats": {
+    "downloads": 292,
+    "unique_downloads": 292,
+    "views": 249,
+    "unique_views": 240,
+    "version_downloads": 292,
+    "version_unique_downloads": 292,
+    "version_unique_views": 240,
+    "version_views": 249
+  },
+  "state": "done",
+  "submitted": true
+}

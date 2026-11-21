@@ -1,0 +1,503 @@
+{
+  "sha": "931583821ff875e873002730fbbdf1047acfde77",
+  "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/trees/931583821ff875e873002730fbbdf1047acfde77",
+  "tree": [
+    {
+      "path": ".DS_Store",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5172377f7b9986fe4f9e21dd854b195c7747c2ba",
+      "size": 6148,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/5172377f7b9986fe4f9e21dd854b195c7747c2ba"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b73f7f56c11b9462271371c22650179631272040",
+      "size": 1069,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/b73f7f56c11b9462271371c22650179631272040"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "95abfd167a3324527f50aa3f55e1e7d03adfcd35",
+      "size": 2547,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/95abfd167a3324527f50aa3f55e1e7d03adfcd35"
+    },
+    {
+      "path": "datasets",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5fd4f30777725813566d12e4bf3e17d26b3d2a4f",
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/trees/5fd4f30777725813566d12e4bf3e17d26b3d2a4f"
+    },
+    {
+      "path": "datasets/.DS_Store",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f0b8b6c08c64a30e40da45c7b2eb5a4f3dbbd2f8",
+      "size": 6148,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/f0b8b6c08c64a30e40da45c7b2eb5a4f3dbbd2f8"
+    },
+    {
+      "path": "datasets/all_natural_metabolite_names.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "32df10164c4d6231f14f02585540270ec97dc118",
+      "size": 753346,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/32df10164c4d6231f14f02585540270ec97dc118"
+    },
+    {
+      "path": "datasets/metabolite_inchi_smiles_brenda_pubchem.tsv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "84d446274b92af02c7bba858b02152232dd8258f",
+      "size": 36299579,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/84d446274b92af02c7bba858b02152232dd8258f"
+    },
+    {
+      "path": "datasets/processed",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e6927c691e4a4465f4d60901dfeb9754e612aea6",
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/trees/e6927c691e4a4465f4d60901dfeb9754e612aea6"
+    },
+    {
+      "path": "datasets/processed/kcat_max_wt_singleSeqs_wpdbs.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab513b6207bb51f946ea71f00e7a88e74bf45b1b",
+      "size": 33962798,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/ab513b6207bb51f946ea71f00e7a88e74bf45b1b"
+    },
+    {
+      "path": "datasets/processed/ki_mean_wt_singleSeqs_wpdbs.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7be7b4f5317b9c19566460f9094d23a27ab9fd24",
+      "size": 13779177,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/7be7b4f5317b9c19566460f9094d23a27ab9fd24"
+    },
+    {
+      "path": "datasets/processed/km_mean_wt_singleSeqs_wpdbs.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c4eb68530da2442b3d0ffdbb00168c629ed5c35f",
+      "size": 46888350,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/c4eb68530da2442b3d0ffdbb00168c629ed5c35f"
+    },
+    {
+      "path": "datasets/splits",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b0feca921ab50ca5a7a3d3d6c97c065663fdf887",
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/trees/b0feca921ab50ca5a7a3d3d6c97c065663fdf887"
+    },
+    {
+      "path": "datasets/splits/kcat-random_test.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "78b22dc909fb3e30933d65b8c4730abe725f971c",
+      "size": 3456884,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/78b22dc909fb3e30933d65b8c4730abe725f971c"
+    },
+    {
+      "path": "datasets/splits/kcat-random_train.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "62c8ff59e774ead4f8bb742140996e6287745f8d",
+      "size": 27967613,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/62c8ff59e774ead4f8bb742140996e6287745f8d"
+    },
+    {
+      "path": "datasets/splits/kcat-random_trainval.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "995d169d6384d5a87480c431339450703fd6fd99",
+      "size": 31073809,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/995d169d6384d5a87480c431339450703fd6fd99"
+    },
+    {
+      "path": "datasets/splits/kcat-random_trainvaltest.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d57bcde27886b9fc99bafe6f25e15195a8d9e835",
+      "size": 34533844,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/d57bcde27886b9fc99bafe6f25e15195a8d9e835"
+    },
+    {
+      "path": "datasets/splits/kcat-random_val.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8bf629063c1bf6634079e58cd474c4598e0f0c2f",
+      "size": 3103277,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/8bf629063c1bf6634079e58cd474c4598e0f0c2f"
+    },
+    {
+      "path": "datasets/splits/kcat-seq_test_sequence_20cluster.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "48f5e07dca2594f69608434286e78cd29cdf4a30",
+      "size": 166643,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/48f5e07dca2594f69608434286e78cd29cdf4a30"
+    },
+    {
+      "path": "datasets/splits/kcat-seq_test_sequence_40cluster.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b1e14ef622d400c6847f5c77750c125e81acd59e",
+      "size": 244838,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/b1e14ef622d400c6847f5c77750c125e81acd59e"
+    },
+    {
+      "path": "datasets/splits/kcat-seq_test_sequence_60cluster.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dfeed57f0cf4f73920282fd76cb8d93b1266fb7a",
+      "size": 362577,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/dfeed57f0cf4f73920282fd76cb8d93b1266fb7a"
+    },
+    {
+      "path": "datasets/splits/kcat-seq_test_sequence_80cluster.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bde54c701cb569fadc88715ae0871c5a4e67d382",
+      "size": 456320,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/bde54c701cb569fadc88715ae0871c5a4e67d382"
+    },
+    {
+      "path": "datasets/splits/kcat-seq_test_sequence_99cluster.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "408ee628b2433f8ef1ccb35fc044b822043e105a",
+      "size": 515767,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/408ee628b2433f8ef1ccb35fc044b822043e105a"
+    },
+    {
+      "path": "datasets/splits/ki-random_test.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "babab04373662503364ecfec0581a9dd6239b628",
+      "size": 1402332,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/babab04373662503364ecfec0581a9dd6239b628"
+    },
+    {
+      "path": "datasets/splits/ki-random_train.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b42c734440e7875acaa88d4e6a9840a5dfca6bd3",
+      "size": 11382785,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/b42c734440e7875acaa88d4e6a9840a5dfca6bd3"
+    },
+    {
+      "path": "datasets/splits/ki-random_trainval.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "46efbd262dab78d639686f3fa1c02083dcc20926",
+      "size": 12651119,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/46efbd262dab78d639686f3fa1c02083dcc20926"
+    },
+    {
+      "path": "datasets/splits/ki-random_trainvaltest.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "da9786bfc87dff784c4012869dd283285d0742d7",
+      "size": 14055528,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/da9786bfc87dff784c4012869dd283285d0742d7"
+    },
+    {
+      "path": "datasets/splits/ki-random_val.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5b85bd41ce0bad8da447c24f0c70136586fd47cc",
+      "size": 1266714,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/5b85bd41ce0bad8da447c24f0c70136586fd47cc"
+    },
+    {
+      "path": "datasets/splits/ki-seq_test_sequence_40cluster.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "51a60e6109634c5122a42c6e0b1e6c167a3d98b6",
+      "size": 82234,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/51a60e6109634c5122a42c6e0b1e6c167a3d98b6"
+    },
+    {
+      "path": "datasets/splits/ki-seq_test_sequence_60cluster.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3c5b34c71eaa350bf470bf5a26afb3150fa871b7",
+      "size": 120010,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/3c5b34c71eaa350bf470bf5a26afb3150fa871b7"
+    },
+    {
+      "path": "datasets/splits/ki-seq_test_sequence_80cluster.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "944fdad1c6b36c6b04daf5aa6e7237a67bfd2485",
+      "size": 148065,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/944fdad1c6b36c6b04daf5aa6e7237a67bfd2485"
+    },
+    {
+      "path": "datasets/splits/ki-seq_test_sequence_99cluster.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e57d159a94fafa1cb5052a569397dfe5d467b937",
+      "size": 166706,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/e57d159a94fafa1cb5052a569397dfe5d467b937"
+    },
+    {
+      "path": "datasets/splits/km-random_test.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d5078e9f1722bd81c065ce1b07c54cb8af86bbb",
+      "size": 4753255,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/8d5078e9f1722bd81c065ce1b07c54cb8af86bbb"
+    },
+    {
+      "path": "datasets/splits/km-random_train.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5e36bfa8ae95bb57d97ba94b0fb5cccf46fe2a36",
+      "size": 38841357,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/5e36bfa8ae95bb57d97ba94b0fb5cccf46fe2a36"
+    },
+    {
+      "path": "datasets/splits/km-random_trainval.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "27cb66f24cbbabd0f648d6a5c92a29b8878bfc97",
+      "size": 43167143,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/27cb66f24cbbabd0f648d6a5c92a29b8878bfc97"
+    },
+    {
+      "path": "datasets/splits/km-random_trainvaltest.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "612758caab91479b483890c97a9b004ef5e08db1",
+      "size": 47925400,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/612758caab91479b483890c97a9b004ef5e08db1"
+    },
+    {
+      "path": "datasets/splits/km-random_val.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "abd998a78e13052cf6eeb4697868eafac3e8fe48",
+      "size": 4321196,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/abd998a78e13052cf6eeb4697868eafac3e8fe48"
+    },
+    {
+      "path": "datasets/splits/km-seq_test_sequence_40cluster.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c9afa25ab50af8b75447b63d4ac0ac77d97a8e0",
+      "size": 204620,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/6c9afa25ab50af8b75447b63d4ac0ac77d97a8e0"
+    },
+    {
+      "path": "datasets/splits/km-seq_test_sequence_60cluster.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2035087a777a465aef7cd002f4237a907cd34829",
+      "size": 327064,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/2035087a777a465aef7cd002f4237a907cd34829"
+    },
+    {
+      "path": "datasets/splits/km-seq_test_sequence_80cluster.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0db9234125ef8839bda93dc9c3ccbcf939546809",
+      "size": 436989,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/0db9234125ef8839bda93dc9c3ccbcf939546809"
+    },
+    {
+      "path": "datasets/splits/km-seq_test_sequence_99cluster.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "46eca64a1e0e793c0d86a76524e2ae96de1cb59e",
+      "size": 555155,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/46eca64a1e0e793c0d86a76524e2ae96de1cb59e"
+    },
+    {
+      "path": "scripts",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3b3014657c6cfc694fdea0478fa47d01f177202b",
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/trees/3b3014657c6cfc694fdea0478fa47d01f177202b"
+    },
+    {
+      "path": "scripts/.DS_Store",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0b015c1f63a9170ecef2156b529818ec90a153d7",
+      "size": 6148,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/0b015c1f63a9170ecef2156b529818ec90a153d7"
+    },
+    {
+      "path": "scripts/add_pdb_paths.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "edd24c656d373c48766c0f62cb50fe02acd334f4",
+      "size": 1626,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/edd24c656d373c48766c0f62cb50fe02acd334f4"
+    },
+    {
+      "path": "scripts/count_natural.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4998384c3840fac232774b240e167af220820352",
+      "size": 1158,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/4998384c3840fac232774b240e167af220820352"
+    },
+    {
+      "path": "scripts/create_pdbrecords.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "10ea93e4047246e453b4d145ae6fd291a6e32cdc",
+      "size": 775,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/10ea93e4047246e453b4d145ae6fd291a6e32cdc"
+    },
+    {
+      "path": "scripts/make_splits.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8e3d1994a98f4568881f54565cba7f6a60cb8c83",
+      "size": 5420,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/8e3d1994a98f4568881f54565cba7f6a60cb8c83"
+    },
+    {
+      "path": "scripts/pdb",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8e08ee20977e3f430de5cecb496c6585a5e0289c",
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/trees/8e08ee20977e3f430de5cecb496c6585a5e0289c"
+    },
+    {
+      "path": "scripts/pdb/.ipynb_checkpoints",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8e116777988c8b00a24cc5b0151522f0297e0b09",
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/trees/8e116777988c8b00a24cc5b0151522f0297e0b09"
+    },
+    {
+      "path": "scripts/pdb/.ipynb_checkpoints/Untitled-checkpoint.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "363fcab7ed6e9634e198cf5555ceb88932c9a245",
+      "size": 72,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/363fcab7ed6e9634e198cf5555ceb88932c9a245"
+    },
+    {
+      "path": "scripts/pdb/Untitled.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "50395a8fbfb0f45850f4d86f5584bca27dbf72f3",
+      "size": 27222,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/50395a8fbfb0f45850f4d86f5584bca27dbf72f3"
+    },
+    {
+      "path": "scripts/pdb/__pycache__",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1f99627ffe6745b68069aca1b3d35f89725db4dd",
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/trees/1f99627ffe6745b68069aca1b3d35f89725db4dd"
+    },
+    {
+      "path": "scripts/pdb/__pycache__/contact_map_utils.cpython-38.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c5725d999301e58ce1d67ee7632d8253dfd2219b",
+      "size": 5507,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/c5725d999301e58ce1d67ee7632d8253dfd2219b"
+    },
+    {
+      "path": "scripts/pdb/__pycache__/xpdb.cpython-38.pyc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e988dcdba2bf592df272ef763e0db012d59ab83",
+      "size": 3411,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/2e988dcdba2bf592df272ef763e0db012d59ab83"
+    },
+    {
+      "path": "scripts/pdb/contact_map_utils.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0d02a69f5ace37b57611e96114d14e7dce2ab0d6",
+      "size": 5518,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/0d02a69f5ace37b57611e96114d14e7dce2ab0d6"
+    },
+    {
+      "path": "scripts/pdb/prepare_data.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a45304aa46293cccb072790fb63fb63b3c5fc0e9",
+      "size": 4416,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/a45304aa46293cccb072790fb63fb63b3c5fc0e9"
+    },
+    {
+      "path": "scripts/pdb/xpdb.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7ee2afa199c95f94a32ac59d5e1354d3f204239",
+      "size": 4575,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/e7ee2afa199c95f94a32ac59d5e1354d3f204239"
+    },
+    {
+      "path": "scripts/processing",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5154f9e2f074190fd3f7efb78759d60c937ae897",
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/trees/5154f9e2f074190fd3f7efb78759d60c937ae897"
+    },
+    {
+      "path": "scripts/processing/.DS_Store",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8fd0f721d71b7a098b84877f23edeade246d9b05",
+      "size": 6148,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/8fd0f721d71b7a098b84877f23edeade246d9b05"
+    },
+    {
+      "path": "scripts/processing/.process_brenda.py.swp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "521922fb5e0554bee061b962f77614adbc1ed7e4",
+      "size": 32768,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/521922fb5e0554bee061b962f77614adbc1ed7e4"
+    },
+    {
+      "path": "scripts/processing/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "65316c97bfb8227a261600f7d9dc97816706b5dd",
+      "size": 1616,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/65316c97bfb8227a261600f7d9dc97816706b5dd"
+    },
+    {
+      "path": "scripts/processing/merge.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "38921481d64dfa1f45b17572e84b7514a85d5276",
+      "size": 7571,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/38921481d64dfa1f45b17572e84b7514a85d5276"
+    },
+    {
+      "path": "scripts/processing/process_brenda.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bef594f30d13b647be22f5c7f543996806bf02f7",
+      "size": 25820,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/bef594f30d13b647be22f5c7f543996806bf02f7"
+    },
+    {
+      "path": "scripts/processing/process_sabio.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e0a42c684091b8b4224a7bc1e045c0008727b1e0",
+      "size": 33376,
+      "url": "https://api.github.com/repos/maranasgroup/CatPred-DB/git/blobs/e0a42c684091b8b4224a7bc1e045c0008727b1e0"
+    }
+  ],
+  "truncated": false
+}

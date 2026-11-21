@@ -1,0 +1,326 @@
+{
+  "sha": "79fb6ac14a7f9e0a0768110797085ced68ef91c1",
+  "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/trees/79fb6ac14a7f9e0a0768110797085ced68ef91c1",
+  "tree": [
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f288702d2fa16d3cdf0035b15a9fcbc552cd88e7",
+      "size": 35149,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/f288702d2fa16d3cdf0035b15a9fcbc552cd88e7"
+    },
+    {
+      "path": "barcode_hist.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb9e6354b8853b9979efc7cda94fda13573ea1de",
+      "size": 1905,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/cb9e6354b8853b9979efc7cda94fda13573ea1de"
+    },
+    {
+      "path": "barcode_miseq_analysis.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8c4e5ba053a3388f6f61d8387c37997902fef12b",
+      "size": 3049,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/8c4e5ba053a3388f6f61d8387c37997902fef12b"
+    },
+    {
+      "path": "barcode_novaseq_analysis.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eba471b84a8bb5fac990b13e43118df694ae9eaf",
+      "size": 5205,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/eba471b84a8bb5fac990b13e43118df694ae9eaf"
+    },
+    {
+      "path": "barcode_novaseq_normalization.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8c4e228aa800db07b27ca1892548269c5ef4a8eb",
+      "size": 4429,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/8c4e228aa800db07b27ca1892548269c5ef4a8eb"
+    },
+    {
+      "path": "counts_boxplot.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d6c0560bdf6c758a6212769d9ccf99d97da94ea",
+      "size": 2390,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/8d6c0560bdf6c758a6212769d9ccf99d97da94ea"
+    },
+    {
+      "path": "hier_clustering.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d46e4e532698d9bc726826002e50b5dff1d831d",
+      "size": 10060,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/4d46e4e532698d9bc726826002e50b5dff1d831d"
+    },
+    {
+      "path": "miseq_barcode_search.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53b4524a59267a8e2b2cdb7ff5df9baa662d043c",
+      "size": 2498,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/53b4524a59267a8e2b2cdb7ff5df9baa662d043c"
+    },
+    {
+      "path": "miseq_correlation.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e62cb184cb6e3478dbeda8f91b13f4b1b9b4f714",
+      "size": 3346,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/e62cb184cb6e3478dbeda8f91b13f4b1b9b4f714"
+    },
+    {
+      "path": "miseq_count_avg_plot.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "638cbd3a712b0536c51ba9cd43fdc70b3701c64a",
+      "size": 2071,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/638cbd3a712b0536c51ba9cd43fdc70b3701c64a"
+    },
+    {
+      "path": "miseq_map_nucleotide_abundance.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "25db378870b5dc8ae355ea4bb00974ccc1e13c80",
+      "size": 2493,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/25db378870b5dc8ae355ea4bb00974ccc1e13c80"
+    },
+    {
+      "path": "miseq_map_total_bar.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c0bccd274ed0638f915f647cf06cab4fab3be089",
+      "size": 1315,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/c0bccd274ed0638f915f647cf06cab4fab3be089"
+    },
+    {
+      "path": "miseq_match.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f78182fceac7d444632925b272f59d41d80ceff",
+      "size": 13224,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/1f78182fceac7d444632925b272f59d41d80ceff"
+    },
+    {
+      "path": "miseq_read_parse.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bdbc0ddde0d1de9f9e52192dbf722518ca7dbda4",
+      "size": 3482,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/bdbc0ddde0d1de9f9e52192dbf722518ca7dbda4"
+    },
+    {
+      "path": "miseq_spacer_map.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f50f6f958e4d5fc1bdd08d385a3b1f0b1d707481",
+      "size": 14207,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/f50f6f958e4d5fc1bdd08d385a3b1f0b1d707481"
+    },
+    {
+      "path": "novaseq_average_dfs.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7133fa299c1331db95829de9c63254dca40ed7b0",
+      "size": 5148,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/7133fa299c1331db95829de9c63254dca40ed7b0"
+    },
+    {
+      "path": "novaseq_linefit.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e379926c47102c7ad6d3c738f70f5ff2fa3e550d",
+      "size": 3376,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/e379926c47102c7ad6d3c738f70f5ff2fa3e550d"
+    },
+    {
+      "path": "novaseq_match.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd83518dde8a642640de71d1e2dcdd613f94c6d9",
+      "size": 4874,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/bd83518dde8a642640de71d1e2dcdd613f94c6d9"
+    },
+    {
+      "path": "novaseq_monte_carlo.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e408fd0886e88d243601187a894772f9de46b0f2",
+      "size": 15255,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/e408fd0886e88d243601187a894772f9de46b0f2"
+    },
+    {
+      "path": "novaseq_monte_carlo_dask.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "12a80b05279f56912608e05edeb321d2e6e51900",
+      "size": 17995,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/12a80b05279f56912608e05edeb321d2e6e51900"
+    },
+    {
+      "path": "novaseq_monte_carlo_dask_v2.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2134b611a2c258b141164bee0d6b3b316fd40c41",
+      "size": 28767,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/2134b611a2c258b141164bee0d6b3b316fd40c41"
+    },
+    {
+      "path": "novaseq_pacbio_analysis.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "30b2a8ef93a6cc32a72784c03e1763630d69143a",
+      "size": 8919,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/30b2a8ef93a6cc32a72784c03e1763630d69143a"
+    },
+    {
+      "path": "novaseq_totals_percentage.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bc3605203aa13947aef60f477edff5469e85607c",
+      "size": 4290,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/bc3605203aa13947aef60f477edff5469e85607c"
+    },
+    {
+      "path": "qrtpcr_analysis.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d2ca2cdd1f5e5346263b8909b913a112f05240d",
+      "size": 10809,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/2d2ca2cdd1f5e5346263b8909b913a112f05240d"
+    },
+    {
+      "path": "qrtpcr_plate_map.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b40f7cfd8b2bacde8c3652c99e9c0f6c0b35a3ad",
+      "size": 3550,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/b40f7cfd8b2bacde8c3652c99e9c0f6c0b35a3ad"
+    },
+    {
+      "path": "rna_seq_data_generator.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f00468bc97d4d6dcc5abe41456c2dbcd1a877f9c",
+      "size": 7999,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/f00468bc97d4d6dcc5abe41456c2dbcd1a877f9c"
+    },
+    {
+      "path": "umap_hdbscan",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "fe7eca9ba88dda76eb308e6923d5b376fa8ef10e",
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/trees/fe7eca9ba88dda76eb308e6923d5b376fa8ef10e"
+    },
+    {
+      "path": "umap_hdbscan/avg_foldenrichment_full_clustered.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bc44adcad4435ac9f249916b77b1dc9d73c15e09",
+      "size": 7162669,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/bc44adcad4435ac9f249916b77b1dc9d73c15e09"
+    },
+    {
+      "path": "umap_hdbscan/cluster_enrichment.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d9884525af38469f928d286b35e98a0ef27ab45b",
+      "size": 3635,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/d9884525af38469f928d286b35e98a0ef27ab45b"
+    },
+    {
+      "path": "umap_hdbscan/constants.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5259678f93e9afe7e8805ad1215b5c4e797f53bb",
+      "size": 4039,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/5259678f93e9afe7e8805ad1215b5c4e797f53bb"
+    },
+    {
+      "path": "umap_hdbscan/encode.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "475ae0de1252bd152486da0e1dfd8835286c6f15",
+      "size": 5872,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/475ae0de1252bd152486da0e1dfd8835286c6f15"
+    },
+    {
+      "path": "umap_hdbscan/funclib_all_barcodes_withwt.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "12d60083aac33c182c3521a74f8eafc3da381c70",
+      "size": 6230830,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/12d60083aac33c182c3521a74f8eafc3da381c70"
+    },
+    {
+      "path": "umap_hdbscan/initial_weights.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "efe332040e6ecd2101240b3d5b1d5a0593914cea",
+      "size": 5977,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/efe332040e6ecd2101240b3d5b1d5a0593914cea"
+    },
+    {
+      "path": "umap_hdbscan/pca-19.npy",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8ff979e2621b3e3b7df7652dc1e09c750c4fd144",
+      "size": 1648,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/8ff979e2621b3e3b7df7652dc1e09c750c4fd144"
+    },
+    {
+      "path": "umap_hdbscan/pcencoded.csv",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "04c97941dc04a571bd14b70eb2fec19782ba8d5e",
+      "size": 38221880,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/04c97941dc04a571bd14b70eb2fec19782ba8d5e"
+    },
+    {
+      "path": "umap_hdbscan/test",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+      "size": 1,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/8b137891791fe96927ad78e64b0aad7bded08bdc"
+    },
+    {
+      "path": "umap_hdbscan/ttgr_logos.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "adba95178dac9ce5d9a18b822e46bbc4a60ed8fa",
+      "size": 7529,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/adba95178dac9ce5d9a18b822e46bbc4a60ed8fa"
+    },
+    {
+      "path": "umap_hdbscan/umap_hdbscan_ttgr.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ead1eaa909245dbf4db208c19e854420acf86538",
+      "size": 15966,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/ead1eaa909245dbf4db208c19e854420acf86538"
+    },
+    {
+      "path": "umap_hdbscan/utils.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0089a884255ba6912059ee6442b599c1727f3ce7",
+      "size": 4755,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/0089a884255ba6912059ee6442b599c1727f3ce7"
+    },
+    {
+      "path": "umap_hdbscan/weak_repressor.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8ff5f0e75c63e16cc780d64df4f4e11a4a3b8660",
+      "size": 4888,
+      "url": "https://api.github.com/repos/raman-lab/sensor_seq/git/blobs/8ff5f0e75c63e16cc780d64df4f4e11a4a3b8660"
+    }
+  ],
+  "truncated": false
+}

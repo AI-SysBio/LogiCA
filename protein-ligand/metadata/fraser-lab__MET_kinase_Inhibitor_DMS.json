@@ -1,0 +1,347 @@
+{
+  "sha": "c2052b97e12859e71cebd4ccd947c02e1084bc51",
+  "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/trees/c2052b97e12859e71cebd4ccd947c02e1084bc51",
+  "tree": [
+    {
+      "path": "Data",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "bece92f9414e07130cc4a1e717a20858fa991da1",
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/trees/bece92f9414e07130cc4a1e717a20858fa991da1"
+    },
+    {
+      "path": "Data/Differential_inhibitor_analysis.R",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3c277a0c226830f585cd2d033bbb95b9805d948",
+      "size": 36069,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/c3c277a0c226830f585cd2d033bbb95b9805d948"
+    },
+    {
+      "path": "Data/MET_inhibitor_DMS_PCA.R",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9fb77fdba984af4edab88133ba259cf7fd3edcfd",
+      "size": 25701,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/9fb77fdba984af4edab88133ba259cf7fd3edcfd"
+    },
+    {
+      "path": "Data/MET_inhibitor_DMS_Rosace_analysis.R",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7ca2882673fb20bd4c7f32ed4db92df911d69172",
+      "size": 36883,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/7ca2882673fb20bd4c7f32ed4db92df911d69172"
+    },
+    {
+      "path": "Data/MET_inhibitor_DMS_analysis.R",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "55a75b5db4ce1798e2d515e63251453905c81bd9",
+      "size": 121200,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/55a75b5db4ce1798e2d515e63251453905c81bd9"
+    },
+    {
+      "path": "Data/MET_inhibitor_DMS_replicates_corr.R",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1fba04f699146821fb035525a72d4a946e262934",
+      "size": 5813,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/1fba04f699146821fb035525a72d4a946e262934"
+    },
+    {
+      "path": "Data/MET_inhibitor_PDB_mapping.R",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0a920055be5e9c00f3ea429bd71e34d4e201dd44",
+      "size": 10825,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/0a920055be5e9c00f3ea429bd71e34d4e201dd44"
+    },
+    {
+      "path": "Data/MET_inhibitor_Resistance_filtering.R",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "450eedfba3430649405d38670ceb50b4dd54b548",
+      "size": 80265,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/450eedfba3430649405d38670ceb50b4dd54b548"
+    },
+    {
+      "path": "Data/MET_inhibitor_heatmaps.R",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "262b90d7529a75b7f60b193afb2289fc59022331",
+      "size": 19539,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/262b90d7529a75b7f60b193afb2289fc59022331"
+    },
+    {
+      "path": "Data/MET_rosace_normalized.R",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cf5a9ffb03e0cc437fe40616715c899a17151379",
+      "size": 61620,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/cf5a9ffb03e0cc437fe40616715c899a17151379"
+    },
+    {
+      "path": "Data/ML_figures.R",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cf1868d91275386417efda586695efeb146bed25",
+      "size": 12598,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/cf1868d91275386417efda586695efeb146bed25"
+    },
+    {
+      "path": "Data/Met_Inhibitor_V1.Rmd",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "23a2ee1d124a7b5ab64cbc9c932cb98e205c3cbd",
+      "size": 33673,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/23a2ee1d124a7b5ab64cbc9c932cb98e205c3cbd"
+    },
+    {
+      "path": "Data/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4faaf9793976589d67ac2a68e194d67bc46d0f72",
+      "size": 387,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/4faaf9793976589d67ac2a68e194d67bc46d0f72"
+    },
+    {
+      "path": "Data/Tanimoto_inhibitors.R",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aed76eed6de64252b82de0a1b985b8caa5aebeb0",
+      "size": 5731,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/aed76eed6de64252b82de0a1b985b8caa5aebeb0"
+    },
+    {
+      "path": "Data/dms_analysis_utilities.R",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "86354350d68d0be7db2672bfd848442bbb6ca067",
+      "size": 14020,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/86354350d68d0be7db2672bfd848442bbb6ca067"
+    },
+    {
+      "path": "EX_rosace_effect_all.tsv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a4662a0d2d78561acad032f2e94674b423009343",
+      "size": 4607610,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/a4662a0d2d78561acad032f2e94674b423009343"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "89ff4f4cbb1b5aabdea1df379a896672e64ac572",
+      "size": 1067,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/89ff4f4cbb1b5aabdea1df379a896672e64ac572"
+    },
+    {
+      "path": "Machine_Learning",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3bd0e376b3d636facec261a830662c7ef064af69",
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/trees/3bd0e376b3d636facec261a830662c7ef064af69"
+    },
+    {
+      "path": "Machine_Learning/ML_figures.R",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7e294d3e233cf6d3e62e110af7c213547a4a30f3",
+      "size": 11460,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/7e294d3e233cf6d3e62e110af7c213547a4a30f3"
+    },
+    {
+      "path": "Machine_Learning/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1733ad7d28d22679e58a678be9ee4304239a775a",
+      "size": 1173,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/1733ad7d28d22679e58a678be9ee4304239a775a"
+    },
+    {
+      "path": "Machine_Learning/all_model_training.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d595edd204d352a7289ae6e58fffdbb7f567a53",
+      "size": 8837,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/3d595edd204d352a7289ae6e58fffdbb7f567a53"
+    },
+    {
+      "path": "Machine_Learning/bin_feature_columns.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d39e70011facf91471878569cd13343b5d57c0c6",
+      "size": 5251,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/d39e70011facf91471878569cd13343b5d57c0c6"
+    },
+    {
+      "path": "Machine_Learning/data",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "323bfa3e44fde1fc9da92ad7a8bd9fc9bdea9582",
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/trees/323bfa3e44fde1fc9da92ad7a8bd9fc9bdea9582"
+    },
+    {
+      "path": "Machine_Learning/data/.DS_Store",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5008ddfcf53c02e82d7eee2e57c38e5672ef89f6",
+      "size": 6148,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/5008ddfcf53c02e82d7eee2e57c38e5672ef89f6"
+    },
+    {
+      "path": "Machine_Learning/data/all_features_all_data.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dc95b83d8cd7eb1bd2f7d40f79fe02c34a91f220",
+      "size": 6996228,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/dc95b83d8cd7eb1bd2f7d40f79fe02c34a91f220"
+    },
+    {
+      "path": "Machine_Learning/data/all_features_all_data_pre_binning.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b2b14aff93feb7422f6be01ea9c20b307afbc12c",
+      "size": 6167594,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/b2b14aff93feb7422f6be01ea9c20b307afbc12c"
+    },
+    {
+      "path": "Machine_Learning/data/best_hyperparameters_final.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6efaa85aa503eddbf82d268024599163b13fe976",
+      "size": 3281853,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/6efaa85aa503eddbf82d268024599163b13fe976"
+    },
+    {
+      "path": "Machine_Learning/data/full_training_data.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "68971f842793a44359bfd66f98989f2201e1b401",
+      "size": 3931326,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/68971f842793a44359bfd66f98989f2201e1b401"
+    },
+    {
+      "path": "Machine_Learning/hyperparameter_tuning.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "726ae770835179bba436feb51e08465d1b8e3790",
+      "size": 4792,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/726ae770835179bba436feb51e08465d1b8e3790"
+    },
+    {
+      "path": "Machine_Learning/list_of_models.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0208b430d30a189db861f921cbb8587f7d18c590",
+      "size": 708608,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/0208b430d30a189db861f921cbb8587f7d18c590"
+    },
+    {
+      "path": "Machine_Learning/outputs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "77a341e5b54c11e53c55fc3e05922273ec0182f0",
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/trees/77a341e5b54c11e53c55fc3e05922273ec0182f0"
+    },
+    {
+      "path": "Machine_Learning/outputs/cross_val_lineplot.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8ec59034b84de54d053667b9404d7132346b7822",
+      "size": 153,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/8ec59034b84de54d053667b9404d7132346b7822"
+    },
+    {
+      "path": "Machine_Learning/outputs/cross_validation_and_testing_all_models.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "31c8ec0d2397c38fb0bc424fa7baead5f036871a",
+      "size": 2036423,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/31c8ec0d2397c38fb0bc424fa7baead5f036871a"
+    },
+    {
+      "path": "Machine_Learning/outputs/inhibitor_correlations_all_submodels_final.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "262879fb3eff29ac8fba39de28444f6f07458209",
+      "size": 5173,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/262879fb3eff29ac8fba39de28444f6f07458209"
+    },
+    {
+      "path": "Machine_Learning/outputs/model_wise_fitness_predictions_submodels_final.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a826d58ae427f0a66f839df5dca5b34a20bb9246",
+      "size": 30876357,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/a826d58ae427f0a66f839df5dca5b34a20bb9246"
+    },
+    {
+      "path": "Machine_Learning/outputs/step_plot_df.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "debd5636a08e1aca392308ac5466bae4435a3a94",
+      "size": 2349392,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/debd5636a08e1aca392308ac5466bae4435a3a94"
+    },
+    {
+      "path": "Machine_Learning/outputs/xgboost_and_best_model_predictions_scatter_df.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "14e7abd893939b470bbb973d12fdd69ed59a1698",
+      "size": 2198714,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/14e7abd893939b470bbb973d12fdd69ed59a1698"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e937fd32ebabdd98b42bde2455c1a0959c9988b8",
+      "size": 668,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/e937fd32ebabdd98b42bde2455c1a0959c9988b8"
+    },
+    {
+      "path": "WT_rosace_effect_all.tsv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ce05a17fe70008e677af427894caed05f9a3d508",
+      "size": 4055419,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/ce05a17fe70008e677af427894caed05f9a3d508"
+    },
+    {
+      "path": "ex14_scores_filtered.tsv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3eb0d90d2d90674af96cd77c6695e6ebab69d149",
+      "size": 9141626,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/3eb0d90d2d90674af96cd77c6695e6ebab69d149"
+    },
+    {
+      "path": "ex14_scores_unfiltered.tsv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e73edc44186cb4fbb4a8f5f0213b888efab35ae8",
+      "size": 10140591,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/e73edc44186cb4fbb4a8f5f0213b888efab35ae8"
+    },
+    {
+      "path": "met_scores_filtered.tsv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9530a9cf6c154388ceb24b114099dd89949b4d42",
+      "size": 7498584,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/9530a9cf6c154388ceb24b114099dd89949b4d42"
+    },
+    {
+      "path": "met_scores_unfiltered.tsv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "88044615c004ccc55bc61febf5e971640156edc4",
+      "size": 9185820,
+      "url": "https://api.github.com/repos/fraser-lab/MET_kinase_Inhibitor_DMS/git/blobs/88044615c004ccc55bc61febf5e971640156edc4"
+    }
+  ],
+  "truncated": false
+}

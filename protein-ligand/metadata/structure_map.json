@@ -1,0 +1,505 @@
+{
+  "AACC1": {
+    "pdb_id": null,
+    "selection": "no PDBe best_structures mapping",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/P23181",
+    "uniprot_id": "P23181"
+  },
+  "ABL1": {
+    "pdb_id": "5MO4",
+    "selection": "named in benchmark guide",
+    "uniprot_id": "P00519"
+  },
+  "ADRB2": {
+    "candidates": [
+      "9Q3L",
+      "8GG0",
+      "9BUY",
+      "8GFW",
+      "8GFX",
+      "8GFY",
+      "8GFZ",
+      "8GG1",
+      "8GG2",
+      "8GFV",
+      "8GG3",
+      "8GE5"
+    ],
+    "pdb_id": "9Q3L",
+    "selection": "highest-ranked PDBe entry, no bound ligand found",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/P07550",
+    "uniprot_id": "P07550"
+  },
+  "AKT1": {
+    "candidates": [
+      "7NH5",
+      "4EJN",
+      "6HHG",
+      "6HHJ",
+      "6S9W",
+      "7NH4",
+      "6S9X",
+      "5KCV",
+      "6HHH",
+      "6HHI",
+      "6HHF",
+      "9TMV"
+    ],
+    "pdb_id": "6HHG",
+    "selection": "highest-ranked PDBe entry with a bound ligand",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/P31749",
+    "uniprot_id": "P31749"
+  },
+  "BLAT": {
+    "pdb_id": "1XBB",
+    "selection": "named in benchmark guide",
+    "uniprot_id": "P62593"
+  },
+  "BRAF": {
+    "candidates": [
+      "8VYS",
+      "8VYP",
+      "7ZR0",
+      "7MFD",
+      "8VYO",
+      "9O2Z",
+      "7MFF",
+      "6UAN",
+      "7ZR5",
+      "8DGT",
+      "7MFE",
+      "8VYU"
+    ],
+    "pdb_id": "8DGT",
+    "selection": "highest-ranked PDBe entry with a bound ligand",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/P15056",
+    "uniprot_id": "P15056"
+  },
+  "CBS": {
+    "candidates": [
+      "9SQ0",
+      "9VTF",
+      "8S5I",
+      "8S5H",
+      "8S5K",
+      "8S5L",
+      "8S5J",
+      "8S5M",
+      "9SPV",
+      "9SPW",
+      "4L28",
+      "4L3V"
+    ],
+    "pdb_id": "9SQ0",
+    "selection": "highest-ranked PDBe entry with a bound ligand",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/P35520",
+    "uniprot_id": "P35520"
+  },
+  "CP2C9": {
+    "candidates": [
+      "5X23",
+      "5X24",
+      "6VLT",
+      "1OG5",
+      "1OG2",
+      "1R9O",
+      "5A5I",
+      "5W0C",
+      "7RL2",
+      "5K7K",
+      "8VZ7",
+      "5A5J"
+    ],
+    "pdb_id": "5X23",
+    "selection": "highest-ranked PDBe entry with a bound ligand",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/P11712",
+    "uniprot_id": "P11712"
+  },
+  "DYR": {
+    "pdb_id": "3DK9",
+    "selection": "named in benchmark guide",
+    "uniprot_id": "P00379"
+  },
+  "EGFR": {
+    "candidates": [
+      "7SYD",
+      "7SYE",
+      "7SZ0",
+      "7SZ1",
+      "7SZ7",
+      "7SZ5",
+      "8HGO",
+      "8HGS",
+      "8HGP",
+      "4UV7",
+      "9Z9E",
+      "9IPB"
+    ],
+    "pdb_id": "8HGO",
+    "selection": "highest-ranked PDBe entry with a bound ligand",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/P00533",
+    "uniprot_id": "P00533"
+  },
+  "ERG11": {
+    "candidates": [
+      "5V5Z",
+      "5TZ1",
+      "5FSA"
+    ],
+    "pdb_id": "5V5Z",
+    "selection": "highest-ranked PDBe entry with a bound ligand",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/P10613",
+    "uniprot_id": "P10613"
+  },
+  "FKS1": {
+    "pdb_id": "7XE4",
+    "selection": "named in benchmark guide",
+    "uniprot_id": "P38631"
+  },
+  "FKS2": {
+    "candidates": [
+      "9LU8",
+      "9WZS",
+      "9X04",
+      "9WZT"
+    ],
+    "pdb_id": "9LU8",
+    "selection": "highest-ranked PDBe entry, no bound ligand found",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/P40989",
+    "uniprot_id": "P40989"
+  },
+  "KKA2": {
+    "candidates": [
+      "1ND4"
+    ],
+    "pdb_id": "1ND4",
+    "selection": "highest-ranked PDBe entry with a bound ligand",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/P00552",
+    "uniprot_id": "P00552"
+  },
+  "KRAS": {
+    "candidates": [
+      "7VVB",
+      "7ROV",
+      "7SCX",
+      "7SCW",
+      "8QVU",
+      "9NI4",
+      "9NI3",
+      "9NI5",
+      "9NI6",
+      "9NI7",
+      "9NI8",
+      "9NID"
+    ],
+    "pdb_id": "7VVB",
+    "selection": "highest-ranked PDBe entry with a bound ligand",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/P01116",
+    "uniprot_id": "P01116"
+  },
+  "MAP2K1": {
+    "candidates": [
+      "9AY7",
+      "7M0X",
+      "6PP9",
+      "9MMQ",
+      "9O0U",
+      "7M0U",
+      "7M0W",
+      "6V2W",
+      "7M0Z",
+      "9UUX",
+      "7M0V",
+      "7M0T"
+    ],
+    "pdb_id": "9AY7",
+    "selection": "highest-ranked PDBe entry with a bound ligand",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/Q02750",
+    "uniprot_id": "Q02750"
+  },
+  "MAP2K2": {
+    "candidates": [
+      "1S9I",
+      "21OA",
+      "21PA",
+      "1JKY",
+      "4H3Q"
+    ],
+    "pdb_id": "1S9I",
+    "selection": "highest-ranked PDBe entry with a bound ligand",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/P36507",
+    "uniprot_id": "P36507"
+  },
+  "MAPK1": {
+    "candidates": [
+      "8AOJ",
+      "6SLG",
+      "4QTA",
+      "4QTE",
+      "2Y9Q",
+      "6QA3",
+      "6QAL",
+      "6GJD",
+      "6QA1",
+      "6QAH",
+      "6QAQ",
+      "3SA0"
+    ],
+    "pdb_id": "8AOJ",
+    "selection": "highest-ranked PDBe entry with a bound ligand",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/P28482",
+    "uniprot_id": "P28482"
+  },
+  "MET": {
+    "pdb_id": "3LQ8",
+    "selection": "named in benchmark guide",
+    "uniprot_id": "P08581"
+  },
+  "MSH2": {
+    "candidates": [
+      "8RB1",
+      "8RAU",
+      "8RB2",
+      "8RAV",
+      "8RB0",
+      "8RAW",
+      "3THX",
+      "2O8B",
+      "8AG6",
+      "8RAZ",
+      "3THY",
+      "2O8D"
+    ],
+    "pdb_id": "8RB1",
+    "selection": "highest-ranked PDBe entry with a bound ligand",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/P43246",
+    "uniprot_id": "P43246"
+  },
+  "MTHFR": {
+    "candidates": [
+      "8QA4",
+      "8QA6",
+      "8QA5",
+      "6FCX"
+    ],
+    "pdb_id": "8QA4",
+    "selection": "highest-ranked PDBe entry, no bound ligand found",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/P42898",
+    "uniprot_id": "P42898"
+  },
+  "Mpro": {
+    "pdb_id": "7L0D",
+    "selection": "named in benchmark guide",
+    "uniprot_id": "P0DTD1"
+  },
+  "NRAM": {
+    "pdb_id": null,
+    "selection": "no PDBe best_structures mapping",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/P03470",
+    "uniprot_id": "P03470"
+  },
+  "NUDT15": {
+    "candidates": [
+      "7B67",
+      "7B64",
+      "6T5J",
+      "7B63",
+      "7B65",
+      "7B66",
+      "7B7V",
+      "5LPG",
+      "7R0D",
+      "5BON",
+      "7NR6",
+      "7AOM"
+    ],
+    "pdb_id": "7AOM",
+    "selection": "highest-ranked PDBe entry with a bound ligand",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/Q9NV35",
+    "uniprot_id": "Q9NV35"
+  },
+  "PARP1": {
+    "candidates": [
+      "9MI8",
+      "9MJA",
+      "4DQY",
+      "4OPX",
+      "4OQB",
+      "4OQA",
+      "7S6H",
+      "7S6M",
+      "8G0H",
+      "4ZZZ",
+      "5A00",
+      "4XHU"
+    ],
+    "pdb_id": "9MI8",
+    "selection": "highest-ranked PDBe entry, no bound ligand found",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/P09874",
+    "uniprot_id": "P09874"
+  },
+  "PIK3CA": {
+    "candidates": [
+      "4JPS",
+      "7PG5",
+      "8SBC",
+      "7TZ7",
+      "8DCP",
+      "7PG6",
+      "5FI4",
+      "5UK8",
+      "4L23",
+      "4L1B",
+      "8V8V",
+      "9NI4"
+    ],
+    "pdb_id": "9NI4",
+    "selection": "highest-ranked PDBe entry with a bound ligand",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/P42336",
+    "uniprot_id": "P42336"
+  },
+  "PLpro": {
+    "pdb_id": "7JRN",
+    "selection": "named in benchmark guide",
+    "uniprot_id": "P0DTD1"
+  },
+  "PYL1": {
+    "candidates": [
+      "3JRS",
+      "3KDJ",
+      "3NEF",
+      "3NEG",
+      "3JRQ",
+      "3NMN",
+      "3KAY",
+      "9J6I"
+    ],
+    "pdb_id": "3JRS",
+    "selection": "highest-ranked PDBe entry, no bound ligand found",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/Q8VZS8",
+    "uniprot_id": "Q8VZS8"
+  },
+  "PafA": {
+    "pdb_id": "5TJ3",
+    "selection": "named in benchmark guide",
+    "uniprot_id": "Q9KJX5"
+  },
+  "SHOC2": {
+    "candidates": [
+      "7UPI",
+      "9O65",
+      "7TVF",
+      "7SD0",
+      "7SD1",
+      "7TVG",
+      "7TYG",
+      "7TXH",
+      "9BTN",
+      "9BTP",
+      "9OVJ",
+      "9BTM"
+    ],
+    "pdb_id": "7UPI",
+    "selection": "highest-ranked PDBe entry with a bound ligand",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/Q9UQ13",
+    "uniprot_id": "Q9UQ13"
+  },
+  "SRC": {
+    "candidates": [
+      "8JN8",
+      "8JN9",
+      "2H8H",
+      "1FMK",
+      "2SRC",
+      "1Y57",
+      "9IRL",
+      "1KSW",
+      "4K11",
+      "9NS0",
+      "9NS1",
+      "7NG7"
+    ],
+    "pdb_id": "9IRL",
+    "selection": "highest-ranked PDBe entry with a bound ligand",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/P12931",
+    "uniprot_id": "P12931"
+  },
+  "TEM-1": {
+    "pdb_id": "1XBB",
+    "selection": "named in benchmark guide",
+    "uniprot_id": "P62593"
+  },
+  "TP53": {
+    "candidates": [
+      "9R2Q",
+      "9U4D",
+      "9R2M",
+      "8R1F",
+      "8R1G",
+      "7XZZ",
+      "9R2P",
+      "9R04",
+      "6XRE",
+      "9CHT",
+      "5XZC",
+      "4MZR"
+    ],
+    "pdb_id": "9R2Q",
+    "selection": "highest-ranked PDBe entry, no bound ligand found",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/P04637",
+    "uniprot_id": "P04637"
+  },
+  "TYK2": {
+    "candidates": [
+      "4OLI",
+      "4PO6",
+      "3ZON",
+      "5C03",
+      "5C01",
+      "8TB6",
+      "8TB5",
+      "3LXP",
+      "8S99",
+      "4WOV",
+      "8S9A",
+      "8S98"
+    ],
+    "pdb_id": "5C03",
+    "selection": "highest-ranked PDBe entry with a bound ligand",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/P29597",
+    "uniprot_id": "P29597"
+  },
+  "TpoR": {
+    "candidates": [
+      "8G04"
+    ],
+    "pdb_id": "8G04",
+    "selection": "highest-ranked PDBe entry with a bound ligand",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/P40238",
+    "uniprot_id": "P40238"
+  },
+  "TtgR": {
+    "pdb_id": "7K1C",
+    "selection": "named in benchmark guide",
+    "uniprot_id": null
+  },
+  "VIM-2": {
+    "pdb_id": "4IGG",
+    "selection": "named in benchmark guide",
+    "uniprot_id": "Q9K2N0"
+  },
+  "VKOR1": {
+    "candidates": [
+      "6WVH",
+      "6WV3",
+      "6WV7",
+      "6WV6",
+      "6WV5",
+      "6WV4"
+    ],
+    "pdb_id": "6WVH",
+    "selection": "highest-ranked PDBe entry, no bound ligand found",
+    "source": "https://www.ebi.ac.uk/pdbe/api/mappings/best_structures/Q9BQB6",
+    "uniprot_id": "Q9BQB6"
+  }
+}
