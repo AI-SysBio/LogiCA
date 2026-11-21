@@ -49,7 +49,7 @@ logica/
 │   └── visualization.py           # Publication-ready Matplotlib plots for ranking, dependency maps & Gibbs
 ├── protein-ligand/                # Subfolder 1: ESM-2 + SELFormer (BindingDB, 137 DMS cohorts, BioLiP-175)
 ├── tcrlang-esm/                   # Subfolder 2: TCRLang + ESM-2 (EPACT/STAPLER/IEDB, 71 Pep + 23 TCR DMS)
-├── antibodies-abrank/             # Subfolder 3: Antibody–Antigen & AbRank Benchmark (Coming Soon)
+├── antibodies-abrank/             # Subfolder 3: AbLang2-Paired + ESM-2 on AbRank (AI-SysBio/AbRank)
 ├── examples/
 │   └── quickstart_showcase.py     # End-to-end live demo generating all example visualizations
 └── tests/
@@ -60,7 +60,7 @@ logica/
 | :--- | :--- | :--- | :---: |
 | **[`protein-ligand/`](protein-ligand/)** | `ESM-2` (`8M`–`650M`) $\leftrightarrow$ `SELFormer` (`SELFIES`) | Stage-0 BindingDB curation, **137 DMS & kinetics cohorts (`561,059` variants)**, **175 BioLiP `<5 Å` structures**, `LOCO-30%` / `LOLO` / `Oncology LOO` fine-tuning, Gibbs & BioLiP scripts | Ready |
 | **[`tcrlang-esm/`](tcrlang-esm/)** | `TCRLang-Paired` (`CDR3β\|CDR3α`) $\leftrightarrow$ `ESM-2` (`Epitope`) | Zero-leakage `EPACT + STAPLER + IEDB` (`234k` pairs), **71 Peptide DMS** (`ePytope`, `BATCAVE`, `ATLAS-Pep`), **23 Expanded TCR DMS** (`703` variants), Stage-1/2 training & Gibbs/dependency scripts | Ready |
-| **[`antibodies-abrank/`](antibodies-abrank/)** | `AbLang2-Paired` (`VH\|VL`) $\leftrightarrow$ `ESM-2` / `SaProt` | **AbRank** 3-state affinity maturation, library discovery, and wet-lab generative antibody benchmarks | *Coming Soon* |
+| **[`antibodies-abrank/`](antibodies-abrank/)** | `AbLang2-Paired` (`VH\|VL`, `VHH\|`) $\leftrightarrow$ `ESM-2` (`Antigen`) | Kaggle/local loader for [**AI-SysBio/AbRank**](https://github.com/AI-SysBio/AbRank), Stage-1 InfoNCE + Stage-2 3-state noise-buffered training, 4-suite AbRank evaluator, paratope dependency maps & CDR-H3 Gibbs scripts | Ready |
 
 ---
 
@@ -245,7 +245,7 @@ plot_gibbs_design(gibbs_holo, save_path="gibbs_design.png")
   <img src="figures/TCR_figure.png" width="90%" alt="LogiCA TCR-Peptide Win Matrices, Crystal Contact Dependency Map & Variant Recovery"/>
 </p>
 
-See [**`protein-ligand/README.md`**](protein-ligand/README.md) and [**`tcrlang-esm/README.md`**](tcrlang-esm/README.md) for complete data download, preprocessing, pretraining, fine-tuning, and benchmark reproduction commands.
+See [**`protein-ligand/README.md`**](protein-ligand/README.md), [**`tcrlang-esm/README.md`**](tcrlang-esm/README.md), and [**`antibodies-abrank/README.md`**](antibodies-abrank/README.md) (paired with [**`AI-SysBio/AbRank`**](https://github.com/AI-SysBio/AbRank)) for complete data download, preprocessing, pretraining, fine-tuning, and benchmark reproduction commands.
 
 ---
 

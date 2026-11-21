@@ -55,6 +55,11 @@ tcr = [
   "omegaconf>=2.3",
   "safetensors>=0.4",
 ]
+antibodies = [
+  "ablang2>=0.1.2",
+  "kagglehub>=0.2.9",
+  "pyyaml>=6.0",
+]
 dev = [
   "pytest>=7.4",
   "ruff>=0.4",
@@ -66,12 +71,14 @@ all = [
   "ablang2>=0.1.2",
   "omegaconf>=2.3",
   "safetensors>=0.4",
+  "kagglehub>=0.2.9",
   "pytest>=7.4",
 ]
 
 [project.urls]
 Homepage = "https://github.com/AI-SysBio/logica"
 Repository = "https://github.com/AI-SysBio/logica"
+AbRank = "https://github.com/AI-SysBio/AbRank"
 Paper = "https://arxiv.org/abs/2606.18703"
 
 [tool.setuptools.packages.find]
