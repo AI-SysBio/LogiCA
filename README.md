@@ -56,11 +56,11 @@ logica/
     └── test_logica_toolbox.py     # Unit test suite covering Dual-BioFM, Single-BioFM, losses & readouts
 ```
 
-| Domain Suite | Coupled BioFMs | Datasets & Scripts Included | Status |
-| :--- | :--- | :--- | :---: |
-| **[`protein-ligand/`](protein-ligand/)** | `ESM-2` (`8M`–`650M`) $\leftrightarrow$ `SELFormer` (`SELFIES`) | Stage-0 BindingDB curation, **137 DMS & kinetics cohorts (`561,059` variants)**, **175 BioLiP `<5 Å` structures**, `LOCO-30%` / `LOLO` / `Oncology LOO` fine-tuning, Gibbs & BioLiP scripts | Ready |
-| **[`tcrlang-esm/`](tcrlang-esm/)** | `TCRLang-Paired` (`CDR3β\|CDR3α`) $\leftrightarrow$ `ESM-2` (`Epitope`) | Zero-leakage `EPACT + STAPLER + IEDB` (`234k` pairs), **71 Peptide DMS** (`ePytope`, `BATCAVE`, `ATLAS-Pep`), **23 Expanded TCR DMS** (`703` variants), Stage-1/2 training & Gibbs/dependency scripts | Ready |
-| **[`antibodies-abrank/`](antibodies-abrank/)** | `AbLang2-Paired` (`VH\|VL`, `VHH\|`) $\leftrightarrow$ `ESM-2` (`Antigen`) | Kaggle/local loader for [**AI-SysBio/AbRank**](https://github.com/AI-SysBio/AbRank), Stage-1 InfoNCE + Stage-2 3-state noise-buffered training, 4-suite AbRank evaluator, paratope dependency maps & CDR-H3 Gibbs scripts | Ready |
+| Domain Suite | Coupled BioFMs | Datasets & Scripts Included |
+| :--- | :--- | :--- |
+| **[`protein-ligand/`](protein-ligand/)** | `ESM-2` (`8M`–`650M`) $\leftrightarrow$ `SELFormer` (`SELFIES`) | Stage-0 BindingDB curation, **137 DMS & kinetics cohorts (`561,059` variants)**, **175 BioLiP `<5 Å` structures**, `LOCO-30%` / `LOLO` / `Oncology LOO` fine-tuning, Gibbs & BioLiP scripts |
+| **[`tcrlang-esm/`](tcrlang-esm/)** | `TCRLang-Paired` (`CDR3β\|CDR3α`) $\leftrightarrow$ `ESM-2` (`Epitope`) | Zero-leakage `EPACT + STAPLER + IEDB` (`234k` pairs), **71 Peptide DMS** (`ePytope`, `BATCAVE`, `ATLAS-Pep`), **23 Expanded TCR DMS** (`703` variants), Stage-1/2 training & Gibbs/dependency scripts |
+| **[`antibodies-abrank/`](antibodies-abrank/)** | `AbLang2-Paired` (`VH\|VL`, `VHH\|`) $\leftrightarrow$ `ESM-2` (`Antigen`) | Kaggle/local loader for [**AI-SysBio/AbRank**](https://github.com/AI-SysBio/AbRank), Stage-1 InfoNCE + Stage-2 3-state noise-buffered training, 4-suite AbRank evaluator, paratope dependency maps & CDR-H3 Gibbs scripts |
 
 ---
 
