@@ -269,7 +269,7 @@ If you use **LogiCA** or the benchmarks in this repository, please cite:
 ```bibtex
 @inproceedings{logica2027,
   title     = {Contextualizing Biological Language Models across Modalities via Logit-Space Contrastive Alignment},
-  booktitle = {International Conference on Learning Representations (ICLR)},
+  booktitle = {Under review},
   year      = {2027},
   url       = {https://arxiv.org/abs/2606.18703}
 }
