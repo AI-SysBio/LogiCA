@@ -31,10 +31,20 @@ import pandas as pd
 
 SUBFOLDER_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = SUBFOLDER_ROOT.parents[1]
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
+SCRIPT_DIR = Path(__file__).resolve().parent
+for _p in (str(REPO_ROOT), str(SCRIPT_DIR)):
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
 
 from logica import LogiCA, evaluate_ranking_metrics  # noqa: E402
+from pl_data_loader import (  # noqa: E402
+    DEFAULT_KAGGLE_DATASET,
+    list_task_names,
+    load_cohorts,
+    load_task_df,
+    resolve_biolip_dir,
+    resolve_pl_data_dir,
+)
 
 PRIMARY_PUBLIC_SOURCES: dict[str, str] = {
     "proteingym_dms_v1_3.zip": (
@@ -79,26 +89,23 @@ def download_raw_sources(raw_dir: Path) -> None:
 
 
 def summarize_benchmark(data_dir: Path) -> dict[str, object]:
-    cohorts_pq = data_dir / "processed" / "cohorts.parquet"
-    tasks_dir = data_dir / "processed" / "tasks"
-    biolip_dir = data_dir / "biolip_175"
-
-    cdf = pd.read_parquet(cohorts_pq)
+    cdf = load_cohorts(data_dir)
     mut_cdf = cdf[cdf["is_mutational_dms"]]
 
     task_counts: dict[str, dict[str, int]] = {}
     total_rows = 0
-    for pq in sorted(tasks_dir.glob("*.parquet")):
-        tdf = pd.read_parquet(pq, columns=["parent_strain"])
+    for tname in list_task_names(data_dir):
+        tdf = load_task_df(data_dir, tname, include_baselines=False)
         n_rows = int(len(tdf))
         total_rows += n_rows
-        task_counts[pq.stem] = {
+        task_counts[tname] = {
             "cohorts": int(tdf["parent_strain"].nunique()),
             "variants": n_rows,
         }
 
     biolip_summary: dict[str, int] = {}
-    if biolip_dir.is_dir():
+    try:
+        biolip_dir = resolve_biolip_dir(data_dir)
         rl = pd.read_parquet(biolip_dir / "residue_labels.parquet")
         ew = pd.read_parquet(biolip_dir / "evaluation_windows.parquet")
         biolip_summary = {
@@ -107,6 +114,8 @@ def summarize_benchmark(data_dir: Path) -> dict[str, object]:
             "residue_observations": int(len(rl)),
             "positive_contacts_lt_5A": int(rl["contact"].sum()),
         }
+    except FileNotFoundError:
+        pass
 
     return {
         "total_cohorts": int(len(cdf)),
@@ -131,7 +140,7 @@ def score_cohorts_with_logica(
     print(f"[LogiCA] Loading pretrained checkpoint Yale-CompBio/logica ({scale}) on {device}...")
     model = LogiCA.from_checkpoint("Yale-CompBio/logica", scale=scale, device=device)
 
-    cdf = pd.read_parquet(data_dir / "processed" / "cohorts.parquet")
+    cdf = load_cohorts(data_dir)
     mut_cdf = cdf[cdf["is_mutational_dms"]].reset_index(drop=True)
     if max_cohorts is not None:
         mut_cdf = mut_cdf.head(max_cohorts)
@@ -143,7 +152,7 @@ def score_cohorts_with_logica(
         tname = str(crow["task_name"])
         cid = str(crow["cohort_id"])
         if tname not in tasks_cache:
-            tasks_cache[tname] = pd.read_parquet(data_dir / "processed" / "tasks" / f"{tname}.parquet")
+            tasks_cache[tname] = load_task_df(data_dir, tname, include_baselines=False)
         sub = tasks_cache[tname]
         sub = sub[sub["parent_strain"] == cid].dropna(subset=["sequence", "aa_mutations", "dms_score_raw"])
         sub = sub[sub["aa_mutations"].astype(str).str.upper() != "WT"].reset_index(drop=True)
@@ -185,7 +194,8 @@ def score_cohorts_with_logica(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--data-dir", type=Path, default=SUBFOLDER_ROOT / "data")
+    parser.add_argument("--data-dir", type=Path, default=None, help="Local dataset dir (auto-fetches Kaggle if omitted)")
+    parser.add_argument("--kaggle-dataset", type=str, default=DEFAULT_KAGGLE_DATASET)
     parser.add_argument("--out-dir", type=Path, default=SUBFOLDER_ROOT / "outputs")
     parser.add_argument("--download-raw", action="store_true")
     parser.add_argument("--score-logica", action="store_true")
@@ -196,12 +206,13 @@ def main() -> None:
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
     if args.download_raw:
-        download_raw_sources(args.data_dir / "raw")
+        download_raw_sources((args.data_dir or (SUBFOLDER_ROOT / "data")) / "raw")
 
-    summary = summarize_benchmark(args.data_dir)
+    data_dir = resolve_pl_data_dir(args.data_dir, kaggle_dataset=args.kaggle_dataset)
+    summary = summarize_benchmark(data_dir)
     if args.score_logica:
         summary["live_checkpoint_scoring"] = score_cohorts_with_logica(
-            args.data_dir, scale=args.scale, device=args.device, max_cohorts=args.max_cohorts
+            data_dir, scale=args.scale, device=args.device, max_cohorts=args.max_cohorts
         )
 
     out_json = args.out_dir / "01_dataset_summary.json"

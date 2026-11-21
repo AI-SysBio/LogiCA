@@ -25,10 +25,18 @@ from scipy import stats
 
 SUBFOLDER_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = SUBFOLDER_ROOT.parents[1]
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
+SCRIPT_DIR = Path(__file__).resolve().parent
+for _p in (str(REPO_ROOT), str(SCRIPT_DIR)):
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
 
 from logica import evaluate_ranking_metrics  # noqa: E402
+from pl_data_loader import (  # noqa: E402
+    DEFAULT_KAGGLE_DATASET,
+    load_cohorts,
+    load_task_df,
+    resolve_pl_data_dir,
+)
 
 
 def hierarchical_paired_audit(
@@ -66,20 +74,24 @@ def hierarchical_paired_audit(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--data-dir", type=Path, default=SUBFOLDER_ROOT / "data")
+    parser.add_argument("--data-dir", type=Path, default=None, help="Local dataset dir (auto-fetches Kaggle if omitted)")
+    parser.add_argument("--kaggle-dataset", type=str, default=DEFAULT_KAGGLE_DATASET)
     parser.add_argument("--out-dir", type=Path, default=SUBFOLDER_ROOT / "outputs" / "scaling_audit")
     args = parser.parse_args()
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
-    cdf = pd.read_parquet(args.data_dir / "processed" / "cohorts.parquet")
+    data_dir = resolve_pl_data_dir(args.data_dir, kaggle_dataset=args.kaggle_dataset)
+    cdf = load_cohorts(data_dir)
     mut_cdf = cdf[cdf["is_mutational_dms"]].reset_index(drop=True)
-    tasks_dir = args.data_dir / "processed" / "tasks"
-    tables = {p.stem: pd.read_parquet(p) for p in sorted(tasks_dir.glob("*.parquet"))}
+    tables: dict[str, pd.DataFrame] = {}
 
     rows = []
     for _, crow in mut_cdf.iterrows():
         cid = str(crow["cohort_id"])
-        sub = tables[str(crow["task_name"])]
+        tname = str(crow["task_name"])
+        if tname not in tables:
+            tables[tname] = load_task_df(data_dir, tname, include_baselines=True)
+        sub = tables[tname]
         sub = sub[sub["parent_strain"] == cid].dropna(
             subset=["dms_score_raw", "esm2_650m_llr", "logica_ligand_llr"]
         )

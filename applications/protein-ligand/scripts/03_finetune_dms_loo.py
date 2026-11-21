@@ -35,8 +35,10 @@ import torch.nn.functional as F
 
 SUBFOLDER_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = SUBFOLDER_ROOT.parents[1]
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
+SCRIPT_DIR = Path(__file__).resolve().parent
+for _p in (str(REPO_ROOT), str(SCRIPT_DIR)):
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
 
 from logica import (  # noqa: E402
     CANONICAL_AAS,
@@ -48,22 +50,30 @@ from logica import (  # noqa: E402
     evaluate_ranking_metrics,
 )
 from logica.model import YALE_PROTEIN_LIGAND_SCALES  # noqa: E402
+from pl_data_loader import (  # noqa: E402
+    DEFAULT_KAGGLE_DATASET,
+    load_cohorts,
+    load_task_df,
+    resolve_pl_data_dir,
+)
 
 MUT_RE = re.compile(r"^([A-Z])(\d+)([A-Z])$")
 
 
 def load_mutational_dms_cohorts(data_dir: Path) -> list[dict[str, Any]]:
-    """Loads all 103 mutational DMS cohorts from `data/processed/` parquets."""
-    cdf = pd.read_parquet(data_dir / "processed" / "cohorts.parquet")
+    """Loads all 103 mutational DMS cohorts from Kaggle or local parquets."""
+    cdf = load_cohorts(data_dir)
     mut_cdf = cdf[cdf["is_mutational_dms"]].reset_index(drop=True)
-    tasks_dir = data_dir / "processed" / "tasks"
-    tables = {p.stem: pd.read_parquet(p) for p in sorted(tasks_dir.glob("*.parquet"))}
+    tables: dict[str, pd.DataFrame] = {}
     aa_set = set(CANONICAL_AAS)
 
     cohorts: list[dict[str, Any]] = []
     for _, crow in mut_cdf.iterrows():
         cid = str(crow["cohort_id"])
-        sub = tables[str(crow["task_name"])]
+        tname = str(crow["task_name"])
+        if tname not in tables:
+            tables[tname] = load_task_df(data_dir, tname, include_baselines=False)
+        sub = tables[tname]
         sub = sub[sub["parent_strain"] == cid].reset_index(drop=True)
 
         wt_seq: str | None = None
@@ -119,7 +129,8 @@ def load_mutational_dms_cohorts(data_dir: Path) -> list[dict[str, Any]]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--data-dir", type=Path, default=SUBFOLDER_ROOT / "data")
+    parser.add_argument("--data-dir", type=Path, default=None, help="Local dataset dir (auto-fetches Kaggle if omitted)")
+    parser.add_argument("--kaggle-dataset", type=str, default=DEFAULT_KAGGLE_DATASET)
     parser.add_argument("--scale", type=str, choices=["8m", "35m", "150m", "650m"], default="150m")
     parser.add_argument("--single-biofm", action="store_true", help="Fine-tune single ESM-2 BioFM without ligand partner")
     parser.add_argument("--objective", type=str, choices=["logica", "logica_nokl", "logimlm"], default="logica")
@@ -134,6 +145,7 @@ def main() -> None:
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
     device = torch.device(args.device)
+    data_dir = resolve_pl_data_dir(args.data_dir, kaggle_dataset=args.kaggle_dataset)
 
     if args.single_biofm:
         esm_id, _ = YALE_PROTEIN_LIGAND_SCALES[args.scale]
@@ -143,7 +155,7 @@ def main() -> None:
         print(f"[Stage-2] Loading Dual-BioFM LogiCA checkpoint Yale-CompBio/logica ({args.scale}) on {device}...")
         base_model = LogiCA.from_checkpoint("Yale-CompBio/logica", scale=args.scale, device=device)
 
-    cohorts = load_mutational_dms_cohorts(args.data_dir)
+    cohorts = load_mutational_dms_cohorts(data_dir)
     split_key = "loco30_cluster" if args.split == "loco30" else "lolo_group"
     cohorts = [c for c in cohorts if c[split_key]]
     folds = sorted({c[split_key] for c in cohorts})

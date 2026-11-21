@@ -32,10 +32,17 @@ from torch.utils.data import DataLoader, Dataset
 
 SUBFOLDER_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = SUBFOLDER_ROOT.parents[1]
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
+SCRIPT_DIR = Path(__file__).resolve().parent
+for _p in (str(REPO_ROOT), str(SCRIPT_DIR)):
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
 
 from logica import InfoNCELogitLoss, LogiCA  # noqa: E402
+from pl_data_loader import (  # noqa: E402
+    DEFAULT_KAGGLE_DATASET,
+    load_bindingdb_positive_pairs,
+    resolve_pl_data_dir,
+)
 
 
 class ProteinLigandPairDataset(Dataset):
@@ -52,26 +59,11 @@ class ProteinLigandPairDataset(Dataset):
         return self.proteins[idx], self.ligands[idx]
 
 
-def load_positive_pairs(bindingdb_dir: Path, smoke_test: bool = False) -> tuple[list[str], list[str]]:
-    train_pq = bindingdb_dir / "bindingdb_train.parquet"
-    if train_pq.is_file():
-        df = pd.read_parquet(train_pq)
-        pos = df[df["label"] == 1].reset_index(drop=True)
-        if smoke_test:
-            pos = pos.head(16)
-        return pos["protein_sequence"].astype(str).tolist(), pos["ligand_selfies"].astype(str).tolist()
-
-    # Fallback for smoke-testing directly from tracked benchmark manifest without BindingDB download
-    cohorts_pq = SUBFOLDER_ROOT / "data" / "biolip_175" / "model_inputs.parquet"
-    cdf = pd.read_parquet(cohorts_pq).dropna(subset=["protein_aaseq", "selfies"])
-    if smoke_test:
-        cdf = cdf.head(12)
-    return cdf["protein_aaseq"].astype(str).tolist(), cdf["selfies"].astype(str).tolist()
-
-
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--bindingdb-dir", type=Path, default=SUBFOLDER_ROOT / "data" / "bindingdb")
+    parser.add_argument("--data-dir", type=Path, default=None, help="Local dataset dir (auto-fetches Kaggle if omitted)")
+    parser.add_argument("--kaggle-dataset", type=str, default=DEFAULT_KAGGLE_DATASET)
+    parser.add_argument("--bindingdb-dir", type=Path, default=None, help="Optional explicit BindingDB directory")
     parser.add_argument("--protein-model", type=str, default="facebook/esm2_t30_150M_UR50D")
     parser.add_argument("--ligand-model", type=str, default="HUBioDataLab/SELFormer")
     parser.add_argument("--width", type=int, default=384)
@@ -95,7 +87,10 @@ def main() -> None:
     args.out_dir.mkdir(parents=True, exist_ok=True)
     device = torch.device(args.device)
 
-    prots, ligs = load_positive_pairs(args.bindingdb_dir, smoke_test=args.smoke_test)
+    data_dir = resolve_pl_data_dir(args.data_dir, kaggle_dataset=args.kaggle_dataset)
+    prots, ligs = load_bindingdb_positive_pairs(
+        data_dir, bindingdb_dir=args.bindingdb_dir, smoke_test=args.smoke_test
+    )
     ds = ProteinLigandPairDataset(prots, ligs)
     loader = DataLoader(ds, batch_size=args.batch_size, shuffle=True, drop_last=len(ds) >= args.batch_size)
 

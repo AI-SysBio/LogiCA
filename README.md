@@ -3,6 +3,9 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2606.18703-b31b1b.svg)](https://arxiv.org/abs/2606.18703)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
+[![Kaggle: Protein-Ligand DMS](https://img.shields.io/badge/Kaggle-protein--ligand--dms-20BEFF.svg)](https://www.kaggle.com/datasets/aurlienplissier/protein-ligand-dms)
+[![Kaggle: TCR-Peptide DMS](https://img.shields.io/badge/Kaggle-tcr--peptide--dms-20BEFF.svg)](https://www.kaggle.com/datasets/aurlienplissier/tcr-peptide-dms)
+[![Kaggle: AbRank v2](https://img.shields.io/badge/Kaggle-abrank-20BEFF.svg)](https://www.kaggle.com/datasets/aurlienplissier/abrank)
 
 <p align="center">
   <img src="figures/logica_overview.png" width="94%" alt="LogiCA Overview: Contrastive Alignment in Native Token Logit Space"/>
@@ -61,11 +64,13 @@ LogiCA/
     └── test_logica_toolbox.py           # Unit test suite covering Dual-BioFM, Single-BioFM, losses & readouts
 ```
 
-| Domain Application | Coupled BioFMs | Datasets & Scripts Included |
-| :--- | :--- | :--- |
-| **[`applications/protein-ligand/`](applications/protein-ligand/)** | `ESM-2` (`8M`–`650M`) $\leftrightarrow$ `SELFormer` (`SELFIES`) | Stage-0 BindingDB curation, **137 DMS & kinetics cohorts (`561,059` variants)**, **175 BioLiP `<5 Å` structures**, `LOCO-30%` / `LOLO` / `Oncology LOO` fine-tuning, Gibbs & BioLiP scripts |
-| **[`applications/tcrlang-esm/`](applications/tcrlang-esm/)** | `TCRLang-Paired` (`CDR3β\|CDR3α`) $\leftrightarrow$ `ESM-2` (`Epitope`) | Zero-leakage `EPACT + STAPLER + IEDB` (`234k` pairs), **71 Peptide DMS** (`ePytope`, `BATCAVE`, `ATLAS-Pep`), **23 Expanded TCR DMS** (`703` variants), Stage-1/2 training & Gibbs/dependency scripts |
-| **[`applications/antibodies-abrank/`](applications/antibodies-abrank/)** | `AbLang2-Paired` (`VH\|VL`, `VHH\|`) $\leftrightarrow$ `ESM-2` (`Antigen`) | Kaggle/local loader for [**AI-SysBio/AbRank**](https://github.com/AI-SysBio/AbRank), Stage-1 InfoNCE + Stage-2 3-state noise-buffered training, 4-suite AbRank evaluator, paratope dependency maps & CDR-H3 Gibbs scripts |
+| Domain Application | Coupled BioFMs | Kaggle Dataset | Datasets & Scripts Included |
+| :--- | :--- | :--- | :--- |
+| **[`applications/protein-ligand/`](applications/protein-ligand/)** | `ESM-2` (`8M`–`650M`) $\leftrightarrow$ `SELFormer` (`SELFIES`) | [**`aurlienplissier/protein-ligand-dms`**](https://www.kaggle.com/datasets/aurlienplissier/protein-ligand-dms) | Curated Stage-0 BindingDB (`1.85M` pairs), **137 DMS & kinetics cohorts (`561,059` variants)** + separated 10-model baselines, **BioLiP-175 `<5 Å` contacts & dependency maps**, `LOCO-30%` / `LOLO` / `Oncology LOO` fine-tuning & Gibbs scripts |
+| **[`applications/tcrlang-esm/`](applications/tcrlang-esm/)** | `TCRLang-Paired` (`CDR3β\|CDR3α`) $\leftrightarrow$ `ESM-2` (`Epitope`) | [**`aurlienplissier/tcr-peptide-dms`**](https://www.kaggle.com/datasets/aurlienplissier/tcr-peptide-dms) | Zero-leakage `EPACT + STAPLER + IEDB` (`234k` train + `26k` val pairs), deduplicated `EPACT` fine-tuning, **71 Peptide-Anchored DMS**, **23 TCR-Anchored CDR3 DMS (`703` variants)**, **TCR3d `<5 Å` crystal contacts (`371` complexes)** & 12-model baselines |
+| **[`applications/antibodies-abrank/`](applications/antibodies-abrank/)** | `AbLang2-Paired` (`VH\|VL`, `VHH\|`) $\leftrightarrow$ `ESM-2` (`Antigen`) | [**`aurlienplissier/abrank`**](https://www.kaggle.com/datasets/aurlienplissier/abrank) | Kaggle/local loader for [**AI-SysBio/AbRank**](https://github.com/AI-SysBio/AbRank), Stage-1 InfoNCE + Stage-2 3-state noise-buffered training, 4-suite AbRank evaluator, paratope dependency maps & CDR-H3 Gibbs scripts |
+
+> **Processed Datasets on Kaggle:** To keep this code repository lightweight, all processed benchmark tables, pretraining splits, and structural contact/dependency-map tables are hosted ready-to-download on Kaggle ([`protein-ligand-dms`](https://www.kaggle.com/datasets/aurlienplissier/protein-ligand-dms), [`tcr-peptide-dms`](https://www.kaggle.com/datasets/aurlienplissier/tcr-peptide-dms), and [`abrank`](https://www.kaggle.com/datasets/aurlienplissier/abrank)) and auto-fetched via `kagglehub` by every application script.
 
 ---
 

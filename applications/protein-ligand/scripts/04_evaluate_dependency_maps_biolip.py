@@ -27,8 +27,10 @@ import pandas as pd
 
 SUBFOLDER_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = SUBFOLDER_ROOT.parents[1]
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
+SCRIPT_DIR = Path(__file__).resolve().parent
+for _p in (str(REPO_ROOT), str(SCRIPT_DIR)):
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
 
 from logica import (  # noqa: E402
     DependencyMapper,
@@ -36,11 +38,18 @@ from logica import (  # noqa: E402
     evaluate_contact_localization,
     plot_dependency_map,
 )
+from pl_data_loader import (  # noqa: E402
+    DEFAULT_KAGGLE_DATASET,
+    resolve_biolip_dir,
+    resolve_pl_data_dir,
+)
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--biolip-dir", type=Path, default=SUBFOLDER_ROOT / "data" / "biolip_175")
+    parser.add_argument("--data-dir", type=Path, default=None, help="Local dataset dir (auto-fetches Kaggle if omitted)")
+    parser.add_argument("--kaggle-dataset", type=str, default=DEFAULT_KAGGLE_DATASET)
+    parser.add_argument("--biolip-dir", type=Path, default=None, help="Optional explicit BioLiP-175 directory")
     parser.add_argument("--scale", type=str, choices=["8m", "35m", "150m", "650m"], default="35m")
     parser.add_argument("--checkpoint", type=Path, default=None, help="Optional local fine-tuned checkpoint")
     parser.add_argument("--metric", type=str, choices=["sym_kl", "l2", "jsd"], default="sym_kl")
@@ -51,6 +60,11 @@ def main() -> None:
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
     t0 = time.time()
+    biolip_dir = (
+        args.biolip_dir
+        if args.biolip_dir is not None
+        else resolve_biolip_dir(resolve_pl_data_dir(args.data_dir, kaggle_dataset=args.kaggle_dataset))
+    )
 
     if args.checkpoint is not None:
         model = LogiCA.from_checkpoint(args.checkpoint, scale=args.scale, device=args.device)
@@ -59,9 +73,9 @@ def main() -> None:
 
     mapper = DependencyMapper(model)
 
-    mi_df = pd.read_parquet(args.biolip_dir / "model_inputs.parquet")
-    ew_df = pd.read_parquet(args.biolip_dir / "evaluation_windows.parquet")
-    rl_df = pd.read_parquet(args.biolip_dir / "residue_labels.parquet")
+    mi_df = pd.read_parquet(biolip_dir / "model_inputs.parquet")
+    ew_df = pd.read_parquet(biolip_dir / "evaluation_windows.parquet")
+    rl_df = pd.read_parquet(biolip_dir / "residue_labels.parquet")
 
     if args.max_complexes is not None:
         mi_df = mi_df.head(args.max_complexes).reset_index(drop=True)

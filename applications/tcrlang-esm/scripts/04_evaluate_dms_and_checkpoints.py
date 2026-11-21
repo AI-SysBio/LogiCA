@@ -28,10 +28,17 @@ import torch
 
 SUBFOLDER_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = SUBFOLDER_ROOT.parents[1]
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
+SCRIPT_DIR = Path(__file__).resolve().parent
+for _p in (str(REPO_ROOT), str(SCRIPT_DIR)):
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
 
 from logica import LogiCA, evaluate_ranking_metrics, mean_selected_log_probability  # noqa: E402
+from tcr_data_loader import (  # noqa: E402
+    DEFAULT_KAGGLE_DATASET,
+    resolve_tcr_data_dir,
+    resolve_tcr_paths,
+)
 
 
 @torch.no_grad()
@@ -126,7 +133,8 @@ def score_tcr_dms_group(model: LogiCA, grp: pd.DataFrame) -> np.ndarray:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--data-dir", type=Path, default=SUBFOLDER_ROOT / "data")
+    parser.add_argument("--data-dir", type=Path, default=None, help="Local dataset dir (auto-fetches Kaggle if omitted)")
+    parser.add_argument("--kaggle-dataset", type=str, default=DEFAULT_KAGGLE_DATASET)
     parser.add_argument("--checkpoint", type=Path, default=None)
     parser.add_argument("--hf-subfolder", type=str, default="tcr-anchored-neg1")
     parser.add_argument("--device", type=str, default="cuda:0" if torch.cuda.is_available() else "cpu")
@@ -136,6 +144,8 @@ def main() -> None:
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
     t0 = time.time()
+    data_dir = resolve_tcr_data_dir(args.data_dir, kaggle_dataset=args.kaggle_dataset)
+    paths = resolve_tcr_paths(data_dir)
 
     if args.checkpoint is not None:
         model = LogiCA.from_checkpoint(args.checkpoint, device=args.device)
@@ -162,11 +172,10 @@ def main() -> None:
         pep_view_model.cross_attn.p2d = model.cross_attn.d2p
         pep_view_model.cross_attn.d2p = model.cross_attn.p2d
 
-    ft_root = args.data_dir / "finetune" / "epact_train_all_downstream_non_overlap"
     pep_sources = [
-        ("ePytope-Mut", ft_root / "epact_train_epytope_mutation_test" / "test.csv", "peptide_activity", False),
-        ("BATCAVE", ft_root / "epact_train_batcave_test" / "test.csv", "peptide_activity", False),
-        ("ATLAS-Pep", ft_root / "epact_train_atlaspep_test" / "test.csv", "KD_clean", True),
+        ("ePytope-Mut", paths["epytope_mutation"], "peptide_activity", False),
+        ("BATCAVE", paths["batcave"], "peptide_activity", False),
+        ("ATLAS-Pep", paths["atlas_pep"], "KD_clean", True),
     ]
 
     pep_rhos, pep_p10s = [], []
@@ -190,7 +199,7 @@ def main() -> None:
             pep_p10s.append(m["prec_at_10pct"])
         print(f"  [{ds_name}] cumulative mean Spearman = {float(np.mean(pep_rhos)):+.4f}")
 
-    tcr_df = pd.read_csv(args.data_dir / "expanded_tcr_mut" / "tcr_mutations_combined_test.csv")
+    tcr_df = pd.read_csv(paths["tcr_mutations_combined"])
     tcr_groups = list(tcr_df.groupby(["tcr_name", "epitope"], sort=False))
     if args.max_groups is not None:
         tcr_groups = tcr_groups[: args.max_groups]

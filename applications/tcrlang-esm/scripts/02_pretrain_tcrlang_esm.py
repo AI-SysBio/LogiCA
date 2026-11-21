@@ -33,8 +33,10 @@ from torch.utils.data import DataLoader, Dataset
 
 SUBFOLDER_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = SUBFOLDER_ROOT.parents[1]
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
+SCRIPT_DIR = Path(__file__).resolve().parent
+for _p in (str(REPO_ROOT), str(SCRIPT_DIR)):
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
 
 from logica import (  # noqa: E402
     InfoNCELogitLoss,
@@ -42,6 +44,11 @@ from logica import (  # noqa: E402
     create_anchored_mutation_negatives,
     make_masked_inputs,
     mean_selected_log_probability,
+)
+from tcr_data_loader import (  # noqa: E402
+    DEFAULT_KAGGLE_DATASET,
+    resolve_tcr_data_dir,
+    resolve_tcr_paths,
 )
 
 
@@ -59,11 +66,9 @@ class TCRPeptideRepertoireDataset(Dataset):
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "--train-csv",
-        type=Path,
-        default=SUBFOLDER_ROOT / "data" / "pretrain" / "epact_stapler_iedb_train_non_overlap.csv",
-    )
+    parser.add_argument("--data-dir", type=Path, default=None, help="Local dataset dir (auto-fetches Kaggle if omitted)")
+    parser.add_argument("--kaggle-dataset", type=str, default=DEFAULT_KAGGLE_DATASET)
+    parser.add_argument("--train-csv", type=Path, default=None, help="Optional explicit Stage-1 training CSV")
     parser.add_argument("--tcr-model", type=str, default="tcrlang-paired")
     parser.add_argument("--esm-model", type=str, default="facebook/esm2_t12_35M_UR50D")
     parser.add_argument(
@@ -90,7 +95,12 @@ def main() -> None:
     parser.add_argument("--smoke-test", action="store_true")
     args = parser.parse_args()
 
-    df = pd.read_csv(args.train_csv).dropna(subset=["tcr", "epitope"]).drop_duplicates(subset=["tcr", "epitope"])
+    train_csv = (
+        args.train_csv
+        if args.train_csv is not None
+        else resolve_tcr_paths(resolve_tcr_data_dir(args.data_dir, kaggle_dataset=args.kaggle_dataset))["pretrain_train"]
+    )
+    df = pd.read_csv(train_csv).dropna(subset=["tcr", "epitope"]).drop_duplicates(subset=["tcr", "epitope"])
     if args.smoke_test:
         df = df.head(24).reset_index(drop=True)
         args.esm_model = "facebook/esm2_t6_8M_UR50D"

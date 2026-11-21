@@ -32,10 +32,17 @@ from torch.utils.data import DataLoader, Dataset
 
 SUBFOLDER_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = SUBFOLDER_ROOT.parents[1]
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
+SCRIPT_DIR = Path(__file__).resolve().parent
+for _p in (str(REPO_ROOT), str(SCRIPT_DIR)):
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
 
 from logica import LogiCA, mean_selected_log_probability  # noqa: E402
+from tcr_data_loader import (  # noqa: E402
+    DEFAULT_KAGGLE_DATASET,
+    resolve_tcr_data_dir,
+    resolve_tcr_paths,
+)
 
 
 class BinaryTCRDataset(Dataset):
@@ -75,11 +82,9 @@ def compute_pair_contextual_gain(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "--split-dir",
-        type=Path,
-        default=SUBFOLDER_ROOT / "data" / "finetune" / "epact_train_all_downstream_non_overlap" / "epact_train_epytope_binary_test",
-    )
+    parser.add_argument("--data-dir", type=Path, default=None, help="Local dataset dir (auto-fetches Kaggle if omitted)")
+    parser.add_argument("--kaggle-dataset", type=str, default=DEFAULT_KAGGLE_DATASET)
+    parser.add_argument("--split-dir", type=Path, default=None, help="Optional legacy directory containing train.csv & test.csv")
     parser.add_argument("--checkpoint", type=Path, default=None, help="Local Stage-1 `.pt` checkpoint")
     parser.add_argument("--hf-subfolder", type=str, default="dual-anchored-ratio5")
     parser.add_argument("--epochs", type=int, default=6)
@@ -93,11 +98,17 @@ def main() -> None:
     args.out_dir.mkdir(parents=True, exist_ok=True)
     device = torch.device(args.device)
 
-    df_train = pd.read_csv(args.split_dir / "train.csv").dropna(subset=["tcr", "epitope", "label"])
-    df_test = pd.read_csv(args.split_dir / "test.csv").dropna(subset=["tcr", "epitope", "label"])
+    data_dir = resolve_tcr_data_dir(args.data_dir, kaggle_dataset=args.kaggle_dataset)
+    paths = resolve_tcr_paths(data_dir)
+    if args.split_dir is not None:
+        df_train = pd.read_csv(args.split_dir / "train.csv").dropna(subset=["tcr", "epitope", "label"])
+        df_test = pd.read_csv(args.split_dir / "test.csv").dropna(subset=["tcr", "epitope", "label"])
+    else:
+        df_train = pd.read_csv(paths["finetune_train"]).dropna(subset=["tcr", "epitope", "label"])
+        df_test = pd.read_csv(paths["epytope_binary"]).dropna(subset=["tcr", "epitope", "label"])
 
     # Exclude any pair overlapping expanded TCR DMS test set
-    exp_tcr_csv = SUBFOLDER_ROOT / "data" / "expanded_tcr_mut" / "tcr_mutations_combined_test.csv"
+    exp_tcr_csv = paths["tcr_mutations_combined"]
     if exp_tcr_csv.is_file():
         tdf = pd.read_csv(exp_tcr_csv)
         held_out_pairs = set(zip(tdf["tcr"].str.strip().str.upper(), tdf["epitope"].str.strip().str.upper()))

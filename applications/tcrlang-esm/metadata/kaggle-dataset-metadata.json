@@ -1,0 +1,1147 @@
+{
+  "title": "TCR-Peptide Pretraining & Bidirectional DMS",
+  "id": "aurlienplissier/tcr-peptide-dms",
+  "licenses": [
+    {
+      "name": "CC-BY-NC-SA-4.0"
+    }
+  ],
+  "subtitle": "234k Zero-Leakage Pairs, 71 Peptide DMS, 23 TCR CDR3 DMS & TCR3d <5 A Contacts",
+  "description": "# TCR\u2013Peptide Pretraining & Bidirectional DMS Benchmark\n\nZero-leakage paired T-cell receptor (`CDR3\u03b2|CDR3\u03b1`) \u2013 peptide epitope dataset used in **LogiCA** (*Contextualizing Biological Language Models via Logit-Space Contrastive Alignment*), covering both **peptide-anchored** and **TCR-anchored** mutational scanning alongside pretraining, binary recognition, and structural crystal contacts:\n- **Stage-1 Zero-Leakage Repertoire Pretraining (`pretrain/`)**: `234,147` train + `26,016` val positive `(CDR3\u03b2|CDR3\u03b1, epitope)` pairs from `EPACT + STAPLER + IEDB` (`151,482` unique TCRs, `1,559` epitopes, `0%` overlap with all downstream benchmarks).\n- **Stage-2 Supervised Fine-Tuning (`finetune/`)**: Deduplicated `EPACT` binary split (`19,882` train, `2,210` val).\n- **Peptide-Anchored DMS (`peptide_dms/`, `71` groups)**: `ePytope-Mutation` (`4,244` rows), `BATCAVE` (`5,754` / `11,967` full), and `ATLAS-Pep` (`60`).\n- **TCR-Anchored CDR3 DMS (`tcr_dms/`, `23` groups \u00b7 `703` variants)**: Combined `ATLAS-CDR + TRAIT 2025 + SKEMPI v2` (`207` quantitative $K_D$ variants) + `868-Z11` 20-AA CDR3\u03b1/\u03b2 saturation DMS (`496` variants), plus original `ATLAS-CDR` (`128`).\n- **Held-Out Binary Benchmarks (`binary_benchmarks/`)**: `ePytope-Binary` (`7,176` pairs) & `IMMREP2025` (`10,000` pairs with HLA alleles).\n- **TCR3d `<5 \u00c5` Crystal Contacts (`tcr3d_contacts/`)**: `371` resolved paired TCR\u2013pMHC crystal complexes with exact CDR3\u03b1/\u03b2\u2013epitope heavy-atom minimum distances and `<5 \u00c5` contact labels (`101,962` residue pairs, `5,612` contacts).\n- **Precomputed 12-Model Baseline Tables (`baseline_scores/`)**: Per-variant predictions on the 703 TCR DMS variants and per-group correlations across all `71` peptide + `23` TCR DMS groups.\n\n---\n\n## Related Links\n- **Code & Reproduction Scripts**: [github.com/AI-SysBio/LogiCA](https://github.com/AI-SysBio/LogiCA/tree/main/applications/tcrlang-esm)\n- **Pretrained `TCRLang-Paired + ESM-2` LogiCA Checkpoints**: [huggingface.co/ydchen/logica-tcr](https://huggingface.co/ydchen/logica-tcr)\n- **Companion Protein\u2013Ligand DMS & BioLiP Dataset**: [kaggle.com/datasets/aurlienplissier/protein-ligand-dms](https://www.kaggle.com/datasets/aurlienplissier/protein-ligand-dms)\n- **Companion Antibody\u2013Antigen Benchmark (AbRank v2)**: [kaggle.com/datasets/aurlienplissier/abrank](https://www.kaggle.com/datasets/aurlienplissier/abrank)\n\n---\n\n## Quickstart\n\n```python\nfrom pathlib import Path\nimport kagglehub\nimport pandas as pd\n\nroot = Path(kagglehub.dataset_download(\"aurlienplissier/tcr-peptide-dms\"))\n\n# 1. Pretraining & fine-tuning splits (0% downstream leakage)\npretrain = pd.read_csv(root / \"pretrain/epact_stapler_iedb_train_non_overlap.csv\")\nft_train = pd.read_csv(root / \"finetune/epact_train.csv\")\n\n# 2. Peptide-anchored & TCR-anchored mutational DMS benchmarks\npep_dms = pd.read_csv(root / \"peptide_dms/epytope_mutation_test.csv\")\ntcr_dms = pd.read_csv(root / \"tcr_dms/tcr_mutations_combined_test.csv\")\n\n# 3. TCR3d <5 A CDR3-epitope crystal contact maps\ntcr3d_complexes = pd.read_csv(root / \"tcr3d_contacts/tcr3d_complexes.csv\")\ntcr3d_contacts = pd.read_parquet(root / \"tcr3d_contacts/tcr3d_residue_contacts.parquet\")\n```\n\nRun directly with **`AI-SysBio/LogiCA`**:\n```bash\ngit clone https://github.com/AI-SysBio/LogiCA.git && cd LogiCA\npip install -e \".[tcr]\"\npython applications/tcrlang-esm/scripts/01_fetch_and_prepare_tcr_data.py --kaggle-dataset aurlienplissier/tcr-peptide-dms\npython applications/tcrlang-esm/scripts/04_evaluate_dms_and_checkpoints.py --kaggle-dataset aurlienplissier/tcr-peptide-dms --hf-subfolder dual-anchored-ratio5\n```\n\n---\n\n## Provenance & Licenses\nCompiled from EPACT, STAPLER, IEDB, ePytope, BATCAVE, ATLAS, IMMREP2025, TRAIT 2025, SKEMPI v2, Zenodo `10685013` (868-Z11), and TCR3d (`tcr3d.ibbr.umd.edu`). See `SOURCES_AND_LICENSES.md` for full citations and per-source licenses.",
+  "keywords": [
+    "biology",
+    "chemistry",
+    "computer science",
+    "deep learning",
+    "healthcare"
+  ],
+  "expectedUpdateFrequency": "annually",
+  "userSpecifiedSources": "Compiled from peer-reviewed public TCR-epitope datasets: EPACT, STAPLER, IEDB, ePytope, BATCAVE, ATLAS, IMMREP2025, TRAIT 2025, SKEMPI v2, Rosenberg et al. 868-Z11 (Zenodo 10685013), and TCR3d (tcr3d.ibbr.umd.edu). Full provenance in SOURCES_AND_LICENSES.md.",
+  "resources": [
+    {
+      "path": "pretrain/epact_stapler_iedb_train_non_overlap.csv",
+      "description": "Stage-1 zero-leakage paired TCR-epitope pretraining corpus (234,147 positive pairs; 151,482 unique TCRs; 1,559 epitopes; 0% overlap with all downstream benchmarks).",
+      "schema": {
+        "fields": [
+          {
+            "name": "tcr",
+            "description": "Paired TCR CDR3 sequence formatted as `CDR3beta|CDR3alpha` (or single chain if unpaired).",
+            "type": "string"
+          },
+          {
+            "name": "epitope",
+            "description": "Peptide epitope amino-acid sequence presented on MHC.",
+            "type": "string"
+          },
+          {
+            "name": "triplet",
+            "description": "Canonical deduplication key combining TCR, epitope, and HLA/chain metadata.",
+            "type": "string"
+          },
+          {
+            "name": "source",
+            "description": "Originating repertoire database (EPACT, STAPLER, or IEDB).",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "pretrain/epact_stapler_iedb_val_non_overlap.csv",
+      "description": "Stage-1 zero-leakage paired TCR-epitope validation split (26,016 positive pairs).",
+      "schema": {
+        "fields": [
+          {
+            "name": "tcr",
+            "description": "Paired TCR CDR3 sequence formatted as `CDR3beta|CDR3alpha` (or single chain if unpaired).",
+            "type": "string"
+          },
+          {
+            "name": "epitope",
+            "description": "Peptide epitope amino-acid sequence presented on MHC.",
+            "type": "string"
+          },
+          {
+            "name": "triplet",
+            "description": "Canonical deduplication key combining TCR, epitope, and HLA/chain metadata.",
+            "type": "string"
+          },
+          {
+            "name": "source",
+            "description": "Originating repertoire database (EPACT, STAPLER, or IEDB).",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "finetune/epact_train.csv",
+      "description": "Deduplicated Stage-2 supervised EPACT binary training split (19,882 TCR-epitope pairs; strictly disjoint from all downstream DMS and binary test benchmarks).",
+      "schema": {
+        "fields": [
+          {
+            "name": "tcr",
+            "description": "Paired TCR CDR3 sequence formatted as `CDR3beta|CDR3alpha` (or single chain if unpaired).",
+            "type": "string"
+          },
+          {
+            "name": "epitope",
+            "description": "Peptide epitope amino-acid sequence presented on MHC.",
+            "type": "string"
+          },
+          {
+            "name": "label",
+            "description": "Binary binding label (1 = binder, 0 = non-binder) or continuous experimental fitness/activity target.",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "finetune/epact_val.csv",
+      "description": "Deduplicated Stage-2 supervised EPACT binary validation split (2,210 TCR-epitope pairs).",
+      "schema": {
+        "fields": [
+          {
+            "name": "tcr",
+            "description": "Paired TCR CDR3 sequence formatted as `CDR3beta|CDR3alpha` (or single chain if unpaired).",
+            "type": "string"
+          },
+          {
+            "name": "epitope",
+            "description": "Peptide epitope amino-acid sequence presented on MHC.",
+            "type": "string"
+          },
+          {
+            "name": "label",
+            "description": "Binary binding label (1 = binder, 0 = non-binder) or continuous experimental fitness/activity target.",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "peptide_dms/epytope_mutation_test.csv",
+      "description": "ePytope-Mutation peptide-anchored DMS benchmark (4,244 epitope variants across 26 TCR-peptide groups).",
+      "schema": {
+        "fields": [
+          {
+            "name": "tcr",
+            "description": "Paired TCR CDR3 sequence formatted as `CDR3beta|CDR3alpha` (or single chain if unpaired).",
+            "type": "string"
+          },
+          {
+            "name": "epitope",
+            "description": "Peptide epitope amino-acid sequence presented on MHC.",
+            "type": "string"
+          },
+          {
+            "name": "label",
+            "description": "Binary binding label (1 = binder, 0 = non-binder) or continuous experimental fitness/activity target.",
+            "type": "numeric"
+          },
+          {
+            "name": "peptide_activity",
+            "description": "Measured peptide-variant binding, activation, or enrichment score.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_name",
+            "description": "TCR clone or crystal-structure identifier grouping variants within a DMS series.",
+            "type": "string"
+          },
+          {
+            "name": "index_peptide",
+            "description": "Wild-type reference peptide epitope sequence for the DMS cohort.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "peptide_dms/batcave_test.csv",
+      "description": "BATCAVE peptide-anchored DMS benchmark (5,754 epitope variants across 35 groups).",
+      "schema": {
+        "fields": [
+          {
+            "name": "tcr",
+            "description": "Paired TCR CDR3 sequence formatted as `CDR3beta|CDR3alpha` (or single chain if unpaired).",
+            "type": "string"
+          },
+          {
+            "name": "epitope",
+            "description": "Peptide epitope amino-acid sequence presented on MHC.",
+            "type": "string"
+          },
+          {
+            "name": "label",
+            "description": "Binary binding label (1 = binder, 0 = non-binder) or continuous experimental fitness/activity target.",
+            "type": "numeric"
+          },
+          {
+            "name": "index_peptide",
+            "description": "Wild-type reference peptide epitope sequence for the DMS cohort.",
+            "type": "string"
+          },
+          {
+            "name": "peptide_activity",
+            "description": "Measured peptide-variant binding, activation, or enrichment score.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_name",
+            "description": "TCR clone or crystal-structure identifier grouping variants within a DMS series.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "peptide_dms/batcave_test_full.csv",
+      "description": "Full unfiltered BATCAVE peptide-anchored DMS panel (11,967 variants).",
+      "schema": {
+        "fields": [
+          {
+            "name": "tcr",
+            "description": "Paired TCR CDR3 sequence formatted as `CDR3beta|CDR3alpha` (or single chain if unpaired).",
+            "type": "string"
+          },
+          {
+            "name": "epitope",
+            "description": "Peptide epitope amino-acid sequence presented on MHC.",
+            "type": "string"
+          },
+          {
+            "name": "label",
+            "description": "Binary binding label (1 = binder, 0 = non-binder) or continuous experimental fitness/activity target.",
+            "type": "numeric"
+          },
+          {
+            "name": "index_peptide",
+            "description": "Wild-type reference peptide epitope sequence for the DMS cohort.",
+            "type": "string"
+          },
+          {
+            "name": "peptide_activity",
+            "description": "Measured peptide-variant binding, activation, or enrichment score.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_name",
+            "description": "TCR clone or crystal-structure identifier grouping variants within a DMS series.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "peptide_dms/atlas_pep_test.csv",
+      "description": "ATLAS-Pep quantitative peptide-anchored mutation affinity benchmark (60 variants across 10 groups).",
+      "schema": {
+        "fields": [
+          {
+            "name": "tcr",
+            "description": "Paired TCR CDR3 sequence formatted as `CDR3beta|CDR3alpha` (or single chain if unpaired).",
+            "type": "string"
+          },
+          {
+            "name": "epitope",
+            "description": "Peptide epitope amino-acid sequence presented on MHC.",
+            "type": "string"
+          },
+          {
+            "name": "label",
+            "description": "Binary binding label (1 = binder, 0 = non-binder) or continuous experimental fitness/activity target.",
+            "type": "numeric"
+          },
+          {
+            "name": "index_peptide",
+            "description": "Wild-type reference peptide epitope sequence for the DMS cohort.",
+            "type": "string"
+          },
+          {
+            "name": "KD_clean",
+            "description": "Cleaned dissociation constant KD (uM or M per source cohort; oriented via -log10 KD in tcr_activity).",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_name",
+            "description": "TCR clone or crystal-structure identifier grouping variants within a DMS series.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "tcr_dms/tcr_mutations_combined_test.csv",
+      "description": "Combined expanded TCR-anchored CDR3 DMS benchmark (703 deduplicated variants across 23 pure-CDR3 groups, 18 index TCRs, 21 epitopes; combines ATLAS-CDR, TRAIT 2025, SKEMPI v2 & 868-Z11; 0% train overlap).",
+      "schema": {
+        "fields": [
+          {
+            "name": "tcr",
+            "description": "Paired TCR CDR3 sequence formatted as `CDR3beta|CDR3alpha` (or single chain if unpaired).",
+            "type": "string"
+          },
+          {
+            "name": "epitope",
+            "description": "Peptide epitope amino-acid sequence presented on MHC.",
+            "type": "string"
+          },
+          {
+            "name": "label",
+            "description": "Binary binding label (1 = binder, 0 = non-binder) or continuous experimental fitness/activity target.",
+            "type": "numeric"
+          },
+          {
+            "name": "index_peptide",
+            "description": "Wild-type reference peptide epitope sequence for the DMS cohort.",
+            "type": "string"
+          },
+          {
+            "name": "index_tcr",
+            "description": "Wild-type reference paired `CDR3beta|CDR3alpha` sequence for the DMS cohort.",
+            "type": "string"
+          },
+          {
+            "name": "KD_clean",
+            "description": "Cleaned dissociation constant KD (uM or M per source cohort; oriented via -log10 KD in tcr_activity).",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_activity",
+            "description": "Measured TCR-variant activity/affinity oriented so higher = stronger binding/activation.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_name",
+            "description": "TCR clone or crystal-structure identifier grouping variants within a DMS series.",
+            "type": "string"
+          },
+          {
+            "name": "mhc",
+            "description": "MHC / HLA allele presenting the peptide epitope.",
+            "type": "string"
+          },
+          {
+            "name": "is_wt",
+            "description": "Boolean flag indicating whether the row is the wild-type reference sequence.",
+            "type": "boolean"
+          },
+          {
+            "name": "source_db",
+            "description": "Upstream experimental database (ATLAS-CDR, TRAIT 2025, SKEMPI v2, or 868-Z11 Zenodo DMS).",
+            "type": "string"
+          },
+          {
+            "name": "source_cohort",
+            "description": "Sub-cohort / library identifier within source_db.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "tcr_dms/tcr_affinity_expanded_test.csv",
+      "description": "Quantitative KD TCR-anchored CDR3 mutation subset (207 variants across 21 groups from ATLAS-CDR, TRAIT 2025 & SKEMPI v2).",
+      "schema": {
+        "fields": [
+          {
+            "name": "tcr",
+            "description": "Paired TCR CDR3 sequence formatted as `CDR3beta|CDR3alpha` (or single chain if unpaired).",
+            "type": "string"
+          },
+          {
+            "name": "epitope",
+            "description": "Peptide epitope amino-acid sequence presented on MHC.",
+            "type": "string"
+          },
+          {
+            "name": "label",
+            "description": "Binary binding label (1 = binder, 0 = non-binder) or continuous experimental fitness/activity target.",
+            "type": "numeric"
+          },
+          {
+            "name": "index_peptide",
+            "description": "Wild-type reference peptide epitope sequence for the DMS cohort.",
+            "type": "string"
+          },
+          {
+            "name": "index_tcr",
+            "description": "Wild-type reference paired `CDR3beta|CDR3alpha` sequence for the DMS cohort.",
+            "type": "string"
+          },
+          {
+            "name": "KD_clean",
+            "description": "Cleaned dissociation constant KD (uM or M per source cohort; oriented via -log10 KD in tcr_activity).",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_activity",
+            "description": "Measured TCR-variant activity/affinity oriented so higher = stronger binding/activation.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_name",
+            "description": "TCR clone or crystal-structure identifier grouping variants within a DMS series.",
+            "type": "string"
+          },
+          {
+            "name": "mhc",
+            "description": "MHC / HLA allele presenting the peptide epitope.",
+            "type": "string"
+          },
+          {
+            "name": "is_wt",
+            "description": "Boolean flag indicating whether the row is the wild-type reference sequence.",
+            "type": "boolean"
+          },
+          {
+            "name": "source_db",
+            "description": "Upstream experimental database (ATLAS-CDR, TRAIT 2025, SKEMPI v2, or 868-Z11 Zenodo DMS).",
+            "type": "string"
+          },
+          {
+            "name": "source_cohort",
+            "description": "Sub-cohort / library identifier within source_db.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "tcr_dms/tcr_dms_868z11_cdr3_test.csv",
+      "description": "HIV-1 SL9-specific 868-Z11 20-AA CDR3alpha and CDR3beta saturation DMS libraries (496 variants; Rosenberg et al. 2024).",
+      "schema": {
+        "fields": [
+          {
+            "name": "tcr",
+            "description": "Paired TCR CDR3 sequence formatted as `CDR3beta|CDR3alpha` (or single chain if unpaired).",
+            "type": "string"
+          },
+          {
+            "name": "epitope",
+            "description": "Peptide epitope amino-acid sequence presented on MHC.",
+            "type": "string"
+          },
+          {
+            "name": "label",
+            "description": "Binary binding label (1 = binder, 0 = non-binder) or continuous experimental fitness/activity target.",
+            "type": "numeric"
+          },
+          {
+            "name": "index_peptide",
+            "description": "Wild-type reference peptide epitope sequence for the DMS cohort.",
+            "type": "string"
+          },
+          {
+            "name": "index_tcr",
+            "description": "Wild-type reference paired `CDR3beta|CDR3alpha` sequence for the DMS cohort.",
+            "type": "string"
+          },
+          {
+            "name": "KD_clean",
+            "description": "Cleaned dissociation constant KD (uM or M per source cohort; oriented via -log10 KD in tcr_activity).",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_activity",
+            "description": "Measured TCR-variant activity/affinity oriented so higher = stronger binding/activation.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_name",
+            "description": "TCR clone or crystal-structure identifier grouping variants within a DMS series.",
+            "type": "string"
+          },
+          {
+            "name": "mhc",
+            "description": "MHC / HLA allele presenting the peptide epitope.",
+            "type": "string"
+          },
+          {
+            "name": "is_wt",
+            "description": "Boolean flag indicating whether the row is the wild-type reference sequence.",
+            "type": "boolean"
+          },
+          {
+            "name": "source_db",
+            "description": "Upstream experimental database (ATLAS-CDR, TRAIT 2025, SKEMPI v2, or 868-Z11 Zenodo DMS).",
+            "type": "string"
+          },
+          {
+            "name": "source_cohort",
+            "description": "Sub-cohort / library identifier within source_db.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "tcr_dms/atlas_cdr_test.csv",
+      "description": "Original ATLAS-CDR TCR-anchored mutation split (128 variants).",
+      "schema": {
+        "fields": [
+          {
+            "name": "tcr",
+            "description": "Paired TCR CDR3 sequence formatted as `CDR3beta|CDR3alpha` (or single chain if unpaired).",
+            "type": "string"
+          },
+          {
+            "name": "epitope",
+            "description": "Peptide epitope amino-acid sequence presented on MHC.",
+            "type": "string"
+          },
+          {
+            "name": "label",
+            "description": "Binary binding label (1 = binder, 0 = non-binder) or continuous experimental fitness/activity target.",
+            "type": "numeric"
+          },
+          {
+            "name": "index_peptide",
+            "description": "Wild-type reference peptide epitope sequence for the DMS cohort.",
+            "type": "string"
+          },
+          {
+            "name": "index_tcr",
+            "description": "Wild-type reference paired `CDR3beta|CDR3alpha` sequence for the DMS cohort.",
+            "type": "string"
+          },
+          {
+            "name": "KD_clean",
+            "description": "Cleaned dissociation constant KD (uM or M per source cohort; oriented via -log10 KD in tcr_activity).",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_name",
+            "description": "TCR clone or crystal-structure identifier grouping variants within a DMS series.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "binary_benchmarks/epytope_binary_test.csv",
+      "description": "Held-out ePytope-Binary TCR-epitope recognition benchmark (7,176 pairs).",
+      "schema": {
+        "fields": [
+          {
+            "name": "tcr",
+            "description": "Paired TCR CDR3 sequence formatted as `CDR3beta|CDR3alpha` (or single chain if unpaired).",
+            "type": "string"
+          },
+          {
+            "name": "epitope",
+            "description": "Peptide epitope amino-acid sequence presented on MHC.",
+            "type": "string"
+          },
+          {
+            "name": "label",
+            "description": "Binary binding label (1 = binder, 0 = non-binder) or continuous experimental fitness/activity target.",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "binary_benchmarks/immrep2025_test.csv",
+      "description": "Held-out IMMREP2025 TCR-epitope recognition benchmark (10,000 pairs with HLA alleles).",
+      "schema": {
+        "fields": [
+          {
+            "name": "tcr",
+            "description": "Paired TCR CDR3 sequence formatted as `CDR3beta|CDR3alpha` (or single chain if unpaired).",
+            "type": "string"
+          },
+          {
+            "name": "epitope",
+            "description": "Peptide epitope amino-acid sequence presented on MHC.",
+            "type": "string"
+          },
+          {
+            "name": "hla",
+            "description": "HLA allele annotation for the TCR-pMHC pair.",
+            "type": "string"
+          },
+          {
+            "name": "label",
+            "description": "Binary binding label (1 = binder, 0 = non-binder) or continuous experimental fitness/activity target.",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "tcr3d_contacts/tcr3d_complexes.csv",
+      "description": "Index of 371 resolved paired TCR-pMHC crystal complexes from TCR3d with exact CDR3beta, CDR3alpha, epitope sequences, MHC alleles, resolution, and <5 A contact counts.",
+      "schema": {
+        "fields": [
+          {
+            "name": "pdb_id",
+            "description": "4-character RCSB PDB code of the experimental TCR-pMHC crystal complex.",
+            "type": "string"
+          },
+          {
+            "name": "tcr_complex",
+            "description": "MHC class / complex type (CLASSI, CLASSII, etc.).",
+            "type": "string"
+          },
+          {
+            "name": "tcr_name",
+            "description": "TCR clone or crystal-structure identifier grouping variants within a DMS series.",
+            "type": "string"
+          },
+          {
+            "name": "tcr_organism",
+            "description": "Species origin of the TCR (Human, Mouse, etc.).",
+            "type": "string"
+          },
+          {
+            "name": "mhc_allele",
+            "description": "MHC / HLA allele from TCR3d.",
+            "type": "string"
+          },
+          {
+            "name": "epitope",
+            "description": "Peptide epitope amino-acid sequence presented on MHC.",
+            "type": "string"
+          },
+          {
+            "name": "cdr3_beta",
+            "description": "TCR beta-chain CDR3 amino-acid sequence.",
+            "type": "string"
+          },
+          {
+            "name": "cdr3_alpha",
+            "description": "TCR alpha-chain CDR3 amino-acid sequence.",
+            "type": "string"
+          },
+          {
+            "name": "tcr",
+            "description": "Paired TCR CDR3 sequence formatted as `CDR3beta|CDR3alpha` (or single chain if unpaired).",
+            "type": "string"
+          },
+          {
+            "name": "resolution",
+            "description": "X-ray / cryo-EM structure resolution in Angstroms.",
+            "type": "numeric"
+          },
+          {
+            "name": "release_date",
+            "description": "PDB release date (YYYY-MM-DD).",
+            "type": "string"
+          },
+          {
+            "name": "n_cdr3b_epi_contacts_5A",
+            "description": "Number of (CDR3beta residue, epitope residue) pairs within 5.0 A heavy-atom distance.",
+            "type": "numeric"
+          },
+          {
+            "name": "n_cdr3a_epi_contacts_5A",
+            "description": "Number of (CDR3alpha residue, epitope residue) pairs within 5.0 A heavy-atom distance.",
+            "type": "numeric"
+          },
+          {
+            "name": "n_total_contacts_5A",
+            "description": "Total (CDR3 residue, epitope residue) pairs within 5.0 A heavy-atom distance.",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "tcr3d_contacts/tcr3d_residue_contacts.parquet",
+      "description": "Residue-pair minimum heavy-atom distances and <5 A contact labels between CDR3alpha/CDR3beta and peptide epitopes across all 371 resolved TCR3d complexes (101,962 residue pairs, 5,612 contacts).",
+      "schema": {
+        "fields": [
+          {
+            "name": "pdb_id",
+            "description": "4-character RCSB PDB code of the experimental TCR-pMHC crystal complex.",
+            "type": "string"
+          },
+          {
+            "name": "tcr_chain",
+            "description": "TCR CDR3 loop chain (`beta` for CDR3beta, `alpha` for CDR3alpha).",
+            "type": "string"
+          },
+          {
+            "name": "cdr3_pos_0based",
+            "description": "0-based residue index within CDR3beta or CDR3alpha.",
+            "type": "numeric"
+          },
+          {
+            "name": "cdr3_aa",
+            "description": "1-letter amino acid at cdr3_pos_0based.",
+            "type": "string"
+          },
+          {
+            "name": "epitope_pos_0based",
+            "description": "0-based residue index within the peptide epitope.",
+            "type": "numeric"
+          },
+          {
+            "name": "epitope_aa",
+            "description": "1-letter amino acid at epitope_pos_0based.",
+            "type": "string"
+          },
+          {
+            "name": "min_heavy_atom_dist_A",
+            "description": "Minimum Euclidean distance (in Angstroms) between any non-hydrogen heavy atoms of the two residues.",
+            "type": "numeric"
+          },
+          {
+            "name": "contact_5A",
+            "description": "Binary ground-truth contact label: 1 if min_heavy_atom_dist_A <= 5.0 A, else 0.",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "baseline_scores/tcr_mutations_combined_all12_predictions.csv",
+      "description": "Precomputed per-variant predictions for all 12 evaluated models across the 703 expanded TCR-anchored CDR3 DMS variants.",
+      "schema": {
+        "fields": [
+          {
+            "name": "tcr",
+            "description": "Paired TCR CDR3 sequence formatted as `CDR3beta|CDR3alpha` (or single chain if unpaired).",
+            "type": "string"
+          },
+          {
+            "name": "epitope",
+            "description": "Peptide epitope amino-acid sequence presented on MHC.",
+            "type": "string"
+          },
+          {
+            "name": "label",
+            "description": "Binary binding label (1 = binder, 0 = non-binder) or continuous experimental fitness/activity target.",
+            "type": "numeric"
+          },
+          {
+            "name": "index_peptide",
+            "description": "Wild-type reference peptide epitope sequence for the DMS cohort.",
+            "type": "string"
+          },
+          {
+            "name": "index_tcr",
+            "description": "Wild-type reference paired `CDR3beta|CDR3alpha` sequence for the DMS cohort.",
+            "type": "string"
+          },
+          {
+            "name": "KD_clean",
+            "description": "Cleaned dissociation constant KD (uM or M per source cohort; oriented via -log10 KD in tcr_activity).",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_activity",
+            "description": "Measured TCR-variant activity/affinity oriented so higher = stronger binding/activation.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_name",
+            "description": "TCR clone or crystal-structure identifier grouping variants within a DMS series.",
+            "type": "string"
+          },
+          {
+            "name": "mhc",
+            "description": "MHC / HLA allele presenting the peptide epitope.",
+            "type": "string"
+          },
+          {
+            "name": "is_wt",
+            "description": "Boolean flag indicating whether the row is the wild-type reference sequence.",
+            "type": "boolean"
+          },
+          {
+            "name": "source_db",
+            "description": "Upstream experimental database (ATLAS-CDR, TRAIT 2025, SKEMPI v2, or 868-Z11 Zenodo DMS).",
+            "type": "string"
+          },
+          {
+            "name": "source_cohort",
+            "description": "Sub-cohort / library identifier within source_db.",
+            "type": "string"
+          },
+          {
+            "name": "CDR3_beta",
+            "description": "Field `CDR3_beta` from benchmark table.",
+            "type": "string"
+          },
+          {
+            "name": "CDR3_alpha",
+            "description": "Field `CDR3_alpha` from benchmark table.",
+            "type": "string"
+          },
+          {
+            "name": "score_LogiCA-TCR",
+            "description": "Field `score_LogiCA-TCR` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "score_LogiCA-Pep",
+            "description": "Field `score_LogiCA-Pep` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "score_LogiCA-Dual",
+            "description": "Field `score_LogiCA-Dual` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "score_LatentCA-TCR",
+            "description": "Field `score_LatentCA-TCR` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "score_LogiMLM",
+            "description": "Field `score_LogiMLM` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "score_iTCep",
+            "description": "Field `score_iTCep` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "score_TULIP-TCR",
+            "description": "Field `score_TULIP-TCR` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "score_EPACT",
+            "description": "Field `score_EPACT` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "score_ImRex",
+            "description": "Field `score_ImRex` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "score_ERGO-II",
+            "description": "Field `score_ERGO-II` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "score_TEIM",
+            "description": "Field `score_TEIM` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "score_TCR-T5",
+            "description": "Field `score_TCR-T5` from benchmark table.",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "baseline_scores/per_group_correlations_all12_models.csv",
+      "description": "Per-group Spearman and Pearson correlations for all 12 evaluated models across all 71 peptide-anchored and 23 TCR-anchored DMS groups (1,128 rows).",
+      "schema": {
+        "fields": [
+          {
+            "name": "scope",
+            "description": "Evaluation scope (peptide_dms or tcr_dms).",
+            "type": "string"
+          },
+          {
+            "name": "benchmark",
+            "description": "Benchmark suite name.",
+            "type": "string"
+          },
+          {
+            "name": "Dataset",
+            "description": "Specific DMS dataset name.",
+            "type": "string"
+          },
+          {
+            "name": "Group",
+            "description": "TCR-epitope mutational group identifier.",
+            "type": "string"
+          },
+          {
+            "name": "Support",
+            "description": "Number of measured variants in the group.",
+            "type": "numeric"
+          },
+          {
+            "name": "Method",
+            "description": "Evaluated model name.",
+            "type": "string"
+          },
+          {
+            "name": "Spearman",
+            "description": "Per-group Spearman rank correlation.",
+            "type": "numeric"
+          },
+          {
+            "name": "Pearson",
+            "description": "Per-group Pearson correlation.",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "baseline_scores/table3_summary_all12_models.csv",
+      "description": "Consolidated benchmark summary across all 12 models on peptide DMS, TCR DMS, and enrichment metrics.",
+      "schema": {
+        "fields": [
+          {
+            "name": "Method",
+            "description": "Evaluated model name.",
+            "type": "string"
+          },
+          {
+            "name": "is_generative",
+            "description": "Field `is_generative` from benchmark table.",
+            "type": "boolean"
+          },
+          {
+            "name": "pep_n_sets",
+            "description": "Field `pep_n_sets` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "pep_spearman_mean",
+            "description": "Field `pep_spearman_mean` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "pep_spearman_sd",
+            "description": "Field `pep_spearman_sd` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "pep_pearson_mean",
+            "description": "Field `pep_pearson_mean` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "pep_pearson_sd",
+            "description": "Field `pep_pearson_sd` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "pep_p10pct_n_groups",
+            "description": "Field `pep_p10pct_n_groups` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "pep_p10pct_enrichment_x",
+            "description": "Field `pep_p10pct_enrichment_x` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "pep_p10pct_p_vs_logimlm",
+            "description": "Field `pep_p10pct_p_vs_logimlm` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "pep_p5pct_enrichment_x",
+            "description": "Field `pep_p5pct_enrichment_x` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "pep_p5pct_p_vs_logimlm",
+            "description": "Field `pep_p5pct_p_vs_logimlm` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "epytope_p10pct_enrichment_x",
+            "description": "Field `epytope_p10pct_enrichment_x` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "batcave_p10pct_enrichment_x",
+            "description": "Field `batcave_p10pct_enrichment_x` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "atlaspep_p10pct_enrichment_x",
+            "description": "Field `atlaspep_p10pct_enrichment_x` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "pep_p5_hit_rate",
+            "description": "Field `pep_p5_hit_rate` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "pep_p5_enrichment_x",
+            "description": "Field `pep_p5_enrichment_x` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "pep_gibbs_12step_x",
+            "description": "Field `pep_gibbs_12step_x` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_n_sets",
+            "description": "Field `tcr_n_sets` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_spearman_mean",
+            "description": "Field `tcr_spearman_mean` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_spearman_sd",
+            "description": "Field `tcr_spearman_sd` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_pearson_mean",
+            "description": "Field `tcr_pearson_mean` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_pearson_sd",
+            "description": "Field `tcr_pearson_sd` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_p10pct_n_groups",
+            "description": "Field `tcr_p10pct_n_groups` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_p10pct_enrichment_x",
+            "description": "Field `tcr_p10pct_enrichment_x` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_p10pct_p_vs_logimlm",
+            "description": "Field `tcr_p10pct_p_vs_logimlm` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_p5pct_enrichment_x",
+            "description": "Field `tcr_p5pct_enrichment_x` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_p5pct_p_vs_logimlm",
+            "description": "Field `tcr_p5pct_p_vs_logimlm` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_p5_n_groups",
+            "description": "Field `tcr_p5_n_groups` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_p5_hit_rate",
+            "description": "Field `tcr_p5_hit_rate` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_p5_uniform_rate",
+            "description": "Field `tcr_p5_uniform_rate` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_p5_enrichment_x",
+            "description": "Field `tcr_p5_enrichment_x` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_gibbs_n_groups",
+            "description": "Field `tcr_gibbs_n_groups` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_gibbs_12step_x",
+            "description": "Field `tcr_gibbs_12step_x` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_aff21_spearman_mean",
+            "description": "Field `tcr_aff21_spearman_mean` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_aff21_spearman_sd",
+            "description": "Field `tcr_aff21_spearman_sd` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_aff21_pearson_mean",
+            "description": "Field `tcr_aff21_pearson_mean` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_aff21_pearson_sd",
+            "description": "Field `tcr_aff21_pearson_sd` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_atlas8_enr_spearman_mean",
+            "description": "Field `tcr_atlas8_enr_spearman_mean` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_trait13_new_spearman_mean",
+            "description": "Field `tcr_trait13_new_spearman_mean` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_trait13_new_spearman_sd",
+            "description": "Field `tcr_trait13_new_spearman_sd` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_trait13_new_pearson_mean",
+            "description": "Field `tcr_trait13_new_pearson_mean` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_trait13_new_pearson_sd",
+            "description": "Field `tcr_trait13_new_pearson_sd` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_868dms2_spearman_mean",
+            "description": "Field `tcr_868dms2_spearman_mean` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_868dms2_spearman_sd",
+            "description": "Field `tcr_868dms2_spearman_sd` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_868dms2_pearson_mean",
+            "description": "Field `tcr_868dms2_pearson_mean` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr_868dms2_pearson_sd",
+            "description": "Field `tcr_868dms2_pearson_sd` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr3d_pep_cdr3b_auroc",
+            "description": "Field `tcr3d_pep_cdr3b_auroc` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "tcr3d_pep_cdr3b_sd",
+            "description": "Field `tcr3d_pep_cdr3b_sd` from benchmark table.",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "dataset_summary.json",
+      "description": "Machine-readable inventory of split counts across pretraining, fine-tuning, peptide DMS, TCR DMS, binary benchmarks, and TCR3d contacts."
+    },
+    {
+      "path": "SOURCES_AND_LICENSES.md",
+      "description": "Citations, provenance, and upstream license terms for all constituent TCR-peptide databases."
+    }
+  ]
+}

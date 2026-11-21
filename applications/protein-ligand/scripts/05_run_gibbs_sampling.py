@@ -30,28 +30,38 @@ import pandas as pd
 
 SUBFOLDER_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = SUBFOLDER_ROOT.parents[1]
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
+SCRIPT_DIR = Path(__file__).resolve().parent
+for _p in (str(REPO_ROOT), str(SCRIPT_DIR)):
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
 
 from logica import (  # noqa: E402
     LogiCA,
     evaluate_landscape_gibbs,
     plot_gibbs_design,
 )
+from pl_data_loader import (  # noqa: E402
+    DEFAULT_KAGGLE_DATASET,
+    load_cohorts,
+    load_task_df,
+    resolve_pl_data_dir,
+)
 
 
 def evaluate_all_dms_cohorts_gibbs(data_dir: Path) -> dict[str, object]:
     """Evaluates all 3 Gibbs protocols across the 103 mutational DMS cohorts."""
-    cdf = pd.read_parquet(data_dir / "processed" / "cohorts.parquet")
+    cdf = load_cohorts(data_dir)
     mut_cdf = cdf[cdf["is_mutational_dms"]].reset_index(drop=True)
-    tasks_dir = data_dir / "processed" / "tasks"
-    tables = {p.stem: pd.read_parquet(p) for p in sorted(tasks_dir.glob("*.parquet"))}
+    tables: dict[str, pd.DataFrame] = {}
 
     metrics_by_model: dict[str, list[dict[str, object]]] = {"ESM2_650M": [], "LogiCA_650M": [], "LogiCA_Guided": []}
 
     for idx, crow in mut_cdf.iterrows():
         cid = str(crow["cohort_id"])
-        sub = tables[str(crow["task_name"])]
+        tname = str(crow["task_name"])
+        if tname not in tables:
+            tables[tname] = load_task_df(data_dir, tname, include_baselines=True)
+        sub = tables[tname]
         sub = sub[sub["parent_strain"] == cid].dropna(
             subset=["dms_score_raw", "esm2_650m_llr", "logica_ligand_llr", "aa_mutations"]
         ).reset_index(drop=True)
@@ -87,12 +97,10 @@ def evaluate_all_dms_cohorts_gibbs(data_dir: Path) -> dict[str, object]:
     return summary
 
 
-def run_live_pocket_gibbs_showcase(scale: str, device: str, out_dir: Path) -> dict[str, object]:
+def run_live_pocket_gibbs_showcase(data_dir: Path, scale: str, device: str, out_dir: Path) -> dict[str, object]:
     """Runs live zero-shot KL hotspot discovery + 12-step Coordinate Gibbs on TtgR + Phloretin."""
     phloretin_smiles = "O=C(CCc1ccc(O)cc1)c1c(O)cc(O)cc1O"
-    df_all = pd.read_parquet(
-        SUBFOLDER_ROOT / "data" / "processed" / "tasks" / "allosteric_antimicrobial_ligand_dms_zeroshot.parquet"
-    )
+    df_all = load_task_df(data_dir, "allosteric_antimicrobial_ligand_dms", include_baselines=False)
     sub = df_all[df_all["parent_strain"] == "TtgR_Phloretin"].reset_index(drop=True)
     wt_chars = list(str(sub.loc[0, "sequence"]))
     for tok in str(sub.loc[0, "aa_mutations"]).split("_"):
@@ -141,7 +149,8 @@ def run_live_pocket_gibbs_showcase(scale: str, device: str, out_dir: Path) -> di
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--data-dir", type=Path, default=SUBFOLDER_ROOT / "data")
+    parser.add_argument("--data-dir", type=Path, default=None, help="Local dataset dir (auto-fetches Kaggle if omitted)")
+    parser.add_argument("--kaggle-dataset", type=str, default=DEFAULT_KAGGLE_DATASET)
     parser.add_argument("--live-design", action="store_true")
     parser.add_argument("--scale", type=str, choices=["8m", "35m", "150m", "650m"], default="35m")
     parser.add_argument("--device", type=str, default="cpu")
@@ -150,12 +159,13 @@ def main() -> None:
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
     t0 = time.time()
+    data_dir = resolve_pl_data_dir(args.data_dir, kaggle_dataset=args.kaggle_dataset)
     payload: dict[str, object] = {
-        "landscape_benchmark_103_dms": evaluate_all_dms_cohorts_gibbs(args.data_dir),
+        "landscape_benchmark_103_dms": evaluate_all_dms_cohorts_gibbs(data_dir),
     }
     if args.live_design:
         payload["live_ttgr_phloretin_design"] = run_live_pocket_gibbs_showcase(
-            args.scale, args.device, args.out_dir
+            data_dir, args.scale, args.device, args.out_dir
         )
     payload["elapsed_sec"] = round(time.time() - t0, 2)
 

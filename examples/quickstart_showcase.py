@@ -24,8 +24,10 @@ import numpy as np
 import pandas as pd
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
+PL_SCRIPTS = REPO_ROOT / "applications" / "protein-ligand" / "scripts"
+for _p in (str(REPO_ROOT), str(PL_SCRIPTS)):
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
 
 from logica import (  # noqa: E402
     LogiCA,
@@ -33,17 +35,19 @@ from logica import (  # noqa: E402
     plot_gibbs_design,
     plot_variant_ranking,
 )
+from pl_data_loader import load_task_df, resolve_biolip_dir, resolve_pl_data_dir  # noqa: E402
 
 
 def main() -> None:
     figures_dir = REPO_ROOT / "figures"
     figures_dir.mkdir(parents=True, exist_ok=True)
+    pl_data_dir = resolve_pl_data_dir()
 
     print("1. Loading pretrained Dual-BioFM LogiCA checkpoint (`Yale-CompBio/logica`, 35M)...")
     model = LogiCA.from_checkpoint("Yale-CompBio/logica", scale="35m", device="cpu")
 
     # --- A. Cross-Modal Dependency Map on a Held-Out BioLiP Crystal Complex ---
-    biolip_dir = REPO_ROOT / "applications" / "protein-ligand" / "data" / "biolip_175"
+    biolip_dir = resolve_biolip_dir(pl_data_dir)
     mi_df = pd.read_parquet(biolip_dir / "model_inputs.parquet")
     ew_df = pd.read_parquet(biolip_dir / "evaluation_windows.parquet")
     rl_df = pd.read_parquet(biolip_dir / "residue_labels.parquet")
@@ -80,16 +84,7 @@ def main() -> None:
 
     # --- B. Context-Conditioned Coordinate Gibbs Design on TtgR + Phloretin ---
     phloretin_smiles = "O=C(CCc1ccc(O)cc1)c1c(O)cc(O)cc1O"
-    dms_pq = (
-        REPO_ROOT
-        / "applications"
-        / "protein-ligand"
-        / "data"
-        / "processed"
-        / "tasks"
-        / "allosteric_antimicrobial_ligand_dms_zeroshot.parquet"
-    )
-    df_dms = pd.read_parquet(dms_pq)
+    df_dms = load_task_df(pl_data_dir, "allosteric_antimicrobial_ligand_dms", include_baselines=False)
     sub_ttgr = df_dms[df_dms["parent_strain"] == "TtgR_Phloretin"].reset_index(drop=True)
     wt_chars = list(str(sub_ttgr.loc[0, "sequence"]))
     for tok in str(sub_ttgr.loc[0, "aa_mutations"]).split("_"):
@@ -127,16 +122,7 @@ def main() -> None:
     print(f"   -> Saved {gibbs_fig}")
 
     # --- C. Mutation-Local Variant Ranking Visualization on Experimental DMS Cohort ---
-    func_pq = (
-        REPO_ROOT
-        / "applications"
-        / "protein-ligand"
-        / "data"
-        / "processed"
-        / "tasks"
-        / "ligand_protein_functional_zeroshot.parquet"
-    )
-    df_func = pd.read_parquet(func_pq)
+    df_func = load_task_df(pl_data_dir, "ligand_protein_functional", include_baselines=True)
     best_cid = None
     best_gain = -1e9
     for cid_cand, grp in df_func.groupby("parent_strain"):

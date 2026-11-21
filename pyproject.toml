@@ -49,11 +49,13 @@ chem = [
   "selfies>=2.1",
   "rdkit>=2023.9",
   "pyarrow>=14.0",
+  "kagglehub>=0.2.9",
 ]
 tcr = [
   "ablang2>=0.1.2",
   "omegaconf>=2.3",
   "safetensors>=0.4",
+  "kagglehub>=0.2.9",
 ]
 antibodies = [
   "ablang2>=0.1.2",

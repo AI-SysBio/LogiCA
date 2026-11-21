@@ -22,8 +22,10 @@ checkpoints/
 *.ckpt
 *.bin
 *.safetensors
-applications/protein-ligand/data/raw/
-applications/tcrlang-esm/data/raw/
+applications/protein-ligand/data/*
+!applications/protein-ligand/data/README.md
+applications/tcrlang-esm/data/*
+!applications/tcrlang-esm/data/README.md
 outputs/
 wandb/
 .DS_Store

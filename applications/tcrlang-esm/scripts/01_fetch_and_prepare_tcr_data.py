@@ -23,12 +23,22 @@ import argparse
 import json
 from pathlib import Path
 import struct
+import sys
 import urllib.request
 import zlib
 
 import pandas as pd
 
 SUBFOLDER_ROOT = Path(__file__).resolve().parents[1]
+SCRIPT_DIR = Path(__file__).resolve().parent
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
+
+from tcr_data_loader import (  # noqa: E402
+    DEFAULT_KAGGLE_DATASET,
+    resolve_tcr_data_dir,
+    resolve_tcr_paths,
+)
 
 TRAIT_ZIP_URL = "https://pgx.zju.edu.cn/download.trait/Mutation_20250312.zip"
 SKEMPI_CSV_URL = "https://life.bsc.es/pid/skempi2/database/download/skempi_v2.csv"
@@ -101,32 +111,24 @@ def download_external_tcr_mutation_sources(raw_dir: Path) -> None:
 
 
 def verify_and_summarize_tcr_splits(data_dir: Path) -> dict[str, object]:
-    pre_tr = pd.read_csv(data_dir / "pretrain" / "epact_stapler_iedb_train_non_overlap.csv")
-    pre_va = pd.read_csv(data_dir / "pretrain" / "epact_stapler_iedb_val_non_overlap.csv")
-
-    ft_root = data_dir / "finetune" / "epact_train_all_downstream_non_overlap"
-    ft_tr = pd.read_csv(ft_root / "epact_train_epytope_binary_test" / "train.csv")
-    ft_va = pd.read_csv(ft_root / "epact_train_epytope_binary_test" / "val.csv")
+    paths = resolve_tcr_paths(data_dir)
+    pre_tr = pd.read_csv(paths["pretrain_train"])
+    pre_va = pd.read_csv(paths["pretrain_val"])
+    ft_tr = pd.read_csv(paths["finetune_train"])
+    ft_va = pd.read_csv(paths["finetune_val"])
 
     train_pairs = set(
         zip(pre_tr["tcr"].astype(str).str.strip().str.upper(), pre_tr["epitope"].astype(str).str.strip().str.upper())
     ) | set(
-        zip(ft_tr["tcr"].astype(str).str.strip().str.upper(), ft_tr["epitope"].astype(str).strip() if False else ft_tr["epitope"].astype(str).str.strip().str.upper())
+        zip(ft_tr["tcr"].astype(str).str.strip().str.upper(), ft_tr["epitope"].astype(str).str.strip().str.upper())
     )
 
     pep_benchmarks = {}
-    for name, folder in (
-        ("epytope_mutation", "epact_train_epytope_mutation_test"),
-        ("batcave", "epact_train_batcave_test"),
-        ("batcave_full", "epact_train_batcave_test_full"),
-        ("atlas_pep", "epact_train_atlaspep_test"),
-        ("epytope_binary", "epact_train_epytope_binary_test"),
-        ("immrep2025", "epact_train_immrep2025_test"),
-    ):
-        tdf = pd.read_csv(ft_root / folder / "test.csv")
+    for name in ("epytope_mutation", "batcave", "batcave_full", "atlas_pep", "epytope_binary", "immrep2025"):
+        tdf = pd.read_csv(paths[name])
         pep_benchmarks[name] = int(len(tdf))
 
-    exp_tcr = pd.read_csv(data_dir / "expanded_tcr_mut" / "tcr_mutations_combined_test.csv")
+    exp_tcr = pd.read_csv(paths["tcr_mutations_combined"])
     test_pairs = set(
         zip(exp_tcr["tcr"].astype(str).str.strip().str.upper(), exp_tcr["epitope"].astype(str).str.strip().str.upper())
     )
@@ -135,7 +137,7 @@ def verify_and_summarize_tcr_splits(data_dir: Path) -> dict[str, object]:
         & test_pairs
     )
 
-    return {
+    out: dict[str, object] = {
         "stage1_pretrain_pairs": int(len(pre_tr)),
         "stage1_val_pairs": int(len(pre_va)),
         "stage1_unique_tcrs": int(pre_tr["tcr"].nunique()),
@@ -148,20 +150,27 @@ def verify_and_summarize_tcr_splits(data_dir: Path) -> dict[str, object]:
         "stage1_to_expanded_tcr_leakage_pairs": int(pretrain_overlap),
         "total_training_reference_pairs": int(len(train_pairs)),
     }
+    if "tcr3d_complexes" in paths and paths["tcr3d_complexes"].is_file():
+        t3c = pd.read_csv(paths["tcr3d_complexes"])
+        out["tcr3d_resolved_complexes"] = int(len(t3c))
+        out["tcr3d_total_contacts_5A"] = int(t3c["n_total_contacts_5A"].sum())
+    return out
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--data-dir", type=Path, default=SUBFOLDER_ROOT / "data")
+    parser.add_argument("--data-dir", type=Path, default=None, help="Local dataset dir (auto-fetches Kaggle if omitted)")
+    parser.add_argument("--kaggle-dataset", type=str, default=DEFAULT_KAGGLE_DATASET)
     parser.add_argument("--out-dir", type=Path, default=SUBFOLDER_ROOT / "outputs")
     parser.add_argument("--download-external", action="store_true")
     args = parser.parse_args()
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
     if args.download_external:
-        download_external_tcr_mutation_sources(args.data_dir / "raw")
+        download_external_tcr_mutation_sources((args.data_dir or (SUBFOLDER_ROOT / "data")) / "raw")
 
-    summary = verify_and_summarize_tcr_splits(args.data_dir)
+    data_dir = resolve_tcr_data_dir(args.data_dir, kaggle_dataset=args.kaggle_dataset)
+    summary = verify_and_summarize_tcr_splits(data_dir)
     out_json = args.out_dir / "01_tcr_dataset_summary.json"
     out_json.write_text(json.dumps(summary, indent=2))
     print(f"[TCRLang-ESM Step 01] Verified all zero-leakage TCR–epitope splits -> {out_json}")

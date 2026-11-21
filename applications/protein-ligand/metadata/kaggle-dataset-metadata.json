@@ -1,0 +1,2299 @@
+{
+  "title": "Protein-Ligand DMS, BindingDB & BioLiP Benchmark",
+  "id": "aurlienplissier/protein-ligand-dms",
+  "licenses": [
+    {
+      "name": "CC-BY-NC-SA-4.0"
+    }
+  ],
+  "subtitle": "137 Protein-Ligand DMS Cohorts (561k), BindingDB & BioLiP-175 Dependency Maps",
+  "description": "# Protein\u2013Ligand DMS, BindingDB & BioLiP Benchmark\n\nCurated protein\u2013small-molecule benchmark dataset used in **LogiCA** (*Contextualizing Biological Language Models via Logit-Space Contrastive Alignment*), packaging:\n- **137 Protein\u2013Ligand DMS & Enzyme Kinetics Cohorts (`561,059` variants)** (`dms_tasks/` + `cohorts.csv`), with `LOCO-30%` (unseen protein superfamily), `LOLO` (unseen chemical scaffold), and `Oncology LOO` splits;\n- **Precomputed Zero-Shot Baseline Scores** (`baseline_scores/`) kept separate from experimental tables (`LogiCA`, `ESM-2 650M`, `ESM-C 600M`, `VenusREM`, `PoET`, `MoCHI`, `CatPred`, `LigandMPNN`, `SaProt`, `ThermoMPNN`);\n- **Stage-0 Curated BindingDB Pretraining Corpus** (`bindingdb_pretrain/`: `10,235` single-chain domain-windowed proteins, `1,127,953` RDKit-desalted SMILES/SELFIES compounds, `1,631,404` train + `222,547` `<30%`-homology val pairs);\n- **BioLiP-175 `<5 \u00c5` Contact Localization Benchmark & Precomputed Dependency Maps** (`biolip_175/`: `175` crystal complexes, `5` protein-disjoint targets, `44,337` residue observations, `1,060` contacts, plus 6 per-residue LogiCA dependency map profiles and 14-model benchmark summary).\n\n---\n\n## Related Links\n- **Code & Pretrained Model Loader**: [github.com/AI-SysBio/LogiCA](https://github.com/AI-SysBio/LogiCA/tree/main/applications/protein-ligand)\n- **Pretrained `ESM-2 + SELFormer` LogiCA Checkpoints (`8M`\u2013`650M`)**: [huggingface.co/Yale-CompBio/logica](https://huggingface.co/Yale-CompBio/logica)\n- **Companion TCR\u2013Peptide DMS Dataset**: [kaggle.com/datasets/aurlienplissier/tcr-peptide-dms](https://www.kaggle.com/datasets/aurlienplissier/tcr-peptide-dms)\n- **Companion Antibody\u2013Antigen Benchmark (AbRank v2)**: [kaggle.com/datasets/aurlienplissier/abrank](https://www.kaggle.com/datasets/aurlienplissier/abrank)\n\n---\n\n## Directory Layout\n\n| Directory / File | Contents |\n| :--- | :--- |\n| `cohorts.csv` | Master index of all `137` cohorts (`103` mutational DMS + `34` WT enzyme kinetics) with `LOCO-30%`, `LOLO`, and `Oncology LOO` split IDs |\n| `dms_tasks/*.parquet` | 8 harmonized experimental DMS/kinetics tables (`561,059` variants, `22` standardized columns, no model predictions mixed in) |\n| `baseline_scores/*_baselines.parquet` | 8 aligned tables storing precomputed zero-shot scores for 10 protein/structure/ligand baselines |\n| `bindingdb_pretrain/` | `proteins.parquet` (`10,235`), `drugs.parquet` (`1,127,953`), `train_pairs.parquet` (`1,631,404`), `val_pairs.parquet` (`222,547`), `curation_summary.json` |\n| `biolip_175/` | `model_inputs.parquet`, `evaluation_windows.parquet`, `residue_labels.parquet`, `model_input_protein_positions.parquet` |\n| `biolip_175/dependency_maps/` | `biolip_dependency_profiles.parquet` (6 LogiCA per-residue dependency maps on all `44,337` residues), `biolip_metrics_per_interaction.csv`, `biolip_model_summary.csv` |\n| `metadata/` | `SOURCES_AND_LICENSES.md` and per-source JSON manifests (`source_manifests/`) |\n\n---\n\n## Quickstart\n\n```python\nfrom pathlib import Path\nimport kagglehub\nimport pandas as pd\n\nroot = Path(kagglehub.dataset_download(\"aurlienplissier/protein-ligand-dms\"))\n\n# 1. Load cohort metadata and pure experimental DMS variants\ncohorts = pd.read_csv(root / \"cohorts.csv\")\nkinase_dms = pd.read_parquet(root / \"dms_tasks/kinase_inhibitor_panel_dms.parquet\")\nkinase_baselines = pd.read_parquet(root / \"baseline_scores/kinase_inhibitor_panel_dms_baselines.parquet\")\n\n# 2. Load BindingDB Stage-1 pretraining corpus\nbdb_train = pd.read_parquet(root / \"bindingdb_pretrain/train_pairs.parquet\")\nbdb_drugs = pd.read_parquet(root / \"bindingdb_pretrain/drugs.parquet\")\n\n# 3. Load BioLiP-175 <5 A contact labels & precomputed LogiCA dependency maps\nbiolip_labels = pd.read_parquet(root / \"biolip_175/residue_labels.parquet\")\nbiolip_deps = pd.read_parquet(root / \"biolip_175/dependency_maps/biolip_dependency_profiles.parquet\")\n```\n\nRun directly with **`AI-SysBio/LogiCA`**:\n```bash\ngit clone https://github.com/AI-SysBio/LogiCA.git && cd LogiCA\npip install -e \".[chem]\"\npython applications/protein-ligand/scripts/01_download_and_process_dms_data.py --kaggle-dataset aurlienplissier/protein-ligand-dms\npython applications/protein-ligand/scripts/04_evaluate_dependency_maps_biolip.py --kaggle-dataset aurlienplissier/protein-ligand-dms --scale 35m\n```\n\n---\n\n## Provenance & Licenses\nAggregated from public peer-reviewed sources (ProteinGym, MaveDB, Coelho 2024, Estevam 2025, Nishikawa 2024, HT-MEK, CatPred-DB, Goldman 2022, BindingDB, BioLiP2); see `metadata/SOURCES_AND_LICENSES.md` for full citations, DOIs, and upstream license terms.",
+  "keywords": [
+    "biology",
+    "chemistry",
+    "computer science",
+    "deep learning",
+    "healthcare"
+  ],
+  "expectedUpdateFrequency": "annually",
+  "userSpecifiedSources": "Harmonized from peer-reviewed public protein-ligand DMS studies (ProteinGym, MaveDB, Coelho et al. 2024, Estevam et al. 2025, Nishikawa et al. 2024, HT-MEK, CatPred-DB, Goldman & Coley 2022), BindingDB (CC BY 3.0 US), and BioLiP2 / RCSB PDB. Full DOIs and manifests in metadata/SOURCES_AND_LICENSES.md.",
+  "resources": [
+    {
+      "path": "cohorts.csv",
+      "description": "Master index of all 137 protein-ligand cohorts (103 mutational DMS + 34 wild-type enzyme kinetics) with LOCO-30%, LOLO, and Oncology LOO split assignments.",
+      "schema": {
+        "fields": [
+          {
+            "name": "cohort_id",
+            "description": "Unique cohort identifier matching parent_strain in dms_tasks/.",
+            "type": "string"
+          },
+          {
+            "name": "task_name",
+            "description": "Task file stem under dms_tasks/ containing this cohort.",
+            "type": "string"
+          },
+          {
+            "name": "task_display",
+            "description": "Human-readable task group display name.",
+            "type": "string"
+          },
+          {
+            "name": "is_mutational_dms",
+            "description": "Boolean indicating mutational DMS (True, 103 cohorts) vs. wild-type enzyme homolog kinetics (False, 34 cohorts).",
+            "type": "boolean"
+          },
+          {
+            "name": "uniprot_id",
+            "description": "UniProtKB protein accession.",
+            "type": "string"
+          },
+          {
+            "name": "protein_name",
+            "description": "Target protein name.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_name",
+            "description": "Small-molecule ligand, substrate, cofactor, or drug name.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_smiles",
+            "description": "Canonical SMILES string of the small molecule.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_selfies",
+            "description": "SELFIES representation of the small molecule (input to SELFormer).",
+            "type": "string"
+          },
+          {
+            "name": "source_db",
+            "description": "Upstream study, database, DOI, or MaveDB/ProteinGym accession.",
+            "type": "string"
+          },
+          {
+            "name": "n_variants",
+            "description": "Number of measured variants or homologs in the cohort.",
+            "type": "numeric"
+          },
+          {
+            "name": "loco30_cluster",
+            "description": "30% sequence-identity protein family cluster ID used for Leave-One-Cluster-Out (LOCO-30%) evaluation.",
+            "type": "string"
+          },
+          {
+            "name": "lolo_group",
+            "description": "Multi-ligand target group identifier for Leave-One-Ligand-Out (LOLO) evaluation.",
+            "type": "string"
+          },
+          {
+            "name": "lolo_scaffold",
+            "description": "Bemis-Murcko chemical scaffold group for LOLO cross-scaffold evaluation.",
+            "type": "string"
+          },
+          {
+            "name": "is_oncology_lopo11",
+            "description": "Boolean flag indicating membership in the 29-cohort oncology drug-resistance panel.",
+            "type": "boolean"
+          },
+          {
+            "name": "feature_dim",
+            "description": "Cached feature dimensionality metadata from curation.",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "dms_tasks/allosteric_antimicrobial_ligand_dms.parquet",
+      "description": "Pure experimental protein-ligand DMS / kinetics table for allosteric_antimicrobial_ligand_dms (309,540 rows, 45 cohorts).",
+      "schema": {
+        "fields": [
+          {
+            "name": "strain_id",
+            "description": "Unique identifier for the protein variant or wild-type homolog observation.",
+            "type": "string"
+          },
+          {
+            "name": "parent_strain",
+            "description": "Cohort/parent wild-type and ligand identifier grouping variants measured under the same assay.",
+            "type": "string"
+          },
+          {
+            "name": "parent_dag_gen",
+            "description": "Wild-type parent sequence identifier or generation index.",
+            "type": "numeric"
+          },
+          {
+            "name": "assay_id",
+            "description": "Experimental assay identifier from the source study.",
+            "type": "string"
+          },
+          {
+            "name": "assay_type",
+            "description": "Experimental readout modality (e.g., antibiotic selection, kinase inhibitor resistance, microfluidic kinetics).",
+            "type": "string"
+          },
+          {
+            "name": "source_db",
+            "description": "Upstream study, database, DOI, or MaveDB/ProteinGym accession.",
+            "type": "string"
+          },
+          {
+            "name": "protein_name",
+            "description": "Target protein name.",
+            "type": "string"
+          },
+          {
+            "name": "target_gene",
+            "description": "Target gene identifier.",
+            "type": "string"
+          },
+          {
+            "name": "gene_symbol",
+            "description": "Standardized gene symbol.",
+            "type": "string"
+          },
+          {
+            "name": "uniprot_id",
+            "description": "UniProtKB protein accession.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_name",
+            "description": "Small-molecule ligand, substrate, cofactor, or drug name.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_role",
+            "description": "Functional role of the small molecule (e.g., inhibitor, substrate, agonist, allosteric effector).",
+            "type": "string"
+          },
+          {
+            "name": "ligand_smiles",
+            "description": "Canonical SMILES string of the small molecule.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_selfies",
+            "description": "SELFIES representation of the small molecule (input to SELFormer).",
+            "type": "string"
+          },
+          {
+            "name": "aa_mutations",
+            "description": "Amino-acid substitution string relative to wild-type (e.g., T84I or L66W_V96I; empty/WT for homolog panels).",
+            "type": "string"
+          },
+          {
+            "name": "n_mutations",
+            "description": "Number of amino-acid substitutions relative to wild-type.",
+            "type": "numeric"
+          },
+          {
+            "name": "num_edit",
+            "description": "Edit distance from wild-type sequence.",
+            "type": "numeric"
+          },
+          {
+            "name": "sequence",
+            "description": "Full 20-AA protein sequence evaluated in the assay.",
+            "type": "string"
+          },
+          {
+            "name": "dms_score_raw",
+            "description": "Primary experimental DMS fitness, binding, resistance, or kinetic score (oriented per cohort).",
+            "type": "numeric"
+          },
+          {
+            "name": "dms_score_z",
+            "description": "Within-cohort standardized z-score of dms_score_raw.",
+            "type": "numeric"
+          },
+          {
+            "name": "fold_change_vs_parent",
+            "description": "Experimental activity or fitness fold-change relative to the parental wild-type.",
+            "type": "numeric"
+          },
+          {
+            "name": "split",
+            "description": "Evaluation split partition.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "baseline_scores/allosteric_antimicrobial_ligand_dms_baselines.parquet",
+      "description": "Precomputed zero-shot baseline model scores aligned 1-to-1 with dms_tasks/allosteric_antimicrobial_ligand_dms.parquet (309,540 rows, 10 models).",
+      "schema": {
+        "fields": [
+          {
+            "name": "strain_id",
+            "description": "Unique identifier for the protein variant or wild-type homolog observation.",
+            "type": "string"
+          },
+          {
+            "name": "parent_strain",
+            "description": "Cohort/parent wild-type and ligand identifier grouping variants measured under the same assay.",
+            "type": "string"
+          },
+          {
+            "name": "assay_id",
+            "description": "Experimental assay identifier from the source study.",
+            "type": "string"
+          },
+          {
+            "name": "aa_mutations",
+            "description": "Amino-acid substitution string relative to wild-type (e.g., T84I or L66W_V96I; empty/WT for homolog panels).",
+            "type": "string"
+          },
+          {
+            "name": "logica_ligand_llr",
+            "description": "Zero-shot LogiCA (ESM-2 + SELFormer, BindingDB-pretrained) mutation-local log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "esm2_650m_llr",
+            "description": "Unconditional ESM-2 650M masked marginal log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "esmc_600m_llr",
+            "description": "Unconditional ESM-C 600M masked marginal log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "venusrem",
+            "description": "Precomputed VenusREM baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "poet",
+            "description": "Precomputed PoET family-conditioned baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "mochi",
+            "description": "Precomputed MoCHI biophysical/thermodynamic baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "catpred",
+            "description": "Precomputed CatPred enzyme kinetics baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "ligmpnn",
+            "description": "Precomputed LigandMPNN 3D inverse-folding score.",
+            "type": "numeric"
+          },
+          {
+            "name": "saprot",
+            "description": "Precomputed SaProt structure-aware PLM score.",
+            "type": "numeric"
+          },
+          {
+            "name": "thermompnn",
+            "description": "Precomputed ThermoMPNN stability baseline score.",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "dms_tasks/catpred_kinetics_homolog_matching.parquet",
+      "description": "Pure experimental protein-ligand DMS / kinetics table for catpred_kinetics_homolog_matching (522 rows, 12 cohorts).",
+      "schema": {
+        "fields": [
+          {
+            "name": "strain_id",
+            "description": "Unique identifier for the protein variant or wild-type homolog observation.",
+            "type": "string"
+          },
+          {
+            "name": "parent_strain",
+            "description": "Cohort/parent wild-type and ligand identifier grouping variants measured under the same assay.",
+            "type": "string"
+          },
+          {
+            "name": "parent_dag_gen",
+            "description": "Wild-type parent sequence identifier or generation index.",
+            "type": "numeric"
+          },
+          {
+            "name": "assay_id",
+            "description": "Experimental assay identifier from the source study.",
+            "type": "string"
+          },
+          {
+            "name": "assay_type",
+            "description": "Experimental readout modality (e.g., antibiotic selection, kinase inhibitor resistance, microfluidic kinetics).",
+            "type": "string"
+          },
+          {
+            "name": "source_db",
+            "description": "Upstream study, database, DOI, or MaveDB/ProteinGym accession.",
+            "type": "string"
+          },
+          {
+            "name": "protein_name",
+            "description": "Target protein name.",
+            "type": "string"
+          },
+          {
+            "name": "target_gene",
+            "description": "Target gene identifier.",
+            "type": "string"
+          },
+          {
+            "name": "gene_symbol",
+            "description": "Standardized gene symbol.",
+            "type": "string"
+          },
+          {
+            "name": "uniprot_id",
+            "description": "UniProtKB protein accession.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_name",
+            "description": "Small-molecule ligand, substrate, cofactor, or drug name.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_role",
+            "description": "Functional role of the small molecule (e.g., inhibitor, substrate, agonist, allosteric effector).",
+            "type": "string"
+          },
+          {
+            "name": "ligand_smiles",
+            "description": "Canonical SMILES string of the small molecule.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_selfies",
+            "description": "SELFIES representation of the small molecule (input to SELFormer).",
+            "type": "string"
+          },
+          {
+            "name": "aa_mutations",
+            "description": "Amino-acid substitution string relative to wild-type (e.g., T84I or L66W_V96I; empty/WT for homolog panels).",
+            "type": "string"
+          },
+          {
+            "name": "n_mutations",
+            "description": "Number of amino-acid substitutions relative to wild-type.",
+            "type": "numeric"
+          },
+          {
+            "name": "num_edit",
+            "description": "Edit distance from wild-type sequence.",
+            "type": "numeric"
+          },
+          {
+            "name": "sequence",
+            "description": "Full 20-AA protein sequence evaluated in the assay.",
+            "type": "string"
+          },
+          {
+            "name": "dms_score_raw",
+            "description": "Primary experimental DMS fitness, binding, resistance, or kinetic score (oriented per cohort).",
+            "type": "numeric"
+          },
+          {
+            "name": "dms_score_z",
+            "description": "Within-cohort standardized z-score of dms_score_raw.",
+            "type": "numeric"
+          },
+          {
+            "name": "fold_change_vs_parent",
+            "description": "Experimental activity or fitness fold-change relative to the parental wild-type.",
+            "type": "numeric"
+          },
+          {
+            "name": "split",
+            "description": "Evaluation split partition.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "baseline_scores/catpred_kinetics_homolog_matching_baselines.parquet",
+      "description": "Precomputed zero-shot baseline model scores aligned 1-to-1 with dms_tasks/catpred_kinetics_homolog_matching.parquet (522 rows, 10 models).",
+      "schema": {
+        "fields": [
+          {
+            "name": "strain_id",
+            "description": "Unique identifier for the protein variant or wild-type homolog observation.",
+            "type": "string"
+          },
+          {
+            "name": "parent_strain",
+            "description": "Cohort/parent wild-type and ligand identifier grouping variants measured under the same assay.",
+            "type": "string"
+          },
+          {
+            "name": "assay_id",
+            "description": "Experimental assay identifier from the source study.",
+            "type": "string"
+          },
+          {
+            "name": "aa_mutations",
+            "description": "Amino-acid substitution string relative to wild-type (e.g., T84I or L66W_V96I; empty/WT for homolog panels).",
+            "type": "string"
+          },
+          {
+            "name": "logica_ligand_llr",
+            "description": "Zero-shot LogiCA (ESM-2 + SELFormer, BindingDB-pretrained) mutation-local log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "esm2_650m_llr",
+            "description": "Unconditional ESM-2 650M masked marginal log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "esmc_600m_llr",
+            "description": "Unconditional ESM-C 600M masked marginal log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "venusrem",
+            "description": "Precomputed VenusREM baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "poet",
+            "description": "Precomputed PoET family-conditioned baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "mochi",
+            "description": "Precomputed MoCHI biophysical/thermodynamic baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "catpred",
+            "description": "Precomputed CatPred enzyme kinetics baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "ligmpnn",
+            "description": "Precomputed LigandMPNN 3D inverse-folding score.",
+            "type": "numeric"
+          },
+          {
+            "name": "saprot",
+            "description": "Precomputed SaProt structure-aware PLM score.",
+            "type": "numeric"
+          },
+          {
+            "name": "thermompnn",
+            "description": "Precomputed ThermoMPNN stability baseline score.",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "dms_tasks/goldman_family_bioprospecting.parquet",
+      "description": "Pure experimental protein-ligand DMS / kinetics table for goldman_family_bioprospecting (1,356 rows, 12 cohorts).",
+      "schema": {
+        "fields": [
+          {
+            "name": "strain_id",
+            "description": "Unique identifier for the protein variant or wild-type homolog observation.",
+            "type": "string"
+          },
+          {
+            "name": "parent_strain",
+            "description": "Cohort/parent wild-type and ligand identifier grouping variants measured under the same assay.",
+            "type": "string"
+          },
+          {
+            "name": "parent_dag_gen",
+            "description": "Wild-type parent sequence identifier or generation index.",
+            "type": "numeric"
+          },
+          {
+            "name": "assay_id",
+            "description": "Experimental assay identifier from the source study.",
+            "type": "string"
+          },
+          {
+            "name": "assay_type",
+            "description": "Experimental readout modality (e.g., antibiotic selection, kinase inhibitor resistance, microfluidic kinetics).",
+            "type": "string"
+          },
+          {
+            "name": "source_db",
+            "description": "Upstream study, database, DOI, or MaveDB/ProteinGym accession.",
+            "type": "string"
+          },
+          {
+            "name": "protein_name",
+            "description": "Target protein name.",
+            "type": "string"
+          },
+          {
+            "name": "target_gene",
+            "description": "Target gene identifier.",
+            "type": "string"
+          },
+          {
+            "name": "gene_symbol",
+            "description": "Standardized gene symbol.",
+            "type": "string"
+          },
+          {
+            "name": "uniprot_id",
+            "description": "UniProtKB protein accession.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_name",
+            "description": "Small-molecule ligand, substrate, cofactor, or drug name.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_role",
+            "description": "Functional role of the small molecule (e.g., inhibitor, substrate, agonist, allosteric effector).",
+            "type": "string"
+          },
+          {
+            "name": "ligand_smiles",
+            "description": "Canonical SMILES string of the small molecule.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_selfies",
+            "description": "SELFIES representation of the small molecule (input to SELFormer).",
+            "type": "string"
+          },
+          {
+            "name": "aa_mutations",
+            "description": "Amino-acid substitution string relative to wild-type (e.g., T84I or L66W_V96I; empty/WT for homolog panels).",
+            "type": "string"
+          },
+          {
+            "name": "n_mutations",
+            "description": "Number of amino-acid substitutions relative to wild-type.",
+            "type": "numeric"
+          },
+          {
+            "name": "num_edit",
+            "description": "Edit distance from wild-type sequence.",
+            "type": "numeric"
+          },
+          {
+            "name": "sequence",
+            "description": "Full 20-AA protein sequence evaluated in the assay.",
+            "type": "string"
+          },
+          {
+            "name": "dms_score_raw",
+            "description": "Primary experimental DMS fitness, binding, resistance, or kinetic score (oriented per cohort).",
+            "type": "numeric"
+          },
+          {
+            "name": "dms_score_z",
+            "description": "Within-cohort standardized z-score of dms_score_raw.",
+            "type": "numeric"
+          },
+          {
+            "name": "fold_change_vs_parent",
+            "description": "Experimental activity or fitness fold-change relative to the parental wild-type.",
+            "type": "numeric"
+          },
+          {
+            "name": "split",
+            "description": "Evaluation split partition.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "baseline_scores/goldman_family_bioprospecting_baselines.parquet",
+      "description": "Precomputed zero-shot baseline model scores aligned 1-to-1 with dms_tasks/goldman_family_bioprospecting.parquet (1,356 rows, 10 models).",
+      "schema": {
+        "fields": [
+          {
+            "name": "strain_id",
+            "description": "Unique identifier for the protein variant or wild-type homolog observation.",
+            "type": "string"
+          },
+          {
+            "name": "parent_strain",
+            "description": "Cohort/parent wild-type and ligand identifier grouping variants measured under the same assay.",
+            "type": "string"
+          },
+          {
+            "name": "assay_id",
+            "description": "Experimental assay identifier from the source study.",
+            "type": "string"
+          },
+          {
+            "name": "aa_mutations",
+            "description": "Amino-acid substitution string relative to wild-type (e.g., T84I or L66W_V96I; empty/WT for homolog panels).",
+            "type": "string"
+          },
+          {
+            "name": "logica_ligand_llr",
+            "description": "Zero-shot LogiCA (ESM-2 + SELFormer, BindingDB-pretrained) mutation-local log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "esm2_650m_llr",
+            "description": "Unconditional ESM-2 650M masked marginal log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "esmc_600m_llr",
+            "description": "Unconditional ESM-C 600M masked marginal log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "venusrem",
+            "description": "Precomputed VenusREM baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "poet",
+            "description": "Precomputed PoET family-conditioned baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "mochi",
+            "description": "Precomputed MoCHI biophysical/thermodynamic baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "catpred",
+            "description": "Precomputed CatPred enzyme kinetics baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "ligmpnn",
+            "description": "Precomputed LigandMPNN 3D inverse-folding score.",
+            "type": "numeric"
+          },
+          {
+            "name": "saprot",
+            "description": "Precomputed SaProt structure-aware PLM score.",
+            "type": "numeric"
+          },
+          {
+            "name": "thermompnn",
+            "description": "Precomputed ThermoMPNN stability baseline score.",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "dms_tasks/ht_mek_microfluidic_kinetics.parquet",
+      "description": "Pure experimental protein-ligand DMS / kinetics table for ht_mek_microfluidic_kinetics (8,756 rows, 9 cohorts).",
+      "schema": {
+        "fields": [
+          {
+            "name": "strain_id",
+            "description": "Unique identifier for the protein variant or wild-type homolog observation.",
+            "type": "string"
+          },
+          {
+            "name": "parent_strain",
+            "description": "Cohort/parent wild-type and ligand identifier grouping variants measured under the same assay.",
+            "type": "string"
+          },
+          {
+            "name": "parent_dag_gen",
+            "description": "Wild-type parent sequence identifier or generation index.",
+            "type": "numeric"
+          },
+          {
+            "name": "assay_id",
+            "description": "Experimental assay identifier from the source study.",
+            "type": "string"
+          },
+          {
+            "name": "assay_type",
+            "description": "Experimental readout modality (e.g., antibiotic selection, kinase inhibitor resistance, microfluidic kinetics).",
+            "type": "string"
+          },
+          {
+            "name": "source_db",
+            "description": "Upstream study, database, DOI, or MaveDB/ProteinGym accession.",
+            "type": "string"
+          },
+          {
+            "name": "protein_name",
+            "description": "Target protein name.",
+            "type": "string"
+          },
+          {
+            "name": "target_gene",
+            "description": "Target gene identifier.",
+            "type": "string"
+          },
+          {
+            "name": "gene_symbol",
+            "description": "Standardized gene symbol.",
+            "type": "string"
+          },
+          {
+            "name": "uniprot_id",
+            "description": "UniProtKB protein accession.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_name",
+            "description": "Small-molecule ligand, substrate, cofactor, or drug name.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_role",
+            "description": "Functional role of the small molecule (e.g., inhibitor, substrate, agonist, allosteric effector).",
+            "type": "string"
+          },
+          {
+            "name": "ligand_smiles",
+            "description": "Canonical SMILES string of the small molecule.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_selfies",
+            "description": "SELFIES representation of the small molecule (input to SELFormer).",
+            "type": "string"
+          },
+          {
+            "name": "aa_mutations",
+            "description": "Amino-acid substitution string relative to wild-type (e.g., T84I or L66W_V96I; empty/WT for homolog panels).",
+            "type": "string"
+          },
+          {
+            "name": "n_mutations",
+            "description": "Number of amino-acid substitutions relative to wild-type.",
+            "type": "numeric"
+          },
+          {
+            "name": "num_edit",
+            "description": "Edit distance from wild-type sequence.",
+            "type": "numeric"
+          },
+          {
+            "name": "sequence",
+            "description": "Full 20-AA protein sequence evaluated in the assay.",
+            "type": "string"
+          },
+          {
+            "name": "dms_score_raw",
+            "description": "Primary experimental DMS fitness, binding, resistance, or kinetic score (oriented per cohort).",
+            "type": "numeric"
+          },
+          {
+            "name": "dms_score_z",
+            "description": "Within-cohort standardized z-score of dms_score_raw.",
+            "type": "numeric"
+          },
+          {
+            "name": "fold_change_vs_parent",
+            "description": "Experimental activity or fitness fold-change relative to the parental wild-type.",
+            "type": "numeric"
+          },
+          {
+            "name": "split",
+            "description": "Evaluation split partition.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "baseline_scores/ht_mek_microfluidic_kinetics_baselines.parquet",
+      "description": "Precomputed zero-shot baseline model scores aligned 1-to-1 with dms_tasks/ht_mek_microfluidic_kinetics.parquet (8,756 rows, 10 models).",
+      "schema": {
+        "fields": [
+          {
+            "name": "strain_id",
+            "description": "Unique identifier for the protein variant or wild-type homolog observation.",
+            "type": "string"
+          },
+          {
+            "name": "parent_strain",
+            "description": "Cohort/parent wild-type and ligand identifier grouping variants measured under the same assay.",
+            "type": "string"
+          },
+          {
+            "name": "assay_id",
+            "description": "Experimental assay identifier from the source study.",
+            "type": "string"
+          },
+          {
+            "name": "aa_mutations",
+            "description": "Amino-acid substitution string relative to wild-type (e.g., T84I or L66W_V96I; empty/WT for homolog panels).",
+            "type": "string"
+          },
+          {
+            "name": "logica_ligand_llr",
+            "description": "Zero-shot LogiCA (ESM-2 + SELFormer, BindingDB-pretrained) mutation-local log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "esm2_650m_llr",
+            "description": "Unconditional ESM-2 650M masked marginal log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "esmc_600m_llr",
+            "description": "Unconditional ESM-C 600M masked marginal log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "venusrem",
+            "description": "Precomputed VenusREM baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "poet",
+            "description": "Precomputed PoET family-conditioned baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "mochi",
+            "description": "Precomputed MoCHI biophysical/thermodynamic baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "catpred",
+            "description": "Precomputed CatPred enzyme kinetics baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "ligmpnn",
+            "description": "Precomputed LigandMPNN 3D inverse-folding score.",
+            "type": "numeric"
+          },
+          {
+            "name": "saprot",
+            "description": "Precomputed SaProt structure-aware PLM score.",
+            "type": "numeric"
+          },
+          {
+            "name": "thermompnn",
+            "description": "Precomputed ThermoMPNN stability baseline score.",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "dms_tasks/kinase_inhibitor_panel_dms.parquet",
+      "description": "Pure experimental protein-ligand DMS / kinetics table for kinase_inhibitor_panel_dms (133,044 rows, 26 cohorts).",
+      "schema": {
+        "fields": [
+          {
+            "name": "strain_id",
+            "description": "Unique identifier for the protein variant or wild-type homolog observation.",
+            "type": "string"
+          },
+          {
+            "name": "parent_strain",
+            "description": "Cohort/parent wild-type and ligand identifier grouping variants measured under the same assay.",
+            "type": "string"
+          },
+          {
+            "name": "parent_dag_gen",
+            "description": "Wild-type parent sequence identifier or generation index.",
+            "type": "numeric"
+          },
+          {
+            "name": "assay_id",
+            "description": "Experimental assay identifier from the source study.",
+            "type": "string"
+          },
+          {
+            "name": "assay_type",
+            "description": "Experimental readout modality (e.g., antibiotic selection, kinase inhibitor resistance, microfluidic kinetics).",
+            "type": "string"
+          },
+          {
+            "name": "source_db",
+            "description": "Upstream study, database, DOI, or MaveDB/ProteinGym accession.",
+            "type": "string"
+          },
+          {
+            "name": "protein_name",
+            "description": "Target protein name.",
+            "type": "string"
+          },
+          {
+            "name": "target_gene",
+            "description": "Target gene identifier.",
+            "type": "string"
+          },
+          {
+            "name": "gene_symbol",
+            "description": "Standardized gene symbol.",
+            "type": "string"
+          },
+          {
+            "name": "uniprot_id",
+            "description": "UniProtKB protein accession.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_name",
+            "description": "Small-molecule ligand, substrate, cofactor, or drug name.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_role",
+            "description": "Functional role of the small molecule (e.g., inhibitor, substrate, agonist, allosteric effector).",
+            "type": "string"
+          },
+          {
+            "name": "ligand_smiles",
+            "description": "Canonical SMILES string of the small molecule.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_selfies",
+            "description": "SELFIES representation of the small molecule (input to SELFormer).",
+            "type": "string"
+          },
+          {
+            "name": "aa_mutations",
+            "description": "Amino-acid substitution string relative to wild-type (e.g., T84I or L66W_V96I; empty/WT for homolog panels).",
+            "type": "string"
+          },
+          {
+            "name": "n_mutations",
+            "description": "Number of amino-acid substitutions relative to wild-type.",
+            "type": "numeric"
+          },
+          {
+            "name": "num_edit",
+            "description": "Edit distance from wild-type sequence.",
+            "type": "numeric"
+          },
+          {
+            "name": "sequence",
+            "description": "Full 20-AA protein sequence evaluated in the assay.",
+            "type": "string"
+          },
+          {
+            "name": "dms_score_raw",
+            "description": "Primary experimental DMS fitness, binding, resistance, or kinetic score (oriented per cohort).",
+            "type": "numeric"
+          },
+          {
+            "name": "dms_score_z",
+            "description": "Within-cohort standardized z-score of dms_score_raw.",
+            "type": "numeric"
+          },
+          {
+            "name": "fold_change_vs_parent",
+            "description": "Experimental activity or fitness fold-change relative to the parental wild-type.",
+            "type": "numeric"
+          },
+          {
+            "name": "split",
+            "description": "Evaluation split partition.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "baseline_scores/kinase_inhibitor_panel_dms_baselines.parquet",
+      "description": "Precomputed zero-shot baseline model scores aligned 1-to-1 with dms_tasks/kinase_inhibitor_panel_dms.parquet (133,044 rows, 10 models).",
+      "schema": {
+        "fields": [
+          {
+            "name": "strain_id",
+            "description": "Unique identifier for the protein variant or wild-type homolog observation.",
+            "type": "string"
+          },
+          {
+            "name": "parent_strain",
+            "description": "Cohort/parent wild-type and ligand identifier grouping variants measured under the same assay.",
+            "type": "string"
+          },
+          {
+            "name": "assay_id",
+            "description": "Experimental assay identifier from the source study.",
+            "type": "string"
+          },
+          {
+            "name": "aa_mutations",
+            "description": "Amino-acid substitution string relative to wild-type (e.g., T84I or L66W_V96I; empty/WT for homolog panels).",
+            "type": "string"
+          },
+          {
+            "name": "logica_ligand_llr",
+            "description": "Zero-shot LogiCA (ESM-2 + SELFormer, BindingDB-pretrained) mutation-local log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "esm2_650m_llr",
+            "description": "Unconditional ESM-2 650M masked marginal log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "esmc_600m_llr",
+            "description": "Unconditional ESM-C 600M masked marginal log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "venusrem",
+            "description": "Precomputed VenusREM baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "poet",
+            "description": "Precomputed PoET family-conditioned baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "mochi",
+            "description": "Precomputed MoCHI biophysical/thermodynamic baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "catpred",
+            "description": "Precomputed CatPred enzyme kinetics baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "ligmpnn",
+            "description": "Precomputed LigandMPNN 3D inverse-folding score.",
+            "type": "numeric"
+          },
+          {
+            "name": "saprot",
+            "description": "Precomputed SaProt structure-aware PLM score.",
+            "type": "numeric"
+          },
+          {
+            "name": "thermompnn",
+            "description": "Precomputed ThermoMPNN stability baseline score.",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "dms_tasks/ligand_protein_binding.parquet",
+      "description": "Pure experimental protein-ligand DMS / kinetics table for ligand_protein_binding (36,530 rows, 8 cohorts).",
+      "schema": {
+        "fields": [
+          {
+            "name": "strain_id",
+            "description": "Unique identifier for the protein variant or wild-type homolog observation.",
+            "type": "string"
+          },
+          {
+            "name": "parent_strain",
+            "description": "Cohort/parent wild-type and ligand identifier grouping variants measured under the same assay.",
+            "type": "string"
+          },
+          {
+            "name": "parent_dag_gen",
+            "description": "Wild-type parent sequence identifier or generation index.",
+            "type": "numeric"
+          },
+          {
+            "name": "assay_id",
+            "description": "Experimental assay identifier from the source study.",
+            "type": "string"
+          },
+          {
+            "name": "assay_type",
+            "description": "Experimental readout modality (e.g., antibiotic selection, kinase inhibitor resistance, microfluidic kinetics).",
+            "type": "string"
+          },
+          {
+            "name": "source_db",
+            "description": "Upstream study, database, DOI, or MaveDB/ProteinGym accession.",
+            "type": "string"
+          },
+          {
+            "name": "protein_name",
+            "description": "Target protein name.",
+            "type": "string"
+          },
+          {
+            "name": "target_gene",
+            "description": "Target gene identifier.",
+            "type": "string"
+          },
+          {
+            "name": "gene_symbol",
+            "description": "Standardized gene symbol.",
+            "type": "string"
+          },
+          {
+            "name": "uniprot_id",
+            "description": "UniProtKB protein accession.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_name",
+            "description": "Small-molecule ligand, substrate, cofactor, or drug name.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_role",
+            "description": "Functional role of the small molecule (e.g., inhibitor, substrate, agonist, allosteric effector).",
+            "type": "string"
+          },
+          {
+            "name": "ligand_smiles",
+            "description": "Canonical SMILES string of the small molecule.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_selfies",
+            "description": "SELFIES representation of the small molecule (input to SELFormer).",
+            "type": "string"
+          },
+          {
+            "name": "aa_mutations",
+            "description": "Amino-acid substitution string relative to wild-type (e.g., T84I or L66W_V96I; empty/WT for homolog panels).",
+            "type": "string"
+          },
+          {
+            "name": "n_mutations",
+            "description": "Number of amino-acid substitutions relative to wild-type.",
+            "type": "numeric"
+          },
+          {
+            "name": "num_edit",
+            "description": "Edit distance from wild-type sequence.",
+            "type": "numeric"
+          },
+          {
+            "name": "sequence",
+            "description": "Full 20-AA protein sequence evaluated in the assay.",
+            "type": "string"
+          },
+          {
+            "name": "dms_score_raw",
+            "description": "Primary experimental DMS fitness, binding, resistance, or kinetic score (oriented per cohort).",
+            "type": "numeric"
+          },
+          {
+            "name": "dms_score_z",
+            "description": "Within-cohort standardized z-score of dms_score_raw.",
+            "type": "numeric"
+          },
+          {
+            "name": "fold_change_vs_parent",
+            "description": "Experimental activity or fitness fold-change relative to the parental wild-type.",
+            "type": "numeric"
+          },
+          {
+            "name": "split",
+            "description": "Evaluation split partition.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "baseline_scores/ligand_protein_binding_baselines.parquet",
+      "description": "Precomputed zero-shot baseline model scores aligned 1-to-1 with dms_tasks/ligand_protein_binding.parquet (36,530 rows, 10 models).",
+      "schema": {
+        "fields": [
+          {
+            "name": "strain_id",
+            "description": "Unique identifier for the protein variant or wild-type homolog observation.",
+            "type": "string"
+          },
+          {
+            "name": "parent_strain",
+            "description": "Cohort/parent wild-type and ligand identifier grouping variants measured under the same assay.",
+            "type": "string"
+          },
+          {
+            "name": "assay_id",
+            "description": "Experimental assay identifier from the source study.",
+            "type": "string"
+          },
+          {
+            "name": "aa_mutations",
+            "description": "Amino-acid substitution string relative to wild-type (e.g., T84I or L66W_V96I; empty/WT for homolog panels).",
+            "type": "string"
+          },
+          {
+            "name": "logica_ligand_llr",
+            "description": "Zero-shot LogiCA (ESM-2 + SELFormer, BindingDB-pretrained) mutation-local log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "esm2_650m_llr",
+            "description": "Unconditional ESM-2 650M masked marginal log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "esmc_600m_llr",
+            "description": "Unconditional ESM-C 600M masked marginal log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "venusrem",
+            "description": "Precomputed VenusREM baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "poet",
+            "description": "Precomputed PoET family-conditioned baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "mochi",
+            "description": "Precomputed MoCHI biophysical/thermodynamic baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "catpred",
+            "description": "Precomputed CatPred enzyme kinetics baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "ligmpnn",
+            "description": "Precomputed LigandMPNN 3D inverse-folding score.",
+            "type": "numeric"
+          },
+          {
+            "name": "saprot",
+            "description": "Precomputed SaProt structure-aware PLM score.",
+            "type": "numeric"
+          },
+          {
+            "name": "thermompnn",
+            "description": "Precomputed ThermoMPNN stability baseline score.",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "dms_tasks/ligand_protein_functional.parquet",
+      "description": "Pure experimental protein-ligand DMS / kinetics table for ligand_protein_functional (70,755 rows, 15 cohorts).",
+      "schema": {
+        "fields": [
+          {
+            "name": "strain_id",
+            "description": "Unique identifier for the protein variant or wild-type homolog observation.",
+            "type": "string"
+          },
+          {
+            "name": "parent_strain",
+            "description": "Cohort/parent wild-type and ligand identifier grouping variants measured under the same assay.",
+            "type": "string"
+          },
+          {
+            "name": "parent_dag_gen",
+            "description": "Wild-type parent sequence identifier or generation index.",
+            "type": "numeric"
+          },
+          {
+            "name": "assay_id",
+            "description": "Experimental assay identifier from the source study.",
+            "type": "string"
+          },
+          {
+            "name": "assay_type",
+            "description": "Experimental readout modality (e.g., antibiotic selection, kinase inhibitor resistance, microfluidic kinetics).",
+            "type": "string"
+          },
+          {
+            "name": "source_db",
+            "description": "Upstream study, database, DOI, or MaveDB/ProteinGym accession.",
+            "type": "string"
+          },
+          {
+            "name": "protein_name",
+            "description": "Target protein name.",
+            "type": "string"
+          },
+          {
+            "name": "target_gene",
+            "description": "Target gene identifier.",
+            "type": "string"
+          },
+          {
+            "name": "gene_symbol",
+            "description": "Standardized gene symbol.",
+            "type": "string"
+          },
+          {
+            "name": "uniprot_id",
+            "description": "UniProtKB protein accession.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_name",
+            "description": "Small-molecule ligand, substrate, cofactor, or drug name.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_role",
+            "description": "Functional role of the small molecule (e.g., inhibitor, substrate, agonist, allosteric effector).",
+            "type": "string"
+          },
+          {
+            "name": "ligand_smiles",
+            "description": "Canonical SMILES string of the small molecule.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_selfies",
+            "description": "SELFIES representation of the small molecule (input to SELFormer).",
+            "type": "string"
+          },
+          {
+            "name": "aa_mutations",
+            "description": "Amino-acid substitution string relative to wild-type (e.g., T84I or L66W_V96I; empty/WT for homolog panels).",
+            "type": "string"
+          },
+          {
+            "name": "n_mutations",
+            "description": "Number of amino-acid substitutions relative to wild-type.",
+            "type": "numeric"
+          },
+          {
+            "name": "num_edit",
+            "description": "Edit distance from wild-type sequence.",
+            "type": "numeric"
+          },
+          {
+            "name": "sequence",
+            "description": "Full 20-AA protein sequence evaluated in the assay.",
+            "type": "string"
+          },
+          {
+            "name": "dms_score_raw",
+            "description": "Primary experimental DMS fitness, binding, resistance, or kinetic score (oriented per cohort).",
+            "type": "numeric"
+          },
+          {
+            "name": "dms_score_z",
+            "description": "Within-cohort standardized z-score of dms_score_raw.",
+            "type": "numeric"
+          },
+          {
+            "name": "fold_change_vs_parent",
+            "description": "Experimental activity or fitness fold-change relative to the parental wild-type.",
+            "type": "numeric"
+          },
+          {
+            "name": "split",
+            "description": "Evaluation split partition.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "baseline_scores/ligand_protein_functional_baselines.parquet",
+      "description": "Precomputed zero-shot baseline model scores aligned 1-to-1 with dms_tasks/ligand_protein_functional.parquet (70,755 rows, 10 models).",
+      "schema": {
+        "fields": [
+          {
+            "name": "strain_id",
+            "description": "Unique identifier for the protein variant or wild-type homolog observation.",
+            "type": "string"
+          },
+          {
+            "name": "parent_strain",
+            "description": "Cohort/parent wild-type and ligand identifier grouping variants measured under the same assay.",
+            "type": "string"
+          },
+          {
+            "name": "assay_id",
+            "description": "Experimental assay identifier from the source study.",
+            "type": "string"
+          },
+          {
+            "name": "aa_mutations",
+            "description": "Amino-acid substitution string relative to wild-type (e.g., T84I or L66W_V96I; empty/WT for homolog panels).",
+            "type": "string"
+          },
+          {
+            "name": "logica_ligand_llr",
+            "description": "Zero-shot LogiCA (ESM-2 + SELFormer, BindingDB-pretrained) mutation-local log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "esm2_650m_llr",
+            "description": "Unconditional ESM-2 650M masked marginal log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "esmc_600m_llr",
+            "description": "Unconditional ESM-C 600M masked marginal log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "venusrem",
+            "description": "Precomputed VenusREM baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "poet",
+            "description": "Precomputed PoET family-conditioned baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "mochi",
+            "description": "Precomputed MoCHI biophysical/thermodynamic baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "catpred",
+            "description": "Precomputed CatPred enzyme kinetics baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "ligmpnn",
+            "description": "Precomputed LigandMPNN 3D inverse-folding score.",
+            "type": "numeric"
+          },
+          {
+            "name": "saprot",
+            "description": "Precomputed SaProt structure-aware PLM score.",
+            "type": "numeric"
+          },
+          {
+            "name": "thermompnn",
+            "description": "Precomputed ThermoMPNN stability baseline score.",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "dms_tasks/methyltransferase_kinetics_matching.parquet",
+      "description": "Pure experimental protein-ligand DMS / kinetics table for methyltransferase_kinetics_matching (556 rows, 10 cohorts).",
+      "schema": {
+        "fields": [
+          {
+            "name": "strain_id",
+            "description": "Unique identifier for the protein variant or wild-type homolog observation.",
+            "type": "string"
+          },
+          {
+            "name": "parent_strain",
+            "description": "Cohort/parent wild-type and ligand identifier grouping variants measured under the same assay.",
+            "type": "string"
+          },
+          {
+            "name": "parent_dag_gen",
+            "description": "Wild-type parent sequence identifier or generation index.",
+            "type": "numeric"
+          },
+          {
+            "name": "assay_id",
+            "description": "Experimental assay identifier from the source study.",
+            "type": "string"
+          },
+          {
+            "name": "assay_type",
+            "description": "Experimental readout modality (e.g., antibiotic selection, kinase inhibitor resistance, microfluidic kinetics).",
+            "type": "string"
+          },
+          {
+            "name": "source_db",
+            "description": "Upstream study, database, DOI, or MaveDB/ProteinGym accession.",
+            "type": "string"
+          },
+          {
+            "name": "protein_name",
+            "description": "Target protein name.",
+            "type": "string"
+          },
+          {
+            "name": "target_gene",
+            "description": "Target gene identifier.",
+            "type": "string"
+          },
+          {
+            "name": "gene_symbol",
+            "description": "Standardized gene symbol.",
+            "type": "string"
+          },
+          {
+            "name": "uniprot_id",
+            "description": "UniProtKB protein accession.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_name",
+            "description": "Small-molecule ligand, substrate, cofactor, or drug name.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_role",
+            "description": "Functional role of the small molecule (e.g., inhibitor, substrate, agonist, allosteric effector).",
+            "type": "string"
+          },
+          {
+            "name": "ligand_smiles",
+            "description": "Canonical SMILES string of the small molecule.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_selfies",
+            "description": "SELFIES representation of the small molecule (input to SELFormer).",
+            "type": "string"
+          },
+          {
+            "name": "aa_mutations",
+            "description": "Amino-acid substitution string relative to wild-type (e.g., T84I or L66W_V96I; empty/WT for homolog panels).",
+            "type": "string"
+          },
+          {
+            "name": "n_mutations",
+            "description": "Number of amino-acid substitutions relative to wild-type.",
+            "type": "numeric"
+          },
+          {
+            "name": "num_edit",
+            "description": "Edit distance from wild-type sequence.",
+            "type": "numeric"
+          },
+          {
+            "name": "sequence",
+            "description": "Full 20-AA protein sequence evaluated in the assay.",
+            "type": "string"
+          },
+          {
+            "name": "dms_score_raw",
+            "description": "Primary experimental DMS fitness, binding, resistance, or kinetic score (oriented per cohort).",
+            "type": "numeric"
+          },
+          {
+            "name": "dms_score_z",
+            "description": "Within-cohort standardized z-score of dms_score_raw.",
+            "type": "numeric"
+          },
+          {
+            "name": "fold_change_vs_parent",
+            "description": "Experimental activity or fitness fold-change relative to the parental wild-type.",
+            "type": "numeric"
+          },
+          {
+            "name": "split",
+            "description": "Evaluation split partition.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "baseline_scores/methyltransferase_kinetics_matching_baselines.parquet",
+      "description": "Precomputed zero-shot baseline model scores aligned 1-to-1 with dms_tasks/methyltransferase_kinetics_matching.parquet (556 rows, 10 models).",
+      "schema": {
+        "fields": [
+          {
+            "name": "strain_id",
+            "description": "Unique identifier for the protein variant or wild-type homolog observation.",
+            "type": "string"
+          },
+          {
+            "name": "parent_strain",
+            "description": "Cohort/parent wild-type and ligand identifier grouping variants measured under the same assay.",
+            "type": "string"
+          },
+          {
+            "name": "assay_id",
+            "description": "Experimental assay identifier from the source study.",
+            "type": "string"
+          },
+          {
+            "name": "aa_mutations",
+            "description": "Amino-acid substitution string relative to wild-type (e.g., T84I or L66W_V96I; empty/WT for homolog panels).",
+            "type": "string"
+          },
+          {
+            "name": "logica_ligand_llr",
+            "description": "Zero-shot LogiCA (ESM-2 + SELFormer, BindingDB-pretrained) mutation-local log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "esm2_650m_llr",
+            "description": "Unconditional ESM-2 650M masked marginal log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "esmc_600m_llr",
+            "description": "Unconditional ESM-C 600M masked marginal log-likelihood ratio.",
+            "type": "numeric"
+          },
+          {
+            "name": "venusrem",
+            "description": "Precomputed VenusREM baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "poet",
+            "description": "Precomputed PoET family-conditioned baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "mochi",
+            "description": "Precomputed MoCHI biophysical/thermodynamic baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "catpred",
+            "description": "Precomputed CatPred enzyme kinetics baseline score.",
+            "type": "numeric"
+          },
+          {
+            "name": "ligmpnn",
+            "description": "Precomputed LigandMPNN 3D inverse-folding score.",
+            "type": "numeric"
+          },
+          {
+            "name": "saprot",
+            "description": "Precomputed SaProt structure-aware PLM score.",
+            "type": "numeric"
+          },
+          {
+            "name": "thermompnn",
+            "description": "Precomputed ThermoMPNN stability baseline score.",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "bindingdb_pretrain/proteins.parquet",
+      "description": "Curated single-chain BindingDB proteins (10,235 unique sequences, sanitized & domain-windowed <=1,022 AA).",
+      "schema": {
+        "fields": [
+          {
+            "name": "protein_id",
+            "description": "Integer protein ID linking BindingDB train/val pairs to proteins.parquet.",
+            "type": "numeric"
+          },
+          {
+            "name": "header",
+            "description": "FASTA header / accession identifier from BindingDB curation.",
+            "type": "string"
+          },
+          {
+            "name": "sequence",
+            "description": "Full 20-AA protein sequence evaluated in the assay.",
+            "type": "string"
+          },
+          {
+            "name": "seq_len",
+            "description": "Amino-acid length of the sanitized, domain-windowed protein sequence (<=1,022 AA).",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "bindingdb_pretrain/drugs.parquet",
+      "description": "Curated BindingDB small-molecule ligands (1,127,953 unique desalted compounds with InChIKey-14, canonical SMILES, and SELFIES).",
+      "schema": {
+        "fields": [
+          {
+            "name": "drug_id",
+            "description": "Integer compound ID linking BindingDB train/val pairs to drugs.parquet.",
+            "type": "numeric"
+          },
+          {
+            "name": "inchikey14",
+            "description": "First 14-character connectivity layer of the compound InChIKey.",
+            "type": "string"
+          },
+          {
+            "name": "canonical_smiles",
+            "description": "RDKit desalted largest-fragment canonical isomeric SMILES.",
+            "type": "string"
+          },
+          {
+            "name": "selfies",
+            "description": "SELFIES encoding of canonical_smiles.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "bindingdb_pretrain/train_pairs.parquet",
+      "description": "Curated BindingDB Stage-1 training pairs (1,631,404 rows, <30% protein-family split, <100 nM actives vs >10 uM inactives + gray zone).",
+      "schema": {
+        "fields": [
+          {
+            "name": "protein_id",
+            "description": "Integer protein ID linking BindingDB train/val pairs to proteins.parquet.",
+            "type": "numeric"
+          },
+          {
+            "name": "drug_id",
+            "description": "Integer compound ID linking BindingDB train/val pairs to drugs.parquet.",
+            "type": "numeric"
+          },
+          {
+            "name": "label",
+            "description": "Binary binding label: 1 (<100 nM active), 0 (>10,000 nM verified inactive), or -1 (gray zone [100 nM, 10 uM]).",
+            "type": "numeric"
+          },
+          {
+            "name": "p_activity",
+            "description": "Negative log10 molar binding affinity (-log10(affinity_nm * 1e-9)).",
+            "type": "numeric"
+          },
+          {
+            "name": "affinity_nm_geomean",
+            "description": "Geometric mean binding affinity in nanomolar (nM) across replicate records.",
+            "type": "numeric"
+          },
+          {
+            "name": "affinity_type",
+            "description": "Primary experimental affinity constant type (Ki, Kd, IC50, or EC50).",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "bindingdb_pretrain/val_pairs.parquet",
+      "description": "Curated BindingDB Stage-1 validation pairs (222,547 rows, <30% protein-family held-out clusters).",
+      "schema": {
+        "fields": [
+          {
+            "name": "protein_id",
+            "description": "Integer protein ID linking BindingDB train/val pairs to proteins.parquet.",
+            "type": "numeric"
+          },
+          {
+            "name": "drug_id",
+            "description": "Integer compound ID linking BindingDB train/val pairs to drugs.parquet.",
+            "type": "numeric"
+          },
+          {
+            "name": "label",
+            "description": "Binary binding label: 1 (<100 nM active), 0 (>10,000 nM verified inactive), or -1 (gray zone [100 nM, 10 uM]).",
+            "type": "numeric"
+          },
+          {
+            "name": "p_activity",
+            "description": "Negative log10 molar binding affinity (-log10(affinity_nm * 1e-9)).",
+            "type": "numeric"
+          },
+          {
+            "name": "affinity_nm_geomean",
+            "description": "Geometric mean binding affinity in nanomolar (nM) across replicate records.",
+            "type": "numeric"
+          },
+          {
+            "name": "affinity_type",
+            "description": "Primary experimental affinity constant type (Ki, Kd, IC50, or EC50).",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "bindingdb_pretrain/curation_summary.json",
+      "description": "Summary statistics of the Stage-0 BindingDB curation pipeline (protein/drug counts, positive/negative/gray-zone splits)."
+    },
+    {
+      "path": "biolip_175/model_inputs.parquet",
+      "description": "69 unique (protein_window, ligand_selfies) model inputs for the BioLiP-175 <5 A contact localization benchmark.",
+      "schema": {
+        "fields": [
+          {
+            "name": "complex_id",
+            "description": "Unique (protein_window, ligand_selfies) model input ID in BioLiP-175.",
+            "type": "string"
+          },
+          {
+            "name": "cohort",
+            "description": "BioLiP target protein UniProt accession.",
+            "type": "string"
+          },
+          {
+            "name": "uniprot_id",
+            "description": "UniProtKB protein accession.",
+            "type": "string"
+          },
+          {
+            "name": "window_start",
+            "description": "1-based canonical UniProt start position of the evaluated sequence window.",
+            "type": "numeric"
+          },
+          {
+            "name": "window_end",
+            "description": "1-based canonical UniProt end position of the evaluated sequence window.",
+            "type": "numeric"
+          },
+          {
+            "name": "protein_aaseq",
+            "description": "Amino-acid sequence of the evaluated protein window.",
+            "type": "string"
+          },
+          {
+            "name": "selfies",
+            "description": "SELFIES encoding of canonical_smiles.",
+            "type": "string"
+          },
+          {
+            "name": "source_interaction_count",
+            "description": "Number of distinct BioLiP crystal interactions mapped to this model input.",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "biolip_175/evaluation_windows.parquet",
+      "description": "231 evaluation windows across 175 held-out BioLiP crystal complexes (5 protein-disjoint targets, 0% DMS overlap).",
+      "schema": {
+        "fields": [
+          {
+            "name": "evaluation_id",
+            "description": "Unique BioLiP evaluation window identifier.",
+            "type": "string"
+          },
+          {
+            "name": "interaction_id",
+            "description": "Unique BioLiP crystal protein-ligand interaction identifier (175 total).",
+            "type": "string"
+          },
+          {
+            "name": "model_input_id",
+            "description": "Foreign key to complex_id in model_inputs.parquet.",
+            "type": "string"
+          },
+          {
+            "name": "biolip_row",
+            "description": "Original row index in the BioLiP database release.",
+            "type": "numeric"
+          },
+          {
+            "name": "pdb_id",
+            "description": "4-character RCSB PDB code of the experimental crystal complex.",
+            "type": "string"
+          },
+          {
+            "name": "receptor_chain",
+            "description": "PDB chain ID of the protein receptor.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_id",
+            "description": "3-letter PDB CCD chemical component code of the bound ligand.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_chain",
+            "description": "PDB chain ID of the bound ligand.",
+            "type": "string"
+          },
+          {
+            "name": "ligand_serial",
+            "description": "Ligand serial/residue identifier in BioLiP.",
+            "type": "numeric"
+          },
+          {
+            "name": "uniprot_id",
+            "description": "UniProtKB protein accession.",
+            "type": "string"
+          },
+          {
+            "name": "cohort",
+            "description": "BioLiP target protein UniProt accession.",
+            "type": "string"
+          },
+          {
+            "name": "binding_region_class",
+            "description": "BioLiP binding-region category (e.g., biolip_contact).",
+            "type": "string"
+          },
+          {
+            "name": "window_start",
+            "description": "1-based canonical UniProt start position of the evaluated sequence window.",
+            "type": "numeric"
+          },
+          {
+            "name": "window_end",
+            "description": "1-based canonical UniProt end position of the evaluated sequence window.",
+            "type": "numeric"
+          },
+          {
+            "name": "positive_count",
+            "description": "Number of <5 A heavy-atom contact residues in this evaluation window.",
+            "type": "numeric"
+          },
+          {
+            "name": "negative_count",
+            "description": "Number of non-contact residues in this evaluation window.",
+            "type": "numeric"
+          },
+          {
+            "name": "local_flank",
+            "description": "Flank window size around binding site for local AUC diagnostics.",
+            "type": "numeric"
+          },
+          {
+            "name": "local_positive_count",
+            "description": "Contact residue count within the local flank.",
+            "type": "numeric"
+          },
+          {
+            "name": "local_negative_count",
+            "description": "Non-contact residue count within the local flank.",
+            "type": "numeric"
+          },
+          {
+            "name": "local_auc_eligible",
+            "description": "Boolean indicating whether both positives and negatives exist in the local flank.",
+            "type": "boolean"
+          }
+        ]
+      }
+    },
+    {
+      "path": "biolip_175/residue_labels.parquet",
+      "description": "44,337 residue-level ground-truth <5 A ligand-contact labels (1,060 contacts) across BioLiP-175.",
+      "schema": {
+        "fields": [
+          {
+            "name": "evaluation_id",
+            "description": "Unique BioLiP evaluation window identifier.",
+            "type": "string"
+          },
+          {
+            "name": "interaction_id",
+            "description": "Unique BioLiP crystal protein-ligand interaction identifier (175 total).",
+            "type": "string"
+          },
+          {
+            "name": "model_input_id",
+            "description": "Foreign key to complex_id in model_inputs.parquet.",
+            "type": "string"
+          },
+          {
+            "name": "cohort",
+            "description": "BioLiP target protein UniProt accession.",
+            "type": "string"
+          },
+          {
+            "name": "binding_region_class",
+            "description": "BioLiP binding-region category (e.g., biolip_contact).",
+            "type": "string"
+          },
+          {
+            "name": "protein_sequence_position",
+            "description": "1-based residue position within protein_aaseq.",
+            "type": "numeric"
+          },
+          {
+            "name": "canonical_uniprot_position",
+            "description": "1-based residue position in the canonical UniProt sequence.",
+            "type": "numeric"
+          },
+          {
+            "name": "contact",
+            "description": "Ground-truth binary label: 1 if within 5 A heavy-atom distance of ligand, else 0.",
+            "type": "numeric"
+          },
+          {
+            "name": "disorder_state",
+            "description": "MobiDB disorder annotation state (if evaluated).",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "biolip_175/model_input_protein_positions.parquet",
+      "description": "13,083 unique (model_input_id, protein_sequence_position) pairs evaluated on BioLiP-175.",
+      "schema": {
+        "fields": [
+          {
+            "name": "model_input_id",
+            "description": "Foreign key to complex_id in model_inputs.parquet.",
+            "type": "string"
+          },
+          {
+            "name": "protein_sequence_position",
+            "description": "1-based residue position within protein_aaseq.",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "biolip_175/dependency_maps/biolip_dependency_profiles.parquet",
+      "description": "Precomputed per-residue LogiCA-150M cross-modal dependency map profiles across all 44,337 BioLiP-175 residue observations (pretrained zero-shot & protein-disjoint E-ASMS fine-tuned variants, mask & 19-AA perturbations).",
+      "schema": {
+        "fields": [
+          {
+            "name": "fold",
+            "description": "Protein-disjoint evaluation fold index (0-4).",
+            "type": "numeric"
+          },
+          {
+            "name": "evaluation_id",
+            "description": "Unique BioLiP evaluation window identifier.",
+            "type": "string"
+          },
+          {
+            "name": "interaction_id",
+            "description": "Unique BioLiP crystal protein-ligand interaction identifier (175 total).",
+            "type": "string"
+          },
+          {
+            "name": "model_input_id",
+            "description": "Foreign key to complex_id in model_inputs.parquet.",
+            "type": "string"
+          },
+          {
+            "name": "pdb_id",
+            "description": "4-character RCSB PDB code of the experimental crystal complex.",
+            "type": "string"
+          },
+          {
+            "name": "uniprot_id",
+            "description": "UniProtKB protein accession.",
+            "type": "string"
+          },
+          {
+            "name": "binding_region_class",
+            "description": "BioLiP binding-region category (e.g., biolip_contact).",
+            "type": "string"
+          },
+          {
+            "name": "disorder_state",
+            "description": "MobiDB disorder annotation state (if evaluated).",
+            "type": "string"
+          },
+          {
+            "name": "protein_sequence_position",
+            "description": "1-based residue position within protein_aaseq.",
+            "type": "numeric"
+          },
+          {
+            "name": "canonical_uniprot_position",
+            "description": "1-based residue position in the canonical UniProt sequence.",
+            "type": "numeric"
+          },
+          {
+            "name": "contact",
+            "description": "Ground-truth binary label: 1 if within 5 A heavy-atom distance of ligand, else 0.",
+            "type": "numeric"
+          },
+          {
+            "name": "dep_pretrained_mask",
+            "description": "Zero-shot BindingDB-pretrained LogiCA-150M per-residue dependency score (mask perturbation).",
+            "type": "numeric"
+          },
+          {
+            "name": "dep_pretrained_aa",
+            "description": "Zero-shot BindingDB-pretrained LogiCA-150M per-residue dependency score (19-AA substitution perturbation).",
+            "type": "numeric"
+          },
+          {
+            "name": "dep_finetuned_gt050_mask",
+            "description": "Protein-disjoint E-ASMS (>0.50 Tanimoto hard negatives) fine-tuned LogiCA-150M dependency score (mask).",
+            "type": "numeric"
+          },
+          {
+            "name": "dep_finetuned_gt080_mask",
+            "description": "Protein-disjoint E-ASMS (>0.80 Tanimoto hard negatives) fine-tuned LogiCA-150M dependency score (mask).",
+            "type": "numeric"
+          },
+          {
+            "name": "dep_finetuned_gt080_aa",
+            "description": "Protein-disjoint E-ASMS (>0.80 Tanimoto hard negatives) fine-tuned LogiCA-150M dependency score (19-AA).",
+            "type": "numeric"
+          },
+          {
+            "name": "dep_finetuned_gt090_mask",
+            "description": "Protein-disjoint E-ASMS (>0.90 Tanimoto hard negatives) fine-tuned LogiCA-150M dependency score (mask).",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "biolip_175/dependency_maps/biolip_metrics_per_interaction.csv",
+      "description": "Per-interaction BioLiP-175 contact localization AUROC and AUPR across 6 protein-disjoint dependency-map experiments (1,050 rows).",
+      "schema": {
+        "fields": [
+          {
+            "name": "experiment",
+            "description": "Field `experiment` from benchmark table.",
+            "type": "string"
+          },
+          {
+            "name": "fold",
+            "description": "Protein-disjoint evaluation fold index (0-4).",
+            "type": "numeric"
+          },
+          {
+            "name": "interaction_id",
+            "description": "Unique BioLiP crystal protein-ligand interaction identifier (175 total).",
+            "type": "string"
+          },
+          {
+            "name": "pdb_id",
+            "description": "4-character RCSB PDB code of the experimental crystal complex.",
+            "type": "string"
+          },
+          {
+            "name": "uniprot_id",
+            "description": "UniProtKB protein accession.",
+            "type": "string"
+          },
+          {
+            "name": "window_count",
+            "description": "Field `window_count` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "n",
+            "description": "Field `n` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "positives",
+            "description": "Field `positives` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "negatives",
+            "description": "Field `negatives` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "auroc",
+            "description": "Field `auroc` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "aupr",
+            "description": "Field `aupr` from benchmark table.",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "biolip_175/dependency_maps/biolip_model_summary.csv",
+      "description": "Consolidated BioLiP-175 contact-localization benchmark summary across LogiCA scales (8M/35M/150M/650M), fine-tuned models, and matched controls (LogiMLM, SiteFuse, ESM-2, ProteinMPNN).",
+      "schema": {
+        "fields": [
+          {
+            "name": "model_key",
+            "description": "Field `model_key` from benchmark table.",
+            "type": "string"
+          },
+          {
+            "name": "display_name",
+            "description": "Field `display_name` from benchmark table.",
+            "type": "string"
+          },
+          {
+            "name": "category",
+            "description": "Field `category` from benchmark table.",
+            "type": "string"
+          },
+          {
+            "name": "n_interactions",
+            "description": "Field `n_interactions` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "n_proteins",
+            "description": "Field `n_proteins` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "n_residues",
+            "description": "Field `n_residues` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "n_positives",
+            "description": "Field `n_positives` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "interaction_auroc_mean",
+            "description": "Field `interaction_auroc_mean` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "interaction_auroc_sd",
+            "description": "Field `interaction_auroc_sd` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "interaction_aupr_mean",
+            "description": "Field `interaction_aupr_mean` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "interaction_aupr_sd",
+            "description": "Field `interaction_aupr_sd` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "protein_auroc_mean",
+            "description": "Field `protein_auroc_mean` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "protein_auroc_sd",
+            "description": "Field `protein_auroc_sd` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "protein_aupr_mean",
+            "description": "Field `protein_aupr_mean` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "pooled_auroc",
+            "description": "Field `pooled_auroc` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "pooled_aupr",
+            "description": "Field `pooled_aupr` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "p_vs_logimlm_interaction_paired",
+            "description": "Field `p_vs_logimlm_interaction_paired` from benchmark table.",
+            "type": "numeric"
+          },
+          {
+            "name": "p_vs_logimlm_protein_collapsed",
+            "description": "Field `p_vs_logimlm_protein_collapsed` from benchmark table.",
+            "type": "numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "metadata/SOURCES_AND_LICENSES.md",
+      "description": "Complete provenance, citations, DOIs, and upstream license terms for all constituent protein-ligand datasets."
+    }
+  ]
+}
