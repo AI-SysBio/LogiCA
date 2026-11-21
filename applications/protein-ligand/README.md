@@ -29,7 +29,7 @@ Official pretrained `ESM-2` $\leftrightarrow$ `SELFormer` LogiCA checkpoints are
 
 ## 2. Benchmark & Data Overview (Hosted on Kaggle)
 
-All processed benchmark tables (`~175 MB` total) are hosted on Kaggle at [**`aurlienplissier/protein-ligand-dms`**](https://www.kaggle.com/datasets/aurlienplissier/protein-ligand-dms) (with an interactive [Quickstart Notebook](https://www.kaggle.com/code/aurlienplissier/protein-ligand-dms-biolip-175-quickstart)) and are **automatically fetched and cached via `kagglehub`** by every script in `scripts/` (or point to a local copy via `--data-dir` / `LOGICA_PL_DATA_DIR`):
+All processed benchmark tables (`~175 MB` total) are hosted on Kaggle at [**`kaggle/protein-ligand-dms`**](https://www.kaggle.com/datasets/aurlienplissier/protein-ligand-dms) (with an interactive [Quickstart Notebook](https://www.kaggle.com/code/aurlienplissier/protein-ligand-dms-biolip-175-quickstart)) and are **automatically fetched and cached via `kagglehub`** by every script in `scripts/` (or point to a local copy via `--data-dir` / `LOGICA_PL_DATA_DIR`):
 
 | Benchmark Component | Kaggle Path | Size & Composition |
 | :--- | :--- | :--- |
