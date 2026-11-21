@@ -91,7 +91,9 @@ def main() -> None:
                 vh = str(row["Ab_heavy_chain_seq"]).strip().upper()
                 vl = str(row["Ab_light_chain_seq"]).strip().upper()
                 ag = str(row["Ag_seq"]).strip().upper()
-                complex_label = f"{row['Ag_group']}_{row['AbAgID']}"
+                ab_short = str(row["AbAgID"]).split("__")[0]
+                ag_short = str(row["Ag_group"])[:20]
+                complex_label = f"{ag_short} / {ab_short}"
 
     vh = vh or DEFAULT_VH
     vl = vl if vl is not None else DEFAULT_VL
