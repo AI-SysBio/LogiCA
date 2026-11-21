@@ -248,13 +248,23 @@ class GibbsSampler:
         else:
             wt_out = self.model.forward_from_hidden(wt_plast, wt_b_attn, primary_adapter_input=wt_pqkv)
 
+        # Map each valid token index (excluding special tokens such as paired `|` separators)
+        # back to its character index in `seed_sequence` so paired `VH|VL` / `CDR3b|CDR3a`
+        # designs never shift across or overwrite the `|` delimiter.
+        if len(seed_sequence) == len(valid_tok_pos):
+            char_pos_by_valid = list(range(len(seed_sequence)))
+        else:
+            non_sep = [i for i, ch in enumerate(seed_sequence) if ch != "|"]
+            char_pos_by_valid = non_sep if len(non_sep) == len(valid_tok_pos) else list(range(len(valid_tok_pos)))
+
         r_ar = torch.arange(len(design_pos), device=device)
         d_tok_t = torch.tensor([valid_tok_pos[p] for p in design_pos], dtype=torch.long, device=device)
         wt_holo_lp = F.log_softmax(wt_out.primary_holo_logits[r_ar, d_tok_t][:, vocab_ids].float(), dim=-1)
         wt_apo_lp = F.log_softmax(wt_out.primary_apo_logits[r_ar, d_tok_t][:, vocab_ids].float(), dim=-1)
         wt_pot = (wt_holo_lp + guided_beta * (wt_holo_lp - wt_apo_lp)).cpu().numpy()
         wt_ref_by_site = {
-            p0: float(wt_pot[idx, aa_to_col[seed_sequence[p0]]]) for idx, p0 in enumerate(design_pos)
+            p0: float(wt_pot[idx, aa_to_col.get(seed_sequence[char_pos_by_valid[p0]], 0)])
+            for idx, p0 in enumerate(design_pos)
         }
 
         chains_chars = [list(seed_sequence) for _ in range(num_chains)]
@@ -297,8 +307,9 @@ class GibbsSampler:
 
             for c_i in range(num_chains):
                 p0 = chosen_sites[c_i]
+                ch_pos = char_pos_by_valid[p0]
                 t_pos = chosen_tok_pos[c_i]
-                cur_aa = chains_chars[c_i][p0]
+                cur_aa = chains_chars[c_i][ch_pos]
                 cur_col = aa_to_col.get(cur_aa, 0)
                 prop_col = int(rng.choice(len(alpha_tuple), p=probs[c_i]))
                 prop_aa = alpha_tuple[prop_col]
@@ -312,7 +323,7 @@ class GibbsSampler:
                     old_contrib = float(pot[c_i, cur_col]) - wt_ref_by_site[p0]
                     new_contrib = float(pot[c_i, prop_col]) - wt_ref_by_site[p0]
                     cur_scores[c_i] += (new_contrib - old_contrib) / max(1, len(design_pos))
-                    chains_chars[c_i][p0] = prop_aa
+                    chains_chars[c_i][ch_pos] = prop_aa
                     chain_ids[c_i, t_pos] = vocab_ids[prop_col]
 
             trajectories[:, step + 1] = cur_scores

@@ -10,7 +10,21 @@ Unconditional TCR and protein language models correlate **negatively** with expe
 
 ---
 
-## 1. Datasets & Zero-Leakage Splits (Hosted on Kaggle)
+## 1. Pretrained Model Weights (Hugging Face)
+
+Official pretrained `TCRLang-Paired` $\leftrightarrow$ `ESM-2` LogiCA checkpoints across all 5 anchor/negative configurations are hosted on Hugging Face Hub at [**`ydchen/logica-tcr`**](https://huggingface.co/ydchen/logica-tcr) and loaded via `LogiCA.from_checkpoint("ydchen/logica-tcr", subfolder=...)`:
+
+| Checkpoint Subfolder | Anchor Mode | Negatives / Anchor | Hugging Face Link |
+| :--- | :--- | :---: | :--- |
+| **`dual-anchored-ratio5`** | Dual (TCR + Peptide) | 5 | [`ydchen/logica-tcr/tree/main/dual-anchored-ratio5`](https://huggingface.co/ydchen/logica-tcr/tree/main/dual-anchored-ratio5) |
+| **`tcr-anchored-neg1`** | TCR-Anchored | 1 | [`ydchen/logica-tcr/tree/main/tcr-anchored-neg1`](https://huggingface.co/ydchen/logica-tcr/tree/main/tcr-anchored-neg1) |
+| **`tcr-anchored-neg5`** | TCR-Anchored | 5 | [`ydchen/logica-tcr/tree/main/tcr-anchored-neg5`](https://huggingface.co/ydchen/logica-tcr/tree/main/tcr-anchored-neg5) |
+| **`pep-anchored-neg1`** | Peptide-Anchored | 1 | [`ydchen/logica-tcr/tree/main/pep-anchored-neg1`](https://huggingface.co/ydchen/logica-tcr/tree/main/pep-anchored-neg1) |
+| **`pep-anchored-neg5`** | Peptide-Anchored | 5 | [`ydchen/logica-tcr/tree/main/pep-anchored-neg5`](https://huggingface.co/ydchen/logica-tcr/tree/main/pep-anchored-neg5) |
+
+---
+
+## 2. Datasets & Zero-Leakage Splits (Hosted on Kaggle)
 
 All processed zero-leakage training splits, **peptide-anchored DMS**, **TCR-anchored CDR3 DMS**, binary benchmarks, **TCR3d `<5 Å` crystal contacts**, and 12-model baseline tables (`~24 MB` total) are hosted on Kaggle at [**`aurlienplissier/tcr-peptide-dms`**](https://www.kaggle.com/datasets/aurlienplissier/tcr-peptide-dms) (with an interactive [Quickstart Notebook](https://www.kaggle.com/code/aurlienplissier/tcr-peptide-binding-bidirectional-dms-quickstart)) and are **automatically fetched via `kagglehub`** by every script below (or point to a local copy via `--data-dir` / `LOGICA_TCR_DATA_DIR`):
 
@@ -37,7 +51,7 @@ tcr3d = pd.read_parquet(root / "tcr3d_contacts/tcr3d_residue_contacts.parquet")
 
 ---
 
-## 2. Step-by-Step Reproducibility Pipeline
+## 3. Step-by-Step Reproducibility Pipeline
 
 Install the `tcr` extras from the repository root first (`pip install -e ".[tcr]"` — includes `ablang2` and `kagglehub`). Every script auto-downloads `aurlienplissier/tcr-peptide-dms` on first run:
 
@@ -69,7 +83,7 @@ python applications/tcrlang-esm/scripts/05_run_tcr_gibbs_and_dependency.py --hf-
 
 ---
 
-## 3. Minimal Python Snippet (`TCRLang` + `ESM-2`)
+## 4. Minimal Python Snippet (`TCRLang` + `ESM-2`)
 
 ```python
 from logica import LogiCA

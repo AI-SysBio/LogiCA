@@ -379,3 +379,68 @@ def test_external_hidden_residual_hook() -> None:
     )
     assert not torch.allclose(s_ext.primary_holo_logits, s_base.primary_holo_logits)
     assert torch.allclose(s_ext.primary_apo_logits, s_base.primary_apo_logits, atol=1e-6)
+
+
+def test_paired_pipe_delimited_gibbs_preserves_separator() -> None:
+    """Verifies paired `VH|VL` / `CDR3b|CDR3a` Gibbs sampling mutates both chains without corrupting `|`."""
+
+    class PipeAwareTokenizer(ToyVocabularyTokenizer):
+        def __init__(self, tokens: tuple[str, ...]) -> None:
+            super().__init__(tokens)
+            self.sep_token_id = len(self.all_tokens)
+            self.tok_to_id["|"] = self.sep_token_id
+            self.id_to_tok[self.sep_token_id] = "|"
+            self.all_special_ids = [*self.all_special_ids, self.sep_token_id]
+
+        def __call__(
+            self,
+            sequences: list[str],
+            max_length: int | None = None,
+            padding: bool | str = True,
+            truncation: bool = True,
+            return_tensors: str = "pt",
+        ) -> dict[str, torch.Tensor]:
+            out = super().__call__(
+                sequences,
+                max_length=max_length,
+                padding=padding,
+                truncation=truncation,
+                return_tensors=return_tensors,
+            )
+            out["special_tokens_mask"] = out["special_tokens_mask"] | (out["input_ids"] == self.sep_token_id)
+            return out
+
+    torch.manual_seed(11)
+    prot_tok = PipeAwareTokenizer(CANONICAL_AAS)
+    _, chem_bb = make_heterogeneous_biofms()
+    prot_vocab = len(prot_tok.tok_to_id)
+    prot_bb = CustomBioFMBackbone(
+        encoder=ToyBioFMEncoder(prot_vocab, dim=32, num_layers=2),
+        lm_head=nn.Linear(32, prot_vocab),
+        tokenizer=prot_tok,
+        hidden_size=32,
+        vocab_size=prot_vocab,
+        model_id="toy-paired-ab-fm",
+    )
+    model = LogiCA.from_pretrained(prot_bb, chem_bb, width=24, heads=4, layers=1)
+    with torch.no_grad():
+        model.prot_gate.fill_(0.6)
+        model.drug_gate.fill_(0.6)
+
+    paired_wt = "ACDEFG|HIKLMN"
+    # Design positions 1 (VH) and 7 (VL, index 1 after `|`) in valid-token space
+    res = model.gibbs_sample(
+        paired_wt,
+        context="[C][O][N][F]",
+        design_positions_0based=[1, 7],
+        num_chains=6,
+        num_steps=8,
+        temperature=1.0,
+        metropolis_accept=False,
+    )
+    for seq in res.final_sequences:
+        assert len(seq) == len(paired_wt)
+        assert seq[6] == "|"
+        # Untouched positions on both VH and VL remain unchanged
+        assert seq[0] == "A" and seq[2:6] == "DEFG" and seq[7] == "H" and seq[9:] == "KLMN"
+

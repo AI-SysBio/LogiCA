@@ -2,15 +2,17 @@
 
 [![AbRank Benchmark](https://img.shields.io/badge/Benchmark-AI--SysBio%2FAbRank-blue.svg)](https://github.com/AI-SysBio/AbRank)
 [![Kaggle Dataset](https://img.shields.io/badge/Kaggle-aurlienplissier%2Fabrank-20BEFF.svg)](https://www.kaggle.com/datasets/aurlienplissier/abrank)
+[![HF Base Backbone](https://img.shields.io/badge/HuggingFace-Yale--CompBio%2Fablang2--hf-FFD21E.svg)](https://huggingface.co/Yale-CompBio/ablang2-hf)
 
-This subfolder applies the model-agnostic **`logica`** Python library to couple paired antibody/nanobody repertoire foundation models (**`ablang2-paired`**, representing `VH|VL` or single-domain `VHH|`) with antigen protein language models (**`facebook/esm2_t12_35M_UR50D`**, `150M`, or `650M`) via native-head-preserving Gated Cross-Attention, and evaluates directly on the public [**AbRank v2**](https://github.com/AI-SysBio/AbRank) benchmark.
+This subfolder applies the model-agnostic **`logica`** Python library to couple paired antibody/nanobody repertoire foundation models (**`ablang2-paired`**, representing `VH|VL` or single-domain `VHH|`) with antigen protein language models (**`facebook/esm2_t12_35M_UR50D`**, `150M`, or `650M`) via native-head-preserving Gated Cross-Attention, evaluating directly on the public [**AbRank v2**](https://github.com/AI-SysBio/AbRank) benchmark and on crystal structures downloaded from [**SAbDab2**](https://sabdab.opig.stats.ox.ac.uk/).
 
 ---
 
-## 1. Cross-Repo Architecture (`AI-SysBio/LogiCA` $\leftrightarrow$ `AI-SysBio/AbRank`)
+## 1. Cross-Repo Architecture & Model Weights
 
 - **Benchmark Data, Curation & Official Evaluator**: Maintained in [**`AI-SysBio/AbRank`**](https://github.com/AI-SysBio/AbRank) and hosted ready-to-use on Kaggle at **`aurlienplissier/abrank`**.
-- **Model Implementation (`AbLang2-Paired` + `ESM-2`)**: Implemented here using `from logica import LogiCA, InfoNCELogitLoss, AncestralKLAnchorLoss, ...`, loading AbRank directly from Kaggle (via `kagglehub` or `kaggle` CLI) or a local checkout of `AI-SysBio/AbRank`.
+- **Structural Contact Benchmark (`SAbDab2`)**: `scripts/05_sabdab_dependency_and_gibbs.py` downloads the live SAbDab2 structural database summary and RCSB mmCIF crystal structures directly, extracts exact `<5 Å` heavy-atom antibody–antigen contacts, evaluates zero-shot cross-modal dependency maps, and benchmarks `AbLang2`–`ESM-2` Coordinate Gibbs sampling against unconditional `AbLang2`.
+- **Pretrained Base Backbones**: Uses paired antibody foundation weights (`ablang2-paired`, also mirrored on Hugging Face at [**`Yale-CompBio/ablang2-hf`**](https://huggingface.co/Yale-CompBio/ablang2-hf)) coupled with Hugging Face `ESM-2` (`facebook/esm2_t12_35M_UR50D` / `150M` / `650M`). Train a coupled LogiCA checkpoint with `scripts/02_train_ablang_esm_logica.py`.
 - **Zero-Friction Submission & Scoring**: `scripts/03_evaluate_on_abrank.py` writes official AbRank TSV files (`pair_id,pred_diff,pred_impact` for pairwise suites; `AbAgID,pred_score` for pointwise suites) and scores them directly with `abrank.evaluate.evaluate_flagship_suite`.
 
 ---
@@ -74,13 +76,26 @@ python -m abrank.evaluate \
     --kaggle-dataset aurlienplissier/abrank \
     --preds applications/antibodies-abrank/outputs/abrank_eval/predictions_maturation.tsv
 
-# Step 4: 2D Antigen -> Paratope Dependency Map & CDR-H3 Coordinate Gibbs Affinity Maturation
+# Step 4: Single-Complex Antigen -> Paratope Dependency Map & CDR-H3 Coordinate Gibbs Design
 python applications/antibodies-abrank/scripts/04_paratope_dependency_and_gibbs.py \
     --checkpoint applications/antibodies-abrank/outputs/ablang_esm_logica/ablang_esm_logica.pt \
     --kaggle-dataset aurlienplissier/abrank
+
+# Step 5: Download SAbDab2 Structures, Extract `<5 Å` Paratope Contacts, Dependency Maps & AbLang2–ESM-2 Gibbs Evaluation
+python applications/antibodies-abrank/scripts/05_sabdab_dependency_and_gibbs.py \
+    --checkpoint applications/antibodies-abrank/outputs/ablang_esm_logica/ablang_esm_logica.pt \
+    --max-complexes 25 \
+    --design-mode cdrh3 \
+    --device cuda:0
+
+# Target specific crystal complexes (e.g. Trastuzumab-HER2 1N8Z, HyHEL-10 1FDL, Bevacizumab-VEGF 2FJG)
+python applications/antibodies-abrank/scripts/05_sabdab_dependency_and_gibbs.py \
+    --pdb-ids 1N8Z,1FDL,2FJG \
+    --design-mode cdrh3 \
+    --device cpu
 ```
 
-To run a quick end-to-end CPU verification of any script, append `--smoke-test`.
+To run a quick end-to-end CPU verification of any script (including live SAbDab2 + RCSB mmCIF download on `1N8Z` and `1FDL`), append `--smoke-test`.
 
 ---
 

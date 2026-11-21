@@ -7,6 +7,8 @@
 [![Kaggle: Protein-Ligand DMS](https://img.shields.io/badge/Kaggle-protein--ligand--dms-20BEFF.svg)](https://www.kaggle.com/datasets/aurlienplissier/protein-ligand-dms)
 [![Kaggle: TCR-Peptide DMS](https://img.shields.io/badge/Kaggle-tcr--peptide--dms-20BEFF.svg)](https://www.kaggle.com/datasets/aurlienplissier/tcr-peptide-dms)
 [![Kaggle: AbRank v2](https://img.shields.io/badge/Kaggle-abrank-20BEFF.svg)](https://www.kaggle.com/datasets/aurlienplissier/abrank)
+[![HF: Protein-Ligand](https://img.shields.io/badge/HuggingFace-Yale--CompBio%2Flogica-FFD21E.svg)](https://huggingface.co/Yale-CompBio/logica)
+[![HF: TCR-pMHC](https://img.shields.io/badge/HuggingFace-ydchen%2Flogica--tcr-FFD21E.svg)](https://huggingface.co/ydchen/logica-tcr)
 
 <p align="center">
   <img src="figures/logica_overview.png" width="94%" alt="LogiCA Overview: Contrastive Alignment in Native Token Logit Space"/>
@@ -56,20 +58,20 @@ LogiCA/
 │   ├── gibbs.py                         # `GibbsSampler` (Coordinate Gibbs MCMC design & DMS landscape protocols)
 │   └── visualization.py                 # Publication-ready Matplotlib plots for ranking, dependency maps & Gibbs
 ├── applications/                        # End-to-end domain suites built on `logica`
-│   ├── protein-ligand/                  # ESM-2 + SELFormer (BindingDB, 137 DMS cohorts, BioLiP-175)
-│   ├── tcrlang-esm/                     # TCRLang + ESM-2 (EPACT/STAPLER/IEDB, 71 Pep + 23 TCR DMS)
-│   └── antibodies-abrank/               # AbLang2-Paired + ESM-2 on AbRank (AI-SysBio/AbRank)
+│   ├── protein-ligand/                  # Protein–Ligand Interactions (ESM-2 + SELFormer)
+│   ├── tcrlang-esm/                     # TCR–pMHC Interactions (TCRLang + ESM-2)
+│   └── antibodies-abrank/               # Antigen–Antibody Interactions (AbLang2 + ESM-2, AbRank & SAbDab)
 ├── examples/
 │   └── quickstart_showcase.py           # End-to-end live demo generating all example visualizations
 └── tests/
     └── test_logica_toolbox.py           # Unit test suite covering Dual-BioFM, Single-BioFM, losses & readouts
 ```
 
-| Domain Application | Coupled BioFMs | Kaggle Dataset | Datasets & Scripts Included |
-| :--- | :--- | :--- | :--- |
-| **[`applications/protein-ligand/`](applications/protein-ligand/)** | `ESM-2` (`8M`–`650M`) $\leftrightarrow$ `SELFormer` (`SELFIES`) | [**`aurlienplissier/protein-ligand-dms`**](https://www.kaggle.com/datasets/aurlienplissier/protein-ligand-dms) | Curated Stage-0 BindingDB (`1.85M` pairs), **137 DMS & kinetics cohorts (`561,059` variants)** + separated 10-model baselines, **BioLiP-175 `<5 Å` contacts & dependency maps**, `LOCO-30%` / `LOLO` / `Oncology LOO` fine-tuning & Gibbs scripts |
-| **[`applications/tcrlang-esm/`](applications/tcrlang-esm/)** | `TCRLang-Paired` (`CDR3β\|CDR3α`) $\leftrightarrow$ `ESM-2` (`Epitope`) | [**`aurlienplissier/tcr-peptide-dms`**](https://www.kaggle.com/datasets/aurlienplissier/tcr-peptide-dms) | Zero-leakage `EPACT + STAPLER + IEDB` (`234k` train + `26k` val pairs), deduplicated `EPACT` fine-tuning, **71 Peptide-Anchored DMS**, **23 TCR-Anchored CDR3 DMS (`703` variants)**, **TCR3d `<5 Å` crystal contacts (`371` complexes)** & 12-model baselines |
-| **[`applications/antibodies-abrank/`](applications/antibodies-abrank/)** | `AbLang2-Paired` (`VH\|VL`, `VHH\|`) $\leftrightarrow$ `ESM-2` (`Antigen`) | [**`aurlienplissier/abrank`**](https://www.kaggle.com/datasets/aurlienplissier/abrank) | Kaggle/local loader for [**AI-SysBio/AbRank**](https://github.com/AI-SysBio/AbRank), Stage-1 InfoNCE + Stage-2 3-state noise-buffered training, 4-suite AbRank evaluator, paratope dependency maps & CDR-H3 Gibbs scripts |
+| Domain Application | Coupled BioFMs | Hugging Face Weights | Kaggle Dataset | Datasets & Scripts Included |
+| :--- | :--- | :--- | :--- | :--- |
+| **Protein–Ligand Interactions**<br>[`applications/protein-ligand/`](applications/protein-ligand/) | `ESM-2` (`8M`–`650M`) $\leftrightarrow$ `SELFormer` | [**`Yale-CompBio/logica`**](https://huggingface.co/Yale-CompBio/logica) (`8M`–`650M`) | [**`aurlienplissier/protein-ligand-dms`**](https://www.kaggle.com/datasets/aurlienplissier/protein-ligand-dms) | BindingDB pretraining, DMS kinetics & drug binding, BioLiP interaction maps, Gibbs pocket design |
+| **TCR–pMHC Interactions**<br>[`applications/tcrlang-esm/`](applications/tcrlang-esm/) | `TCRLang-Paired` (`CDR3β\|CDR3α`) $\leftrightarrow$ `ESM-2` | [**`ydchen/logica-tcr`**](https://huggingface.co/ydchen/logica-tcr) (5 anchor configs) | [**`aurlienplissier/tcr-peptide-dms`**](https://www.kaggle.com/datasets/aurlienplissier/tcr-peptide-dms) | TCR–pMHC binding data, peptide-anchored DMS, TCR-anchored DMS, TCR3d interaction maps & CDR3 Gibbs design |
+| **Antigen–Antibody Interactions**<br>[`applications/antibodies-abrank/`](applications/antibodies-abrank/) | `AbLang2-Paired` (`VH\|VL`, `VHH\|`) $\leftrightarrow$ `ESM-2` | Base: [`Yale-CompBio/ablang2-hf`](https://huggingface.co/Yale-CompBio/ablang2-hf) + `ESM-2`<br>*(train via script 02)* | [**`aurlienplissier/abrank`**](https://www.kaggle.com/datasets/aurlienplissier/abrank) | AbRank benchmark, SAbDab `<5 Å` dependency maps & AbLang–ESM Gibbs evaluation |
 
 > **Processed Datasets on Kaggle:** To keep this code repository lightweight, all processed benchmark tables, pretraining splits, and structural contact/dependency-map tables are hosted ready-to-download on Kaggle ([`protein-ligand-dms`](https://www.kaggle.com/datasets/aurlienplissier/protein-ligand-dms), [`tcr-peptide-dms`](https://www.kaggle.com/datasets/aurlienplissier/tcr-peptide-dms), and [`abrank`](https://www.kaggle.com/datasets/aurlienplissier/abrank)) and auto-fetched via `kagglehub` by every application script.
 

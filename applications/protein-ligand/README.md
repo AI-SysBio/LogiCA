@@ -14,7 +14,20 @@ It contains:
 
 ---
 
-## 1. Benchmark & Data Overview (Hosted on Kaggle)
+## 1. Pretrained Model Weights (Hugging Face)
+
+Official pretrained `ESM-2` $\leftrightarrow$ `SELFormer` LogiCA checkpoints are hosted on Hugging Face Hub at [**`Yale-CompBio/logica`**](https://huggingface.co/Yale-CompBio/logica) and auto-downloaded by `LogiCA.from_checkpoint(...)`:
+
+| Scale | Protein BioFM | Ligand BioFM | Hugging Face Checkpoint |
+| :--- | :--- | :--- | :--- |
+| **`8m`** | `facebook/esm2_t6_8M_UR50D` | `HUBioDataLab/SELFormer` | [`Yale-CompBio/logica` (`checkpoints/8m/best.pt`)](https://huggingface.co/Yale-CompBio/logica/blob/main/checkpoints/8m/best.pt) |
+| **`35m`** | `facebook/esm2_t12_35M_UR50D` | `HUBioDataLab/SELFormer` | [`Yale-CompBio/logica` (`checkpoints/35m/best.pt`)](https://huggingface.co/Yale-CompBio/logica/blob/main/checkpoints/35m/best.pt) |
+| **`150m`** | `facebook/esm2_t30_150M_UR50D` | `HUBioDataLab/SELFormer` | [`Yale-CompBio/logica` (`checkpoints/150m/best.pt`)](https://huggingface.co/Yale-CompBio/logica/blob/main/checkpoints/150m/best.pt) |
+| **`650m`** | `facebook/esm2_t33_650M_UR50D` | `HUBioDataLab/SELFormer` | [`Yale-CompBio/logica` (`checkpoints/650m/best.pt`)](https://huggingface.co/Yale-CompBio/logica/blob/main/checkpoints/650m/best.pt) |
+
+---
+
+## 2. Benchmark & Data Overview (Hosted on Kaggle)
 
 All processed benchmark tables (`~175 MB` total) are hosted on Kaggle at [**`aurlienplissier/protein-ligand-dms`**](https://www.kaggle.com/datasets/aurlienplissier/protein-ligand-dms) (with an interactive [Quickstart Notebook](https://www.kaggle.com/code/aurlienplissier/protein-ligand-dms-biolip-175-quickstart)) and are **automatically fetched and cached via `kagglehub`** by every script in `scripts/` (or point to a local copy via `--data-dir` / `LOGICA_PL_DATA_DIR`):
 
@@ -38,7 +51,7 @@ biolip_deps = pd.read_parquet(root / "biolip_175/dependency_maps/biolip_dependen
 
 ---
 
-## 2. Step-by-Step Reproducibility Pipeline
+## 3. Step-by-Step Reproducibility Pipeline
 
 Install `logica` with the `chem` extras (`pip install -e ".[chem]"` from the repository root — includes `kagglehub`, `rdkit`, `selfies`, and `pyarrow`). Every script auto-downloads `aurlienplissier/protein-ligand-dms` on first run:
 
@@ -73,7 +86,7 @@ python applications/protein-ligand/scripts/06_run_mlm_ablation_and_scaling.py
 
 ---
 
-## 3. Minimal Python Snippet (`ESM-2` + `SELFormer`)
+## 4. Minimal Python Snippet (`ESM-2` + `SELFormer`)
 
 ```python
 from logica import LogiCA
