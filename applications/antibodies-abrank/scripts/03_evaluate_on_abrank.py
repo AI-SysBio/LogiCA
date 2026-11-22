@@ -124,7 +124,13 @@ def main() -> None:
         default="maturation",
         help="Target AbRank suite to score.",
     )
-    parser.add_argument("--checkpoint", type=Path, default=None, help="Trained LogiCA `.pt` checkpoint (optional; zero-shot if omitted)")
+    parser.add_argument(
+        "--checkpoint",
+        type=str,
+        default=None,
+        help="Trained LogiCA `.pt` path or Hugging Face repo (e.g. `Yale-CompBio/logica-abag`); zero-shot if omitted",
+    )
+    parser.add_argument("--scale", type=str, default="esm35m", help="Checkpoint scale when loading from Hugging Face Hub")
     parser.add_argument("--ab-model", type=str, default="ablang2-paired")
     parser.add_argument("--ag-model", type=str, default="facebook/esm2_t12_35M_UR50D")
     parser.add_argument("--abrank-dir", type=Path, default=None, help="Local AbRank `data/benchmark/` path")
@@ -146,7 +152,7 @@ def main() -> None:
 
     if args.checkpoint is not None:
         print(f"[AbRank Eval] Loading checkpoint: {args.checkpoint}")
-        model = LogiCA.from_checkpoint(args.checkpoint, device=device)
+        model = LogiCA.from_checkpoint(args.checkpoint, scale=args.scale, device=device)
     else:
         ag_m = "facebook/esm2_t6_8M_UR50D" if args.smoke_test else args.ag_model
         print(f"[AbRank Eval] Zero-shot LogiCA ({args.ab_model} + {ag_m}) on {device}")

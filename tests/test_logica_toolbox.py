@@ -444,3 +444,41 @@ def test_paired_pipe_delimited_gibbs_preserves_separator() -> None:
         # Untouched positions on both VH and VL remain unchanged
         assert seq[0] == "A" and seq[2:6] == "DEFG" and seq[7] == "H" and seq[9:] == "KLMN"
 
+
+def test_lora_checkpoint_roundtrip_merges_weights_exactly(tmp_path: Path) -> None:
+    """Verifies saving a LoRA-adapted LogiCA checkpoint and reloading via from_checkpoint merges LoRA accurately."""
+    prot_bb, chem_bb = make_heterogeneous_biofms(seed=19)
+    model = LogiCA.from_pretrained(prot_bb, chem_bb, width=24, heads=4, layers=1)
+    model.configure_finetuning_optimizer(top_k_primary_lora=1, top_k_partner_lora=1, lora_rank=4, lora_alpha=12.0)
+
+    # Set non-zero LoRA weights so merging produces a clear difference from base weights
+    torch.manual_seed(23)
+    with torch.no_grad():
+        model.prot_gate.fill_(0.4)
+        model.drug_gate.fill_(0.3)
+        for name, param in model.named_parameters():
+            if name.endswith("lora_b"):
+                param.normal_(0.0, 0.25)
+
+    model.eval()
+    p_enc = prot_bb.tokenize(["ACDEFGHIKLMN"])
+    d_enc = chem_bb.tokenize(["[C][O][N][F]"])
+    with torch.no_grad():
+        ref_out = model(p_enc["input_ids"], p_enc["attention_mask"], d_enc["input_ids"], d_enc["attention_mask"])
+
+    ckpt_path = tmp_path / "lora_roundtrip.pt"
+    model.save_checkpoint(ckpt_path)
+
+    # Reload into a fresh non-LoRA LogiCA model (passing custom backbones directly via load_checkpoint)
+    fresh_prot, fresh_chem = make_heterogeneous_biofms(seed=19)
+    reloaded = LogiCA.from_pretrained(fresh_prot, fresh_chem, width=24, heads=4, layers=1)
+    reloaded.load_checkpoint(ckpt_path)
+    reloaded.eval()
+    with torch.no_grad():
+        new_out = reloaded(p_enc["input_ids"], p_enc["attention_mask"], d_enc["input_ids"], d_enc["attention_mask"])
+
+    assert torch.allclose(ref_out.primary_holo_logits, new_out.primary_holo_logits, atol=1e-5)
+    assert torch.allclose(ref_out.primary_apo_logits, new_out.primary_apo_logits, atol=1e-5)
+    assert torch.allclose(ref_out.partner_holo_logits, new_out.partner_holo_logits, atol=1e-5)
+
+

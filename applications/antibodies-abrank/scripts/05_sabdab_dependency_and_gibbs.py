@@ -1003,8 +1003,9 @@ def evaluate_sabdab_dependency_and_gibbs(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--checkpoint", type=Path, default=None, help="Optional trained AbLang2+ESM-2 LogiCA `.pt` checkpoint")
-    parser.add_argument("--hf-repo", type=str, default=None, help="Optional Hugging Face Hub repo ID for a trained checkpoint")
+    parser.add_argument("--checkpoint", type=str, default=None, help="Trained AbLang2+ESM-2 LogiCA `.pt` path or HF repo (`Yale-CompBio/logica-abag`)")
+    parser.add_argument("--hf-repo", type=str, default="Yale-CompBio/logica-abag", help="Hugging Face Hub repo ID (default: `Yale-CompBio/logica-abag`; pass `none` for untrained)")
+    parser.add_argument("--scale", type=str, default="esm35m", help="Checkpoint scale when loading from Hugging Face Hub")
     parser.add_argument("--ab-model", type=str, default="ablang2-paired", help="Primary antibody BioFM (`ablang2-paired` or HF id)")
     parser.add_argument("--ag-model", type=str, default="facebook/esm2_t12_35M_UR50D", help="Partner antigen BioFM")
     parser.add_argument("--sabdab-dir", type=Path, default=SUBFOLDER_ROOT / "data" / "sabdab", help="Cache directory for SAbDab2 summary & mmCIF files")
@@ -1065,10 +1066,12 @@ def main() -> None:
         raise SystemExit("No valid SAbDab complexes could be curated; check filters or network connectivity.")
 
     device = torch.device(args.device)
+    if args.smoke_test and args.checkpoint is None and args.hf_repo == "Yale-CompBio/logica-abag":
+        args.hf_repo = None
     if args.checkpoint is not None:
-        model = LogiCA.from_checkpoint(args.checkpoint, device=device)
-    elif args.hf_repo is not None:
-        model = LogiCA.from_checkpoint(args.hf_repo, device=device)
+        model = LogiCA.from_checkpoint(args.checkpoint, scale=args.scale, device=device)
+    elif args.hf_repo is not None and str(args.hf_repo).lower() != "none":
+        model = LogiCA.from_checkpoint(args.hf_repo, scale=args.scale, device=device)
     else:
         model = LogiCA.from_pretrained(
             args.ab_model,

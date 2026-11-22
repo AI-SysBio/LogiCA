@@ -56,7 +56,13 @@ DEFAULT_AG = (
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--checkpoint", type=Path, default=None, help="Optional trained LogiCA `.pt` checkpoint")
+    parser.add_argument(
+        "--checkpoint",
+        type=str,
+        default="Yale-CompBio/logica-abag",
+        help="Trained LogiCA `.pt` path or Hugging Face repo (default: `Yale-CompBio/logica-abag`; pass `none` for untrained)",
+    )
+    parser.add_argument("--scale", type=str, default="esm35m", help="Checkpoint scale when loading from Hugging Face Hub")
     parser.add_argument("--ab-model", type=str, default="ablang2-paired")
     parser.add_argument("--ag-model", type=str, default="facebook/esm2_t12_35M_UR50D")
     parser.add_argument("--abrank-dir", type=Path, default=None, help="Optional local AbRank `data/benchmark/` path")
@@ -102,8 +108,10 @@ def main() -> None:
     cdrh3_pos = detect_cdrh3_positions_0based(vh)
 
     device = torch.device(args.device)
-    if args.checkpoint is not None:
-        model = LogiCA.from_checkpoint(args.checkpoint, device=device)
+    if args.smoke_test and args.checkpoint == "Yale-CompBio/logica-abag":
+        args.checkpoint = None
+    if args.checkpoint is not None and str(args.checkpoint).lower() != "none":
+        model = LogiCA.from_checkpoint(args.checkpoint, scale=args.scale, device=device)
     else:
         ag_m = "facebook/esm2_t6_8M_UR50D" if args.smoke_test else args.ag_model
         model = LogiCA.from_pretrained(args.ab_model, ag_m, width=128 if args.smoke_test else 256, layers=1 if args.smoke_test else 2).to(device)

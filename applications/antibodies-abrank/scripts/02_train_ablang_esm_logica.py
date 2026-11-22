@@ -385,6 +385,9 @@ def main() -> None:
 
     print(f"[Stage 2] 3-state noise-buffered fine-tuning on {len(tr_pair_ds)} pairs (val={len(va_pair_ds)})...")
     s2_history: list[dict[str, float]] = []
+    best_val_ord = -1.0
+    best_state_dict: dict[str, torch.Tensor] | None = None
+    best_epoch = 0
     for ep in range(1, args.stage2_epochs + 1):
         model.train()
         ep_losses = []
@@ -407,7 +410,10 @@ def main() -> None:
             pred_diff = s1 - s2
             lbl_t = torch.from_numpy(lbl_arr).to(device)
             loss_3s = three_state_noise_buffered_loss(pred_diff, lbl_t)
-            loss_kl = 0.5 * (kl_anchor(h1, a1.detach(), m1) + kl_anchor(h2, a2.detach(), m2))
+            loss_kl = 0.5 * (
+                kl_anchor(F.log_softmax(h1.float(), dim=-1), F.log_softmax(a1.detach().float(), dim=-1), m1)
+                + kl_anchor(F.log_softmax(h2.float(), dim=-1), F.log_softmax(a2.detach().float(), dim=-1), m2)
+            )
             loss = loss_3s + args.kl_weight * loss_kl
 
             optimizer.zero_grad()
@@ -433,17 +439,26 @@ def main() -> None:
         val_preds_df = pd.DataFrame({"pair_id": val_sub["pair_id"], "pred_diff": val_diffs})
         val_metrics = evaluate_predictions_with_abrank("val", val_preds_df, bdir, pairs_df=val_sub, n_bootstrap=0)
         mean_l = float(np.mean(ep_losses)) if ep_losses else 0.0
+        val_ord = val_metrics.get("auc_ordinal")
         rec = {
             "epoch": ep,
             "train_loss": round(mean_l, 4),
             "val_auc_dir": val_metrics.get("auc_dir"),
-            "val_auc_ordinal": val_metrics.get("auc_ordinal"),
+            "val_auc_ordinal": val_ord,
         }
         s2_history.append(rec)
+        if val_ord is not None and np.isfinite(val_ord) and float(val_ord) > best_val_ord:
+            best_val_ord = float(val_ord)
+            best_epoch = ep
+            best_state_dict = {k: v.detach().cpu().clone() for k, v in model.state_dict().items()}
         print(
             f"  [Stage 2] Epoch {ep}/{args.stage2_epochs} | loss={mean_l:.4f} | "
             f"val_dir={rec['val_auc_dir']} | val_ord={rec['val_auc_ordinal']}"
         )
+
+    if best_state_dict is not None:
+        model.load_state_dict(best_state_dict)
+        print(f"[Stage 2] Restored best validation checkpoint from epoch {best_epoch} (val_ord={best_val_ord:.4f}).")
 
     ckpt_path = args.out_dir / "ablang_esm_logica.pt"
     model.save_checkpoint(
@@ -452,6 +467,8 @@ def main() -> None:
             "ab_model": args.ab_model,
             "ag_model": partner_spec,
             "holdout_cluster": args.holdout_cluster,
+            "best_epoch": best_epoch,
+            "best_val_auc_ordinal": round(best_val_ord, 4) if best_val_ord >= 0 else None,
             "stage1_history": s1_history,
             "stage2_history": s2_history,
         },

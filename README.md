@@ -9,6 +9,7 @@
 [![Kaggle: AbRank v2](https://img.shields.io/badge/Kaggle-abrank-20BEFF.svg)](https://www.kaggle.com/datasets/aurlienplissier/abrank)
 [![HF: Protein-Ligand](https://img.shields.io/badge/HuggingFace-Yale--CompBio%2Flogica-FFD21E.svg)](https://huggingface.co/Yale-CompBio/logica)
 [![HF: TCR-pMHC](https://img.shields.io/badge/HuggingFace-ydchen%2Flogica--tcr-FFD21E.svg)](https://huggingface.co/ydchen/logica-tcr)
+[![HF: Antigen-Antibody](https://img.shields.io/badge/HuggingFace-Yale--CompBio%2Flogica--abag-FFD21E.svg)](https://huggingface.co/Yale-CompBio/logica-abag)
 
 <p align="center">
   <img src="figures/logica_overview.png" width="94%" alt="LogiCA Overview: Contrastive Alignment in Native Token Logit Space"/>
@@ -40,7 +41,7 @@ Because each BioFM's original vocabulary head is strictly preserved, **one unifi
 The **`logica`** Python package is designed from the ground up as a **flexible, model-agnostic toolbox**:
 - **Any Pair of Pretrained BioFMs (`Dual-BioFM`)**: Pass *any* two Hugging Face Masked LM links (e.g. `"facebook/esm2_t30_150M_UR50D"` + `"HUBioDataLab/SELFormer"`, `"InstaDeepAI/nucleotide-transformer-..."`), repertoire BioFMs (`"tcrlang-paired"`, `"ablang2-paired"`), or custom PyTorch `nn.Module` encoders — even when their vocabularies, tokenizers, sequence lengths, and hidden dimensions are completely different.
 - **Single-BioFM Logit-Space Fine-Tuning (`partner=None`)**: Pass a *single* BioFM (`LogiCA.from_pretrained("facebook/esm2_t30_150M_UR50D")`) to fine-tune its native token distribution with late-layer LoRA, gated self-adapters, Bradley–Terry / Plackett–Luce ranking losses, and ancestral KL trust-region anchoring ($D_{\mathrm{KL}}(\pi_\theta \parallel \pi_0)$).
-- **Drop-In Pretrained Checkpoint Loading**: Automatically resolves and loads official pretrained checkpoints from Hugging Face Hub (`Yale-CompBio/logica` across `8m`, `35m`, `150m`, `650m` and `ydchen/logica-tcr` across all 5 anchor configurations) or local `.pt` / `.safetensors` files.
+- **Drop-In Pretrained Checkpoint Loading**: Automatically resolves and loads official pretrained checkpoints from Hugging Face Hub ([`Yale-CompBio/logica`](https://huggingface.co/Yale-CompBio/logica) across `8m`, `35m`, `150m`, `650m`; [`ydchen/logica-tcr`](https://huggingface.co/ydchen/logica-tcr) across all 5 anchor configurations; and [`Yale-CompBio/logica-abag`](https://huggingface.co/Yale-CompBio/logica-abag) for paired antibodies/nanobodies) or local `.pt` / `.safetensors` files.
 
 ---
 
@@ -71,7 +72,7 @@ LogiCA/
 | :--- | :--- | :--- | :--- | :--- |
 | **Protein–Ligand Interactions**<br>[`applications/protein-ligand/`](applications/protein-ligand/) | `ESM-2` (`8M`–`650M`) $\leftrightarrow$ `SELFormer` | [**`Yale-CompBio/logica`**](https://huggingface.co/Yale-CompBio/logica) (`8M`–`650M`) | [**`kaggle/protein-ligand-dms`**](https://www.kaggle.com/datasets/aurlienplissier/protein-ligand-dms) | BindingDB pretraining, DMS kinetics & drug binding, BioLiP interaction maps, Gibbs pocket design |
 | **TCR–pMHC Interactions**<br>[`applications/tcrlang-esm/`](applications/tcrlang-esm/) | `TCRLang-Paired` (`CDR3β\|CDR3α`) $\leftrightarrow$ `ESM-2` | [**`ydchen/logica-tcr`**](https://huggingface.co/ydchen/logica-tcr) (5 anchor configs) | [**`kaggle/tcr-peptide-dms`**](https://www.kaggle.com/datasets/aurlienplissier/tcr-peptide-dms) | TCR–pMHC binding data, peptide-anchored DMS, TCR-anchored DMS, TCR3d interaction maps & CDR3 Gibbs design |
-| **Antigen–Antibody Interactions**<br>[`applications/antibodies-abrank/`](applications/antibodies-abrank/) | `AbLang2-Paired` (`VH\|VL`, `VHH\|`) $\leftrightarrow$ `ESM-2` | Base: [`Yale-CompBio/ablang2-hf`](https://huggingface.co/Yale-CompBio/ablang2-hf) + `ESM-2`<br>*(train via script 02)* | [**`kaggle/abrank`**](https://www.kaggle.com/datasets/aurlienplissier/abrank) | AbRank benchmark, SAbDab `<5 Å` dependency maps & AbLang–ESM Gibbs evaluation |
+| **Antigen–Antibody Interactions**<br>[`applications/antibodies-abrank/`](applications/antibodies-abrank/) | `AbLang2-Paired` (`VH\|VL`, `VHH\|`) $\leftrightarrow$ `ESM-2` | [**`Yale-CompBio/logica-abag`**](https://huggingface.co/Yale-CompBio/logica-abag) (`esm35m`) | [**`kaggle/abrank`**](https://www.kaggle.com/datasets/aurlienplissier/abrank) | AbRank benchmark, SAbDab `<5 Å` dependency maps & AbLang–ESM Gibbs evaluation |
 
 > **Processed Datasets on Kaggle:** To keep this code repository lightweight, all processed benchmark tables, pretraining splits, and structural contact/dependency-map tables are hosted ready-to-download on Kaggle ([`protein-ligand-dms`](https://www.kaggle.com/datasets/aurlienplissier/protein-ligand-dms), [`tcr-peptide-dms`](https://www.kaggle.com/datasets/aurlienplissier/tcr-peptide-dms), and [`abrank`](https://www.kaggle.com/datasets/aurlienplissier/abrank)) and auto-fetched via `kagglehub` by every application script.
 
@@ -122,6 +123,7 @@ single_model = LogiCA.from_pretrained(
 # Option C: Load official pretrained checkpoints directly from Hugging Face Hub
 pl_model = LogiCA.from_checkpoint("Yale-CompBio/logica", scale="150m", device="cpu")
 tcr_model = LogiCA.from_checkpoint("ydchen/logica-tcr", subfolder="dual-anchored-ratio5", device="cpu")
+ab_model = LogiCA.from_checkpoint("Yale-CompBio/logica-abag", scale="esm35m", device="cpu")
 ```
 
 ### 2. Fine-Tune with Contrastive / Preference Losses in Native Logit Space

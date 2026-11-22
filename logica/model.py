@@ -45,6 +45,11 @@ YALE_PROTEIN_LIGAND_SCALES: dict[str, tuple[str, str]] = {
     "650m": ("facebook/esm2_t33_650M_UR50D", "checkpoints/650m/best.pt"),
 }
 TCR_LOGICA_HF_REPO = "ydchen/logica-tcr"
+ABAG_LOGICA_HF_REPO = "Yale-CompBio/logica-abag"
+ABAG_LOGICA_SCALES: dict[str, str] = {
+    "esm35m": "checkpoints/esm35m/best.pt",
+    "35m": "checkpoints/esm35m/best.pt",
+}
 
 
 @dataclass
@@ -328,12 +333,48 @@ class LogiCA(nn.Module):
             inst.load_checkpoint(checkpoint)
         return inst
 
+    @staticmethod
+    def _merge_lora_state_dict(
+        state_dict: dict[str, torch.Tensor],
+        target_state_keys: set[str],
+        default_lora_alpha: float = 16.0,
+    ) -> dict[str, torch.Tensor]:
+        """Merges ``LoRALinear`` keys (``*.base_linear.*`` + ``*.lora_{a,b}``) into standard
+        ``*.weight`` / ``*.bias`` tensors whenever the target model does not wrap those layers.
+        """
+        lora_prefixes = [
+            k[: -len(".lora_a")]
+            for k in state_dict
+            if k.endswith(".lora_a") and f"{k[:-len('.lora_a')]}.lora_b" in state_dict
+        ]
+        if not lora_prefixes:
+            return state_dict
+
+        out = dict(state_dict)
+        for pref in lora_prefixes:
+            if f"{pref}.lora_a" in target_state_keys:
+                continue  # Target model already has LoRALinear injected at this prefix
+            base_w_key = f"{pref}.base_linear.weight"
+            base_b_key = f"{pref}.base_linear.bias"
+            if base_w_key not in out:
+                continue
+            base_w = out.pop(base_w_key)
+            lora_a = out.pop(f"{pref}.lora_a")
+            lora_b = out.pop(f"{pref}.lora_b")
+            rank = int(lora_a.shape[0])
+            scaling = float(default_lora_alpha) / float(max(rank, 1))
+            delta = (lora_b.float() @ lora_a.float()).to(dtype=base_w.dtype)
+            out[f"{pref}.weight"] = base_w + scaling * delta
+            if base_b_key in out:
+                out[f"{pref}.bias"] = out.pop(base_b_key)
+        return out
+
     @classmethod
     def from_checkpoint(
         cls,
         repo_or_path: str | Path = YALE_PROTEIN_LIGAND_HF_REPO,
         *,
-        scale: str = "150m",
+        scale: str | None = None,
         subfolder: str | None = None,
         primary: str | BioFMBackbone | None = None,
         partner: str | BioFMBackbone | None = None,
@@ -348,6 +389,8 @@ class LogiCA(nn.Module):
           - ``LogiCA.from_checkpoint("ydchen/logica-tcr", subfolder="dual-anchored-ratio5")``
             (subfolders: ``"tcr-anchored-neg1"``, ``"tcr-anchored-neg5"``,
             ``"pep-anchored-neg1"``, ``"pep-anchored-neg5"``, ``"dual-anchored-ratio5"``)
+          - ``LogiCA.from_checkpoint("Yale-CompBio/logica-abag", scale="esm35m")``
+            (scales: ``"esm35m"``)
           - ``LogiCA.from_checkpoint("/path/to/saved_checkpoint.pt")``
         """
         target = str(repo_or_path)
@@ -355,11 +398,12 @@ class LogiCA(nn.Module):
 
         # Case 1: Official Yale-CompBio/logica Protein–Ligand checkpoints
         if target == YALE_PROTEIN_LIGAND_HF_REPO:
-            if scale not in YALE_PROTEIN_LIGAND_SCALES:
+            eff_scale = scale or "150m"
+            if eff_scale not in YALE_PROTEIN_LIGAND_SCALES:
                 raise ValueError(
-                    f"Unknown scale {scale!r}; choose from {sorted(YALE_PROTEIN_LIGAND_SCALES)}"
+                    f"Unknown scale {eff_scale!r}; choose from {sorted(YALE_PROTEIN_LIGAND_SCALES)}"
                 )
-            esm_id, rel_ckpt = YALE_PROTEIN_LIGAND_SCALES[scale]
+            esm_id, rel_ckpt = YALE_PROTEIN_LIGAND_SCALES[eff_scale]
             from huggingface_hub import hf_hub_download
 
             ckpt_file = Path(
@@ -378,8 +422,26 @@ class LogiCA(nn.Module):
             model.load_v1_protein_ligand_state_dict(sd)
             return model.to(device).eval()
 
+        # Case 1b: Official Yale-CompBio/logica-abag Antibody–Antigen checkpoints
+        if target == ABAG_LOGICA_HF_REPO:
+            eff_scale = scale or subfolder or "esm35m"
+            if eff_scale not in ABAG_LOGICA_SCALES:
+                raise ValueError(
+                    f"Unknown scale {eff_scale!r} for {ABAG_LOGICA_HF_REPO}; "
+                    f"choose from {sorted(ABAG_LOGICA_SCALES)}"
+                )
+            from huggingface_hub import hf_hub_download
+
+            local_path = Path(
+                hf_hub_download(
+                    repo_id=ABAG_LOGICA_HF_REPO,
+                    filename=ABAG_LOGICA_SCALES[eff_scale],
+                    cache_dir=cache_dir,
+                )
+            )
+
         # Case 2: Official ydchen/logica-tcr TCR–Peptide checkpoints
-        if target == TCR_LOGICA_HF_REPO or (":" in target and not local_path.exists()):
+        elif target == TCR_LOGICA_HF_REPO or (":" in target and not local_path.exists()):
             if ":" in target and subfolder is None:
                 repo_id, sub = target.split(":", 1)
             else:
@@ -399,7 +461,7 @@ class LogiCA(nn.Module):
                 device=device,
             )
 
-        # Case 3: Local directory or file
+        # Case 3: Local directory or file (including downloaded Yale-CompBio/logica-abag `.pt`)
         if local_path.is_dir():
             return cls._load_tcr_checkpoint_dir(
                 local_path,
@@ -423,13 +485,19 @@ class LogiCA(nn.Module):
                 gate_mode=cfg.get("gate_mode"),
                 cache_dir=cache_dir,
             )
-            model.load_state_dict(payload["model_state_dict"], strict=False)
+            lora_alpha = float(cfg.get("lora_alpha", 16.0))
+            merged_sd = cls._merge_lora_state_dict(
+                payload["model_state_dict"],
+                set(model.state_dict().keys()),
+                default_lora_alpha=lora_alpha,
+            )
+            model.load_state_dict(merged_sd, strict=False)
             return model.to(device).eval()
 
         # Fallback: raw v1 protein-ligand checkpoint file
         sd = payload.get("model_state_dict", payload) if isinstance(payload, dict) else payload
         ckpt_width = int(sd["prot_proj_in.weight"].shape[0])
-        esm_id, _ = YALE_PROTEIN_LIGAND_SCALES.get(scale, YALE_PROTEIN_LIGAND_SCALES["150m"])
+        esm_id, _ = YALE_PROTEIN_LIGAND_SCALES.get(scale or "150m", YALE_PROTEIN_LIGAND_SCALES["150m"])
         model = cls.from_pretrained(
             primary or esm_id,
             partner or "HUBioDataLab/SELFormer",
@@ -518,17 +586,25 @@ class LogiCA(nn.Module):
         """Saves model weights and ``logica_config`` metadata for reproducible reloading."""
         out_path = Path(path)
         out_path.parent.mkdir(parents=True, exist_ok=True)
+        lora_alphas = [
+            float(mod.scaling * mod.rank)
+            for mod in self.modules()
+            if hasattr(mod, "lora_a") and hasattr(mod, "scaling") and hasattr(mod, "rank")
+        ]
+        cfg: dict[str, Any] = {
+            "primary_id": self.primary_backbone.model_id,
+            "partner_id": self.partner_backbone.model_id if self.partner_backbone else None,
+            "width": self.interaction_width,
+            "heads": self.num_adapter_heads,
+            "layers": self.num_adapter_layers,
+            "arch_version": self.arch_version,
+            "adapter_style": self.adapter_style,
+            "gate_mode": self.gate_mode,
+        }
+        if lora_alphas:
+            cfg["lora_alpha"] = lora_alphas[0]
         payload: dict[str, Any] = {
-            "logica_config": {
-                "primary_id": self.primary_backbone.model_id,
-                "partner_id": self.partner_backbone.model_id if self.partner_backbone else None,
-                "width": self.interaction_width,
-                "heads": self.num_adapter_heads,
-                "layers": self.num_adapter_layers,
-                "arch_version": self.arch_version,
-                "adapter_style": self.adapter_style,
-                "gate_mode": self.gate_mode,
-            },
+            "logica_config": cfg,
             "model_state_dict": self.state_dict(),
         }
         if extra_metadata:
@@ -538,14 +614,17 @@ class LogiCA(nn.Module):
     def load_checkpoint(self, path: str | Path) -> dict[str, Any]:
         """Loads adapter/backbone weights from a local checkpoint file."""
         payload = torch.load(Path(path), map_location="cpu", weights_only=False)
+        is_logica_v2 = isinstance(payload, dict) and "logica_config" in payload
         sd = payload.get("model_state_dict", payload) if isinstance(payload, dict) else payload
-        if any(k.startswith("esm.") or k == "prot_proj_in.weight" for k in sd):
+        if (not is_logica_v2) and any(k.startswith("esm.") or k == "prot_proj_in.weight" for k in sd):
             if "primary_backbone.model.lm_head.dense.weight" not in sd and any(
                 k.startswith("prot_proj_in") for k in sd
             ):
                 self.load_v1_protein_ligand_state_dict(sd)
                 return payload if isinstance(payload, dict) else {}
-        self.load_state_dict(sd, strict=False)
+        lora_alpha = float(payload.get("logica_config", {}).get("lora_alpha", 16.0)) if is_logica_v2 else 16.0
+        merged_sd = self._merge_lora_state_dict(sd, set(self.state_dict().keys()), default_lora_alpha=lora_alpha)
+        self.load_state_dict(merged_sd, strict=False)
         return payload if isinstance(payload, dict) else {}
 
     # =========================================================================
