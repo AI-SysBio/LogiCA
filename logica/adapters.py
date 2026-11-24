@@ -23,7 +23,7 @@ import torch.nn.functional as F
 from .backbones import discover_transformer_layers
 
 AttentionMode = Literal["softmax", "sigmoid", "topk_softmax"]
-GateMode = Literal["tanh_zero", "v1_sigmoid", "layerscale_zero", "none"]
+GateMode = Literal["tanh", "tanh_zero", "v1_sigmoid", "layerscale_zero", "none"]
 AdapterStyle = Literal["shared_bottleneck", "native_additional_layers"]
 
 
@@ -145,6 +145,7 @@ class CrossAttentionBlock(nn.Module):
         attn_mode: AttentionMode = "softmax",
         topk_keys: int = 32,
         use_intra_self_attn: bool = False,
+        self_scale_init: float = 0.05,
     ) -> None:
         super().__init__()
         if width % heads != 0:
@@ -159,7 +160,7 @@ class CrossAttentionBlock(nn.Module):
         if use_intra_self_attn:
             self.norm_self = nn.LayerNorm(width)
             self.self_attn = nn.MultiheadAttention(width, heads, dropout=dropout, batch_first=True)
-            self.self_scale = nn.Parameter(torch.zeros(width))
+            self.self_scale = nn.Parameter(torch.full((width,), float(self_scale_init)))
 
         self.norm_q = nn.LayerNorm(width)
         self.norm_kv = nn.LayerNorm(width)
@@ -269,6 +270,7 @@ class BidirectionalCrossAttention(nn.Module):
         d2p_attn_mode: AttentionMode = "softmax",
         d2p_topk_keys: int = 32,
         use_intra_self_attn: bool = False,
+        self_scale_init: float = 0.05,
     ) -> None:
         super().__init__()
         self.p2d = nn.ModuleList(
@@ -279,6 +281,7 @@ class BidirectionalCrossAttention(nn.Module):
                     dropout=dropout,
                     attn_mode=p2d_attn_mode,
                     use_intra_self_attn=use_intra_self_attn,
+                    self_scale_init=self_scale_init,
                 )
                 for _ in range(layers)
             ]
@@ -292,6 +295,7 @@ class BidirectionalCrossAttention(nn.Module):
                     attn_mode=d2p_attn_mode,
                     topk_keys=d2p_topk_keys,
                     use_intra_self_attn=use_intra_self_attn,
+                    self_scale_init=self_scale_init,
                 )
                 for _ in range(layers)
             ]
@@ -421,7 +425,8 @@ class UnimodalGatedAdapter(nn.Module):
         heads: int = 4,
         layers: int = 2,
         dropout: float = 0.1,
-        gate_mode: GateMode = "tanh_zero",
+        gate_mode: GateMode = "tanh",
+        gate_init: float = 0.1,
     ) -> None:
         super().__init__()
         self.hidden_size = hidden_size
@@ -436,6 +441,8 @@ class UnimodalGatedAdapter(nn.Module):
             self.gate = nn.Parameter(torch.tensor([-6.0]))
         elif gate_mode == "layerscale_zero":
             self.gate = nn.Parameter(torch.zeros(hidden_size))
+        elif gate_mode == "tanh":
+            self.gate = nn.Parameter(torch.full((1,), float(gate_init)))
         elif gate_mode == "tanh_zero":
             self.gate = nn.Parameter(torch.zeros(1))
         else:

@@ -155,8 +155,17 @@ def main() -> None:
         model = LogiCA.from_checkpoint(args.checkpoint, scale=args.scale, device=device)
     else:
         ag_m = "facebook/esm2_t6_8M_UR50D" if args.smoke_test else args.ag_model
-        print(f"[AbRank Eval] Zero-shot LogiCA ({args.ab_model} + {ag_m}) on {device}")
-        model = LogiCA.from_pretrained(args.ab_model, ag_m, width=128 if args.smoke_test else 256, layers=1 if args.smoke_test else 2).to(device)
+        print(
+            f"[AbRank Eval] Zero-shot baseline (no --checkpoint; cross-attention zero-gated): "
+            f"{args.ab_model} + {ag_m} on {device}"
+        )
+        model = LogiCA.from_pretrained(
+            args.ab_model,
+            ag_m,
+            width=128 if args.smoke_test else 256,
+            layers=1 if args.smoke_test else 2,
+            gate_mode="tanh_zero",
+        ).to(device)
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
     sp_dir = bdir / "splits"

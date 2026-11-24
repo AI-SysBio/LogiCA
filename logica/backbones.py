@@ -171,6 +171,7 @@ def discover_transformer_layers(module: nn.Module) -> Sequence[nn.Module]:
         ("bert", "encoder", "layer"),
         ("encoder", "layer"),
         ("encoder", "layers"),
+        ("AbLang", "AbRep", "encoder_blocks"),
         ("AbLang", "AbRep", "Transformer", "blocks"),
         ("AbLang", "AbRep", "blocks"),
         ("layers",),

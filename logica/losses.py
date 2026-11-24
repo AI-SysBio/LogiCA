@@ -358,7 +358,7 @@ class InfoNCELogitLoss(nn.Module):
             if fn_grid is not None:
                 lg_p2d = lg_p2d.masked_fill(torch.tensor(p2d_fn, dtype=torch.bool, device=device), -1e4)
             losses.append(F.cross_entropy(lg_p2d, targets))
-            accs.append((lg_p2d.argmax(dim=-1) == 0).float().mean())
+            accs.append((lg_p2d[:, 0] > lg_p2d[:, 1:].max(dim=-1).values).float().mean())
             if self.mlm_aux_weight > 0.0:
                 aux_terms.append(aux_p2d.view(bsz, n_cols_p2d)[:, 0].mean())
 
@@ -373,7 +373,7 @@ class InfoNCELogitLoss(nn.Module):
             if fn_grid is not None:
                 lg_d2p = lg_d2p.masked_fill(torch.tensor(d2p_fn, dtype=torch.bool, device=device), -1e4)
             losses.append(F.cross_entropy(lg_d2p, targets))
-            accs.append((lg_d2p.argmax(dim=-1) == 0).float().mean())
+            accs.append((lg_d2p[:, 0] > lg_d2p[:, 1:].max(dim=-1).values).float().mean())
             if self.mlm_aux_weight > 0.0:
                 aux_terms.append(aux_d2p.view(bsz, n_cols_d2p)[:, 0].mean())
 

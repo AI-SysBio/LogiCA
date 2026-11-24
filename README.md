@@ -111,7 +111,7 @@ dual_model = LogiCA.from_pretrained(
     partner="HUBioDataLab/SELFormer",         # Chemical SELFIES LM (V=800, D=768)
     width=384,                                # Shared cross-attention bottleneck d_s
     layers=2,
-    gate_mode="tanh_zero",                    # Exact identity at step 0, unit gradient!
+    gate_mode="tanh",                         # Smooth tanh residual gate (gate_init=0.1; use "tanh_zero" for exact step-0 identity)
 )
 
 # Option B: Single-BioFM native-logit fine-tuning (partner=None)

@@ -84,6 +84,13 @@ def main() -> None:
         default="central_contact",
     )
     parser.add_argument("--adapter-style", type=str, choices=["shared_bottleneck", "native_additional_layers"], default="shared_bottleneck")
+    parser.add_argument(
+        "--gate-mode",
+        type=str,
+        choices=["tanh", "v1_sigmoid", "tanh_zero", "layerscale_zero", "none"],
+        default="tanh",
+    )
+    parser.add_argument("--gate-init", type=float, default=0.1)
     parser.add_argument("--width", type=int, default=384)
     parser.add_argument("--layers", type=int, default=2)
     parser.add_argument("--epochs", type=int, default=10)
@@ -118,13 +125,19 @@ def main() -> None:
     )
     loader = DataLoader(ds, batch_size=args.batch_size, shuffle=True, drop_last=len(ds) >= args.batch_size)
 
-    print(f"[TCR Stage-1] Building LogiCA ({args.tcr_model} + {args.esm_model}, mode={args.mode}) on {device}...")
+    eff_gate_mode = "none" if args.adapter_style == "native_additional_layers" else args.gate_mode
+    print(
+        f"[TCR Stage-1] Building LogiCA ({args.tcr_model} + {args.esm_model}, "
+        f"mode={args.mode}, adapter_style={args.adapter_style}, gate_mode={eff_gate_mode}) on {device}..."
+    )
     model = LogiCA.from_pretrained(
         args.tcr_model,
         args.esm_model,
         width=args.width,
         layers=args.layers,
         adapter_style=args.adapter_style,  # type: ignore[arg-type]
+        gate_mode=eff_gate_mode,  # type: ignore[arg-type]
+        gate_init=args.gate_init,
     ).to(device)
 
     param_groups = model.configure_finetuning_optimizer(
@@ -215,14 +228,28 @@ def main() -> None:
             losses.append(float(loss.item()))
             accs.append(acc_val)
 
-        rec = {
+        rec: dict[str, float] = {
             "epoch": epoch,
             "mean_loss": round(float(np.mean(losses)), 4),
             "mean_top1_acc": round(float(np.mean(accs)), 4),
             "elapsed_sec": round(time.time() - t0, 2),
         }
+        if args.adapter_style == "shared_bottleneck":
+            with torch.no_grad():
+                p_eff = model._gate_scale(getattr(model, "prot_gate", None))
+                d_eff = model._gate_scale(getattr(model, "drug_gate", None))
+                rec["prot_gate_eff"] = round(float(p_eff.mean().item()) if isinstance(p_eff, torch.Tensor) else float(p_eff), 5)
+                rec["drug_gate_eff"] = round(float(d_eff.mean().item()) if isinstance(d_eff, torch.Tensor) else float(d_eff), 5)
         history.append(rec)
-        print(f"  Epoch {epoch}/{args.epochs} [{args.mode}]: loss={rec['mean_loss']:.4f}, acc={rec['mean_top1_acc']:.3f} ({rec['elapsed_sec']}s)")
+        gate_msg = (
+            f", gates=(p:{rec['prot_gate_eff']:+.4f}, d:{rec['drug_gate_eff']:+.4f})"
+            if "prot_gate_eff" in rec
+            else ""
+        )
+        print(
+            f"  Epoch {epoch}/{args.epochs} [{args.mode}]: "
+            f"loss={rec['mean_loss']:.4f}, acc={rec['mean_top1_acc']:.3f}{gate_msg} ({rec['elapsed_sec']}s)"
+        )
 
     ckpt_path = args.out_dir / f"{args.mode}.pt"
     model.save_checkpoint(ckpt_path, extra_metadata={"mode": args.mode, "history": history})

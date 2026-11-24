@@ -41,6 +41,7 @@ from .losses import (
     mean_selected_log_probability,
 )
 from .model import (
+    ABAG_LOGICA_HF_REPO,
     TCR_LOGICA_HF_REPO,
     YALE_PROTEIN_LIGAND_HF_REPO,
     LogiCA,
@@ -66,6 +67,7 @@ from .visualization import (
 __version__ = "0.1.0"
 
 __all__ = [
+    "ABAG_LOGICA_HF_REPO",
     "CANONICAL_AAS",
     "AbLang2BioFMBackbone",
     "AdapterStyle",

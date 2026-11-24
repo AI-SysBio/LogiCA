@@ -38,6 +38,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 from pathlib import Path
 import random
@@ -239,6 +240,13 @@ def main() -> None:
     parser.add_argument("--holdout-cluster", type=str, default=None, help="Optional LOACO held-out `Ag_cluster` (e.g. `AgClust_001`)")
     parser.add_argument("--width", type=int, default=256)
     parser.add_argument("--layers", type=int, default=2)
+    parser.add_argument(
+        "--gate-mode",
+        type=str,
+        choices=["tanh", "v1_sigmoid", "tanh_zero", "layerscale_zero", "none"],
+        default="tanh",
+    )
+    parser.add_argument("--gate-init", type=float, default=0.1)
     parser.add_argument("--max-ab-len", type=int, default=260)
     parser.add_argument("--max-ag-len", type=int, default=384)
     parser.add_argument("--stage1-epochs", type=int, default=3)
@@ -285,14 +293,18 @@ def main() -> None:
     args.out_dir.mkdir(parents=True, exist_ok=True)
     device = torch.device(args.device)
     partner_spec = None if args.single_biofm else args.ag_model
-    print(f"[AbRank LogiCA] Instantiating primary={args.ab_model}, partner={partner_spec} on {device}...")
+    print(
+        f"[AbRank LogiCA] Instantiating primary={args.ab_model}, partner={partner_spec} "
+        f"(gate_mode={args.gate_mode}, gate_init={args.gate_init}) on {device}..."
+    )
 
     model = LogiCA.from_pretrained(
         args.ab_model,
         partner_spec,
         width=args.width,
         layers=args.layers,
-        gate_mode="tanh_zero",
+        gate_mode=args.gate_mode,  # type: ignore[arg-type]
+        gate_init=args.gate_init,
     ).to(device)
 
     param_groups = model.configure_finetuning_optimizer(
@@ -372,12 +384,35 @@ def main() -> None:
                 optimizer.step()
                 ep_losses.append(float(out_s1["loss"].item()))
             mean_l = float(np.mean(ep_losses)) if ep_losses else 0.0
-            s1_history.append({"epoch": ep, "infonce_loss": round(mean_l, 4)})
-            print(f"  [Stage 1] Epoch {ep}/{args.stage1_epochs} | infonce_loss={mean_l:.4f}")
+            with torch.no_grad():
+                p_eff = model._gate_scale(getattr(model, "prot_gate", None))
+                d_eff = model._gate_scale(getattr(model, "drug_gate", None))
+                p_gv = float(p_eff.mean().item()) if isinstance(p_eff, torch.Tensor) else float(p_eff)
+                d_gv = float(d_eff.mean().item()) if isinstance(d_eff, torch.Tensor) else float(d_eff)
+            s1_history.append(
+                {
+                    "epoch": ep,
+                    "infonce_loss": round(mean_l, 4),
+                    "prot_gate_eff": round(p_gv, 5),
+                    "drug_gate_eff": round(d_gv, 5),
+                }
+            )
+            print(
+                f"  [Stage 1] Epoch {ep}/{args.stage1_epochs} | infonce_loss={mean_l:.4f} | "
+                f"gates=(p:{p_gv:+.4f}, d:{d_gv:+.4f})"
+            )
 
     # ------------------------------------------------------------------
     # Stage 2: 3-State Noise-Buffered Pairwise Logit Fine-Tuning
     # ------------------------------------------------------------------
+    # Freeze a Stage-1 (or pretrained) reference snapshot for trust-region KL anchoring
+    # so KL prevents evolutionary prior drift WITHOUT pulling the cross-attention gate -> 0.
+    ref_model: LogiCA | None = None
+    if args.kl_weight > 0.0:
+        ref_model = copy.deepcopy(model).eval()
+        for p in ref_model.parameters():
+            p.requires_grad_(False)
+
     tr_pair_ds = ThreeStatePairDataset(tr_pairs, lookup)
     va_pair_ds = ThreeStatePairDataset(va_pairs, lookup)
     tr_pair_loader = DataLoader(tr_pair_ds, batch_size=max(2, args.batch_size // 2), shuffle=True)
@@ -410,10 +445,20 @@ def main() -> None:
             pred_diff = s1 - s2
             lbl_t = torch.from_numpy(lbl_arr).to(device)
             loss_3s = three_state_noise_buffered_loss(pred_diff, lbl_t)
-            loss_kl = 0.5 * (
-                kl_anchor(F.log_softmax(h1.float(), dim=-1), F.log_softmax(a1.detach().float(), dim=-1), m1)
-                + kl_anchor(F.log_softmax(h2.float(), dim=-1), F.log_softmax(a2.detach().float(), dim=-1), m2)
-            )
+            if ref_model is not None and args.kl_weight > 0.0:
+                with torch.no_grad():
+                    _, ref_h1, _, _ = score_complex_batch_logits(
+                        ref_model, ab1_l, ag1_l, max_ab_len=args.max_ab_len, max_ag_len=args.max_ag_len, device=device
+                    )
+                    _, ref_h2, _, _ = score_complex_batch_logits(
+                        ref_model, ab2_l, ag2_l, max_ab_len=args.max_ab_len, max_ag_len=args.max_ag_len, device=device
+                    )
+                loss_kl = 0.5 * (
+                    kl_anchor(F.log_softmax(h1.float(), dim=-1), F.log_softmax(ref_h1.float(), dim=-1), m1)
+                    + kl_anchor(F.log_softmax(h2.float(), dim=-1), F.log_softmax(ref_h2.float(), dim=-1), m2)
+                )
+            else:
+                loss_kl = loss_3s.new_zeros(())
             loss = loss_3s + args.kl_weight * loss_kl
 
             optimizer.zero_grad()
@@ -440,20 +485,31 @@ def main() -> None:
         val_metrics = evaluate_predictions_with_abrank("val", val_preds_df, bdir, pairs_df=val_sub, n_bootstrap=0)
         mean_l = float(np.mean(ep_losses)) if ep_losses else 0.0
         val_ord = val_metrics.get("auc_ordinal")
-        rec = {
+        rec: dict[str, float | int | None] = {
             "epoch": ep,
             "train_loss": round(mean_l, 4),
             "val_auc_dir": val_metrics.get("auc_dir"),
             "val_auc_ordinal": val_ord,
         }
+        if model.is_dual:
+            with torch.no_grad():
+                p_eff = model._gate_scale(getattr(model, "prot_gate", None))
+                d_eff = model._gate_scale(getattr(model, "drug_gate", None))
+                rec["prot_gate_eff"] = round(float(p_eff.mean().item()) if isinstance(p_eff, torch.Tensor) else float(p_eff), 5)
+                rec["drug_gate_eff"] = round(float(d_eff.mean().item()) if isinstance(d_eff, torch.Tensor) else float(d_eff), 5)
         s2_history.append(rec)
         if val_ord is not None and np.isfinite(val_ord) and float(val_ord) > best_val_ord:
             best_val_ord = float(val_ord)
             best_epoch = ep
             best_state_dict = {k: v.detach().cpu().clone() for k, v in model.state_dict().items()}
+        gate_str = (
+            f" | gates=(p:{rec['prot_gate_eff']:+.4f}, d:{rec['drug_gate_eff']:+.4f})"
+            if "prot_gate_eff" in rec
+            else ""
+        )
         print(
             f"  [Stage 2] Epoch {ep}/{args.stage2_epochs} | loss={mean_l:.4f} | "
-            f"val_dir={rec['val_auc_dir']} | val_ord={rec['val_auc_ordinal']}"
+            f"val_dir={rec['val_auc_dir']} | val_ord={rec['val_auc_ordinal']}{gate_str}"
         )
 
     if best_state_dict is not None:

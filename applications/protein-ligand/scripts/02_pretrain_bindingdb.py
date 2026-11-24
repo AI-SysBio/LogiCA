@@ -69,10 +69,20 @@ def main() -> None:
     parser.add_argument("--width", type=int, default=384)
     parser.add_argument("--layers", type=int, default=2)
     parser.add_argument("--heads", type=int, default=4)
+    parser.add_argument(
+        "--gate-mode",
+        type=str,
+        choices=["tanh", "v1_sigmoid", "tanh_zero", "layerscale_zero", "none"],
+        default="tanh",
+    )
+    parser.add_argument("--gate-init", type=float, default=0.1)
     parser.add_argument("--epochs", type=int, default=10)
     parser.add_argument("--batch-size", type=int, default=32)
     parser.add_argument("--lr", type=float, default=2e-4)
     parser.add_argument("--temperature", type=float, default=0.07)
+    parser.add_argument("--mlm-aux-weight", type=float, default=0.0)
+    parser.add_argument("--top-k-primary-lora", type=int, default=0)
+    parser.add_argument("--top-k-partner-lora", type=int, default=0)
     parser.add_argument("--device", type=str, default="cuda:0" if torch.cuda.is_available() else "cpu")
     parser.add_argument("--out-dir", type=Path, default=SUBFOLDER_ROOT / "outputs" / "stage1_pretrain")
     parser.add_argument("--smoke-test", action="store_true")
@@ -94,7 +104,10 @@ def main() -> None:
     ds = ProteinLigandPairDataset(prots, ligs)
     loader = DataLoader(ds, batch_size=args.batch_size, shuffle=True, drop_last=len(ds) >= args.batch_size)
 
-    print(f"[Stage-1] Initializing LogiCA ({args.protein_model} + {args.ligand_model}) on {device}...")
+    print(
+        f"[Stage-1] Initializing LogiCA ({args.protein_model} + {args.ligand_model}, "
+        f"gate_mode={args.gate_mode}, gate_init={args.gate_init}) on {device}..."
+    )
     model = LogiCA.from_pretrained(
         args.protein_model,
         args.ligand_model,
@@ -102,18 +115,27 @@ def main() -> None:
         heads=args.heads,
         layers=args.layers,
         arch_version="v2",
+        gate_mode=args.gate_mode,  # type: ignore[arg-type]
+        gate_init=args.gate_init,
     ).to(device)
 
     param_groups = model.configure_finetuning_optimizer(
         base_lora_lr=args.lr * 0.2,
         adapter_lr_multiplier=5.0,
-        top_k_primary_lora=0,
-        top_k_partner_lora=0,
+        top_k_primary_lora=args.top_k_primary_lora,
+        top_k_partner_lora=args.top_k_partner_lora,
     )
     optimizer = torch.optim.AdamW(param_groups)
-    criterion = InfoNCELogitLoss(temperature=args.temperature, alpha=0.5, mask_fraction=0.15)
+    criterion = InfoNCELogitLoss(
+        temperature=args.temperature,
+        alpha=0.5,
+        mask_fraction=0.15,
+        mlm_aux_weight=args.mlm_aux_weight,
+    )
 
     history: list[dict[str, float]] = []
+    best_loss = float("inf")
+    best_state: dict[str, torch.Tensor] | None = None
     for epoch in range(1, args.epochs + 1):
         t0 = time.time()
         model.train()
@@ -134,15 +156,34 @@ def main() -> None:
             losses.append(float(loss.item()))
             accs.append(float(stats_out["top1_accuracy"].item()))
 
+        mean_loss = float(np.mean(losses)) if losses else float("nan")
+        with torch.no_grad():
+            p_eff = model._gate_scale(getattr(model, "prot_gate", None))
+            d_eff = model._gate_scale(getattr(model, "drug_gate", None))
+            p_gate_val = float(p_eff.mean().item()) if isinstance(p_eff, torch.Tensor) else float(p_eff)
+            d_gate_val = float(d_eff.mean().item()) if isinstance(d_eff, torch.Tensor) else float(d_eff)
+
         rec = {
             "epoch": epoch,
-            "mean_loss": round(float(np.mean(losses)), 4) if losses else float("nan"),
+            "mean_loss": round(mean_loss, 4),
             "mean_top1_acc": round(float(np.mean(accs)), 4) if accs else float("nan"),
+            "prot_gate_eff": round(p_gate_val, 5),
+            "drug_gate_eff": round(d_gate_val, 5),
             "elapsed_sec": round(time.time() - t0, 2),
         }
         history.append(rec)
-        print(f"  Epoch {epoch}/{args.epochs}: loss={rec['mean_loss']:.4f}, top1_acc={rec['mean_top1_acc']:.3f} ({rec['elapsed_sec']}s)")
+        if np.isfinite(mean_loss) and mean_loss < best_loss:
+            best_loss = mean_loss
+            best_state = {k: v.detach().cpu().clone() for k, v in model.state_dict().items()}
+        print(
+            f"  Epoch {epoch}/{args.epochs}: loss={rec['mean_loss']:.4f}, "
+            f"top1_acc={rec['mean_top1_acc']:.3f}, "
+            f"gates=(p:{rec['prot_gate_eff']:+.4f}, d:{rec['drug_gate_eff']:+.4f}) "
+            f"({rec['elapsed_sec']}s)"
+        )
 
+    if best_state is not None:
+        model.load_state_dict(best_state)
     ckpt_path = args.out_dir / "best.pt"
     model.save_checkpoint(ckpt_path, extra_metadata={"history": history})
     (args.out_dir / "pretrain_metrics.json").write_text(json.dumps(history, indent=2))

@@ -223,8 +223,11 @@ def main() -> None:
 
                 if kl_weight > 0.0:
                     with torch.no_grad():
-                        _, _, ref_apo_lp = ref_ranker.score_cohort_differentiable(tc["wt_seq"], eds[:1], context=None)
-                    loss_kl = kl_loss_fn(lp_holo, ref_apo_lp)
+                        _, ref_holo_lp, ref_apo_lp = ref_ranker.score_cohort_differentiable(
+                            tc["wt_seq"], eds, context=ctx
+                        )
+                    ref_lp = ref_apo_lp if args.single_biofm else ref_holo_lp
+                    loss_kl = kl_loss_fn(lp_holo, ref_lp)
                 else:
                     loss_kl = s_holo.sum() * 0.0
 

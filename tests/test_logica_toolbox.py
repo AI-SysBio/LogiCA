@@ -482,3 +482,63 @@ def test_lora_checkpoint_roundtrip_merges_weights_exactly(tmp_path: Path) -> Non
     assert torch.allclose(ref_out.partner_holo_logits, new_out.partner_holo_logits, atol=1e-5)
 
 
+def test_default_tanh_gate_trains_all_cross_attention_params_at_step_0() -> None:
+    """Verifies default v2 `gate_mode='tanh'` delivers non-zero Step-0 gradients to every adapter tensor."""
+    prot_bb, chem_bb = make_heterogeneous_biofms(seed=31)
+    model = LogiCA.from_pretrained(prot_bb, chem_bb, width=32, heads=4, layers=2, arch_version="v2")
+    assert model.gate_mode == "tanh"
+    assert float(model.prot_gate.item()) > 0.0
+    assert float(model.drug_gate.item()) > 0.0
+
+    opt_groups = model.configure_finetuning_optimizer(
+        base_lora_lr=1e-3, adapter_lr_multiplier=2.0, top_k_primary_lora=0, top_k_partner_lora=0
+    )
+    opt = torch.optim.AdamW(opt_groups)
+    criterion = InfoNCELogitLoss(temperature=0.1, alpha=0.5, mask_fraction=0.25)
+
+    p_batch = prot_bb.tokenize(["ACDEFGHIKLMN", "MNPQRSTVWYAC", "GHIKLMNPQRST", "TVWYACDEFGHI"])
+    d_batch = chem_bb.tokenize(["[C][O][N]", "[C][=O][F]", "[Ring1][Cl][C]", "[O][Branch1][N]"])
+
+    model.train()
+    stats = criterion(model, p_batch, d_batch)
+    opt.zero_grad()
+    stats["loss"].backward()
+
+    req_params = [(n, p) for n, p in model.named_parameters() if p.requires_grad]
+    zero_grad_names = [n for n, p in req_params if p.grad is None or float(p.grad.abs().max().item()) == 0.0]
+    assert len(req_params) > 0
+    assert zero_grad_names == [], f"Unexpected zero-gradient adapter params at step 0: {zero_grad_names}"
+
+    # Verify strict tie handling in InfoNCELogitLoss when gates are explicitly zeroed
+    zero_model = LogiCA.from_pretrained(prot_bb, chem_bb, width=32, heads=4, layers=1, gate_mode="tanh_zero")
+    zero_stats = criterion(zero_model, p_batch, d_batch)
+    assert float(zero_stats["top1_accuracy"].item()) == 0.0
+
+
+def test_discover_transformer_layers_matches_ablang2_encoder_blocks() -> None:
+    """Verifies `discover_transformer_layers` and LoRA injection match `AbLang.AbRep.encoder_blocks`."""
+    from logica.adapters import inject_late_layer_lora
+    from logica.backbones import discover_transformer_layers
+
+    class _MockAbLangBlock(nn.Module):
+        def __init__(self, dim: int = 16) -> None:
+            super().__init__()
+            self.multihead_attention = nn.Module()
+            self.multihead_attention.q_proj = nn.Linear(dim, dim)
+            self.multihead_attention.k_proj = nn.Linear(dim, dim)
+            self.multihead_attention.v_proj = nn.Linear(dim, dim)
+            self.multihead_attention.out_proj = nn.Linear(dim, dim)
+
+    mock_bb = nn.Module()
+    mock_bb.AbLang = nn.Module()
+    mock_bb.AbLang.AbRep = nn.Module()
+    mock_bb.AbLang.AbRep.encoder_blocks = nn.ModuleList([_MockAbLangBlock() for _ in range(4)])
+
+    layers = discover_transformer_layers(mock_bb)
+    assert len(layers) == 4
+    lora_params = inject_late_layer_lora(mock_bb, top_k_layers=2, rank=4)
+    # 2 blocks * 4 attention projections * 2 params (lora_a, lora_b) = 16 params
+    assert len(lora_params) == 16
+
+
+

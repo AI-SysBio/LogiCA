@@ -1078,16 +1078,9 @@ def main() -> None:
             args.ag_model,
             width=128 if args.smoke_test else 256,
             layers=1 if args.smoke_test else 2,
-            gate_mode="tanh_zero",
+            gate_mode="tanh",
+            gate_init=0.25 if args.smoke_test else 0.1,
         ).to(device)
-        # Note: Untrained `tanh(0)` cross-attention gates produce identically zero cross-modal shift;
-        # when no fine-tuned checkpoint is supplied, nudge gate slightly only in smoke-test mode
-        # so users verifying the pipeline end-to-end see non-degenerate dependency & Gibbs outputs.
-        if args.smoke_test and hasattr(model, "prot_gate") and model.prot_gate is not None:
-            with torch.no_grad():
-                model.prot_gate.fill_(0.25)
-                if hasattr(model, "drug_gate") and model.drug_gate is not None:
-                    model.drug_gate.fill_(0.25)
     model.eval()
 
     results = evaluate_sabdab_dependency_and_gibbs(

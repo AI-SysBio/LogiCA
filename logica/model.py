@@ -93,6 +93,7 @@ class LogiCA(nn.Module):
         arch_version: ArchVersion = "v2",
         adapter_style: AdapterStyle = "shared_bottleneck",
         gate_mode: GateMode | None = None,
+        gate_init: float = 0.1,
         p2d_attn_mode: AttentionMode = "softmax",
         d2p_attn_mode: AttentionMode | None = None,
         d2p_topk_keys: int = 32,
@@ -111,7 +112,7 @@ class LogiCA(nn.Module):
         self._legacy_unidirectional_partner_esm = legacy_unidirectional_partner_esm
 
         if gate_mode is None:
-            gate_mode = "v1_sigmoid" if arch_version == "v1_compat" else "tanh_zero"
+            gate_mode = "v1_sigmoid" if arch_version == "v1_compat" else "tanh"
         if d2p_attn_mode is None:
             d2p_attn_mode = "softmax" if arch_version == "v1_compat" else "sigmoid"
         if use_intra_self_attn is None:
@@ -120,6 +121,9 @@ class LogiCA(nn.Module):
             num_primary_fusion_layers = 1
 
         self.gate_mode = gate_mode
+        self.gate_init = float(gate_init)
+        self.d2p_attn_mode = d2p_attn_mode
+        self.use_intra_self_attn = bool(use_intra_self_attn)
         self.num_primary_fusion_layers = int(num_primary_fusion_layers)
         self.prot_layer_mixer = (
             MultiLayerHiddenMixer(self.num_primary_fusion_layers)
@@ -138,6 +142,7 @@ class LogiCA(nn.Module):
                 layers=layers,
                 dropout=dropout,
                 gate_mode=gate_mode,
+                gate_init=self.gate_init,
             )
             self.cross_attn = None
             self.cross_layers_a = None
@@ -213,6 +218,16 @@ class LogiCA(nn.Module):
                     self.drug_proj_out,
                 ):
                     nn.init.orthogonal_(proj.weight)
+            elif gate_mode == "tanh":
+                self.prot_gate = nn.Parameter(torch.full((1,), self.gate_init))
+                self.drug_gate = nn.Parameter(torch.full((1,), self.gate_init))
+                for proj in (
+                    self.prot_proj_in,
+                    self.prot_proj_out,
+                    self.drug_proj_in,
+                    self.drug_proj_out,
+                ):
+                    nn.init.orthogonal_(proj.weight)
             elif gate_mode == "tanh_zero":
                 self.prot_gate = nn.Parameter(torch.zeros(1))
                 self.drug_gate = nn.Parameter(torch.zeros(1))
@@ -245,6 +260,7 @@ class LogiCA(nn.Module):
                 d2p_attn_mode=d2p_attn_mode,
                 d2p_topk_keys=d2p_topk_keys,
                 use_intra_self_attn=use_intra_self_attn,
+                self_scale_init=0.0 if gate_mode == "tanh_zero" else 0.05,
             )
 
     @property
@@ -283,6 +299,7 @@ class LogiCA(nn.Module):
         arch_version: ArchVersion = "v2",
         adapter_style: AdapterStyle = "shared_bottleneck",
         gate_mode: GateMode | None = None,
+        gate_init: float = 0.1,
         d2p_attn_mode: AttentionMode | None = None,
         use_intra_self_attn: bool | None = None,
         num_primary_fusion_layers: int | None = None,
@@ -325,6 +342,7 @@ class LogiCA(nn.Module):
             arch_version=arch_version,
             adapter_style=adapter_style,
             gate_mode=gate_mode,
+            gate_init=gate_init,
             d2p_attn_mode=d2p_attn_mode,
             use_intra_self_attn=use_intra_self_attn,
             num_primary_fusion_layers=num_primary_fusion_layers,
@@ -483,6 +501,10 @@ class LogiCA(nn.Module):
                 arch_version=cfg.get("arch_version", "v2"),
                 adapter_style=cfg.get("adapter_style", "shared_bottleneck"),
                 gate_mode=cfg.get("gate_mode"),
+                gate_init=float(cfg.get("gate_init", 0.1)),
+                d2p_attn_mode=cfg.get("d2p_attn_mode"),
+                use_intra_self_attn=cfg.get("use_intra_self_attn"),
+                num_primary_fusion_layers=cfg.get("num_primary_fusion_layers"),
                 cache_dir=cache_dir,
             )
             lora_alpha = float(cfg.get("lora_alpha", 16.0))
@@ -600,6 +622,10 @@ class LogiCA(nn.Module):
             "arch_version": self.arch_version,
             "adapter_style": self.adapter_style,
             "gate_mode": self.gate_mode,
+            "gate_init": self.gate_init,
+            "d2p_attn_mode": self.d2p_attn_mode,
+            "use_intra_self_attn": self.use_intra_self_attn,
+            "num_primary_fusion_layers": self.num_primary_fusion_layers,
         }
         if lora_alphas:
             cfg["lora_alpha"] = lora_alphas[0]

@@ -154,24 +154,6 @@ def main() -> None:
         model = LogiCA.from_checkpoint("ydchen/logica-tcr", subfolder=args.hf_subfolder, device=args.device)
         model_tag = args.hf_subfolder
 
-    # Swap primary=ESM-2, partner=TCRLang view for peptide-side VariantRanker convenience
-    pep_view_model = LogiCA(
-        primary_backbone=model.partner_backbone,  # type: ignore[arg-type]
-        partner_backbone=model.primary_backbone,
-        layers=model.num_adapter_layers,
-        adapter_style=model.adapter_style,
-        gate_mode=model.gate_mode,
-    ).to(args.device).eval()
-    if model.adapter_style == "shared_bottleneck" and model.cross_attn is not None:
-        pep_view_model.prot_proj_in = model.drug_proj_in
-        pep_view_model.prot_proj_out = model.drug_proj_out
-        pep_view_model.drug_proj_in = model.prot_proj_in
-        pep_view_model.drug_proj_out = model.prot_proj_out
-        pep_view_model.prot_gate = model.drug_gate
-        pep_view_model.drug_gate = model.prot_gate
-        pep_view_model.cross_attn.p2d = model.cross_attn.d2p
-        pep_view_model.cross_attn.d2p = model.cross_attn.p2d
-
     pep_sources = [
         ("ePytope-Mut", paths["epytope_mutation"], "peptide_activity", False),
         ("BATCAVE", paths["batcave"], "peptide_activity", False),
@@ -190,8 +172,6 @@ def main() -> None:
             y = pd.to_numeric(grp[target_col], errors="coerce").to_numpy(dtype=np.float64)
             if negate_kd:
                 y = -np.log10(np.clip(y, 1e-6, None))
-            if model.adapter_style == "shared_bottleneck":
-                sc = score_peptide_dms_group(pep_view_model, grp.rename(columns={"tcr": "tmp_t", "epitope": "tmp_e"}).assign(tcr=grp["epitope"], epitope=grp["tcr"])) if False else None
             # Direct unified scorer on `model` (primary=TCR, partner=Peptide):
             sc = _score_peptide_with_tcr_primary(model, grp)
             m = evaluate_ranking_metrics(y, sc)

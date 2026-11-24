@@ -154,7 +154,9 @@ def main() -> None:
             loss = F.binary_cross_entropy_with_logits(logits, y_t)
             optimizer.zero_grad()
             loss.backward()
-            torch.nn.utils.clip_grad_norm_([p for p in model.parameters() if p.requires_grad], 1.0)
+            torch.nn.utils.clip_grad_norm_(
+                [p for p in model.parameters() if p.requires_grad] + list(calib_head.parameters()), 1.0
+            )
             optimizer.step()
             ep_losses.append(float(loss.item()))
         print(f"  Epoch {ep}/{args.epochs}: bce_loss={float(np.mean(ep_losses)):.4f}")
@@ -172,7 +174,15 @@ def main() -> None:
     aupr = float(average_precision_score(all_y, all_s)) if len(set(all_y)) == 2 else float("nan")
 
     ckpt_out = args.out_dir / "stage2_finetuned.pt"
-    model.save_checkpoint(ckpt_out, extra_metadata={"epytope_binary_auroc": auroc, "epytope_binary_aupr": aupr})
+    model.save_checkpoint(
+        ckpt_out,
+        extra_metadata={
+            "epytope_binary_auroc": auroc,
+            "epytope_binary_aupr": aupr,
+            "logit_scale": float(logit_scale.item()),
+            "logit_bias": float(logit_bias.item()),
+        },
+    )
     summary = {
         "epytope_binary_auroc": round(auroc, 4),
         "epytope_binary_aupr": round(aupr, 4),
